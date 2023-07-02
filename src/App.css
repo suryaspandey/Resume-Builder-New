@@ -1,0 +1,376 @@
+/* font-family: 'Galdeano', sans-serif;
+font-family: 'Nunito Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto Mono', monospace; */
+
+body{
+  font-family: 'Roboto Mono', sans-serif;
+
+}
+
+
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.side-bar {
+  width: 200px; /* adjust the width as needed */
+  background: #f1f1f1;
+  padding: 10px;
+}
+
+/* .other-container {
+  flex-grow: 1;
+  padding: 20px;
+} */
+
+/* App.jsx */
+/* .other-container{
+
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 3px;
+
+  margin: auto;
+  padding: 10px;
+  justify-content: space-around;
+  align-items: start;
+  justify-items: stretch;
+} */
+
+/* Basic Info */
+.basic-info-container {
+  /* width: 80%;
+  margin: auto;
+  padding: 20px; */
+  background: #537188;
+}
+.all-components {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  background-color: #F9F5F6;
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+} */
+
+.photo-preview{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  /* margin-left: 35%; */
+}
+
+.profile-photo{
+  display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.basic-info{
+  display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  /* margin-bottom: 10px; */
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+input{
+  width: 70%;
+  background:transparent;
+}
+
+textarea{
+  overflow-y: hidden;
+  font-size: 13px;
+  border-bottom: 2px solid #34d272;
+    /* border-bottom: deeppink; */
+    resize: none;
+    /* height: fit-content; */
+    min-width: 390px;
+    /* max-height: 109px; */
+    min-height: 10px;
+    width: auto;
+    font-family: "Roboto Mono";
+    
+}
+
+/* .summary-textarea{
+  /* min-width: 200px;
+ } */
+
+
+/* .hr-new{
+  border-top: 1px solid red;
+}
+
+.hr-green {
+  border-top: 1px solid green;
+} */
+
+
+.phone-email-container,.linkedIn-location-container{
+  display: flex;
+}
+.user-name{
+  margin: auto;
+    margin-bottom: 10px;
+    color: #ff6e00;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.basic-info-summary-word{
+  margin: 0;
+}
+
+.save-btn {
+  padding: 8px 16px;
+  background-color: #ff6e00;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* float: right; */
+  /* margin-right: 80px; */
+}
+
+button{
+  background: transparent;
+    border: none;
+}
+
+.contact-info {
+  /* display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; */
+
+  display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    flex-direction: row-reverse;
+    align-content: center;
+    align-items: flex-start;
+
+}
+
+.contact-item {
+  flex-basis: 30%;
+}
+
+p {
+  color: red;
+  font-size: 12px;
+  margin: 5px 0;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.contact-info svg{
+  font-size: 20px;
+  /* color: #CBB279; */
+}
+
+
+/* experience css */
+.experience-details {
+  margin-top: 20px;
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+}
+
+.experience-header input {
+  margin-right: 10px;
+}
+
+.experience-details-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.experience-details-row input {
+  margin-right: 10px;
+}
+
+.experience-details textarea {
+  margin-top: 10px;
+  height: 100px;
+}
+
+.experience-details button {
+  margin-top: 10px;
+}
+
+.remove-btn,.add-btn{
+  /* background-color: cadetblue; */
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.add-btn svg{
+  color: #34d272;
+    font-size: 22px;
+    background-color: transparent;
+}
+
+.remove-btn svg{
+  color: #e81818;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.year-picker {
+  font-size: 18px;
+  padding: 5px;
+}
+
+
+.line{
+	border-left: 1px solid #c7c7c7;
+  height: 800px;
+  width: 2%;
+  margin-top: 30px;
+  float:left;
+}
+input.expTitle{
+  font-size: 15px;
+  /* font-family: 'Nunito Sans', sans-serif; */
+  font-weight: 700;
+
+
+}
+
+
+
+input.expCompanyName{
+
+  font-size: 12px;
+  /* font-family: 'Nunito Sans', sans-serif; */
+
+  font-weight: 600;
+ 
+}
+
+.dates-container{
+  display: flex;
+}
+
+.dates-location-container{
+  display: flex;
+  justify-content: space-between;
+}
+.location-container{
+  justify-content: flex-end;
+}
+.date-width,.exp-select-width{
+padding-bottom: 2px;
+  width: 72px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  font-size: 10px;
+}
+
+.exp-select-width{
+  width: 102px;
+
+}
+
+.expDescription {
+  position: relative;
+}
+
+ .exper-textbox{
+   background-color: transparent;
+  border: none;
+  resize: none;
+  width: 96%;
+  /* height: auto; */
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.1;
+  font-family: 'Nunito Sans', sans-serif;
+  text-align: justify;
+} 
+.bullet-point-list {
+  padding-left: 20px;
+}
+
+svg{
+  font-size: 12px;
+  /* color:#CBB279 */
+  /* color: #cf8a00; */
+}
+
+/* @media (max-width:769px) and (min-width:768px) {
+
+  textarea{
+    min-width: 265px;
+  }
+}​ */
+
+/* skills */
+
+.selected-skills{
+  display: flex;
+    gap: 6px;
+}
+
+.skill-box{
+  padding: 4px;
+  border-radius: 5px;
+  /* background: #ebd7c2;
+    border: 2px solid #ff6e00; */
+    color: white;
+
+    background: #ff6e00;
+    border: 2px solid #292827;
+}
+
+.theme-input{
+  height: 40px;
+    width: 40px;
+    border: none;
+    /* border-radius: 50%; */
+    
+}
+
+input::placeholder{
+  color: #34d272;
+}
+
+
+
+/*  ----------------------other CSS */
+
+
+

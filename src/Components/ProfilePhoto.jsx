@@ -1,0 +1,62 @@
+import React, { useState, useEffect } from "react";
+import { MdCancel } from "react-icons/md";
+
+const ProfilePhoto = ({ onPhotoSelect }) => {
+    const [photoUrl, setPhotoUrl] = useState("");
+    const [isUploaded, setIsUploaded] = useState(false);
+
+    useEffect(() => {
+        const storedPhoto = localStorage.getItem("profilePhoto");
+        if (storedPhoto) {
+            setPhotoUrl(storedPhoto);
+            setIsUploaded(true);
+            onPhotoSelect(storedPhoto);
+        }
+    }, []);
+
+    const handlePhotoChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPhotoUrl(reader.result);
+                setIsUploaded(true);
+                onPhotoSelect(reader.result);
+                localStorage.setItem("profilePhoto", reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleRemovePhoto = () => {
+        setPhotoUrl("");
+        setIsUploaded(false);
+        onPhotoSelect("");
+        localStorage.removeItem("profilePhoto");
+    };
+
+    return (
+        <div className="profile-photo">
+            {!isUploaded ? (
+                <input
+                    type="file"
+                    accept="image/jpeg, image/jpg, image/png"
+                    onChange={handlePhotoChange}
+                />
+            ) : (
+                <>
+                    <img
+                        src={photoUrl}
+                        alt="Profile"
+                        className="photo-preview"
+                    />
+                    <button onClick={handleRemovePhoto}>
+                        <MdCancel />
+                    </button>
+                </>
+            )}
+        </div>
+    );
+};
+
+export default ProfilePhoto;
