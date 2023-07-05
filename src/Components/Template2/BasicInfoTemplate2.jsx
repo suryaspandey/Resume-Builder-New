@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-// import ProfilePhoto from "./ProfilePhoto";
+
 import ProfilePhoto from "../ProfilePhoto";
 
 import { FaEnvelope, FaLinkedin, FaLocationArrow } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import "./template2.css"; // Import the CSS file for styling
 // import "./BasicInfotemplate1.css";
-// import EducationDetails from "../EducationDetails";
-
-// import ExperienceDetailsTemplate1 from "./ExperienceDetailsTemplate1";
-// import ProjectDetailsTemplate1 from "./ProjectDetailsTemplate1";
-// import SkillsDetailsTemplate1 from "./SkillsDetailsTemplate1";
 
 import SkillsDetailsTemplate2 from "./SkillsDetailsTemplate2";
 import ExperienceDetailsTemplate2 from "./ExperienceDetailsTemplate2";
+import ProjectDetailsTemplate2 from "./ProjectDetailTemplate2";
 
 const BasicInfoTemplate2 = ({
     themeColor,
@@ -155,7 +151,7 @@ const BasicInfoTemplate2 = ({
                             <div className="resume_item resume_info">
                                 <div className="title">
                                     <input
-                                        className="bold"
+                                        className="bold temp2name"
                                         type="text"
                                         name="name"
                                         value={formData.name}
@@ -176,7 +172,7 @@ const BasicInfoTemplate2 = ({
                                 </div>
                                 <ul>
                                     <li>
-                                        <div className="icon">
+                                        <div className="icon ">
                                             <i
                                                 class="fas fa-map-signs"
                                                 style={{ color: themeColor }}
@@ -184,6 +180,7 @@ const BasicInfoTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <input
+                                                className="temp2name"
                                                 type="text"
                                                 name="location"
                                                 value={formData.location}
@@ -201,6 +198,7 @@ const BasicInfoTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <input
+                                                className="temp2name"
                                                 type="text"
                                                 name="phone"
                                                 value={formData.phone}
@@ -209,21 +207,25 @@ const BasicInfoTemplate2 = ({
                                             />
                                         </div>
                                     </li>
-                                    <div className="icon">
-                                        <i
-                                            className="fas fa-envelope"
-                                            style={{ color: themeColor }}
-                                        ></i>
-                                    </div>
-                                    <div className="data">
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            placeholder="Email"
-                                        />
-                                    </div>
+                                    <li>
+                                        <div className="icon">
+                                            <i
+                                                className="fas fa-envelope"
+                                                style={{ color: themeColor }}
+                                            ></i>
+                                        </div>
+                                        <div className="data">
+                                            <input
+                                                className="temp2name"
+                                                type="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                placeholder="Email"
+                                            />
+                                        </div>
+                                    </li>
+
                                     <li>
                                         <div className="icon">
                                             <FaLinkedin
@@ -232,6 +234,7 @@ const BasicInfoTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <input
+                                                className="temp2name"
                                                 type="text"
                                                 name="linkedin"
                                                 value={formData.linkedin}
@@ -261,157 +264,21 @@ const BasicInfoTemplate2 = ({
                         {/* </div> */}
                     </div>
                 </form>
-                <ExperienceDetailsTemplate2 />
+                <ExperienceDetailsTemplate2
+                    themeColor={themeColor}
+                    backgroundColor={backgroundColor}
+                    textColor={textColor}
+                    subheadingColor={subheadingColor}
+                />
+                <ProjectDetailsTemplate2
+                    themeColor={themeColor}
+                    backgroundColor={backgroundColor}
+                    textColor={textColor}
+                    subheadingColor={subheadingColor}
+                />
             </div>
 
             {/* ---------------   ------------- */}
-            {/* <div className="top">
-                <div id="cv">
-                    <form onSubmit={handleSubmit}>
-                        <div
-                            className="mainDetails"
-                            style={{
-                                backgroundColor: backgroundColor,
-                            }}
-                        >
-                            <div id="headshot">
-                                <ProfilePhoto
-                                    onPhotoSelect={handlePhotoSelect}
-                                />
-                            </div>
-
-                            <div id="name">
-                                <input
-                                    className="user-name"
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    placeholder="Name"
-                                    style={{
-                                        textAlign: "center",
-                                        textTransform: "uppercase",
-                                    }}
-                                />
-                                {/* <h2 className="user-name">JOB Title</h2> 
-                            </div>
-
-                            <div id="contactDetails">
-                                <ul>
-                                    <li>
-                                        <span className="info-icon">
-                                            <FaLocationArrow
-                                                style={{ color: themeColor }}
-                                            />
-                                        </span>
-                                        <input
-                                            type="text"
-                                            name="location"
-                                            value={formData.location}
-                                            onChange={handleChange}
-                                            placeholder="Location"
-                                        />
-                                    </li>
-                                    <li>
-                                        <span className="info-icon">
-                                            <BsFillTelephoneFill
-                                                style={{ color: themeColor }}
-                                            />
-                                        </span>
-                                        <input
-                                            type="text"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                            placeholder="Phone"
-                                        />
-                                    </li>
-                                    <li>
-                                        <span className="info-icon">
-                                            <FaEnvelope
-                                                style={{ color: themeColor }}
-                                            />
-                                        </span>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            placeholder="Email"
-                                        />
-                                    </li>
-                                    <li>
-                                        <span className="info-icon">
-                                            <FaLinkedin
-                                                style={{ color: themeColor }}
-                                            />
-                                        </span>
-                                        <input
-                                            type="text"
-                                            name="linkedin"
-                                            value={formData.linkedin}
-                                            onChange={handleChange}
-                                            placeholder="LinkedIn"
-                                        />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="clear"></div>
-                        </div>
-
-                        <div id="mainArea">
-                            <section>
-                                <article>
-                                    <div className="sectionTitle">
-                                        <h1>Personal Profile</h1>
-                                    </div>
-                                    <div className="sectionContent">
-                                        <textarea
-                                            className="summaryTextareaClass"
-                                            name="summary"
-                                            value={formData.summary}
-                                            onChange={handleChange}
-                                            placeholder="What's the one thing that makes you the best candidate for this job?"
-                                        ></textarea>
-                                    </div>
-                                </article>
-                                <div className="clear"></div>
-                            </section>
-                        </div>
-                        {/* <div class="clear"></div> */}
-
-            {/* <div className="hr-new hr-green" /> 
-                        <button className="save-btn" type="submit">
-                            Save
-                        </button>
-                        {/* <br /> 
-                        {nameError && <p>{nameError}</p>}
-                        {phoneError && <p>{phoneError}</p>}
-                        {emailError && <p>{emailError}</p>}
-                        {linkedinError && <p>{linkedinError}</p>}
-                        {summaryError && <p>{summaryError}</p>}
-                    </form>
-                    <br />
-                    <ExperienceDetailsTemplate1
-                        themeColor={themeColor}
-                        backgroundColor={backgroundColor}
-                        textColor={textColor}
-                        subheadingColor={subheadingColor}
-                    />
-                    <br />
-                    <ProjectDetailsTemplate1
-                        themeColor={themeColor}
-                        backgroundColor={backgroundColor}
-                        textColor={textColor}
-                        subheadingColor={subheadingColor}
-                    />
-                    <SkillsDetailsTemplate1
-                        themeColor={themeColor}
-                        backgroundColor={backgroundColor}
-                        textColor={textColor}
-                    />
-                </div>
-            </div> */}
         </>
     );
 };

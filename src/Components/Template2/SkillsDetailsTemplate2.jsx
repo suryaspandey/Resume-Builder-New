@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { skillsData } from "../skillsdata";
 import { AiFillDelete, AiOutlinePlusCircle } from "react-icons/ai";
+import EducationDetailsTemplate2 from "./EducationDetailsTemplate2";
 
 const SkillsDetailsTemplate2 = ({
     // themeColor = { themeColor },
@@ -111,68 +112,20 @@ const SkillsDetailsTemplate2 = ({
                     </button>
                 )}
                 {!showDropdown && (
-                    <button className="add-button" onClick={handleAddMore}>
+                    <button className="add-btn" onClick={handleAddMore}>
                         <AiOutlinePlusCircle size={20} />
                     </button>
                 )}
             </div>
+            <EducationDetailsTemplate2
+            // themeColor={themeColor}
+            // backgroundColor={backgroundColor}
+            // textColor={textColor}
+            // subheadingColor={subheadingColor}
+            />
 
             {/*  ------------- ------------ ------------- */}
-            {/* <section
-                style={{
-                    backgroundColor: backgroundColor, // Use the backgroundColor state variable
-                }}
-            >
-                <div class="sectionTitle">
-                    <h1>Key Skills</h1>
-                </div>
 
-                <div className="sectionContent">
-                    <div className="selected-skills">
-                        {/* <div className="keySkills"> 
-                        {selectedSkills.map((skill) => (
-                            <span
-                                key={skill}
-                                className="skill-box"
-                                onClick={() => handleSkillRemove(skill)}
-                            >
-                                {skill}
-                                <AiFillDelete
-                                    size={16}
-                                    style={{
-                                        marginLeft: "5px",
-                                        cursor: "pointer",
-                                    }}
-                                />
-                            </span>
-                        ))}
-                    </div>
-                    {showDropdown && selectedSkills.length < 6 && (
-                        <select
-                            className="skill-select"
-                            onChange={(e) => handleSkillSelect(e.target.value)}
-                        >
-                            <option value="">Select a skill</option>
-                            {skillsData.map((skill) => (
-                                <option key={skill} value={skill}>
-                                    {skill}
-                                </option>
-                            ))}
-                        </select>
-                    )}
-                    {showDropdown && (
-                        <button className="save-button" onClick={handleSave}>
-                            Save
-                        </button>
-                    )}
-                    {!showDropdown && (
-                        <button className="add-button" onClick={handleAddMore}>
-                            <AiOutlinePlusCircle size={20} />
-                        </button>
-                    )}
-                </div>
-                <div class="clear"></div>
-            </section> */}
             {/* -------------- nw     -------- */}
         </>
     );

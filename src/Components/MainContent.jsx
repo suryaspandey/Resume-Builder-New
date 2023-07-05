@@ -31,37 +31,40 @@ const MainContent = ({
                     textColor={textColor}
                     subheadingColor={subheadingColor}
                 />
+
+                {/* ----------- */}
                 {/* <div className="other-container">
-                    {/* <ExperienceDetailsTemplate1
+                    <ExperienceDetails
                         themeColor={themeColor}
                         backgroundColor={backgroundColor}
                         textColor={textColor}
                         subheadingColor={subheadingColor}
-                    /> */}
-                {/* <div className="education-container">
+                    />
+                    <div className="education-container">
                         <EducationDetails
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
                             subheadingColor={subheadingColor}
                         />
-                    </div> */}
-                {/* <div className="education-container">
+                    </div>
+                    <div className="education-container">
                         <ProjectDetails
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
                             subheadingColor={subheadingColor}
                         />
-                    </div> */}
-                {/* <div className="education-container">
+                    </div>
+                    {/* <div className="education-container">
                         <Skills
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
                         />
-                    </div>
+                    </div> 
                 </div> */}
+                {/* ------------ */}
                 <button className="save-btn" onClick={togglePreviewMode}>
                     Toggle Preview Mode
                 </button>
