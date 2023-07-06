@@ -264,3 +264,9 @@ p{
     gap: 5px;
     justify-content: space-evenly;
 }
+
+select{
+  border: none;
+  width: 74px;
+
+}
