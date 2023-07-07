@@ -9,7 +9,6 @@ import "./template2.css"; // Import the CSS file for styling
 
 import SkillsDetailsTemplate2 from "./SkillsDetailsTemplate2";
 import ExperienceDetailsTemplate2 from "./ExperienceDetailsTemplate2";
-import ProjectDetailsTemplate2 from "./ProjectDetailTemplate2";
 
 const BasicInfoTemplate2 = ({
     themeColor,
@@ -151,7 +150,7 @@ const BasicInfoTemplate2 = ({
                             <div className="resume_item resume_info">
                                 <div className="title">
                                     <input
-                                        className="bold temp2name"
+                                        className="bold basic-info"
                                         type="text"
                                         name="name"
                                         value={formData.name}
@@ -162,7 +161,7 @@ const BasicInfoTemplate2 = ({
                                         }}
                                     />
                                     <input
-                                        className="regular temp2name"
+                                        className="regular basic-info"
                                         type="text"
                                         name="name"
                                         value={formData.name}
@@ -180,7 +179,7 @@ const BasicInfoTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <input
-                                                className="temp2name"
+                                                className="basic-info"
                                                 type="text"
                                                 name="location"
                                                 value={formData.location}
@@ -198,7 +197,7 @@ const BasicInfoTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <input
-                                                className="temp2name"
+                                                className="basic-info"
                                                 type="text"
                                                 name="phone"
                                                 value={formData.phone}
@@ -216,7 +215,7 @@ const BasicInfoTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <input
-                                                className="temp2name"
+                                                className="basic-info"
                                                 type="email"
                                                 name="email"
                                                 value={formData.email}
@@ -229,12 +228,13 @@ const BasicInfoTemplate2 = ({
                                     <li>
                                         <div className="icon">
                                             <FaLinkedin
+                                                className="linkedin"
                                                 style={{ color: themeColor }}
                                             />
                                         </div>
                                         <div className="data">
                                             <input
-                                                className="temp2name"
+                                                className="basic-info"
                                                 type="text"
                                                 name="linkedin"
                                                 value={formData.linkedin}
@@ -257,20 +257,14 @@ const BasicInfoTemplate2 = ({
                         </div>
 
                         <SkillsDetailsTemplate2
-                            themeColor={themeColor}
-                            backgroundColor={backgroundColor}
-                            textColor={textColor}
+                        // themeColor={themeColor}
+                        // backgroundColor={backgroundColor}
+                        // textColor={textColor}
                         />
                         {/* </div> */}
                     </div>
                 </form>
                 <ExperienceDetailsTemplate2
-                    themeColor={themeColor}
-                    backgroundColor={backgroundColor}
-                    textColor={textColor}
-                    subheadingColor={subheadingColor}
-                />
-                <ProjectDetailsTemplate2
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}
                     textColor={textColor}

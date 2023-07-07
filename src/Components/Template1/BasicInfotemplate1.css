@@ -108,7 +108,13 @@
 .summaryTextareaClass{
   height: 109px;
   /* min-height: 50px; */
+  width: 492px;
+  text-align: justify;
+}
 
+.summaryTextareaClass_project{
+  width: 525px;
+  text-align: justify;
 
 }
   html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
@@ -188,6 +194,11 @@
     
     #name {
       float: left;
+    }
+
+    .usr--name{
+
+      overflow-wrap: break-word;
     }
     
     #contactDetails {
@@ -274,6 +285,11 @@
     
     .keySkills ul li {
       margin-bottom: 3px;
+    }
+
+    .skill_name{
+      font-family: "Roboto Mono";
+      color: rgb(40, 38, 38);
     }
     
     @media all and (min-width: 602px) and (max-width: 800px) {

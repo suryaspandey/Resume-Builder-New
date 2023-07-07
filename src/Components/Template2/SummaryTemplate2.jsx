@@ -42,6 +42,7 @@ const SummaryTemplate2 = () => {
 
     return (
         <>
+            <h1>SUmmary from the component</h1>
             <textarea
                 className="summaryTextareaClass"
                 name="summary"

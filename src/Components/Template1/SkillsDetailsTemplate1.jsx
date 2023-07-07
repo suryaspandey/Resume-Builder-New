@@ -71,7 +71,7 @@ const SkillsDetailsTemplate1 = ({
                         {selectedSkills.map((skill) => (
                             <span
                                 key={skill}
-                                className="skill-box"
+                                className="skill_name skill-box"
                                 onClick={() => handleSkillRemove(skill)}
                             >
                                 {skill}
@@ -90,7 +90,7 @@ const SkillsDetailsTemplate1 = ({
                             className="skill-select"
                             onChange={(e) => handleSkillSelect(e.target.value)}
                         >
-                            <option value="">Select a skill</option>
+                            <option value="">Select</option>
                             {skillsData.map((skill) => (
                                 <option key={skill} value={skill}>
                                     {skill}
@@ -99,12 +99,12 @@ const SkillsDetailsTemplate1 = ({
                         </select>
                     )}
                     {showDropdown && (
-                        <button className="save-button" onClick={handleSave}>
+                        <button className="save-btn" onClick={handleSave}>
                             Save
                         </button>
                     )}
                     {!showDropdown && (
-                        <button className="add-button" onClick={handleAddMore}>
+                        <button className="add-btn" onClick={handleAddMore}>
                             <AiOutlinePlusCircle size={20} />
                         </button>
                     )}

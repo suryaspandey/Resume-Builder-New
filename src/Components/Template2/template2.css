@@ -61,7 +61,7 @@ input{
 }
 
 .resume .resume_left .resume_content {
-  padding: 0 25px;
+  padding: 0 9px;
 }
 
 .resume .title {
@@ -77,7 +77,8 @@ input{
 }
 
 .resume .resume_item {
-  padding: 25px 0;
+  /* padding: 25px 0; */
+  padding: 8px 0;
   border-bottom: 2px solid #b1eaff;
 }
 
@@ -248,8 +249,14 @@ input{
 /* -- */
 
 .temp2name{
-    width: 112%;
+    /* width: 112%; */
+    color: white;
     /* font-size: 12px; */
+}
+.basic-info{
+  width: 112%;
+  color: white;
+
 }
 
 p{
@@ -262,11 +269,27 @@ p{
   display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 
 select{
   border: none;
   width: 74px;
+  background: transparent;
 
+}
+remove-btn svg {
+  color: #e81818;
+  font-size: 16px;
+}
+
+input.titleColor{
+  color: rgb(7, 134, 213);
+}
+
+.linkedin {
+  width: 16px;
+  height: 16px;
+  margin-left: 9px;
+  margin-bottom: -8px;
 }

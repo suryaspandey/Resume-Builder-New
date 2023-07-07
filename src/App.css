@@ -104,7 +104,7 @@ input{
 textarea{
   overflow-y: hidden;
   font-size: 13px;
-  border-bottom: 2px solid #34d272;
+  /* border-bottom: 2px solid #34d272; */
     /* border-bottom: deeppink; */
     resize: none;
     /* height: fit-content; */
@@ -277,6 +277,7 @@ input.expCompanyName{
   /* font-family: 'Nunito Sans', sans-serif; */
 
   font-weight: 600;
+  color: #b1eaff;
  
 }
 
@@ -352,8 +353,8 @@ svg{
     border: 2px solid #ff6e00; */
     color: white;
 
-    background: #ff6e00;
-    border: 2px solid #292827;
+    /* background: #ff6e00;
+    border: 2px solid #292827; */
 }
 
 .theme-input{
@@ -373,4 +374,15 @@ input::placeholder{
 /*  ----------------------other CSS */
 
 
+.color-preview {
+  display: flex;
+  margin-top: 10px;
+}
 
+.color-box {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}

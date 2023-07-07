@@ -4,6 +4,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { FaCalendarAlt, FaUniversity } from "react-icons/fa";
 import { TiLocation } from "react-icons/ti";
 import ExperienceDetailsTemplate2 from "./ExperienceDetailsTemplate2";
+import CertificationsTemplate2 from "./CertificationsTemplate2";
 
 const EducationDetailsTemplate2 = ({
     themeColor,
@@ -61,6 +62,23 @@ const EducationDetailsTemplate2 = ({
         };
 
         setEducations((prevEducations) => [...prevEducations, newEducation]);
+        // const updatedEducations = [...educations, newEducation];
+        // localStorage.setItem("educations", JSON.stringify(updatedEducations));
+
+        // ------ new -------
+        // setEducations((prevEducations) => {
+        //     const updatedEducations = [...prevEducations, newEducation];
+        //     localStorage.setItem(
+        //         "educations",
+        //         JSON.stringify(updatedEducations)
+        //     );
+        //     return updatedEducations;
+        // });
+
+        // localStorage.setItem(
+        //     "educations",
+        //     JSON.stringify(educations.concat(newEducation))
+        // );
     };
 
     const handleDeleteEducation = (index) => {
@@ -84,6 +102,10 @@ const EducationDetailsTemplate2 = ({
                     [name]: "",
                 },
             };
+            localStorage.setItem(
+                "educations",
+                JSON.stringify(updatedEducations)
+            );
             return updatedEducations;
         });
     };
@@ -159,10 +181,10 @@ const EducationDetailsTemplate2 = ({
     return (
         <>
             <div
-                className="resume_item resume_work"
-                style={{
-                    backgroundColor: backgroundColor, // Use the backgroundColor state variable
-                }}
+                className=" resume_item resume_work "
+                // style={{
+                //     backgroundColor: backgroundColor, // Use the backgroundColor state variable
+                // }}
             >
                 <div className="title">
                     <p className="bold">EDUCATION DETAILS</p>
@@ -172,7 +194,7 @@ const EducationDetailsTemplate2 = ({
                         <li>
                             <div key={index}>
                                 <input
-                                    className="expTitle"
+                                    className="temp2name expTitle"
                                     type="text"
                                     name="courseName"
                                     value={education.courseName}
@@ -278,9 +300,7 @@ const EducationDetailsTemplate2 = ({
                 </button>
             )}
 
-            {/* <ExperienceDetailsTemplate2 /> */}
-
-            {/*  -------------     --------------      --------- */}
+            <CertificationsTemplate2 />
         </>
     );
 };

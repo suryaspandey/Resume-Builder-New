@@ -166,6 +166,12 @@ const ProjectDetailsTemplate1 = ({
                                 {project.errors.title && (
                                     <p>{project.errors.title}</p>
                                 )}
+                                <button
+                                    className="remove-btn"
+                                    onClick={() => handleDeleteProject(index)}
+                                >
+                                    <AiFillDelete />
+                                </button>
 
                                 <div className="school-clg-name-container">
                                     <MdWorkHistory
@@ -219,6 +225,7 @@ const ProjectDetailsTemplate1 = ({
                                 </div>
                                 <div className="project-description">
                                     <textarea
+                                        className="summaryTextareaClass_project"
                                         name="description"
                                         placeholder="Description (10-50 words)"
                                         value={project.description}
@@ -227,16 +234,6 @@ const ProjectDetailsTemplate1 = ({
                                     {project.errors.description && (
                                         <p>{project.errors.description}</p>
                                     )}
-                                </div>
-                                <div className="project-actions">
-                                    <button
-                                        className="remove-btn"
-                                        onClick={() =>
-                                            handleDeleteProject(index)
-                                        }
-                                    >
-                                        <AiFillDelete />
-                                    </button>
                                 </div>
                             </article>
                         </div>

@@ -157,6 +157,9 @@ const ProjectDetailsTemplate2 = ({
                         <li>
                             <div key={index}>
                                 <input
+                                    style={{
+                                        color: textColor, // Use the backgroundColor state variable
+                                    }}
                                     className="expTitle"
                                     type="text"
                                     name="title"
@@ -240,15 +243,6 @@ const ProjectDetailsTemplate2 = ({
                                         <p>{project.errors.description}</p>
                                     )}
                                 </div>
-
-                                {/* <button
-                                        className="remove-btn"
-                                        onClick={() =>
-                                            handleDeleteProject(index)
-                                        }
-                                    >
-                                        <AiFillDelete />
-                                    </button> */}
                             </div>
                         </li>
                     ))}

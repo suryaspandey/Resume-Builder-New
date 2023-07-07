@@ -12,13 +12,6 @@ const EducationDetails = ({
 }) => {
     const [educations, setEducations] = useState([]);
 
-    // useEffect(() => {
-    //     const storedEducations = localStorage.getItem("educations");
-    //     if (storedEducations) {
-    //         setEducations(JSON.parse(storedEducations));
-    //     }
-    // }, []);
-
     useEffect(() => {
         const storedEducations = localStorage.getItem("educations");
         if (storedEducations) {

@@ -450,6 +450,7 @@ const ExperienceDetailsTemplate1 = ({
     subheadingColor,
 }) => {
     const [experiences, setExperiences] = useState([]);
+    const [showButtons, setShowButtons] = useState(false);
 
     const adjustTextareaHeight = () => {
         const textareaRefs = document.querySelectorAll(".exper-textbox");
@@ -466,16 +467,16 @@ const ExperienceDetailsTemplate1 = ({
         } else {
             setExperiences([
                 {
-                    title: "",
-                    companyName: "",
+                    company: "",
+                    position: "",
                     startYear: "",
                     endYear: "",
                     experienceType: "",
                     location: "",
                     description: "",
                     errors: {
-                        title: "",
-                        companyName: "",
+                        company: "",
+                        position: "",
                         startYear: "",
                         endYear: "",
                         experienceType: "",
@@ -494,16 +495,16 @@ const ExperienceDetailsTemplate1 = ({
 
     const handleAddExperience = () => {
         const newExperience = {
-            title: "",
-            companyName: "",
+            company: "",
+            position: "",
             startYear: "",
             endYear: "",
             experienceType: "",
             location: "",
             description: "",
             errors: {
-                title: "",
-                companyName: "",
+                company: "",
+                position: "",
                 startYear: "",
                 endYear: "",
                 experienceType: "",
@@ -516,6 +517,7 @@ const ExperienceDetailsTemplate1 = ({
             ...prevExperiences,
             newExperience,
         ]);
+        setShowButtons(false); // Show buttons when a new experience is added
     };
 
     const handleDeleteExperience = (index) => {
@@ -525,6 +527,23 @@ const ExperienceDetailsTemplate1 = ({
             return updatedExperiences;
         });
     };
+
+    // const handleChange = (e, index) => {
+    //     const { name, value } = e.target;
+
+    //     setExperiences((prevExperiences) => {
+    //         const updatedExperiences = [...prevExperiences];
+    //         updatedExperiences[index] = {
+    //             ...updatedExperiences[index],
+    //             [name]: value,
+    //             errors: {
+    //                 ...updatedExperiences[index].errors,
+    //                 [name]: "",
+    //             },
+    //         };
+    //         return updatedExperiences;
+    //     });
+    // };
 
     const handleChange = (e, index) => {
         const { name, value } = e.target;
@@ -536,12 +555,105 @@ const ExperienceDetailsTemplate1 = ({
                 [name]: value,
                 errors: {
                     ...updatedExperiences[index].errors,
-                    [name]: "",
+                    [name]: "", // Clear the error for the current field
                 },
             };
             return updatedExperiences;
         });
+        setShowButtons(true); // new
     };
+
+    // const handleSave = () => {
+    //     console.log("Saved called");
+    //     let isFormValid = true;
+    //     let prevEndYear = Number.MAX_VALUE;
+
+    //     const updatedExperiences = experiences.map((experience) => {
+    //         const {
+    //             company,
+    //             position,
+    //             startYear,
+    //             endYear,
+    //             experienceType,
+    //             location,
+    //             description,
+    //         } = experience;
+    //         // const errors = {
+    //         //     company: "",
+    //         //     position: "",
+    //         //     startYear: "",
+    //         //     endYear: "",
+    //         //     experienceType: "",
+    //         //     location: "",
+    //         //     description: "",
+    //         // };
+    //         const errors = {};
+
+    //         if (company.trim() === "") {
+    //             errors.company = "Please enter a title";
+    //             isFormValid = false;
+    //         }
+    //         if (position.trim() === "") {
+    //             errors.position = "Please enter a company name";
+    //             isFormValid = false;
+    //         }
+    //         if (startYear.trim() === "") {
+    //             errors.startYear = "Please enter a start year";
+    //             isFormValid = false;
+    //         }
+    //         if (endYear.trim() === "") {
+    //             errors.endYear = "Please enter an end year";
+    //             isFormValid = false;
+    //         }
+    //         if (experienceType.trim() === "") {
+    //             errors.experienceType = "Please enter an experience type";
+    //             isFormValid = false;
+    //         }
+    //         if (location.trim() === "") {
+    //             errors.location = "Please enter a location";
+    //             isFormValid = false;
+    //         }
+    //         if (description.trim() === "") {
+    //             errors.description = "Please enter a description";
+    //             isFormValid = false;
+    //         }
+
+    //         if (startYear.trim() !== "" && endYear.trim() !== "") {
+    //             const start = parseInt(startYear, 10);
+    //             const end =
+    //                 endYear === "Present"
+    //                     ? new Date().getFullYear()
+    //                     : parseInt(endYear, 10);
+
+    //             if (start > end) {
+    //                 errors.startYear =
+    //                     "Start year must be earlier than end year";
+    //                 errors.endYear = "End year must be later than start year";
+    //                 isFormValid = false;
+    //             }
+
+    //             // if (end > prevEndYear) {
+    //             //     errors.endYear =
+    //             //         "End year should be in chronological order";
+    //             //     isFormValid = false;
+    //             // }
+
+    //             prevEndYear = end;
+    //         }
+
+    //         return { ...experience, errors };
+    //     });
+
+    //     // Update the experiences state with the updated experiences
+    //     setExperiences(updatedExperiences);
+
+    //     if (isFormValid) {
+    //         localStorage.setItem(
+    //             "experiences",
+    //             JSON.stringify(updatedExperiences)
+    //         );
+    //     }
+    // };
 
     const handleSave = () => {
         let isFormValid = true;
@@ -549,54 +661,48 @@ const ExperienceDetailsTemplate1 = ({
 
         const updatedExperiences = experiences.map((experience) => {
             const {
-                title,
-                companyName,
+                company,
+                position,
                 startYear,
                 endYear,
                 experienceType,
                 location,
                 description,
             } = experience;
-            const errors = {
-                title: "",
-                companyName: "",
-                startYear: "",
-                endYear: "",
-                experienceType: "",
-                location: "",
-                description: "",
-            };
 
-            if (title.trim() === "") {
-                errors.title = "Please enter a title";
+            // Create a new errors object for each experience item
+            const errors = {};
+
+            if (!company || !company.trim()) {
+                errors.company = "Please enter a company name";
                 isFormValid = false;
             }
-            if (companyName.trim() === "") {
-                errors.companyName = "Please enter a company name";
+            if (!position || !position.trim()) {
+                errors.position = "Please enter a position";
                 isFormValid = false;
             }
-            if (startYear.trim() === "") {
+            if (!startYear || !startYear.trim()) {
                 errors.startYear = "Please enter a start year";
                 isFormValid = false;
             }
-            if (endYear.trim() === "") {
+            if (!endYear || !endYear.trim()) {
                 errors.endYear = "Please enter an end year";
                 isFormValid = false;
             }
-            if (experienceType.trim() === "") {
+            if (!experienceType || !experienceType.trim()) {
                 errors.experienceType = "Please enter an experience type";
                 isFormValid = false;
             }
-            if (location.trim() === "") {
+            if (!location || !location.trim()) {
                 errors.location = "Please enter a location";
                 isFormValid = false;
             }
-            if (description.trim() === "") {
+            if (!description || !description.trim()) {
                 errors.description = "Please enter a description";
                 isFormValid = false;
             }
 
-            if (startYear.trim() !== "" && endYear.trim() !== "") {
+            if (startYear.trim() && endYear.trim()) {
                 const start = parseInt(startYear, 10);
                 const end =
                     endYear === "Present"
@@ -619,9 +725,11 @@ const ExperienceDetailsTemplate1 = ({
                 prevEndYear = end;
             }
 
+            // Return the updated experience object with the errors
             return { ...experience, errors };
         });
 
+        // Update the experiences state with the updated experiences
         setExperiences(updatedExperiences);
 
         if (isFormValid) {
@@ -629,6 +737,8 @@ const ExperienceDetailsTemplate1 = ({
                 "experiences",
                 JSON.stringify(updatedExperiences)
             );
+
+            setShowButtons(false); // new
         }
     };
 
@@ -692,8 +802,6 @@ const ExperienceDetailsTemplate1 = ({
         });
     };
 
-    // const handleNewLine = (index) => {
-
     const handleNewLine = (index) => {
         setExperiences((prevExperiences) => {
             const updatedExperiences = [...prevExperiences];
@@ -726,7 +834,7 @@ const ExperienceDetailsTemplate1 = ({
                     backgroundColor: backgroundColor, // Use the backgroundColor state variable
                 }}
             >
-                <div class="sectionTitle">
+                <div className="sectionTitle">
                     <h1>Work Experience</h1>
                 </div>
 
@@ -737,14 +845,26 @@ const ExperienceDetailsTemplate1 = ({
                                 <input
                                     className="expTitle"
                                     type="text"
-                                    name="title"
-                                    value={experience.title}
+                                    name="company"
+                                    value={experience.company}
                                     onChange={(e) => handleChange(e, index)}
                                     placeholder="Title"
                                 />
-                                {experience.errors.title && (
-                                    <p>{experience.errors.title}</p>
+                                {experience.errors.company && (
+                                    <p>{experience.errors.company}</p>
                                 )}
+                                {experiences.length > 1 &&
+                                    showButtons && ( // new
+                                        <button
+                                            className="remove-btn"
+                                            type="button"
+                                            onClick={() =>
+                                                handleDeleteExperience(index)
+                                            }
+                                        >
+                                            <AiFillDelete />
+                                        </button>
+                                    )}
 
                                 <div className="school-clg-name-container">
                                     <MdWorkHistory
@@ -753,14 +873,15 @@ const ExperienceDetailsTemplate1 = ({
                                     <input
                                         className="expCompanyName"
                                         type="text"
-                                        name="companyName"
-                                        value={experience.companyName}
+                                        name="position"
+                                        value={experience.position}
                                         onChange={(e) => handleChange(e, index)}
                                         placeholder="Company Name"
-                                        style={{ color: subheadingColor }}
+                                        // style={{ color: subheadingColor }}
+                                        style={{ color: textColor }}
                                     />
-                                    {experience.errors.companyName && (
-                                        <p>{experience.errors.companyName}</p>
+                                    {experience.errors.position && (
+                                        <p>{experience.errors.position}</p>
                                     )}
                                 </div>
                                 <div className="dates-location-container">
@@ -823,7 +944,6 @@ const ExperienceDetailsTemplate1 = ({
                                                 handleChange(e, index)
                                             }
                                             placeholder="Location"
-                                            style={{ color: textColor }}
                                         />
                                         {experience.errors.location && (
                                             <p>{experience.errors.location}</p>
@@ -862,37 +982,39 @@ const ExperienceDetailsTemplate1 = ({
                                         <p>{experience.errors.description}</p>
                                     )}
                                 </div>
-                                {experiences.length > 1 && (
-                                    <button
-                                        className="remove-btn"
-                                        type="button"
-                                        onClick={() =>
-                                            handleDeleteExperience(index)
-                                        }
-                                    >
-                                        <AiFillDelete />
-                                    </button>
-                                )}
                             </article>
                         </div>
                     ))}
                 </div>
-                <div class="clear"></div>
+                <div className="clear"></div>
             </section>
-
             <button
+                style={{ display: "none" }}
                 className="add-btn"
                 type="button"
                 onClick={handleAddExperience}
             >
                 <AiOutlinePlusCircle />
             </button>
-            {experiences.length > 0 && (
-                <button className="save-btn" type="button" onClick={handleSave}>
-                    Save
-                </button>
+            {experiences.length > 0 && showButtons && (
+                <>
+                    <button
+                        className="save-btn"
+                        type="button"
+                        onClick={handleSave}
+                    >
+                        Save
+                    </button>
+
+                    <button
+                        className="add-btn"
+                        type="button"
+                        onClick={handleAddExperience}
+                    >
+                        <AiOutlinePlusCircle />
+                    </button>
+                </>
             )}
-            <br />
         </>
     );
 };

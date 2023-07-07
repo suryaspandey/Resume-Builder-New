@@ -25,7 +25,7 @@ const MainContent = ({
     return (
         <div className="all-components">
             <>
-                <BasicInfoTemplate2
+                <BasicInfoTemplate1
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}
                     textColor={textColor}
