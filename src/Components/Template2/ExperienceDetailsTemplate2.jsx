@@ -238,6 +238,8 @@ const ExperienceDetailsTemplate2 = ({
     subheadingColor,
 }) => {
     const [experiences, setExperiences] = useState([]);
+    // const [showButtons, setShowButtons] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const storedData = localStorage.getItem("experiences");
@@ -265,6 +267,8 @@ const ExperienceDetailsTemplate2 = ({
                 errors: {},
             },
         ]);
+        // setShowButtons(false);
+        setIsEditing(true);
     };
 
     const handleExperienceChange = (index, property, value) => {
@@ -282,6 +286,8 @@ const ExperienceDetailsTemplate2 = ({
                 return experience;
             })
         );
+        // setShowButtons(true);
+        setIsEditing(true);
     };
 
     const removeExperience = (index) => {
@@ -352,6 +358,8 @@ const ExperienceDetailsTemplate2 = ({
 
             // Update the state
             setExperiences(updatedExperiences);
+            // setShowButtons(false);
+            setIsEditing(false);
         } else {
             // Update the state with the error messages
             setExperiences(updatedExperiences);
@@ -407,7 +415,7 @@ const ExperienceDetailsTemplate2 = ({
                     </h3>
                     {/* <SummaryTemplate2 /> */}
                 </div>
-                {/* <h2 className="experience_heading">Experience</h2> */}
+
                 <div className="resume_item resume_work">
                     <div className="title">
                         <p className="bold">WORK EXPERIENCE</p>
@@ -428,6 +436,7 @@ const ExperienceDetailsTemplate2 = ({
                                                 e.target.value
                                             )
                                         }
+                                        onFocus={() => setIsEditing(true)}
                                         style={{
                                             color: textColor, // Use the backgroundColor state variable
                                         }}
@@ -436,63 +445,86 @@ const ExperienceDetailsTemplate2 = ({
                                         experience.errors.company && (
                                             <p>{experience.errors.company}</p>
                                         )}
-                                    <button
-                                        className="remove-experience"
-                                        onClick={() => removeExperience(index)}
-                                    >
-                                        <AiFillDelete />
-                                    </button>
-                                    <input
-                                        type="text"
-                                        placeholder="Position"
-                                        value={experience.position}
-                                        onChange={(e) =>
-                                            handleExperienceChange(
-                                                index,
-                                                "position",
-                                                e.target.value
-                                            )
-                                        }
-                                    />
-                                    {experience.errors &&
-                                        experience.errors.position && (
-                                            <p>{experience.errors.position}</p>
-                                        )}
-                                    <select
-                                        value={experience.startYear}
-                                        onChange={(e) =>
-                                            handleExperienceChange(
-                                                index,
-                                                "startYear",
-                                                e.target.value
-                                            )
-                                        }
-                                    >
-                                        <option value="">Start Year</option>
-                                        {getYearOptions()}
-                                    </select>
-                                    {experience.errors &&
-                                        experience.errors.startYear && (
-                                            <p>{experience.errors.startYear}</p>
-                                        )}
-                                    <select
-                                        value={experience.endYear}
-                                        onChange={(e) =>
-                                            handleExperienceChange(
-                                                index,
-                                                "endYear",
-                                                e.target.value
-                                            )
-                                        }
-                                    >
-                                        <option value="">End Year</option>
-                                        {getYearOptions()}
-                                        <option value="Present">Present</option>
-                                    </select>
-                                    {experience.errors &&
-                                        experience.errors.endYear && (
-                                            <p>{experience.errors.endYear}</p>
-                                        )}
+                                    {isEditing && (
+                                        <button
+                                            className="remove-experience"
+                                            onClick={() =>
+                                                removeExperience(index)
+                                            }
+                                        >
+                                            <AiFillDelete />
+                                        </button>
+                                    )}
+                                    {/*  */}
+                                    <div className="position-date">
+                                        <input
+                                            type="text"
+                                            placeholder="Position"
+                                            value={experience.position}
+                                            onChange={(e) =>
+                                                handleExperienceChange(
+                                                    index,
+                                                    "position",
+                                                    e.target.value
+                                                )
+                                            }
+                                            onFocus={() => setIsEditing(true)}
+                                        />
+                                        {experience.errors &&
+                                            experience.errors.position && (
+                                                <p>
+                                                    {experience.errors.position}
+                                                </p>
+                                            )}
+                                        <select
+                                            value={experience.startYear}
+                                            onChange={(e) =>
+                                                handleExperienceChange(
+                                                    index,
+                                                    "startYear",
+                                                    e.target.value
+                                                )
+                                            }
+                                            onFocus={() => setIsEditing(true)}
+                                        >
+                                            <option value="">Start Year</option>
+                                            {getYearOptions()}
+                                        </select>
+                                        {experience.errors &&
+                                            experience.errors.startYear && (
+                                                <p>
+                                                    {
+                                                        experience.errors
+                                                            .startYear
+                                                    }
+                                                </p>
+                                            )}
+                                        <select
+                                            value={experience.endYear}
+                                            onChange={(e) =>
+                                                handleExperienceChange(
+                                                    index,
+                                                    "endYear",
+                                                    e.target.value
+                                                )
+                                            }
+                                            onFocus={() => setIsEditing(true)}
+                                        >
+                                            <option value="">End Year</option>
+                                            {getYearOptions()}
+                                            <option value="Present">
+                                                Present
+                                            </option>
+                                        </select>
+                                        {experience.errors &&
+                                            experience.errors.endYear && (
+                                                <p>
+                                                    {experience.errors.endYear}
+                                                </p>
+                                            )}
+                                    </div>
+
+                                    {/* </div> */}
                                     <textarea
                                         placeholder="Description"
                                         value={experience.description}
@@ -503,6 +535,7 @@ const ExperienceDetailsTemplate2 = ({
                                                 e.target.value
                                             )
                                         }
+                                        onFocus={() => setIsEditing(true)}
                                         onKeyDown={(e) =>
                                             handleDescriptionKeyPress(e, index)
                                         }
@@ -521,14 +554,17 @@ const ExperienceDetailsTemplate2 = ({
                         ))}
                     </ul>
                 </div>
-                <div className="experience_buttons">
-                    <button className="add-btn" onClick={addExperience}>
-                        <AiOutlinePlusCircle />
-                    </button>
-                    <button className="save-btn" onClick={handleSubmit}>
-                        Save
-                    </button>
-                </div>
+                {isEditing ? (
+                    <div className="experience_buttons">
+                        <button className="add-btn" onClick={addExperience}>
+                            <AiOutlinePlusCircle />
+                        </button>
+                        <button className="save-btn" onClick={handleSubmit}>
+                            Save
+                        </button>
+                    </div>
+                ) : null}
+
                 <ProjectDetailsTemplate2
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}

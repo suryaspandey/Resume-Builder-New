@@ -293,3 +293,28 @@ input.titleColor{
   margin-left: 9px;
   margin-bottom: -8px;
 }
+
+.titletextsize{
+  width: 525px;
+  resize: none;
+  font-weight: bolder;
+}
+
+textarea {
+  overflow-y: hidden;
+  font-size: 13px;
+  /* border-bottom: 2px solid #34d272; */
+  /* border-bottom: deeppink; */
+  resize: none;
+  /* height: fit-content; */
+  min-width: 390px;
+  /* max-height: 109px; */
+  /* min-height: 10px; */
+  width: auto;
+  font-family: "Roboto Mono";
+  height: auto;
+}
+
+.position-date{
+  display: flex;
+}

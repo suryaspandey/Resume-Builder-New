@@ -12,6 +12,8 @@ const CertificationsTemplate2 = ({
     subheadingColor,
 }) => {
     const [certifications, setCertificates] = useState([]);
+    // const [showButtons, setShowButtons] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const storedData = localStorage.getItem("certifications");
@@ -38,6 +40,8 @@ const CertificationsTemplate2 = ({
                 errors: {},
             },
         ]);
+        // setShowButtons(true);
+        setIsEditing(true);
     };
 
     const removeCertification = (index) => {
@@ -58,6 +62,8 @@ const CertificationsTemplate2 = ({
                 return certification;
             })
         );
+        // setShowButtons(true);
+        setIsEditing(true); // Set isEditing to true when a field is edited
     };
 
     const handleSubmit = (e) => {
@@ -96,6 +102,8 @@ const CertificationsTemplate2 = ({
             );
 
             setCertificates(updatedCertifications);
+            // setShowButtons(false);
+            setIsEditing(false); // Set isEditing to false after successful save
         } else {
             setCertificates(updatedCertifications);
         }
@@ -141,6 +149,7 @@ const CertificationsTemplate2 = ({
                                             e.target.value
                                         );
                                     }}
+                                    onFocus={() => setIsEditing(true)}
                                 />
                                 {certification.errors &&
                                     certification.errors.certificationName && (
@@ -151,11 +160,16 @@ const CertificationsTemplate2 = ({
                                             }
                                         </p>
                                     )}
-                                <button
-                                    onClick={() => removeCertification(index)}
-                                >
-                                    <AiFillDelete />
-                                </button>
+
+                                {isEditing ? (
+                                    <button
+                                        onClick={() =>
+                                            removeCertification(index)
+                                        }
+                                    >
+                                        <AiFillDelete />
+                                    </button>
+                                ) : null}
 
                                 <input
                                     className="expCompanyName"
@@ -169,6 +183,7 @@ const CertificationsTemplate2 = ({
                                             e.target.value
                                         );
                                     }}
+                                    onFocus={() => setIsEditing(true)}
                                 />
                                 {certification.errors &&
                                     certification.errors.organization && (
@@ -186,6 +201,7 @@ const CertificationsTemplate2 = ({
                                             e.target.value
                                         );
                                     }}
+                                    onFocus={() => setIsEditing(true)}
                                 >
                                     <option value="">Select Year</option>
                                     {getYearOptions()}
@@ -199,13 +215,16 @@ const CertificationsTemplate2 = ({
                     ))}
                 </ul>
             </div>
-
-            <button className="add-btn" onClick={addCertifications}>
-                <AiOutlinePlusCircle />
-            </button>
-            <button className="save-btn" onClick={handleSubmit}>
-                Save
-            </button>
+            {isEditing ? (
+                <>
+                    <button className="add-btn" onClick={addCertifications}>
+                        <AiOutlinePlusCircle />
+                    </button>
+                    <button className="save-btn" onClick={handleSubmit}>
+                        Save
+                    </button>
+                </>
+            ) : null}
         </>
     );
 };

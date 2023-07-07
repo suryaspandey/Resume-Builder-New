@@ -110,7 +110,7 @@ textarea{
     /* height: fit-content; */
     min-width: 390px;
     /* max-height: 109px; */
-    min-height: 10px;
+    /* min-height: 10px; */
     width: auto;
     font-family: "Roboto Mono";
     
@@ -220,7 +220,7 @@ p {
 
 .experience-details textarea {
   margin-top: 10px;
-  height: 100px;
+  /* height: 100px; */
 }
 
 .experience-details button {

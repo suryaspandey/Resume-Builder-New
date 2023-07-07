@@ -55,8 +55,8 @@
   }
   
   .user-name {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 26px;
+    /* font-weight: bold; */
   }
   
   .left-column {
@@ -290,6 +290,12 @@
     .skill_name{
       font-family: "Roboto Mono";
       color: rgb(40, 38, 38);
+      border: 1px solid black;
+    }
+
+    .titletextsize{
+      width: 525px;
+      resize: none;
     }
     
     @media all and (min-width: 602px) and (max-width: 800px) {

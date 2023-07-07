@@ -877,7 +877,6 @@ const ExperienceDetailsTemplate1 = ({
                                         value={experience.position}
                                         onChange={(e) => handleChange(e, index)}
                                         placeholder="Company Name"
-                                        // style={{ color: subheadingColor }}
                                         style={{ color: textColor }}
                                     />
                                     {experience.errors.position && (

@@ -16,6 +16,8 @@ const ProjectDetailsTemplate2 = ({
     subheadingColor,
 }) => {
     const [projects, setProjects] = useState([]);
+    // const [showButtons, setShowButtons] = useState(false); // new
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const storedProjects = localStorage.getItem("projects");
@@ -56,6 +58,8 @@ const ProjectDetailsTemplate2 = ({
         };
 
         setProjects((prevProjects) => [...prevProjects, newProject]);
+        // setShowButtons(false);
+        setIsEditing(true);
     };
 
     const handleDeleteProject = (index) => {
@@ -81,6 +85,8 @@ const ProjectDetailsTemplate2 = ({
             };
             return updatedProjects;
         });
+        // setShowButtons(true);
+        setIsEditing(true);
     };
 
     const handleSave = () => {
@@ -105,9 +111,9 @@ const ProjectDetailsTemplate2 = ({
                 isFormValid = false;
             } else {
                 const wordCount = description.trim().split(/\s+/).length;
-                if (wordCount < 10 || wordCount > 50) {
+                if (wordCount < 10 || wordCount > 40) {
                     errors.description =
-                        "Project description should be between 10 and 50 words";
+                        "Project description should be between 10 and 40 words";
                     isFormValid = false;
                 }
             }
@@ -129,6 +135,8 @@ const ProjectDetailsTemplate2 = ({
 
         if (isFormValid) {
             localStorage.setItem("projects", JSON.stringify(updatedProjects));
+            // setShowButtons(false);
+            setIsEditing(false);
         }
     };
 
@@ -139,6 +147,12 @@ const ProjectDetailsTemplate2 = ({
         } catch (error) {
             return false;
         }
+    };
+
+    const calculateTextareaRows = (content) => {
+        const lines = content.split("\n");
+        const lineCount = Math.max(lines.length, 1); //  at least one row
+        return lineCount;
     };
 
     return (
@@ -156,27 +170,32 @@ const ProjectDetailsTemplate2 = ({
                     {projects.map((project, index) => (
                         <li>
                             <div key={index}>
-                                <input
+                                <textarea
                                     style={{
                                         color: textColor, // Use the backgroundColor state variable
                                     }}
-                                    className="expTitle"
+                                    className="expTitle titletextsize"
                                     type="text"
                                     name="title"
                                     placeholder="Project Title"
                                     value={project.title}
                                     onChange={(e) => handleChange(e, index)}
+                                    onFocus={() => setIsEditing(true)}
                                 />
                                 {project.errors.title && (
                                     <p>{project.errors.title}</p>
                                 )}
 
-                                <button
-                                    className="remove-btn"
-                                    onClick={() => handleDeleteProject(index)}
-                                >
-                                    <AiFillDelete />
-                                </button>
+                                {isEditing ? (
+                                    <button
+                                        className="remove-btn"
+                                        onClick={() =>
+                                            handleDeleteProject(index)
+                                        }
+                                    >
+                                        <AiFillDelete />
+                                    </button>
+                                ) : null}
 
                                 <div className="school-clg-name-container">
                                     <MdWorkHistory
@@ -188,6 +207,8 @@ const ProjectDetailsTemplate2 = ({
                                         placeholder="Company Name"
                                         value={project.companyName}
                                         onChange={(e) => handleChange(e, index)}
+                                        onFocus={() => setIsEditing(true)}
+                                        style={{ color: textColor }}
                                     />
                                 </div>
                                 <div className="project-links">
@@ -206,6 +227,7 @@ const ProjectDetailsTemplate2 = ({
                                             onChange={(e) =>
                                                 handleChange(e, index)
                                             }
+                                            onFocus={() => setIsEditing(true)}
                                         />
                                         {project.errors.codeUrl && (
                                             <p>{project.errors.codeUrl}</p>
@@ -226,6 +248,7 @@ const ProjectDetailsTemplate2 = ({
                                             onChange={(e) =>
                                                 handleChange(e, index)
                                             }
+                                            onFocus={() => setIsEditing(true)}
                                         />
                                         {project.errors.hostedUrl && (
                                             <p>{project.errors.hostedUrl}</p>
@@ -234,10 +257,17 @@ const ProjectDetailsTemplate2 = ({
                                 </div>
                                 <div className="project-description">
                                     <textarea
+                                        // className="titletextsize"
                                         name="description"
-                                        placeholder="Description (10-50 words)"
+                                        placeholder="Description (10-40 words)"
                                         value={project.description}
                                         onChange={(e) => handleChange(e, index)}
+                                        onFocus={() => setIsEditing(true)}
+                                        // rows={calculateTextareaRows(
+                                        //     project.description
+                                        // )}
+                                        rows="auto"
+                                        style={{ wordWrap: "break-word" }}
                                     ></textarea>
                                     {project.errors.description && (
                                         <p>{project.errors.description}</p>
@@ -248,16 +278,17 @@ const ProjectDetailsTemplate2 = ({
                     ))}
                 </ul>
             </div>
-            <div className="add-button-container">
-                <button className="add-btn" onClick={handleAddProject}>
-                    <AiOutlinePlusCircle />
-                </button>
-            </div>
-            <div className="save-button-container">
-                <button className="save-btn" onClick={handleSave}>
-                    Save
-                </button>
-            </div>
+
+            {isEditing ? (
+                <>
+                    <button className="save-btn" onClick={handleSave}>
+                        Save
+                    </button>
+                    <button className="add-btn" onClick={handleAddProject}>
+                        <AiOutlinePlusCircle />
+                    </button>
+                </>
+            ) : null}
         </>
     );
 };

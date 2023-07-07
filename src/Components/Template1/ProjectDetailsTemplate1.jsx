@@ -15,6 +15,7 @@ const ProjectDetailsTemplate1 = ({
     subheadingColor,
 }) => {
     const [projects, setProjects] = useState([]);
+    const [showButtons, setShowButtons] = useState(false);
 
     useEffect(() => {
         const storedProjects = localStorage.getItem("projects");
@@ -55,6 +56,7 @@ const ProjectDetailsTemplate1 = ({
         };
 
         setProjects((prevProjects) => [...prevProjects, newProject]);
+        setShowButtons(false); // Show buttons when a new experience is added
     };
 
     const handleDeleteProject = (index) => {
@@ -80,6 +82,7 @@ const ProjectDetailsTemplate1 = ({
             };
             return updatedProjects;
         });
+        setShowButtons(true); // Show buttons when a new experience is added
     };
 
     const handleSave = () => {
@@ -128,6 +131,7 @@ const ProjectDetailsTemplate1 = ({
 
         if (isFormValid) {
             localStorage.setItem("projects", JSON.stringify(updatedProjects));
+            setShowButtons(false); // Show buttons when a new experience is added
         }
     };
 
@@ -155,23 +159,33 @@ const ProjectDetailsTemplate1 = ({
                     {projects.map((project, index) => (
                         <div key={index}>
                             <article>
-                                <input
-                                    className="expTitle"
+                                <textarea
+                                    className="expTitle titletextsize "
                                     type="text"
                                     name="title"
                                     placeholder="Project Title"
                                     value={project.title}
                                     onChange={(e) => handleChange(e, index)}
+                                    style={{
+                                        minHeight: "50px",
+                                        resize: "vertical",
+                                        overflow: "hidden",
+                                        fontWeight: 900,
+                                    }}
                                 />
                                 {project.errors.title && (
                                     <p>{project.errors.title}</p>
                                 )}
-                                <button
-                                    className="remove-btn"
-                                    onClick={() => handleDeleteProject(index)}
-                                >
-                                    <AiFillDelete />
-                                </button>
+                                {showButtons && (
+                                    <button
+                                        className="remove-btn"
+                                        onClick={() =>
+                                            handleDeleteProject(index)
+                                        }
+                                    >
+                                        <AiFillDelete />
+                                    </button>
+                                )}
 
                                 <div className="school-clg-name-container">
                                     <MdWorkHistory
@@ -183,6 +197,7 @@ const ProjectDetailsTemplate1 = ({
                                         placeholder="Company Name"
                                         value={project.companyName}
                                         onChange={(e) => handleChange(e, index)}
+                                        style={{ color: textColor }}
                                     />
                                 </div>
                                 <div className="project-links">
@@ -242,18 +257,20 @@ const ProjectDetailsTemplate1 = ({
                 <div class="clear"></div>
             </section>
 
-            <div className="add-button-container">
-                <button className="add-btn" onClick={handleAddProject}>
-                    <AiOutlinePlusCircle />
-                </button>
-            </div>
-            <div className="save-button-container">
-                <button className="save-btn" onClick={handleSave}>
-                    Save
-                </button>
-            </div>
-
-            {/* // ---------------------- // */}
+            {showButtons && (
+                <>
+                    <div className="save-button-container">
+                        <button className="save-btn" onClick={handleSave}>
+                            Save
+                        </button>
+                    </div>
+                    <div className="add-button-container">
+                        <button className="add-btn" onClick={handleAddProject}>
+                            <AiOutlinePlusCircle />
+                        </button>
+                    </div>
+                </>
+            )}
         </>
     );
 };

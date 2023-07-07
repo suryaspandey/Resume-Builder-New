@@ -13,13 +13,8 @@ const EducationDetailsTemplate2 = ({
     subheadingColor,
 }) => {
     const [educations, setEducations] = useState([]);
-
-    // useEffect(() => {
-    //     const storedEducations = localStorage.getItem("educations");
-    //     if (storedEducations) {
-    //         setEducations(JSON.parse(storedEducations));
-    //     }
-    // }, []);
+    // const [showButtons, setShowButtons] = useState(false); // new
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const storedEducations = localStorage.getItem("educations");
@@ -62,23 +57,8 @@ const EducationDetailsTemplate2 = ({
         };
 
         setEducations((prevEducations) => [...prevEducations, newEducation]);
-        // const updatedEducations = [...educations, newEducation];
-        // localStorage.setItem("educations", JSON.stringify(updatedEducations));
-
-        // ------ new -------
-        // setEducations((prevEducations) => {
-        //     const updatedEducations = [...prevEducations, newEducation];
-        //     localStorage.setItem(
-        //         "educations",
-        //         JSON.stringify(updatedEducations)
-        //     );
-        //     return updatedEducations;
-        // });
-
-        // localStorage.setItem(
-        //     "educations",
-        //     JSON.stringify(educations.concat(newEducation))
-        // );
+        // setShowButtons(false);
+        setIsEditing(true);
     };
 
     const handleDeleteEducation = (index) => {
@@ -108,6 +88,8 @@ const EducationDetailsTemplate2 = ({
             );
             return updatedEducations;
         });
+        // setShowButtons(true);
+        setIsEditing(true);
     };
 
     const handleSave = () => {
@@ -166,6 +148,8 @@ const EducationDetailsTemplate2 = ({
                 "educations",
                 JSON.stringify(updatedEducations)
             );
+            // setShowButtons(false);
+            setIsEditing(false);
         }
     };
 
@@ -199,13 +183,14 @@ const EducationDetailsTemplate2 = ({
                                     name="courseName"
                                     value={education.courseName}
                                     onChange={(e) => handleChange(e, index)}
+                                    onFocus={() => setIsEditing(true)}
                                     placeholder="Course Name"
                                 />
                                 {education.errors.courseName && (
                                     <p>{education.errors.courseName}</p>
                                 )}
 
-                                {educations.length > 1 && (
+                                {educations.length > 1 && isEditing && (
                                     <button
                                         className="remove-btn"
                                         type="button"
@@ -226,6 +211,7 @@ const EducationDetailsTemplate2 = ({
                                         name="schoolName"
                                         value={education.schoolName}
                                         onChange={(e) => handleChange(e, index)}
+                                        onFocus={() => setIsEditing(true)}
                                         placeholder="School/University Name"
                                         style={{ color: subheadingColor }}
                                     />
@@ -247,6 +233,7 @@ const EducationDetailsTemplate2 = ({
                                             onChange={(e) =>
                                                 handleChange(e, index)
                                             }
+                                            onFocus={() => setIsEditing(true)}
                                         >
                                             <option value="">Start Year</option>
                                             {renderYears().map((year) => (
@@ -265,6 +252,7 @@ const EducationDetailsTemplate2 = ({
                                             onChange={(e) =>
                                                 handleChange(e, index)
                                             }
+                                            onFocus={() => setIsEditing(true)}
                                         >
                                             <option value="">End Year</option>
                                             {renderYears().map((year) => (
@@ -286,15 +274,17 @@ const EducationDetailsTemplate2 = ({
                     ))}
                 </ul>
             </div>
-            <button
-                className="add-btn"
-                type="button"
-                onClick={handleAddEducation}
-            >
-                <AiOutlinePlusCircle />
-            </button>
+            {isEditing ? (
+                <button
+                    className="add-btn"
+                    type="button"
+                    onClick={handleAddEducation}
+                >
+                    <AiOutlinePlusCircle />
+                </button>
+            ) : null}
 
-            {educations.length > 0 && (
+            {educations.length > 0 && isEditing && (
                 <button className="save-btn" type="button" onClick={handleSave}>
                     Save
                 </button>

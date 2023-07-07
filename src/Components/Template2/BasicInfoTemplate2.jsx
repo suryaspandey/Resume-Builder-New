@@ -33,6 +33,7 @@ const BasicInfoTemplate2 = ({
 
     const [profilePhoto, setProfilePhoto] = useState("");
     const [isTyping, setIsTyping] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const storedData = localStorage.getItem("basicInfo");
@@ -66,6 +67,7 @@ const BasicInfoTemplate2 = ({
                 [name]: value,
             }));
         }
+        setIsEditing(true);
     };
 
     const handlePhotoSelect = (photoUrl) => {
@@ -127,6 +129,7 @@ const BasicInfoTemplate2 = ({
         if (isValid) {
             // Save data to local storage or perform any desired action
             localStorage.setItem("basicInfo", JSON.stringify(formData));
+            setIsEditing(false);
         }
     };
     const summaryTextareaClass = isTyping
@@ -155,6 +158,7 @@ const BasicInfoTemplate2 = ({
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
+                                        onFocus={() => setIsEditing(true)}
                                         placeholder="Name"
                                         style={{
                                             textTransform: "uppercase",
@@ -166,6 +170,7 @@ const BasicInfoTemplate2 = ({
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
+                                        onFocus={() => setIsEditing(true)}
                                         placeholder="Current Role"
                                     />
                                 </div>
@@ -184,6 +189,9 @@ const BasicInfoTemplate2 = ({
                                                 name="location"
                                                 value={formData.location}
                                                 onChange={handleChange}
+                                                onFocus={() =>
+                                                    setIsEditing(true)
+                                                }
                                                 placeholder="Location"
                                             />
                                         </div>
@@ -202,6 +210,9 @@ const BasicInfoTemplate2 = ({
                                                 name="phone"
                                                 value={formData.phone}
                                                 onChange={handleChange}
+                                                onFocus={() =>
+                                                    setIsEditing(true)
+                                                }
                                                 placeholder="Phone"
                                             />
                                         </div>
@@ -220,6 +231,9 @@ const BasicInfoTemplate2 = ({
                                                 name="email"
                                                 value={formData.email}
                                                 onChange={handleChange}
+                                                onFocus={() =>
+                                                    setIsEditing(true)
+                                                }
                                                 placeholder="Email"
                                             />
                                         </div>
@@ -239,15 +253,21 @@ const BasicInfoTemplate2 = ({
                                                 name="linkedin"
                                                 value={formData.linkedin}
                                                 onChange={handleChange}
+                                                onFocus={() =>
+                                                    setIsEditing(true)
+                                                }
                                                 placeholder="LinkedIn"
                                             />
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-                            <button className="save-btn" type="submit">
-                                Save
-                            </button>
+                            {isEditing ? (
+                                <button className="save-btn" type="submit">
+                                    Save
+                                </button>
+                            ) : null}
+
                             {/* <br /> */}
                             {nameError && <p>{nameError}</p>}
                             {phoneError && <p>{phoneError}</p>}
@@ -255,6 +275,7 @@ const BasicInfoTemplate2 = ({
                             {linkedinError && <p>{linkedinError}</p>}
                             {summaryError && <p>{summaryError}</p>}
                         </div>
+                        <div className="resume resume_item"></div>
 
                         <SkillsDetailsTemplate2
                         // themeColor={themeColor}
