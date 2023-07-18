@@ -737,6 +737,7 @@ const ExperienceDetails = ({
                         value={experience.title}
                         onChange={(e) => handleChange(e, index)}
                         placeholder="Title"
+                        spellCheck="true"
                     />
                     {experience.errors.title && (
                         <p>{experience.errors.title}</p>

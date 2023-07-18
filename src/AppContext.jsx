@@ -5,7 +5,7 @@ const AppContext = createContext();
 
 // Create a provider component
 const AppProvider = ({ children }) => {
-    const [themeColor, setThemeColor] = useState("black");
+    const [themeColor, setThemeColor] = useState("");
     const [backgroundColor, setBackgroundColor] = useState("");
     const [textColor, setTextColor] = useState("#000000");
     const [subheadingColor, setSubheadingColor] = useState("#000000");

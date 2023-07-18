@@ -9,12 +9,20 @@ import "./template2.css"; // Import the CSS file for styling
 
 import SkillsDetailsTemplate2 from "./SkillsDetailsTemplate2";
 import ExperienceDetailsTemplate2 from "./ExperienceDetailsTemplate2";
+// import TextArea from "antd/es/input/TextArea";
+
+import { Input } from "antd";
+const { TextArea } = Input;
 
 const BasicInfoTemplate2 = ({
     themeColor,
     backgroundColor,
     textColor,
     subheadingColor,
+    showProfilePhoto,
+    onShowProfilePhotoChange,
+    tempfontSize,
+    tempfontStyle,
 }) => {
     const [formData, setFormData] = useState({
         name: "",
@@ -24,6 +32,8 @@ const BasicInfoTemplate2 = ({
         linkedin: "",
         summary: "",
     });
+    const [showPhoto, setShowPhoto] = useState(false);
+
     const [nameError, setNameError] = useState("");
     const [locationError, setLocationError] = useState("");
     const [phoneError, setPhoneError] = useState("");
@@ -31,7 +41,6 @@ const BasicInfoTemplate2 = ({
     const [linkedinError, setLinkedinError] = useState("");
     const [summaryError, setSummaryError] = useState("");
 
-    const [profilePhoto, setProfilePhoto] = useState("");
     const [isTyping, setIsTyping] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -45,9 +54,18 @@ const BasicInfoTemplate2 = ({
     useEffect(() => {
         const storedPhoto = localStorage.getItem("profilePhoto");
         if (storedPhoto) {
-            setProfilePhoto(storedPhoto);
+            setShowPhoto(storedPhoto);
+        }
+        const storedShowPhoto = localStorage.getItem("showProfilePhoto");
+        if (storedShowPhoto) {
+            // setShowPhoto(storedPhoto);
+            setShowPhoto(JSON.parse(storedShowPhoto));
         }
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem("showProfilePhoto", JSON.stringify(showPhoto));
+    }, [showPhoto]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -71,7 +89,14 @@ const BasicInfoTemplate2 = ({
     };
 
     const handlePhotoSelect = (photoUrl) => {
-        setProfilePhoto(photoUrl);
+        // setProfilePhoto(photoUrl);
+        localStorage.setItem("profilePhoto", photoUrl);
+    };
+
+    const handleCheckboxChange = (e) => {
+        const showPhoto = e.target.checked;
+        setShowPhoto(showPhoto);
+        onShowProfilePhotoChange(showPhoto);
     };
 
     const handleSubmit = (e) => {
@@ -138,17 +163,36 @@ const BasicInfoTemplate2 = ({
 
     return (
         <>
-            <div
-                className="resume"
-                style={{
-                    backgroundColor: backgroundColor,
-                }}
-            >
+            <div className="resume">
                 <form onSubmit={handleSubmit}>
-                    <div className="resume_left">
-                        <div className="resume_profile">
-                            <ProfilePhoto onPhotoSelect={handlePhotoSelect} />
-                        </div>
+                    <div
+                        className="resume_left"
+                        style={{
+                            backgroundColor: backgroundColor,
+                        }}
+                    >
+                        {isEditing ? (
+                            <>
+                                <div className="profile_photo_container">
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            checked={showProfilePhoto}
+                                            onChange={handleCheckboxChange}
+                                        />
+                                        Show Profile Photo
+                                    </label>
+                                </div>
+                            </>
+                        ) : null}
+                        {showProfilePhoto && (
+                            <div className="resume_profile">
+                                <ProfilePhoto
+                                    onPhotoSelect={handlePhotoSelect}
+                                />
+                            </div>
+                        )}
+
                         <div className="resume_content">
                             <div className="resume_item resume_info">
                                 <div className="title">
@@ -162,6 +206,8 @@ const BasicInfoTemplate2 = ({
                                         placeholder="Name"
                                         style={{
                                             textTransform: "uppercase",
+                                            fontFamily: tempfontStyle,
+                                            fontSize: tempfontSize,
                                         }}
                                     />
                                     <input
@@ -172,6 +218,10 @@ const BasicInfoTemplate2 = ({
                                         onChange={handleChange}
                                         onFocus={() => setIsEditing(true)}
                                         placeholder="Current Role"
+                                        style={{
+                                            fontFamily: tempfontStyle,
+                                            fontSize: tempfontSize,
+                                        }}
                                     />
                                 </div>
                                 <ul>
@@ -193,6 +243,11 @@ const BasicInfoTemplate2 = ({
                                                     setIsEditing(true)
                                                 }
                                                 placeholder="Location"
+                                                style={{
+                                                    // color: themeColor,
+                                                    fontFamily: tempfontStyle,
+                                                    fontSize: tempfontSize,
+                                                }}
                                             />
                                         </div>
                                     </li>
@@ -214,6 +269,11 @@ const BasicInfoTemplate2 = ({
                                                     setIsEditing(true)
                                                 }
                                                 placeholder="Phone"
+                                                style={{
+                                                    // color: themeColor,
+                                                    fontFamily: tempfontStyle,
+                                                    fontSize: tempfontSize,
+                                                }}
                                             />
                                         </div>
                                     </li>
@@ -235,6 +295,11 @@ const BasicInfoTemplate2 = ({
                                                     setIsEditing(true)
                                                 }
                                                 placeholder="Email"
+                                                style={{
+                                                    // color: themeColor,
+                                                    fontFamily: tempfontStyle,
+                                                    fontSize: tempfontSize,
+                                                }}
                                             />
                                         </div>
                                     </li>
@@ -247,7 +312,15 @@ const BasicInfoTemplate2 = ({
                                             />
                                         </div>
                                         <div className="data">
-                                            <input
+                                            <TextArea
+                                                autoSize
+                                                style={{
+                                                    border: "none",
+                                                    backgroundColor:
+                                                        "transparent",
+                                                    fontFamily: tempfontStyle,
+                                                    fontSize: tempfontSize,
+                                                }}
                                                 className="basic-info"
                                                 type="text"
                                                 name="linkedin"
@@ -275,25 +348,35 @@ const BasicInfoTemplate2 = ({
                             {linkedinError && <p>{linkedinError}</p>}
                             {summaryError && <p>{summaryError}</p>}
                         </div>
-                        <div className="resume resume_item"></div>
+
+                        <div
+                            className="resume resume_item"
+                            style={{
+                                borderBottom: `2px solid ${themeColor}`,
+                                width: "90%",
+                            }}
+                        ></div>
 
                         <SkillsDetailsTemplate2
-                        // themeColor={themeColor}
-                        // backgroundColor={backgroundColor}
-                        // textColor={textColor}
+                            themeColor={themeColor}
+                            backgroundColor={backgroundColor}
+                            textColor={textColor}
+                            tempfontSize={tempfontSize}
+                            tempfontStyle={tempfontStyle}
                         />
                         {/* </div> */}
                     </div>
                 </form>
+
                 <ExperienceDetailsTemplate2
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}
                     textColor={textColor}
                     subheadingColor={subheadingColor}
+                    tempfontSize={tempfontSize}
+                    tempfontStyle={tempfontStyle}
                 />
             </div>
-
-            {/* ---------------   ------------- */}
         </>
     );
 };

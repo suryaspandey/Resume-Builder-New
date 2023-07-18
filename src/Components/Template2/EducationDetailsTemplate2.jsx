@@ -11,6 +11,8 @@ const EducationDetailsTemplate2 = ({
     backgroundColor,
     textColor,
     subheadingColor,
+    tempfontSize,
+    tempfontStyle,
 }) => {
     const [educations, setEducations] = useState([]);
     // const [showButtons, setShowButtons] = useState(false); // new
@@ -166,12 +168,26 @@ const EducationDetailsTemplate2 = ({
         <>
             <div
                 className=" resume_item resume_work "
+                style={{
+                    // backgroundColor: backgroundColor,
+                    borderBottom: `2px solid ${themeColor}`,
+                    width: "90%",
+                }}
+
                 // style={{
                 //     backgroundColor: backgroundColor, // Use the backgroundColor state variable
                 // }}
             >
-                <div className="title">
-                    <p className="bold">EDUCATION DETAILS</p>
+                <div
+                    className="title"
+                    // style={{
+                    //     borderBottom: `2px solid ${themeColor}`,
+                    //     width: "90%",
+                    // }}
+                >
+                    <p className="bold" style={{ fontFamily: tempfontStyle }}>
+                        EDUCATION DETAILS
+                    </p>
                 </div>
                 <ul>
                     {educations.map((education, index) => (
@@ -185,6 +201,10 @@ const EducationDetailsTemplate2 = ({
                                     onChange={(e) => handleChange(e, index)}
                                     onFocus={() => setIsEditing(true)}
                                     placeholder="Course Name"
+                                    style={{
+                                        fontFamily: tempfontStyle,
+                                        fontSize: tempfontSize,
+                                    }}
                                 />
                                 {education.errors.courseName && (
                                     <p>{education.errors.courseName}</p>
@@ -213,7 +233,11 @@ const EducationDetailsTemplate2 = ({
                                         onChange={(e) => handleChange(e, index)}
                                         onFocus={() => setIsEditing(true)}
                                         placeholder="School/University Name"
-                                        style={{ color: subheadingColor }}
+                                        style={{
+                                            color: subheadingColor,
+                                            fontFamily: tempfontStyle,
+                                            fontSize: tempfontSize,
+                                        }}
                                     />
                                     {education.errors.schoolName && (
                                         <p>{education.errors.schoolName}</p>
@@ -234,6 +258,10 @@ const EducationDetailsTemplate2 = ({
                                                 handleChange(e, index)
                                             }
                                             onFocus={() => setIsEditing(true)}
+                                            style={{
+                                                fontFamily: tempfontStyle,
+                                                fontSize: tempfontSize,
+                                            }}
                                         >
                                             <option value="">Start Year</option>
                                             {renderYears().map((year) => (
@@ -253,6 +281,10 @@ const EducationDetailsTemplate2 = ({
                                                 handleChange(e, index)
                                             }
                                             onFocus={() => setIsEditing(true)}
+                                            style={{
+                                                fontFamily: tempfontStyle,
+                                                fontSize: tempfontSize,
+                                            }}
                                         >
                                             <option value="">End Year</option>
                                             {renderYears().map((year) => (
@@ -290,7 +322,14 @@ const EducationDetailsTemplate2 = ({
                 </button>
             )}
 
-            <CertificationsTemplate2 />
+            <CertificationsTemplate2
+                themeColor={themeColor}
+                backgroundColor={backgroundColor}
+                textColor={textColor}
+                subheadingColor={subheadingColor}
+                tempfontSize={tempfontSize}
+                tempfontStyle={tempfontStyle}
+            />
         </>
     );
 };

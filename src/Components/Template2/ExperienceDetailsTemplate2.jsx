@@ -228,14 +228,20 @@ import {
     AiOutlinePlusCircle,
     AiOutlineLink,
 } from "react-icons/ai";
+
+import { Input } from "antd";
+const { TextArea } = Input;
+
 import ProjectDetailsTemplate2 from "./ProjectDetailTemplate2";
-// import SummaryTemplate2 from "./SummaryTemplate2";
+import SummaryTemplate2 from "./SummaryTemplate2";
 
 const ExperienceDetailsTemplate2 = ({
     themeColor,
     backgroundColor,
     textColor,
     subheadingColor,
+    tempfontSize,
+    tempfontStyle,
 }) => {
     const [experiences, setExperiences] = useState([]);
     // const [showButtons, setShowButtons] = useState(false);
@@ -400,25 +406,49 @@ const ExperienceDetailsTemplate2 = ({
             <div
                 className="resume_right"
                 style={{
-                    backgroundColor: backgroundColor, // Use the backgroundColor state variable
+                    themeColor: themeColor, // Use the backgroundColor state variable
                 }}
             >
-                <div className="resume_item resume_about">
+                <div
+                    className="resume_item resume_about"
+                    style={{
+                        borderBottom: `2px solid ${backgroundColor}`,
+                    }}
+                >
                     <div className="title">
-                        <p className="bold">PROFILE</p>
+                        <p
+                            style={{
+                                color: backgroundColor,
+                                fontFamily: tempfontStyle,
+                            }}
+                            className="bold"
+                        >
+                            PROFILE
+                        </p>
                     </div>
-                    <h3>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Perspiciatis illo fugit officiis distinctio culpa
-                        officia totam atque exercitationem inventore
-                        repudiandae?
-                    </h3>
-                    {/* <SummaryTemplate2 /> */}
+
+                    <SummaryTemplate2
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
+                    />
                 </div>
 
-                <div className="resume_item resume_work">
+                <div
+                    className="resume_item resume_work"
+                    style={{
+                        borderBottom: `2px solid ${backgroundColor}`,
+                    }}
+                >
                     <div className="title">
-                        <p className="bold">WORK EXPERIENCE</p>
+                        <p
+                            style={{
+                                color: backgroundColor,
+                                fontFamily: tempfontStyle,
+                            }}
+                            className="bold"
+                        >
+                            WORK EXPERIENCE
+                        </p>
                     </div>
                     <ul>
                         {experiences.map((experience, index) => (
@@ -438,8 +468,11 @@ const ExperienceDetailsTemplate2 = ({
                                         }
                                         onFocus={() => setIsEditing(true)}
                                         style={{
-                                            color: textColor, // Use the backgroundColor state variable
+                                            color: textColor,
+                                            fontFamily: tempfontStyle,
+                                            fontSize: tempfontSize,
                                         }}
+                                        spellCheck={true}
                                     />
                                     {experience.errors &&
                                         experience.errors.company && (
@@ -469,6 +502,10 @@ const ExperienceDetailsTemplate2 = ({
                                                 )
                                             }
                                             onFocus={() => setIsEditing(true)}
+                                            style={{
+                                                fontFamily: tempfontStyle,
+                                                fontSize: tempfontSize,
+                                            }}
                                         />
                                         {experience.errors &&
                                             experience.errors.position && (
@@ -486,6 +523,10 @@ const ExperienceDetailsTemplate2 = ({
                                                 )
                                             }
                                             onFocus={() => setIsEditing(true)}
+                                            style={{
+                                                fontFamily: tempfontStyle,
+                                                fontSize: tempfontSize,
+                                            }}
                                         >
                                             <option value="">Start Year</option>
                                             {getYearOptions()}
@@ -509,6 +550,10 @@ const ExperienceDetailsTemplate2 = ({
                                                 )
                                             }
                                             onFocus={() => setIsEditing(true)}
+                                            style={{
+                                                fontFamily: tempfontStyle,
+                                                fontSize: tempfontSize,
+                                            }}
                                         >
                                             <option value="">End Year</option>
                                             {getYearOptions()}
@@ -525,7 +570,8 @@ const ExperienceDetailsTemplate2 = ({
                                     </div>
 
                                     {/* </div> */}
-                                    <textarea
+                                    <TextArea
+                                        autoSize
                                         placeholder="Description"
                                         value={experience.description}
                                         onChange={(e) =>
@@ -539,10 +585,34 @@ const ExperienceDetailsTemplate2 = ({
                                         onKeyDown={(e) =>
                                             handleDescriptionKeyPress(e, index)
                                         }
-                                        rows={calculateTextareaRows(
-                                            experience.description
-                                        )}
-                                    ></textarea>
+                                        style={{
+                                            border: "none",
+                                            backgroundColor: "transparent",
+                                            fontFamily: tempfontStyle,
+                                            fontSize: tempfontSize,
+                                        }}
+                                    />
+                                    {/*  */}
+
+                                    {/* <textarea
+                                        placeholder="Description"
+                                        value={experience.description}
+                                        onChange={(e) =>
+                                            handleExperienceChange(
+                                                index,
+                                                "description",
+                                                e.target.value
+                                            )
+                                        }
+                                        onFocus={() => setIsEditing(true)}
+                                        onKeyDown={(e) =>
+                                            handleDescriptionKeyPress(e, index)
+                                        }
+                                        // rows={calculateTextareaRows(
+                                        //     experience.description
+                                        // )}
+                                    ></textarea> */}
+
                                     {experience.errors &&
                                         experience.errors.description && (
                                             <p>
@@ -553,6 +623,7 @@ const ExperienceDetailsTemplate2 = ({
                             </li>
                         ))}
                     </ul>
+                    {/* <div className="line"></div> */}
                 </div>
                 {isEditing ? (
                     <div className="experience_buttons">
@@ -570,6 +641,8 @@ const ExperienceDetailsTemplate2 = ({
                     backgroundColor={backgroundColor}
                     textColor={textColor}
                     subheadingColor={subheadingColor}
+                    tempfontSize={tempfontSize}
+                    tempfontStyle={tempfontStyle}
                 />
             </div>
         </>

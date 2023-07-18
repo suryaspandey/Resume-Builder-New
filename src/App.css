@@ -103,7 +103,7 @@ input{
 
 textarea{
   overflow-y: hidden;
-  font-size: 13px;
+  font-size: 11px;
   /* border-bottom: 2px solid #34d272; */
     /* border-bottom: deeppink; */
     resize: none;
@@ -136,7 +136,7 @@ textarea{
 .user-name{
   margin: auto;
     margin-bottom: 10px;
-    color: #ff6e00;
+    /* color: #ff6e00; */
     font-size: 30px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -264,7 +264,8 @@ p {
 input.expTitle{
   font-size: 15px;
   /* font-family: 'Nunito Sans', sans-serif; */
-  font-weight: 700;
+  /* font-weight: 700; */
+  font: inherit;
 
 
 }
@@ -347,8 +348,8 @@ svg{
 }
 
 .skill-box{
-  padding: 4px;
-  border-radius: 5px;
+  /* padding: 4px; */
+  /* border-radius: 5px; */
   /* background: #ebd7c2;
     border: 2px solid #ff6e00; */
     color: white;
@@ -386,3 +387,58 @@ input::placeholder{
   border: 1px solid #000;
   border-radius: 50%;
 }
+
+/* preview css */
+/* .all-components {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.component-preview {
+  width: 200px;
+  height: 250px;
+  background-color: #f1f1f1;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.component-preview-button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.selected-component {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  width: fit-content;
+  height: fit-content;
+} */
+
+.component-preview {
+  width: 200px;
+  height: 250px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.component-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selected-component {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+

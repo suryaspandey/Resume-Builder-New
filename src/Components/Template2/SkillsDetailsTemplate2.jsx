@@ -4,15 +4,16 @@ import { AiFillDelete, AiOutlinePlusCircle } from "react-icons/ai";
 import EducationDetailsTemplate2 from "./EducationDetailsTemplate2";
 
 const SkillsDetailsTemplate2 = ({
-    // themeColor = { themeColor },
-    // backgroundColor = { backgroundColor },
-    // textColor = { textColor },
     themeColor,
     backgroundColor,
     textColor,
+    tempfontSize,
+    tempfontStyle,
 }) => {
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [showDropdown, setShowDropdown] = useState(true);
+    const [isEditing, setIsEditing] = useState(false);
+    const [showButtons, setShowButtons] = useState(true);
 
     // Load skills from local storage on initial component mount
     useEffect(() => {
@@ -20,17 +21,18 @@ const SkillsDetailsTemplate2 = ({
         if (savedSkills && JSON.parse(savedSkills).length > 0) {
             setSelectedSkills(JSON.parse(savedSkills));
             setShowDropdown(false);
+            setShowButtons(showButtons);
         }
     }, []);
 
     // Update local storage whenever selectedSkills change
     useEffect(() => {
         localStorage.setItem("selectedSkills", JSON.stringify(selectedSkills));
-    }, [selectedSkills]);
+    }, [selectedSkills, showButtons]);
 
     const handleSkillSelect = (selectedSkill) => {
         if (
-            selectedSkills.length < 6 &&
+            selectedSkills.length < 8 &&
             !selectedSkills.includes(selectedSkill)
         ) {
             setSelectedSkills((prevSelectedSkills) => [
@@ -38,6 +40,9 @@ const SkillsDetailsTemplate2 = ({
                 selectedSkill,
             ]);
         }
+
+        setIsEditing(true);
+        setShowButtons(true);
     };
 
     const handleSkillRemove = (removedSkill) => {
@@ -48,41 +53,67 @@ const SkillsDetailsTemplate2 = ({
 
     const handleSave = () => {
         setShowDropdown(false);
-        localStorage.setItem("selectedSkills", JSON.stringify(selectedSkills));
+        localStorage.setItem(
+            "selectedSkills",
+            JSON.stringify({ selectedSkills, showButtons: false })
+        );
+        setIsEditing(false);
+        setShowButtons(false);
     };
 
     const handleAddMore = () => {
         setShowDropdown(true);
+        setIsEditing(true);
+        setShowButtons(true);
     };
 
     return (
         <>
             <div
-                className="resume_item resume_skills"
+                className=" resume_item resume_skills"
                 style={{
-                    backgroundColor: backgroundColor, // Use the backgroundColor state variable
+                    backgroundColor: backgroundColor,
+                    borderBottom: `2px solid ${themeColor}`,
+                    width: "90%",
+                    alignContent: "center",
                 }}
             >
                 <div className="title">
-                    <p className="bold">Skills</p>
+                    <p
+                        className="bold"
+                        style={{
+                            fontFamily: tempfontStyle,
+                        }}
+                    >
+                        Skills
+                    </p>
                 </div>
                 <ul>
                     {selectedSkills.map((skill) => (
-                        <li>
-                            <div className="skill_name">
+                        <li key={skill}>
+                            <div className="skill_name ">
                                 <span
+                                    style={{
+                                        border: `2px solid ${themeColor}`,
+                                        backgroundColor: themeColor,
+                                        fontFamily: tempfontStyle,
+                                        fontSize: tempfontSize,
+                                    }}
                                     key={skill}
                                     className="skill-box"
                                     onClick={() => handleSkillRemove(skill)}
                                 >
                                     {skill}
-                                    <AiFillDelete
-                                        size={16}
-                                        style={{
-                                            marginLeft: "5px",
-                                            cursor: "pointer",
-                                        }}
-                                    />
+                                    {isEditing && (
+                                        <AiFillDelete
+                                            size={16}
+                                            style={{
+                                                marginLeft: "5px",
+                                                cursor: "pointer",
+                                            }}
+                                        />
+                                    )}
+
                                     {/* <div className="skill_progress">
                                         <span style="width: 80%;"></span>
                                     </div>
@@ -93,12 +124,12 @@ const SkillsDetailsTemplate2 = ({
                     ))}
                 </ul>
 
-                {showDropdown && selectedSkills.length < 6 && (
+                {showDropdown && selectedSkills.length < 8 && (
                     <select
                         className="skill-select"
                         onChange={(e) => handleSkillSelect(e.target.value)}
                     >
-                        <option value="">Select a skill</option>
+                        <option value="">Select</option>
                         {skillsData.map((skill) => (
                             <option key={skill} value={skill}>
                                 {skill}
@@ -106,27 +137,35 @@ const SkillsDetailsTemplate2 = ({
                         ))}
                     </select>
                 )}
-                {showDropdown && (
+
+                {/* {!showDropdown && ( */}
+                {showButtons && (
+                    <>
+                        <button className="add-btn" onClick={handleAddMore}>
+                            <AiOutlinePlusCircle size={20} />
+                        </button>
+                        {isEditing && (
+                            <button className="save-btn" onClick={handleSave}>
+                                Save
+                            </button>
+                        )}
+                    </>
+                )}
+
+                {/* {showDropdown && (
                     <button className="save-btn" onClick={handleSave}>
                         Save
                     </button>
-                )}
-                {!showDropdown && (
-                    <button className="add-btn" onClick={handleAddMore}>
-                        <AiOutlinePlusCircle size={20} />
-                    </button>
-                )}
+                )} */}
             </div>
             <EducationDetailsTemplate2
-            // themeColor={themeColor}
-            // backgroundColor={backgroundColor}
-            // textColor={textColor}
-            // subheadingColor={subheadingColor}
+                themeColor={themeColor}
+                // backgroundColor={backgroundColor}
+                textColor={textColor}
+                // subheadingColor={subheadingColor}
+                tempfontSize={tempfontSize}
+                tempfontStyle={tempfontStyle}
             />
-
-            {/*  ------------- ------------ ------------- */}
-
-            {/* -------------- nw     -------- */}
         </>
     );
 };

@@ -1,37 +1,38 @@
 import { useEffect, useState } from "react";
-import {
-    AiFillDelete,
-    AiOutlinePlusCircle,
-    AiOutlineLink,
-} from "react-icons/ai";
+import { AiFillDelete, AiOutlinePlusCircle } from "react-icons/ai";
+import { Input } from "antd";
+const { TextArea } = Input;
 
 const CertificationsTemplate2 = ({
     themeColor,
     backgroundColor,
     textColor,
     subheadingColor,
+    tempfontSize,
+    tempfontStyle,
 }) => {
-    const [certifications, setCertificates] = useState([]);
-    // const [showButtons, setShowButtons] = useState(false);
+    const [certifications, setCertifications] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
-        const storedData = localStorage.getItem("certifications");
+        const storedCertifications = localStorage.getItem("certifications");
 
-        if (storedData) {
-            const parsedData = JSON.parse(storedData);
-            if (Array.isArray(parsedData)) {
-                setCertificates(parsedData);
-            } else {
-                setCertificates([]);
-            }
+        if (storedCertifications) {
+            setCertifications(JSON.parse(storedCertifications));
         } else {
-            setCertificates([]);
+            setCertifications([
+                {
+                    certificationName: "",
+                    organization: "",
+                    year: "",
+                    errors: {},
+                },
+            ]);
         }
     }, []);
 
-    const addCertifications = () => {
-        setCertificates((prevCertifications) => [
+    const addCertification = () => {
+        setCertifications((prevCertifications) => [
             ...prevCertifications,
             {
                 certificationName: "",
@@ -40,21 +41,19 @@ const CertificationsTemplate2 = ({
                 errors: {},
             },
         ]);
-        // setShowButtons(true);
         setIsEditing(true);
     };
 
     const removeCertification = (index) => {
-        setCertificates((prevCertifications) =>
+        setCertifications((prevCertifications) =>
             prevCertifications.filter(
-                (certification, certificationIndex) =>
-                    certificationIndex !== index
+                (_, certificationIndex) => certificationIndex !== index
             )
         );
     };
 
     const handleCertificationChange = (index, property, value) => {
-        setCertificates((prevCertifications) =>
+        setCertifications((prevCertifications) =>
             prevCertifications.map((certification, certificationIndex) => {
                 if (certificationIndex === index) {
                     return { ...certification, [property]: value };
@@ -62,8 +61,7 @@ const CertificationsTemplate2 = ({
                 return certification;
             })
         );
-        // setShowButtons(true);
-        setIsEditing(true); // Set isEditing to true when a field is edited
+        setIsEditing(true);
     };
 
     const handleSubmit = (e) => {
@@ -73,7 +71,6 @@ const CertificationsTemplate2 = ({
 
         const updatedCertifications = certifications.map((certification) => {
             const { certificationName, organization, year } = certification;
-
             const errors = {};
 
             if (certificationName.trim() === "") {
@@ -83,7 +80,7 @@ const CertificationsTemplate2 = ({
 
             if (organization.trim() === "") {
                 errors.organization =
-                    "Organization//Institution cannot be empty";
+                    "Organization/Institution cannot be empty";
                 isValid = false;
             }
 
@@ -100,12 +97,15 @@ const CertificationsTemplate2 = ({
                 "certifications",
                 JSON.stringify(updatedCertifications)
             );
-
-            setCertificates(updatedCertifications);
-            // setShowButtons(false);
-            setIsEditing(false); // Set isEditing to false after successful save
+            setCertifications(
+                updatedCertifications.map((certification) => ({
+                    ...certification,
+                    errors: {},
+                }))
+            );
+            setIsEditing(false);
         } else {
-            setCertificates(updatedCertifications);
+            setCertifications(updatedCertifications);
         }
     };
 
@@ -126,30 +126,44 @@ const CertificationsTemplate2 = ({
         <>
             <div
                 className="resume_item resume_work"
-                style={{
-                    backgroundColor: backgroundColor, // Use the backgroundColor state variable
-                }}
+                style={{ backgroundColor: backgroundColor }}
             >
                 <div className="title">
-                    <p className="bold">Trainings/Certifications</p>
+                    <p
+                        className="bold"
+                        style={{
+                            fontFamily: tempfontStyle,
+                        }}
+                    >
+                        Certifications
+                    </p>
                 </div>
                 <ul>
                     {certifications.map((certification, index) => (
-                        <li>
-                            <div key={index}>
-                                <input
-                                    className="temp2name expTitle"
+                        <li key={index}>
+                            <div>
+                                <textarea
+                                    autoSize
+                                    style={{
+                                        border: "none",
+                                        backgroundColor: "transparent",
+                                        fontFamily: tempfontStyle,
+                                        fontSize: tempfontSize,
+                                    }}
+                                    maxLength={10}
+                                    className="certif_textarea temp2name expTitle"
                                     type="text"
                                     placeholder="Certification Name"
                                     value={certification.certificationName}
-                                    onChange={(e) => {
+                                    onChange={(e) =>
                                         handleCertificationChange(
                                             index,
                                             "certificationName",
                                             e.target.value
-                                        );
-                                    }}
+                                        )
+                                    }
                                     onFocus={() => setIsEditing(true)}
+                                    // style={{ whiteSpace: "normal" }}
                                 />
                                 {certification.errors &&
                                     certification.errors.certificationName && (
@@ -161,7 +175,7 @@ const CertificationsTemplate2 = ({
                                         </p>
                                     )}
 
-                                {isEditing ? (
+                                {isEditing && (
                                     <button
                                         onClick={() =>
                                             removeCertification(index)
@@ -169,21 +183,30 @@ const CertificationsTemplate2 = ({
                                     >
                                         <AiFillDelete />
                                     </button>
-                                ) : null}
+                                )}
 
-                                <input
+                                <TextArea
+                                    autoSize
                                     className="expCompanyName"
                                     type="text"
                                     placeholder="Organization/Institution"
                                     value={certification.organization}
-                                    onChange={(e) => {
+                                    onChange={(e) =>
                                         handleCertificationChange(
                                             index,
                                             "organization",
                                             e.target.value
-                                        );
-                                    }}
+                                        )
+                                    }
                                     onFocus={() => setIsEditing(true)}
+                                    style={{
+                                        border: "none",
+                                        backgroundColor: "transparent",
+                                        fontFamily: tempfontStyle,
+                                        fontSize: tempfontSize,
+                                        // color: textColor,
+                                    }}
+                                    maxLength={30}
                                 />
                                 {certification.errors &&
                                     certification.errors.organization && (
@@ -194,14 +217,18 @@ const CertificationsTemplate2 = ({
                                 <select
                                     className="date-width"
                                     value={certification.year}
-                                    onChange={(e) => {
+                                    onChange={(e) =>
                                         handleCertificationChange(
                                             index,
                                             "year",
                                             e.target.value
-                                        );
-                                    }}
+                                        )
+                                    }
                                     onFocus={() => setIsEditing(true)}
+                                    style={{
+                                        fontFamily: tempfontStyle,
+                                        fontSize: tempfontSize,
+                                    }}
                                 >
                                     <option value="">Select Year</option>
                                     {getYearOptions()}
@@ -215,16 +242,17 @@ const CertificationsTemplate2 = ({
                     ))}
                 </ul>
             </div>
-            {isEditing ? (
+
+            {isEditing && (
                 <>
-                    <button className="add-btn" onClick={addCertifications}>
+                    <button className="add-btn" onClick={addCertification}>
                         <AiOutlinePlusCircle />
                     </button>
                     <button className="save-btn" onClick={handleSubmit}>
                         Save
                     </button>
                 </>
-            ) : null}
+            )}
         </>
     );
 };

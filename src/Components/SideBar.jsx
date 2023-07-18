@@ -6,6 +6,8 @@ const SideBar = ({
     onBackgroundColorChange,
     onTextColorChange,
     onSubheadingColorChange,
+    onFontSizeChange,
+    onFontStyleChange,
 }) => {
     return (
         <div className="side-bar">
@@ -15,6 +17,9 @@ const SideBar = ({
                 onBackgroundColorChange={onBackgroundColorChange}
                 onTextColorChange={onTextColorChange}
                 onSubheadingColorChange={onSubheadingColorChange}
+                // -----------------------------
+                onFontSizeChange={onFontSizeChange}
+                onFontStyleChange={onFontStyleChange}
             />
         </div>
     );

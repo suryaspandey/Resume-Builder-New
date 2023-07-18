@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { preview } from "vite";
 
-const SummaryTemplate2 = () => {
-    <h1>Summary</h1>;
+import { Input } from "antd";
+const { TextArea } = Input;
+
+const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
+    // <h1>Summary</h1>;
 
     const [summary, setSummary] = useState("");
     const [summaryError, setSummaryError] = useState("");
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const storedData = localStorage.getItem("summarytemp2");
@@ -22,6 +25,7 @@ const SummaryTemplate2 = () => {
         } else {
             setSummary(value);
         }
+        setIsEditing(true);
     };
 
     const handleSubmit = (e) => {
@@ -37,22 +41,42 @@ const SummaryTemplate2 = () => {
 
         if (isValid) {
             localStorage.setItem("summarytemp2", JSON.stringify(summary));
+            setIsEditing(false);
         }
     };
 
     return (
         <>
-            <h1>SUmmary from the component</h1>
-            <textarea
+            <TextArea
                 className="summaryTextareaClass"
                 name="summary"
                 value={summary}
                 onChange={handleChange}
+                onFocus={() => {
+                    setIsEditing(true);
+                }}
                 placeholder="What's the one thing that makes you the best candidate for this job?"
-            ></textarea>
-            <button className="save-btn" type="submit" onClick={handleSubmit}>
-                Save
-            </button>
+                autoSize
+                style={{
+                    border: "none",
+                    backgroundColor: "transparent",
+                    fontFamily: tempfontStyle,
+                    fontSize: tempfontSize,
+                }}
+                // showCount
+                maxLength={300}
+            />
+
+            {isEditing && (
+                <button
+                    className="save-btn"
+                    type="submit"
+                    onClick={handleSubmit}
+                >
+                    Save
+                </button>
+            )}
+
             {summaryError && <p>{summaryError}</p>}
         </>
     );

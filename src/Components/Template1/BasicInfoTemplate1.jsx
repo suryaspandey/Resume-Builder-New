@@ -8,6 +8,7 @@ import "./BasicInfoTemplate1.css"; // Import the CSS file for styling
 import ExperienceDetailsTemplate1 from "./ExperienceDetailsTemplate1";
 import ProjectDetailsTemplate1 from "./ProjectDetailsTemplate1";
 import SkillsDetailsTemplate1 from "./SkillsDetailsTemplate1";
+import TextArea from "antd/es/input/TextArea";
 
 const BasicInfoTemplate1 = ({
     themeColor,
@@ -170,6 +171,7 @@ const BasicInfoTemplate1 = ({
                                 style={{
                                     textAlign: "center",
                                     textTransform: "uppercase",
+                                    color: textColor,
                                 }}
                             />
                         </div>
@@ -248,13 +250,19 @@ const BasicInfoTemplate1 = ({
                                     <h1>Personal Profile</h1>
                                 </div>
                                 <div className="sectionContent">
-                                    <textarea
+                                    <TextArea
+                                        autoSize
+                                        maxLength={300}
+                                        style={{
+                                            backgroundColor: "transparent",
+                                            border: "none",
+                                        }}
                                         className=" summaryTextareaClass"
                                         name="summary"
                                         value={formData.summary}
                                         onChange={handleChange}
                                         placeholder="What's the one thing that makes you the best candidate for this job?"
-                                    ></textarea>
+                                    />
                                 </div>
                             </article>
                             <div className="clear"></div>

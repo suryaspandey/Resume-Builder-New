@@ -30,7 +30,7 @@ body {
   width: 800px;
   height: auto;
   display: flex;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
 .resume .resume_left {
@@ -79,7 +79,13 @@ input{
 .resume .resume_item {
   /* padding: 25px 0; */
   padding: 8px 0;
-  border-bottom: 2px solid #b1eaff;
+  /* border-bottom: 2px solid #b1eaff; */
+  margin-left: 10px;
+}
+
+.resume .line{
+  border-bottom: 2px solid red;
+
 }
 
 .resume .resume_left .resume_item:last-child,
@@ -297,7 +303,8 @@ input.titleColor{
 .titletextsize{
   width: 525px;
   resize: none;
-  font-weight: bolder;
+  /* font-weight: bolder; */
+  font: inherit;
 }
 
 textarea {
@@ -318,3 +325,16 @@ textarea {
 .position-date{
   display: flex;
 }
+
+.certif_textarea{
+  font: inherit;
+  min-width: 272px
+}
+.profile_photo_container{
+  display: flex;
+  justify-content: center;
+}
+
+/* .resume_skills{
+  margin-left: 10px;
+} */
