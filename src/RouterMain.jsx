@@ -2,6 +2,7 @@ import App from "./App";
 import MainContent from "./Components/MainContent";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Components/Home";
 
 function RouterMain() {
     const [themeColor, setThemeColor] = useState("black");
@@ -83,7 +84,7 @@ function RouterMain() {
                         tempfontStyle={tempfontStyle}
                     />
                 </Route>
-                <Route path="/">
+                <Route path="/home">
                     <App
                         handleThemeColorChange={handleThemeColorChange}
                         handleBackgroundColorChange={
@@ -103,6 +104,9 @@ function RouterMain() {
                         handleFontSizeChange={handleFontSizeChange}
                         handleFontStyleChange={handleFontStyleChange}
                     />
+                </Route>
+                <Route path="/">
+                    <Home />
                 </Route>
             </Switch>
         </Router>

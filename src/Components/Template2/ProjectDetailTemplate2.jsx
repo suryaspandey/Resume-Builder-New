@@ -288,6 +288,8 @@ const ProjectDetailsTemplate2 = ({
                                 <div className="project-description">
                                     <TextArea
                                         autoSize
+                                        maxLength={250}
+                                        // showCount
                                         // className="titletextsize"
                                         name="description"
                                         placeholder="Description (10-40 words)"
@@ -297,7 +299,7 @@ const ProjectDetailsTemplate2 = ({
                                         style={{
                                             wordWrap: "break-word",
                                             border: "none",
-                                            fontSize: 12,
+                                            // fontSize: 12,
                                             backgroundColor: "transparent",
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,

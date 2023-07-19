@@ -472,7 +472,6 @@ const ExperienceDetailsTemplate2 = ({
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
                                         }}
-                                        spellCheck={true}
                                     />
                                     {experience.errors &&
                                         experience.errors.company && (
@@ -572,6 +571,11 @@ const ExperienceDetailsTemplate2 = ({
                                     {/* </div> */}
                                     <TextArea
                                         autoSize
+                                        // autoSize={{
+                                        //     minRows: 5,
+                                        //     maxRows: 5,
+                                        // }}
+                                        maxLength={250}
                                         placeholder="Description"
                                         value={experience.description}
                                         onChange={(e) =>

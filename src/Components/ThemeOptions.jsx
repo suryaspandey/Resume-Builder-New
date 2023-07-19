@@ -346,6 +346,13 @@ const ThemeOptions = ({
     onFontStyleChange,
 }) => {
     const predefinedColors = {
+        default: {
+            backgroundColor: "#0bb5f4",
+            themeColor: "black",
+            textColor: "#0786d5",
+            subheadingColor: "black",
+        },
+
         option1: {
             backgroundColor: "#D0C7C5  ",
             themeColor: "#8d8fa6",
@@ -378,20 +385,29 @@ const ThemeOptions = ({
     const [fontSize, setFontSize] = useState("small");
     const [fontStyle, setFontStyle] = useState("Arial");
 
-    const [selectedOption, setSelectedOption] = useState("option1");
+    // const [selectedOption, setSelectedOption] = useState("default");
+    const [selectedOption, setSelectedOption] = useState(() => {
+        const storedOption = localStorage.getItem("selectedOption");
+        return storedOption ? storedOption : "default";
+    });
     const [selectedColors, setSelectedColors] = useState(
-        predefinedColors.option1
+        predefinedColors.default
     );
 
     const handleOptionChange = (e) => {
         const option = e.target.value;
         setSelectedOption(option);
+
         setSelectedColors(predefinedColors[option]);
         const colors = predefinedColors[option];
         onBackgroundColorChange(colors.backgroundColor);
         onThemeColorChange(colors.themeColor);
         onTextColorChange(colors.textColor);
-        onSubHeadingColorChange(colors.subheadingColor);
+        // onSubHeadingColorChange(colors.subheadingColor);
+
+        console.log("Before setting local storage");
+        localStorage.setItem("selectedOption", option);
+        console.log("After setting local storage");
     };
 
     const handleColorChange = (color, type) => {
@@ -428,11 +444,11 @@ const ThemeOptions = ({
         const value = e.target.value;
 
         if (value === "small") {
-            fontSizeInPixel = 14;
+            fontSizeInPixel = 12;
         } else if (value === "medium") {
-            fontSizeInPixel = 16;
+            fontSizeInPixel = 14;
         } else if (value === "large") {
-            fontSizeInPixel = 18;
+            fontSizeInPixel = 15;
         }
 
         setFontSize(value);
@@ -505,10 +521,10 @@ const ThemeOptions = ({
                     className="color-box"
                     style={{ backgroundColor: textColor }} // Text color value
                 ></div>
-                <div
+                {/* <div
                     className="color-box"
                     style={{ backgroundColor: subheadingColor }} // Subheading color value
-                ></div>
+                ></div> */}
             </div>
         );
     };
@@ -562,6 +578,10 @@ const ThemeOptions = ({
                     value={selectedOption}
                     optionType="button"
                 >
+                    <Radio style={{ width: 85 }} value="default">
+                        Default
+                    </Radio>
+                    <br />
                     <Radio value="option1">Option 1</Radio>
                     <br />
                     <Radio value="option2">Option 2</Radio>

@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { Input } from "antd";
 const { TextArea } = Input;
 
 const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
-    // <h1>Summary</h1>;
-
     const [summary, setSummary] = useState("");
     const [summaryError, setSummaryError] = useState("");
     const [isEditing, setIsEditing] = useState(false);
+    // const [textareaRows, setTextareaRows] = useState(1);
+    const textareaRef = useRef(null);
 
     useEffect(() => {
         const storedData = localStorage.getItem("summarytemp2");
@@ -16,6 +16,10 @@ const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
             setSummary(JSON.parse(storedData));
         }
     }, []);
+
+    useEffect(() => {
+        adjustTextareaHeight();
+    }, [tempfontSize]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,6 +30,7 @@ const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
             setSummary(value);
         }
         setIsEditing(true);
+        // adjustTextareaHeight();
     };
 
     const handleSubmit = (e) => {
@@ -45,9 +50,21 @@ const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
         }
     };
 
+    const adjustTextareaHeight = () => {
+        const { current: textarea } = textareaRef;
+        if (textarea) {
+            textarea.style.height = "auto";
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+        // if (textarea.scrollHeight > textarea.offsetHeight) {
+        //     textarea.style.height = `${textarea.offsetHeight}px`;
+        // }
+    };
+
     return (
         <>
             <TextArea
+                // ref={textareaRef}
                 className="summaryTextareaClass"
                 name="summary"
                 value={summary}
@@ -56,7 +73,8 @@ const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
                     setIsEditing(true);
                 }}
                 placeholder="What's the one thing that makes you the best candidate for this job?"
-                autoSize
+                // autoSize
+                autoSize={{ minRows: 5, maxRows: 7 }}
                 style={{
                     border: "none",
                     backgroundColor: "transparent",

@@ -290,7 +290,7 @@
     .skill_name{
       font-family: "Roboto Mono";
       color: rgb(40, 38, 38);
-      border: 1px solid black;
+      /* border: 1px solid black; */
     }
 
     .titletextsize{

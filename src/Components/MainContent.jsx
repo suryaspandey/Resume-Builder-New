@@ -169,7 +169,10 @@ const MainContent = ({
                     tempfontStyle={tempfontStyle}
                 />
 
-                <button className="save-btn" onClick={togglePreviewMode}>
+                <button
+                    className="save-btn preview-btn"
+                    onClick={togglePreviewMode}
+                >
                     Toggle Preview Mode
                 </button>
             </>

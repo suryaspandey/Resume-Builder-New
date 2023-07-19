@@ -313,7 +313,10 @@ const BasicInfoTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <TextArea
-                                                autoSize
+                                                autoSize={{
+                                                    minRows: 3,
+                                                    maxRows: 5,
+                                                }}
                                                 style={{
                                                     border: "none",
                                                     backgroundColor:
