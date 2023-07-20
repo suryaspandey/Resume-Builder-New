@@ -107,10 +107,9 @@ import BasicInfoTemplate1 from "./Template1/BasicInfoTemplate1";
 import ExperienceDetailsTemplate1 from "./Template1/ExperienceDetailsTemplate1";
 
 import BasicInfoTemplate2 from "./Template2/BasicInfoTemplate2";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-// import templatePreview1 from "../template_previews/template_preview1.PNG";
-// import templatePreview2 from "../template_previews/template_preview2.PNG";
-// Import other template preview images as needed
+// import SideBar from "./SideBar";
 
 const MainContent = ({
     themeColor,
@@ -120,12 +119,17 @@ const MainContent = ({
     // ----------
     tempfontSize,
     tempfontStyle,
+    // selectedTemplate,
 }) => {
     let history = useHistory();
+
+    const { templateName } = useParams();
 
     const togglePreviewMode = () => {
         history.push("/preview");
     };
+
+    const [selectedImage, setSelectedImage] = useState();
 
     const [showProfilePhoto, setShowProfilePhoto] = useState(true);
 
@@ -133,41 +137,49 @@ const MainContent = ({
         setShowProfilePhoto(value);
     };
 
-    // const templatePreview1 =
-    //     require("../template_previews/template_preview1.PNG").default;
-
-    // const templatePreviews = [
-    //     { image: templatePreview1, component: BasicInfoTemplate1 },
-    //     { image: templatePreview2, component: BasicInfoTemplate2 },
-    //     // Add more objects for additional templates
-    // ];
+    // const handleImageSelect = (imageNumber) => {
+    //     setSelectedImage(imageNumber);
+    // };
 
     return (
         <div className="all-components">
             <>
-                <BasicInfoTemplate2
-                    themeColor={themeColor}
-                    backgroundColor={backgroundColor}
-                    textColor={textColor}
-                    subheadingColor={subheadingColor}
-                    showProfilePhoto={showProfilePhoto}
-                    onShowProfilePhotoChange={handleShowProfilePhotoChange}
-                    // ---------
-                    tempfontSize={tempfontSize}
-                    tempfontStyle={tempfontStyle}
-                />
-
-                <BasicInfoTemplate1
-                    themeColor={themeColor}
-                    backgroundColor={backgroundColor}
-                    textColor={textColor}
-                    subheadingColor={subheadingColor}
-                    showProfilePhoto={showProfilePhoto}
-                    onShowProfilePhotoChange={handleShowProfilePhotoChange}
-                    // --------------
-                    tempfontSize={tempfontSize}
-                    tempfontStyle={tempfontStyle}
-                />
+                {templateName === "template2" && (
+                    <>
+                        {/* <SideBar /> */}
+                        <BasicInfoTemplate2
+                            themeColor={themeColor}
+                            backgroundColor={backgroundColor}
+                            textColor={textColor}
+                            subheadingColor={subheadingColor}
+                            showProfilePhoto={showProfilePhoto}
+                            onShowProfilePhotoChange={
+                                handleShowProfilePhotoChange
+                            }
+                            // ---------
+                            tempfontSize={tempfontSize}
+                            tempfontStyle={tempfontStyle}
+                        />
+                    </>
+                )}
+                {templateName === "template1" && (
+                    <>
+                        {/* <SideBar /> */}
+                        <BasicInfoTemplate1
+                            themeColor={themeColor}
+                            backgroundColor={backgroundColor}
+                            textColor={textColor}
+                            subheadingColor={subheadingColor}
+                            showProfilePhoto={showProfilePhoto}
+                            onShowProfilePhotoChange={
+                                handleShowProfilePhotoChange
+                            }
+                            // --------------
+                            tempfontSize={tempfontSize}
+                            tempfontStyle={tempfontStyle}
+                        />
+                    </>
+                )}
 
                 <button
                     className="save-btn preview-btn"
