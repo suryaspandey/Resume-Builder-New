@@ -126,6 +126,10 @@ import { useHistory } from "react-router-dom";
 import Home from "./Components/Home";
 import MainContent from "./Components/MainContent";
 import App from "./App";
+import Login from "./Components/Login";
+import Registration from "./Components/Registration";
+import { Container } from "react-bootstrap";
+import { AuthProvider } from "./Contexts/AuthContext";
 
 const RouterMain = () => {
     const [themeColor, setThemeColor] = useState("black");
@@ -181,13 +185,6 @@ const RouterMain = () => {
 
     const history = useHistory();
 
-    // const handleTemplateSelect = (templateName) => {
-    //     const newPath = `/home/${templateName}`;
-    //     if (history.location.pathname !== newPath) {
-    //         history.push(newPath);
-    //     }
-    // };
-
     return (
         <Router>
             <Switch>
@@ -224,18 +221,31 @@ const RouterMain = () => {
                     />
                 </Route>
                 <Route path="/home">
-                    <Home
-                        handleTemplateSelect={handleTemplateSelect}
-                        // history={history}
-                    />
-                </Route>
-
-                <Route path="/">
-                    <Login />
+                    <Home handleTemplateSelect={handleTemplateSelect} />
                 </Route>
 
                 <Route path="/register">
-                    <Registration />
+                    {/* <AuthProvider> */}
+                    <Container
+                        className="d-flex align-items-center justify-content-center"
+                        style={{ minHeight: "100vh" }}
+                    >
+                        <div className="w-100" style={{ maxWidth: "300px" }}>
+                            <Registration />
+                        </div>
+                    </Container>
+                    {/* </AuthProvider> */}
+                </Route>
+
+                <Route path="/">
+                    <Container
+                        className="d-flex align-items-center justify-content-center"
+                        style={{ minHeight: "100vh" }}
+                    >
+                        <div className="w-100" style={{ maxWidth: "300px" }}>
+                            <Login />
+                        </div>
+                    </Container>
                 </Route>
             </Switch>
         </Router>
