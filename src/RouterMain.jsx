@@ -233,6 +233,11 @@ const RouterMain = () => {
                         )
                     }
                 />
+                <Route path="/choose-template">
+                    <ChooseTemplate
+                        handleTemplateSelect={handleTemplateSelect}
+                    />
+                </Route>
 
                 <Route path="/preview">
                     <MainContent

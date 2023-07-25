@@ -8,6 +8,7 @@ const SideBar = ({
     onSubheadingColorChange,
     onFontSizeChange,
     onFontStyleChange,
+    onTemplateSelect,
 }) => {
     return (
         <div className="side-bar">
@@ -20,6 +21,7 @@ const SideBar = ({
                 // -----------------------------
                 onFontSizeChange={onFontSizeChange}
                 onFontStyleChange={onFontStyleChange}
+                onTemplateSelect={onTemplateSelect}
             />
         </div>
     );

@@ -18,6 +18,7 @@ const App = ({
     tempfontStyle,
     handleFontSizeChange,
     handleFontStyleChange,
+    handleTemplateSelect,
 }) => {
     return (
         <div className="main-container">
@@ -29,6 +30,7 @@ const App = ({
                 // ------------------------
                 onFontSizeChange={handleFontSizeChange}
                 onFontStyleChange={handleFontStyleChange}
+                onTemplateSelect={handleTemplateSelect}
             />
             <MainContent
                 themeColor={themeColor}

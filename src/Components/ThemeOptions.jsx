@@ -335,6 +335,10 @@
 
 import React, { useState } from "react";
 import { Radio, ColorPicker, Select } from "antd";
+import { Card, Layout, Space } from "antd";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
+import ChooseTemplate from "./ChooseTemplate";
 
 const ThemeOptions = ({
     onThemeColorChange,
@@ -344,6 +348,7 @@ const ThemeOptions = ({
     // ------------
     onFontSizeChange,
     onFontStyleChange,
+    onTemplateSelect,
 }) => {
     const predefinedColors = {
         default: {
@@ -381,6 +386,8 @@ const ThemeOptions = ({
         },
         // Add more options if needed
     };
+
+    const history = useHistory();
 
     const [fontSize, setFontSize] = useState("small");
     const [fontStyle, setFontStyle] = useState("Arial");
@@ -570,6 +577,11 @@ const ThemeOptions = ({
         );
     };
 
+    const handleCardClick = (templateName) => {
+        onTemplateSelect(templateName);
+        history.push(`/home/${templateName}`);
+    };
+
     return (
         <div className="theme-options-container">
             <div className="option-bar">
@@ -595,6 +607,37 @@ const ThemeOptions = ({
             {renderColorPreview()}
             {renderFontStyleSelector()}
             {renderFontSizeSelector()}
+            {/* <ChooseTemplate /> */}
+            <h4>Choose Template</h4>
+            <div className="home_content">
+                <Card
+                    hoverable
+                    style={{
+                        width: 250,
+                    }}
+                    cover={
+                        <img
+                            alt="template1"
+                            height={150}
+                            src="/template_previews/template_preview1.PNG"
+                        />
+                    }
+                    onClick={() => handleCardClick("template1")}
+                ></Card>
+                <Card
+                    hoverable
+                    style={{
+                        width: 150,
+                    }}
+                    cover={
+                        <img
+                            alt="template2"
+                            src="/template_previews/template_preview2.PNG"
+                        />
+                    }
+                    onClick={() => handleCardClick("template2")}
+                ></Card>
+            </div>
         </div>
     );
 };
