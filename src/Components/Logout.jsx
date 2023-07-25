@@ -1,6 +1,6 @@
 // Logout.js
 import React from "react";
-import { auth } from "../firebaseConfig";
+import { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
 
 const Logout = () => {
@@ -8,7 +8,7 @@ const Logout = () => {
     const handleLogout = async () => {
         try {
             await auth.signOut();
-            history.push("/home");
+            history.push("/");
             // Logout successful, you can redirect the user or show a success message
         } catch (error) {
             console.error("Error during logout:", error);

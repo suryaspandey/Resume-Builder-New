@@ -123,13 +123,18 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import Home from "./Components/Home";
+import ChooseTemplate from "./Components/ChooseTemplate";
 import MainContent from "./Components/MainContent";
 import App from "./App";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import { Container } from "react-bootstrap";
+import Home from "./Components/Home";
 import { AuthProvider } from "./Contexts/AuthContext";
+import PrivateRoute from "./Components/PrivateRoute";
+import { auth } from "./firebase";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import PageNotFound from "./Components/PageNotFound";
 
 const RouterMain = () => {
     const [themeColor, setThemeColor] = useState("black");
@@ -184,10 +189,51 @@ const RouterMain = () => {
     };
 
     const history = useHistory();
+    const { currentUser } = auth;
+    console.log(currentUser);
 
     return (
         <Router>
             <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+
+                <Route path="/login">
+                    <Container
+                        className="d-flex align-items-center justify-content-center"
+                        style={{ minHeight: "100vh" }}
+                    >
+                        <div className="w-100" style={{ maxWidth: "300px" }}>
+                            <Login />
+                        </div>
+                    </Container>
+                </Route>
+
+                <Route path="/register">
+                    <Container
+                        className="d-flex align-items-center justify-content-center"
+                        style={{ minHeight: "100vh" }}
+                    >
+                        <div className="w-100" style={{ maxWidth: "300px" }}>
+                            <Registration />
+                        </div>
+                    </Container>
+                </Route>
+
+                <Route
+                    path="/choose-template"
+                    render={() =>
+                        currentUser ? (
+                            <ChooseTemplate
+                                handleTemplateSelect={handleTemplateSelect}
+                            />
+                        ) : (
+                            <Redirect to="/login" />
+                        )
+                    }
+                />
+
                 <Route path="/preview">
                     <MainContent
                         themeColor={themeColor}
@@ -198,6 +244,7 @@ const RouterMain = () => {
                         tempfontStyle={tempfontStyle}
                     />
                 </Route>
+
                 <Route path="/home/:templateName">
                     <App
                         handleTemplateSelect={handleTemplateSelect}
@@ -217,36 +264,10 @@ const RouterMain = () => {
                         tempfontStyle={tempfontStyle}
                         handleFontSizeChange={handleFontSizeChange}
                         handleFontStyleChange={handleFontStyleChange}
-                        // selectedTemplate={selectedTemplate}
                     />
                 </Route>
-                <Route path="/home">
-                    <Home handleTemplateSelect={handleTemplateSelect} />
-                </Route>
-
-                <Route path="/register">
-                    {/* <AuthProvider> */}
-                    <Container
-                        className="d-flex align-items-center justify-content-center"
-                        style={{ minHeight: "100vh" }}
-                    >
-                        <div className="w-100" style={{ maxWidth: "300px" }}>
-                            <Registration />
-                        </div>
-                    </Container>
-                    {/* </AuthProvider> */}
-                </Route>
-
-                <Route path="/">
-                    <Container
-                        className="d-flex align-items-center justify-content-center"
-                        style={{ minHeight: "100vh" }}
-                    >
-                        <div className="w-100" style={{ maxWidth: "300px" }}>
-                            <Login />
-                        </div>
-                    </Container>
-                </Route>
+                {/* Handle the case when no routes match */}
+                <Route render={() => <PageNotFound />} />
             </Switch>
         </Router>
     );

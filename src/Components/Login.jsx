@@ -2,10 +2,12 @@
 import React from "react";
 import { Formik, Field, ErrorMessage } from "formik";
 import { Form, Input, Button, Alert } from "antd";
+import "../components/login_registration_logout.css";
 
 import * as Yup from "yup";
 import { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const LoginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
@@ -22,14 +24,15 @@ const Login = () => {
                 values.password
             );
 
-            history.push("/home");
+            history.push("/");
         } catch (error) {
             console.error("Error during login:", error);
+            alert("Invalid credentials");
         }
     };
 
     return (
-        <div>
+        <div className="login_container">
             <h2>Login</h2>
             <Formik
                 initialValues={{ email: "", password: "" }}
@@ -94,6 +97,19 @@ const Login = () => {
                         <div>
                             <ErrorMessage name="email" component="div" />
                             <ErrorMessage name="password" component="div" />
+                        </div>
+                        <div className="registration_route">
+                            <h6 style={{ textAlign: "center" }}>
+                                Don't have an account?
+                                <span>
+                                    <Link
+                                        to="/register"
+                                        style={{ fontStyle: "Italic" }}
+                                    >
+                                        Register
+                                    </Link>
+                                </span>
+                            </h6>
                         </div>
                     </Form>
                 )}

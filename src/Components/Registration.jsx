@@ -4,6 +4,7 @@ import { Form, Input, Button, Alert } from "antd";
 import * as Yup from "yup";
 import { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
+import "../components/login_registration_logout.css";
 
 const RegistrationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -24,9 +25,12 @@ const Registration = () => {
                 values.email,
                 values.password
             );
-            history.push("/home");
+            history.push("/");
         } catch (error) {
             console.error("Error during registration:", error);
+            <Alert>
+                <p>Error during registration</p>
+            </Alert>;
         }
     };
 
