@@ -334,11 +334,14 @@
 // export default ThemeOptions;
 
 import React, { useState } from "react";
-import { Radio, ColorPicker, Select } from "antd";
+import { Radio, ColorPicker, Select, Popover, Button, Collapse } from "antd";
 import { Card, Layout, Space } from "antd";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import ChooseTemplate from "./ChooseTemplate";
+
+const { Option } = Select;
+const { Panel } = Collapse;
 
 const ThemeOptions = ({
     onThemeColorChange,
@@ -401,6 +404,41 @@ const ThemeOptions = ({
         predefinedColors.default
     );
 
+    const handleThemeChange = (e) => {
+        setSelectedOption(e.target.value);
+        setSelectedColors(predefinedColors[e.target.value]);
+    };
+
+    const renderThemeOptions = () => {
+        return (
+            <div className="theme-options">
+                <Radio.Group
+                    onChange={(e) => {
+                        handleThemeChange(e);
+                        handleOptionChange(e);
+                    }}
+                    // onChange={handleThemeChange}
+                    value={selectedOption}
+                    optionType="button"
+                >
+                    <Radio style={{ width: 85 }} value="default">
+                        Default
+                    </Radio>
+                    <br />
+                    <Radio value="option1">Option 1</Radio>
+                    <br />
+                    <Radio value="option2">Option 2</Radio>
+                    <br />
+                    <Radio value="option3">Option 3</Radio>
+                    <br />
+                    <Radio value="option4">Option 4</Radio>
+                </Radio.Group>
+
+                {renderColorPreview()}
+            </div>
+        );
+    };
+
     const handleOptionChange = (e) => {
         const option = e.target.value;
         setSelectedOption(option);
@@ -412,9 +450,9 @@ const ThemeOptions = ({
         onTextColorChange(colors.textColor);
         // onSubHeadingColorChange(colors.subheadingColor);
 
-        console.log("Before setting local storage");
+        // console.log("Before setting local storage");
         localStorage.setItem("selectedOption", option);
-        console.log("After setting local storage");
+        // console.log("After setting local storage");
     };
 
     const handleColorChange = (color, type) => {
@@ -539,7 +577,7 @@ const ThemeOptions = ({
     const renderFontStyleSelector = () => {
         return (
             <div className="font-style-selector">
-                <span>Font Style:</span>
+                {/* <span>Font Style:</span> */}
                 <Select
                     defaultValue={fontStyle}
                     style={{ width: 120 }}
@@ -563,7 +601,7 @@ const ThemeOptions = ({
     const renderFontSizeSelector = () => {
         return (
             <div className="font-size-selector">
-                <span>Font Size: </span>
+                {/* <span>Font Size: </span> */}
                 <Radio.Group
                     defaultValue={fontSize}
                     // style={{ width: "120px" }}
@@ -582,9 +620,44 @@ const ThemeOptions = ({
         history.push(`/home/${templateName}`);
     };
 
+    const content = (
+        <div>
+            <Card
+                hoverable
+                style={{
+                    width: 100,
+                }}
+                cover={
+                    <img
+                        alt="template1"
+                        // height={100}
+                        // width={100}
+                        src="/template_previews/template_preview1.PNG"
+                    />
+                }
+                onClick={() => handleCardClick("template1")}
+            ></Card>
+            <Card
+                hoverable
+                style={{
+                    width: 100,
+                }}
+                cover={
+                    <img
+                        // height={100}
+                        alt="template2"
+                        src="/template_previews/template_preview2.PNG"
+                    />
+                }
+                onClick={() => handleCardClick("template2")}
+            ></Card>
+        </div>
+    );
+
     return (
         <div className="theme-options-container">
             <div className="option-bar">
+                <span>Choose Theme</span>
                 <Radio.Group
                     onChange={handleOptionChange}
                     value={selectedOption}
@@ -608,13 +681,18 @@ const ThemeOptions = ({
             {renderFontStyleSelector()}
             {renderFontSizeSelector()}
             {/* <ChooseTemplate /> */}
-            <h4>Choose Template</h4>
-            <div className="home_content">
-                <Card
+            {/* <h4>Choose Template</h4> */}
+            <div className="home_content ">
+                <Popover content={content} title="Title">
+                    <Button type="primary">Choose Template</Button>
+                </Popover>
+                {/* <Card
                     hoverable
-                    style={{
-                        width: 250,
-                    }}
+                    style={
+                        {
+                            // width: 250,
+                        }
+                    }
                     cover={
                         <img
                             alt="template1"
@@ -636,8 +714,29 @@ const ThemeOptions = ({
                         />
                     }
                     onClick={() => handleCardClick("template2")}
-                ></Card>
+                ></Card> */}
             </div>
+
+            {/* Accordian  */}
+
+            <Collapse accordion defaultActiveKey="1">
+                <Panel header="Choose Template" key="1">
+                    <Popover content={content} title="Title">
+                        <Button type="primary">Choose Template</Button>
+                    </Popover>
+                </Panel>
+                {/* Add more panels for other options */}
+                <Panel header="Theme Options" key="2">
+                    {renderThemeOptions()}
+                    {/* {renderColorPreview()} */}
+                </Panel>
+                <Panel header="Font Style" key="3">
+                    {renderFontStyleSelector()}
+                </Panel>
+                <Panel header="Font Size" key="4">
+                    {renderFontSizeSelector()}
+                </Panel>
+            </Collapse>
         </div>
     );
 };

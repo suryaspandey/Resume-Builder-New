@@ -9,6 +9,7 @@ import "./template2.css"; // Import the CSS file for styling
 
 import SkillsDetailsTemplate2 from "./SkillsDetailsTemplate2";
 import ExperienceDetailsTemplate2 from "./ExperienceDetailsTemplate2";
+import PreviewTemplate2 from "./PreviewTemplate2";
 // import TextArea from "antd/es/input/TextArea";
 
 import { Input } from "antd";
@@ -43,6 +44,12 @@ const BasicInfoTemplate2 = ({
 
     const [isTyping, setIsTyping] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+
+    const [isPreviewMode, setIsPreviewMode] = useState(false);
+
+    const handleToggleMode = () => {
+        setIsPreviewMode((prevMode) => !prevMode);
+    };
 
     useEffect(() => {
         const storedData = localStorage.getItem("basicInfo");
@@ -157,229 +164,274 @@ const BasicInfoTemplate2 = ({
             setIsEditing(false);
         }
     };
-    const summaryTextareaClass = isTyping
-        ? "summary-textarea active"
-        : "summary-textarea";
+
+    const togglePreviewMode = () => {
+        setIsPreviewMode((prevMode) => !prevMode);
+    };
 
     return (
         <>
-            <div className="resume">
-                <form onSubmit={handleSubmit}>
-                    <div
-                        className="resume_left"
-                        style={{
-                            backgroundColor: backgroundColor,
-                        }}
-                    >
-                        {isEditing ? (
-                            <>
-                                <div className="profile_photo_container">
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            checked={showProfilePhoto}
-                                            onChange={handleCheckboxChange}
-                                        />
-                                        Show Profile Photo
-                                    </label>
-                                </div>
-                            </>
-                        ) : null}
-                        {showProfilePhoto && (
-                            <div className="resume_profile">
-                                <ProfilePhoto
-                                    onPhotoSelect={handlePhotoSelect}
-                                />
-                            </div>
-                        )}
-
-                        <div className="resume_content">
-                            <div className="resume_item resume_info">
-                                <div className="title">
-                                    <input
-                                        className="bold basic-info"
-                                        type="text"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        onFocus={() => setIsEditing(true)}
-                                        placeholder="Name"
-                                        style={{
-                                            textTransform: "uppercase",
-                                            fontFamily: tempfontStyle,
-                                            fontSize: tempfontSize,
-                                        }}
-                                    />
-                                    <input
-                                        className="regular basic-info"
-                                        type="text"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        onFocus={() => setIsEditing(true)}
-                                        placeholder="Current Role"
-                                        style={{
-                                            fontFamily: tempfontStyle,
-                                            fontSize: tempfontSize,
-                                        }}
-                                    />
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div className="icon ">
-                                            <i
-                                                class="fas fa-map-signs"
-                                                style={{ color: themeColor }}
-                                            ></i>
-                                        </div>
-                                        <div className="data">
-                                            <input
-                                                className="basic-info"
-                                                type="text"
-                                                name="location"
-                                                value={formData.location}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Location"
-                                                style={{
-                                                    // color: themeColor,
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="icon">
-                                            <i
-                                                class="fas fa-mobile-alt"
-                                                style={{ color: themeColor }}
-                                            ></i>
-                                        </div>
-                                        <div className="data">
-                                            <input
-                                                className="basic-info"
-                                                type="text"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Phone"
-                                                style={{
-                                                    // color: themeColor,
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="icon">
-                                            <i
-                                                className="fas fa-envelope"
-                                                style={{ color: themeColor }}
-                                            ></i>
-                                        </div>
-                                        <div className="data">
-                                            <input
-                                                className="basic-info"
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Email"
-                                                style={{
-                                                    // color: themeColor,
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div className="icon">
-                                            <FaLinkedin
-                                                className="linkedin"
-                                                style={{ color: themeColor }}
-                                            />
-                                        </div>
-                                        <div className="data">
-                                            <TextArea
-                                                autoSize={{
-                                                    minRows: 3,
-                                                    maxRows: 5,
-                                                }}
-                                                style={{
-                                                    border: "none",
-                                                    backgroundColor:
-                                                        "transparent",
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                                className="basic-info"
-                                                type="text"
-                                                name="linkedin"
-                                                value={formData.linkedin}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="LinkedIn"
-                                            />
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            {isEditing ? (
-                                <button className="save-btn" type="submit">
-                                    Save
-                                </button>
-                            ) : null}
-
-                            {/* <br /> */}
-                            {nameError && <p>{nameError}</p>}
-                            {phoneError && <p>{phoneError}</p>}
-                            {emailError && <p>{emailError}</p>}
-                            {linkedinError && <p>{linkedinError}</p>}
-                            {summaryError && <p>{summaryError}</p>}
-                        </div>
-
-                        <div
-                            className="resume resume_item"
-                            style={{
-                                borderBottom: `2px solid ${themeColor}`,
-                                width: "90%",
-                            }}
-                        ></div>
-
-                        <SkillsDetailsTemplate2
-                            themeColor={themeColor}
-                            backgroundColor={backgroundColor}
-                            textColor={textColor}
-                            tempfontSize={tempfontSize}
-                            tempfontStyle={tempfontStyle}
-                        />
-                        {/* </div> */}
-                    </div>
-                </form>
-
-                <ExperienceDetailsTemplate2
+            {isPreviewMode ? (
+                <PreviewTemplate2
+                    formData={formData}
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}
                     textColor={textColor}
                     subheadingColor={subheadingColor}
+                    showProfilePhoto={showProfilePhoto}
+                    onShowProfilePhotoChange={onShowProfilePhotoChange}
                     tempfontSize={tempfontSize}
                     tempfontStyle={tempfontStyle}
                 />
-            </div>
+            ) : (
+                <div className="resume">
+                    <form onSubmit={handleSubmit}>
+                        <div
+                            className="resume_left"
+                            style={{
+                                backgroundColor: backgroundColor,
+                            }}
+                        >
+                            {isEditing ? (
+                                <>
+                                    <div className="profile_photo_container">
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                checked={showProfilePhoto}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                            Show Profile Photo
+                                        </label>
+                                    </div>
+                                </>
+                            ) : null}
+                            {showProfilePhoto && (
+                                <div className="resume_profile">
+                                    <ProfilePhoto
+                                        onPhotoSelect={handlePhotoSelect}
+                                    />
+                                </div>
+                            )}
+
+                            <div className="resume_content">
+                                <div className="resume_item resume_info">
+                                    <div className="title">
+                                        <input
+                                            className="bold basic-info"
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            onFocus={() => setIsEditing(true)}
+                                            placeholder="Name"
+                                            style={{
+                                                textTransform: "uppercase",
+                                                fontFamily: tempfontStyle,
+                                                fontSize: tempfontSize,
+                                            }}
+                                        />
+                                        <input
+                                            className="regular basic-info"
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            onFocus={() => setIsEditing(true)}
+                                            placeholder="Current Role"
+                                            style={{
+                                                fontFamily: tempfontStyle,
+                                                fontSize: tempfontSize,
+                                            }}
+                                        />
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div className="icon ">
+                                                <i
+                                                    class="fas fa-map-signs"
+                                                    style={{
+                                                        color: themeColor,
+                                                    }}
+                                                ></i>
+                                            </div>
+                                            <div className="data">
+                                                <input
+                                                    className="basic-info"
+                                                    type="text"
+                                                    name="location"
+                                                    value={formData.location}
+                                                    onChange={handleChange}
+                                                    onFocus={() =>
+                                                        setIsEditing(true)
+                                                    }
+                                                    placeholder="Location"
+                                                    style={{
+                                                        // color: themeColor,
+                                                        fontFamily:
+                                                            tempfontStyle,
+                                                        fontSize: tempfontSize,
+                                                    }}
+                                                />
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div className="icon">
+                                                <i
+                                                    class="fas fa-mobile-alt"
+                                                    style={{
+                                                        color: themeColor,
+                                                    }}
+                                                ></i>
+                                            </div>
+                                            <div className="data">
+                                                <input
+                                                    className="basic-info"
+                                                    type="text"
+                                                    name="phone"
+                                                    value={formData.phone}
+                                                    onChange={handleChange}
+                                                    onFocus={() =>
+                                                        setIsEditing(true)
+                                                    }
+                                                    placeholder="Phone"
+                                                    style={{
+                                                        // color: themeColor,
+                                                        fontFamily:
+                                                            tempfontStyle,
+                                                        fontSize: tempfontSize,
+                                                    }}
+                                                />
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div className="icon">
+                                                <i
+                                                    className="fas fa-envelope"
+                                                    style={{
+                                                        color: themeColor,
+                                                    }}
+                                                ></i>
+                                            </div>
+                                            <div className="data">
+                                                <input
+                                                    className="basic-info"
+                                                    type="email"
+                                                    name="email"
+                                                    value={formData.email}
+                                                    onChange={handleChange}
+                                                    onFocus={() =>
+                                                        setIsEditing(true)
+                                                    }
+                                                    placeholder="Email"
+                                                    style={{
+                                                        // color: themeColor,
+                                                        fontFamily:
+                                                            tempfontStyle,
+                                                        fontSize: tempfontSize,
+                                                    }}
+                                                />
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div className="icon">
+                                                <FaLinkedin
+                                                    className="linkedin"
+                                                    style={{
+                                                        color: themeColor,
+                                                    }}
+                                                />
+                                            </div>
+                                            <div className="data">
+                                                <TextArea
+                                                    autoSize={{
+                                                        minRows: 3,
+                                                        maxRows: 5,
+                                                    }}
+                                                    style={{
+                                                        border: "none",
+                                                        backgroundColor:
+                                                            "transparent",
+                                                        fontFamily:
+                                                            tempfontStyle,
+                                                        fontSize: tempfontSize,
+                                                    }}
+                                                    className="basic-info"
+                                                    type="text"
+                                                    name="linkedin"
+                                                    value={formData.linkedin}
+                                                    onChange={handleChange}
+                                                    onFocus={() =>
+                                                        setIsEditing(true)
+                                                    }
+                                                    placeholder="LinkedIn"
+                                                />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {isEditing ? (
+                                    <button className="save-btn" type="submit">
+                                        Save
+                                    </button>
+                                ) : null}
+
+                                {/* <br /> */}
+                                {nameError && <p>{nameError}</p>}
+                                {phoneError && <p>{phoneError}</p>}
+                                {emailError && <p>{emailError}</p>}
+                                {linkedinError && <p>{linkedinError}</p>}
+                                {summaryError && <p>{summaryError}</p>}
+
+                                {isPreviewMode ? (
+                                    <PreviewTemplate2
+                                        formData={formData} // Pass the formData to PreviewTemplate2
+                                        showProfilePhoto={showProfilePhoto}
+                                        themeColor={themeColor}
+                                        backgroundColor={backgroundColor}
+                                        textColor={textColor}
+                                        subheadingColor={subheadingColor}
+                                        tempfontSize={tempfontSize}
+                                        tempfontStyle={tempfontStyle}
+                                    />
+                                ) : null}
+                            </div>
+
+                            <div
+                                className="resume resume_item"
+                                style={{
+                                    borderBottom: `2px solid ${themeColor}`,
+                                    width: "90%",
+                                }}
+                            ></div>
+
+                            <SkillsDetailsTemplate2
+                                themeColor={themeColor}
+                                backgroundColor={backgroundColor}
+                                textColor={textColor}
+                                tempfontSize={tempfontSize}
+                                tempfontStyle={tempfontStyle}
+                            />
+                            {/* </div> */}
+                        </div>
+                    </form>
+
+                    <ExperienceDetailsTemplate2
+                        themeColor={themeColor}
+                        backgroundColor={backgroundColor}
+                        textColor={textColor}
+                        subheadingColor={subheadingColor}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
+                    />
+                </div>
+            )}
+            <button className="save-btn preview-btn" onClick={handleToggleMode}>
+                {isPreviewMode
+                    ? "Switch to Edit Mode"
+                    : "Switch to Preview Mode"}
+            </button>
         </>
     );
 };

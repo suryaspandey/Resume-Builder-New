@@ -127,6 +127,7 @@ const MainContent = ({
 
     const togglePreviewMode = () => {
         history.push("/preview");
+        // setIsPreviewMode((prevState) => !prevState);
     };
 
     const [selectedImage, setSelectedImage] = useState();
@@ -181,12 +182,12 @@ const MainContent = ({
                     </>
                 )}
 
-                <button
+                {/* <button
                     className="save-btn preview-btn"
                     onClick={togglePreviewMode}
                 >
                     Toggle Preview Mode
-                </button>
+                </button> */}
             </>
         </div>
     );

@@ -221,7 +221,7 @@ const RouterMain = () => {
                     </Container>
                 </Route>
 
-                <Route
+                {/* <Route
                     path="/choose-template"
                     render={() =>
                         currentUser ? (
@@ -232,7 +232,7 @@ const RouterMain = () => {
                             <Redirect to="/login" />
                         )
                     }
-                />
+                /> */}
                 <Route path="/choose-template">
                     <ChooseTemplate
                         handleTemplateSelect={handleTemplateSelect}
