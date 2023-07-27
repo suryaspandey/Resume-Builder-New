@@ -24,7 +24,7 @@ const ProjectDetailsTemplate2 = ({
     const [projects, setProjects] = useState([]);
     // const [showButtons, setShowButtons] = useState(false); // new
     const [isEditing, setIsEditing] = useState(false);
-    // const [isOptionalVisible, setIsOptionalVisible] = useState(false);
+    const [isCodeUrl, setIsOptionalVisible] = useState(false);
 
     useEffect(() => {
         const storedProjects = localStorage.getItem("projects");
@@ -146,8 +146,6 @@ const ProjectDetailsTemplate2 = ({
 
         if (isFormValid) {
             localStorage.setItem("projects", JSON.stringify(updatedProjects));
-            // setShowButtons(false);
-            // setIsEditing(false);
         }
         setIsEditing(false);
     };
@@ -259,7 +257,7 @@ const ProjectDetailsTemplate2 = ({
                                             <p>{project.errors.codeUrl}</p>
                                         )}
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <RiLinksFill
                                             color={themeColor}
                                             style={{
@@ -283,7 +281,7 @@ const ProjectDetailsTemplate2 = ({
                                         {project.errors.hostedUrl && (
                                             <p>{project.errors.hostedUrl}</p>
                                         )}
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="project-description">
                                     <TextArea

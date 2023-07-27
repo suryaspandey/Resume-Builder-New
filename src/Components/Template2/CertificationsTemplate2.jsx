@@ -150,7 +150,7 @@ const CertificationsTemplate2 = ({
                                         fontFamily: tempfontStyle,
                                         fontSize: tempfontSize,
                                     }}
-                                    maxLength={10}
+                                    maxLength={50}
                                     className="certif_textarea temp2name expTitle"
                                     type="text"
                                     placeholder="Certification Name"

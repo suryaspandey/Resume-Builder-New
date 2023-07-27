@@ -338,3 +338,21 @@ textarea {
 /* .resume_skills{
   margin-left: 10px;
 } */
+
+/* Preview Template CSS */
+.school-clg-name-container-preview{
+  gap: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hoverable {
+  cursor: pointer;
+}
+
+.work_exp_hover:hover {
+  color: blue;
+}
+

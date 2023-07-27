@@ -4,6 +4,8 @@ import { FaEnvelope, FaLinkedin, FaLocationArrow } from "react-icons/fa";
 import TextArea from "antd/es/input/TextArea";
 import SkillsDetailsTemplate2 from "./SkillsDetailsTemplate2";
 import ExperienceDetailsTemplate2 from "./ExperienceDetailsTemplate2";
+import PreviewSkillsTemplate2 from "./PreviewSkillsTemplate2";
+import PreviewExperienceDetailsTemplate2 from "./PreviewExperienceDetailsTemplate2";
 
 const PreviewTemplate2 = ({
     formData,
@@ -15,6 +17,7 @@ const PreviewTemplate2 = ({
     onShowProfilePhotoChange,
     tempfontSize,
     tempfontStyle,
+    onPhotoSelect,
 }) => {
     const { name, location, phone, email, linkedin } = formData;
     return (
@@ -27,11 +30,9 @@ const PreviewTemplate2 = ({
                             backgroundColor: backgroundColor,
                         }}
                     >
-                        {showProfilePhoto && formData.profilePhoto && (
+                        {showProfilePhoto && (
                             <div className="resume_profile">
-                                <ProfilePhoto
-                                    onPhotoSelect={handlePhotoSelect}
-                                />
+                                <ProfilePhoto onPhotoSelect={onPhotoSelect} />
                             </div>
                         )}
 
@@ -56,11 +57,6 @@ const PreviewTemplate2 = ({
                                     </div>
                                     <div
                                         className="regular basic-info"
-                                        // type="text"
-                                        // name="name"
-                                        // value={formData.name}
-                                        // onChange={handleChange}
-                                        // onFocus={() => setIsEditing(true)}
                                         placeholder="Current Role"
                                         style={{
                                             fontFamily: tempfontStyle,
@@ -81,13 +77,6 @@ const PreviewTemplate2 = ({
                                         <div className="data">
                                             <div
                                                 className="basic-info"
-                                                // type="text"
-                                                // name="location"
-                                                // value={formData.location}
-                                                // onChange={handleChange}
-                                                // onFocus={() =>
-                                                //     setIsEditing(true)
-                                                // }
                                                 placeholder="Location"
                                                 style={{
                                                     // color: themeColor,
@@ -109,13 +98,6 @@ const PreviewTemplate2 = ({
                                         <div className="data">
                                             <div
                                                 className="basic-info"
-                                                // type="text"
-                                                // name="phone"
-                                                // value={formData.phone}
-                                                // onChange={handleChange}
-                                                // onFocus={() =>
-                                                //     setIsEditing(true)
-                                                // }
                                                 placeholder="Phone"
                                                 style={{
                                                     // color: themeColor,
@@ -137,13 +119,6 @@ const PreviewTemplate2 = ({
                                         <div className="data">
                                             <div
                                                 className="basic-info"
-                                                // type="email"
-                                                // name="email"
-                                                // value={formData.email}
-                                                // onChange={handleChange}
-                                                // onFocus={() =>
-                                                //     setIsEditing(true)
-                                                // }
                                                 placeholder="Email"
                                                 style={{
                                                     // color: themeColor,
@@ -177,13 +152,6 @@ const PreviewTemplate2 = ({
                                                     fontSize: tempfontSize,
                                                 }}
                                                 className="basic-info"
-                                                // type="text"
-                                                // name="linkedin"
-                                                // value={formData.linkedin}
-                                                // onChange={handleChange}
-                                                // onFocus={() =>
-                                                //     setIsEditing(true)
-                                                // }
                                                 placeholder="LinkedIn"
                                             >
                                                 {linkedin}
@@ -192,18 +160,6 @@ const PreviewTemplate2 = ({
                                     </li>
                                 </ul>
                             </div>
-                            {/* {isEditing ? (
-                                <button className="save-btn" type="submit">
-                                    Save
-                                </button>
-                            ) : null}
-
-                          
-                            {nameError && <p>{nameError}</p>}
-                            {phoneError && <p>{phoneError}</p>}
-                            {emailError && <p>{emailError}</p>}
-                            {linkedinError && <p>{linkedinError}</p>}
-                            {summaryError && <p>{summaryError}</p>} */}
                         </div>
 
                         <div
@@ -214,17 +170,19 @@ const PreviewTemplate2 = ({
                             }}
                         ></div>
 
-                        <SkillsDetailsTemplate2
+                        <PreviewSkillsTemplate2
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
+                            subheadingColor={subheadingColor}
                             tempfontSize={tempfontSize}
                             tempfontStyle={tempfontStyle}
+                            // selectedSkills={selectedSkills}
                         />
                     </div>
                 </form>
 
-                <ExperienceDetailsTemplate2
+                <PreviewExperienceDetailsTemplate2
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}
                     textColor={textColor}

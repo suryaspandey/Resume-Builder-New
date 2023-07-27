@@ -1,4 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+// import {
+//     PDFDownloadLink,
+//     Document,
+//     Page,
+//     Image,
+//     View,
+//     Text,
+// } from "@react-pdf/renderer";
+// import { renderToString } from "react-dom/server";
+// import jsPDF from "jspdf";
+import {
+    PDFViewer,
+    Document,
+    Page,
+    PDFDownloadLink,
+} from "@react-pdf/renderer";
+// import { pdf } from "@react-pdf/renderer";
+// import ReactToPdf from "react-to-pdf";
 
 import ProfilePhoto from "../ProfilePhoto";
 
@@ -13,6 +31,7 @@ import PreviewTemplate2 from "./PreviewTemplate2";
 // import TextArea from "antd/es/input/TextArea";
 
 import { Input } from "antd";
+import PdfPreviewTemplate2 from "./PdfPreviewTemplate2";
 const { TextArea } = Input;
 
 const BasicInfoTemplate2 = ({
@@ -46,6 +65,8 @@ const BasicInfoTemplate2 = ({
     const [isEditing, setIsEditing] = useState(false);
 
     const [isPreviewMode, setIsPreviewMode] = useState(false);
+
+    const [pdfPreviewContainer, setPdfPreviewContainer] = useState(null);
 
     const handleToggleMode = () => {
         setIsPreviewMode((prevMode) => !prevMode);
@@ -169,6 +190,62 @@ const BasicInfoTemplate2 = ({
         setIsPreviewMode((prevMode) => !prevMode);
     };
 
+    // const pdfRef = useRef(null);
+
+    // const handleDownloadResume = () => {
+    //     const element = (
+    //         // <Document>
+    //         //     <Page>
+    //         <PdfPreviewTemplate2
+    //             formData={formData}
+    //             themeColor={themeColor}
+    //             backgroundColor={backgroundColor}
+    //             textColor={textColor}
+    //             subheadingColor={subheadingColor}
+    //             showProfilePhoto={showProfilePhoto}
+    //             tempfontSize={tempfontSize}
+    //             tempfontStyle={tempfontStyle}
+    //         />
+    //     );
+    //     // const doc = new jsPDF();
+    //     // const htmlString = ReactDOMServer.renderToString(element);
+
+    //     // doc.html(htmlString, {
+    //     //     callback: function (pdf) {
+    //     //         pdf.save("resume.pdf"); // Download the PDF
+    //     //     },
+    //     // });
+    // };
+
+    const handleDownloadResume = () => {
+        // Generate the PDF Blob using the PDFViewer's toBlob() method
+        const blobPromise = PDFViewer.toBlob(
+            <PdfPreviewTemplate2
+                formData={formData}
+                themeColor={themeColor}
+                backgroundColor={backgroundColor}
+                textColor={textColor}
+                subheadingColor={subheadingColor}
+                showProfilePhoto={showProfilePhoto}
+                tempfontSize={tempfontSize}
+                tempfontStyle={tempfontStyle}
+            />
+        );
+        // Once the Blob is generated, create a URL from it
+        blobPromise.then((blob) => {
+            const url = URL.createObjectURL(blob);
+
+            // Create a temporary anchor element and trigger the download
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "resume.pdf";
+            a.click();
+
+            // Clean up the temporary URL
+            URL.revokeObjectURL(url);
+        });
+    };
+
     return (
         <>
             {isPreviewMode ? (
@@ -182,6 +259,7 @@ const BasicInfoTemplate2 = ({
                     onShowProfilePhotoChange={onShowProfilePhotoChange}
                     tempfontSize={tempfontSize}
                     tempfontStyle={tempfontStyle}
+                    onPhotoSelect={handlePhotoSelect}
                 />
             ) : (
                 <div className="resume">
@@ -394,6 +472,10 @@ const BasicInfoTemplate2 = ({
                                         subheadingColor={subheadingColor}
                                         tempfontSize={tempfontSize}
                                         tempfontStyle={tempfontStyle}
+                                        onShowProfilePhotoChange={
+                                            onShowProfilePhotoChange
+                                        }
+                                        onPhotoSelect={handlePhotoSelect}
                                     />
                                 ) : null}
                             </div>
@@ -432,6 +514,52 @@ const BasicInfoTemplate2 = ({
                     ? "Switch to Edit Mode"
                     : "Switch to Preview Mode"}
             </button>
+
+            {isPreviewMode ? (
+                <>
+                    {/* <PDFViewer width="1000" height="600">
+                        <PdfPreviewTemplate2
+                            formData={formData}
+                            themeColor={themeColor}
+                            backgroundColor={backgroundColor}
+                            textColor={textColor}
+                            subheadingColor={subheadingColor}
+                            showProfilePhoto={showProfilePhoto}
+                            tempfontSize={tempfontSize}
+                            tempfontStyle={tempfontStyle}
+                        />
+                    </PDFViewer> */}
+
+                    {/* <PDFDownloadLink
+                        document={
+                            <PdfPreviewTemplate2
+                                formData={formData}
+                                themeColor={themeColor}
+                                backgroundColor={backgroundColor}
+                                textColor={textColor}
+                                subheadingColor={subheadingColor}
+                                showProfilePhoto={showProfilePhoto}
+                                tempfontSize={tempfontSize}
+                                tempfontStyle={tempfontStyle}
+                            />
+                        }
+                        fileName="resume.pdf"
+                    >
+                        {({ loading }) =>
+                            loading
+                                ? "Loading document..."
+                                : "Download Download Download PDF"
+                        }
+                    </PDFDownloadLink> */}
+
+                    <button
+                        className="save-btn download-btn"
+                        onClick={handleDownloadResume}
+                    >
+                        Download DownLoad
+                    </button>
+                </>
+            ) : null}
         </>
     );
 };

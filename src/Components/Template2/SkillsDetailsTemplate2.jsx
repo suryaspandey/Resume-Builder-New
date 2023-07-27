@@ -13,7 +13,7 @@ const SkillsDetailsTemplate2 = ({
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [showDropdown, setShowDropdown] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
-    const [showButtons, setShowButtons] = useState(true);
+    // const [showButtons, setShowButtons] = useState(true);
 
     // Load skills from local storage on initial component mount
     useEffect(() => {
@@ -21,14 +21,14 @@ const SkillsDetailsTemplate2 = ({
         if (savedSkills && JSON.parse(savedSkills).length > 0) {
             setSelectedSkills(JSON.parse(savedSkills));
             setShowDropdown(false);
-            setShowButtons(showButtons);
+            // setShowButtons(showButtons);
         }
     }, []);
 
     // Update local storage whenever selectedSkills change
     useEffect(() => {
         localStorage.setItem("selectedSkills", JSON.stringify(selectedSkills));
-    }, [selectedSkills, showButtons]);
+    }, [selectedSkills]);
 
     const handleSkillSelect = (selectedSkill) => {
         if (
@@ -42,7 +42,7 @@ const SkillsDetailsTemplate2 = ({
         }
 
         setIsEditing(true);
-        setShowButtons(true);
+        // setShowButtons(true);
     };
 
     const handleSkillRemove = (removedSkill) => {
@@ -52,19 +52,20 @@ const SkillsDetailsTemplate2 = ({
     };
 
     const handleSave = () => {
-        setShowDropdown(false);
-        localStorage.setItem(
-            "selectedSkills",
-            JSON.stringify({ selectedSkills, showButtons: false })
-        );
+        // localStorage.setItem(
+        //     "selectedSkills",
+        //     // JSON.stringify({ selectedSkills, showButtons: false })
+        //     JSON.stringify({ selectedSkills })
+        // );
         setIsEditing(false);
-        setShowButtons(false);
+        // setShowButtons(false);
+        setShowDropdown(false);
     };
 
     const handleAddMore = () => {
         setShowDropdown(true);
         setIsEditing(true);
-        setShowButtons(true);
+        // setShowButtons(true);
     };
 
     return (
@@ -102,6 +103,7 @@ const SkillsDetailsTemplate2 = ({
                                     key={skill}
                                     className="skill-box"
                                     onClick={() => handleSkillRemove(skill)}
+                                    onFocus={() => setIsEditing(true)}
                                 >
                                     {skill}
                                     {isEditing && (
@@ -139,24 +141,24 @@ const SkillsDetailsTemplate2 = ({
                 )}
 
                 {/* {!showDropdown && ( */}
-                {showButtons && (
+                {!showDropdown && (
                     <>
                         <button className="add-btn" onClick={handleAddMore}>
                             <AiOutlinePlusCircle size={20} />
                         </button>
-                        {isEditing && (
+                        {/* {isEditing && (
                             <button className="save-btn" onClick={handleSave}>
                                 Save
                             </button>
-                        )}
+                        )} */}
                     </>
                 )}
 
-                {/* {showDropdown && (
+                {showDropdown && (
                     <button className="save-btn" onClick={handleSave}>
                         Save
                     </button>
-                )} */}
+                )}
             </div>
             <EducationDetailsTemplate2
                 themeColor={themeColor}

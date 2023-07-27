@@ -14,6 +14,7 @@ import "firebase/compat/auth";
 const app  = firebase.initializeApp({
     apiKey: "AIzaSyCqwbQLsQkLFr6DQLYBk53mZZE673jbEpc",
     authDomain:"resume-builder-dev-74c40.firebaseapp.com" ,
+    databaseURL: "https://resume-builder-dev-74c40-default-rtdb.firebaseio.com",
     projectId: "resume-builder-dev-74c40",
     storageBucket: "resume-builder-dev-74c40.appspot.com",
     messagingSenderId: "168888804856",
