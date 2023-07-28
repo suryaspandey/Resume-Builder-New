@@ -43,6 +43,7 @@ export default function PreviewProjectDetailsTemplate2({
                                         fontFamily: tempfontStyle,
                                         fontSize: tempfontSize,
                                         cursor: "pointer",
+                                        fontWeight: "600",
                                     }}
                                     className="expTitle titletextsize work_exp_hover"
                                     onClick={() =>
@@ -52,7 +53,7 @@ export default function PreviewProjectDetailsTemplate2({
                                     {project.title}
                                 </div>
 
-                                <div className="school-clg-name-container">
+                                <div className="school-clg-name-container-preview">
                                     <MdWorkHistory
                                         style={{ color: themeColor }}
                                     />

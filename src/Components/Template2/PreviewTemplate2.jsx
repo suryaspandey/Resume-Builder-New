@@ -66,7 +66,7 @@ const PreviewTemplate2 = ({
                                         {name}
                                     </div>
                                 </div>
-                                <ul>
+                                <ul className="prevTemp2_basic_details">
                                     <li>
                                         <div className="icon ">
                                             <i

@@ -287,11 +287,14 @@ input.expCompanyName{
 
 .dates-container{
   display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .dates-location-container{
   display: flex;
   justify-content: space-between;
+  
 }
 .location-container{
   justify-content: flex-end;
@@ -377,6 +380,9 @@ input::placeholder{
 
 /*  ----------------------other CSS */
 
+ul,ol{
+  padding: 0 !important;
+}
 
 .color-preview {
   display: flex;

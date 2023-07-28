@@ -190,6 +190,7 @@ const ProjectDetailsTemplate2 = ({
                                         color: textColor,
                                         fontFamily: tempfontStyle,
                                         fontSize: tempfontSize,
+                                        fontWeight: "600",
                                     }}
                                     className="expTitle titletextsize"
                                     type="text"

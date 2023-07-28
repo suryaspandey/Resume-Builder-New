@@ -175,7 +175,7 @@ input{
 
 .resume .resume_right .resume_work ul,
 .resume .resume_right .resume_education ul {
-  padding-left: 40px;
+  /* padding-left: 40px; */
   overflow: hidden;
 }
 
@@ -206,7 +206,7 @@ input{
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  border: 2px solid #0bb5f4;
+  /* border: 2px solid #0bb5f4; */
 }
 
 .resume .resume_right .resume_work ul li:after,
@@ -216,8 +216,8 @@ input{
   top: 14px;
   left: -21px;
   width: 2px;
-  height: 66px;
-  background: #0bb5f4;
+  height: 10px;
+  /* background: #0bb5f4; */
 }
 
 .resume .resume_right .resume_hobby ul {
@@ -284,7 +284,7 @@ select{
   background: transparent;
 
 }
-remove-btn svg {
+.remove-btn svg {
   color: #e81818;
   font-size: 16px;
 }
@@ -324,6 +324,15 @@ textarea {
 
 .position-date{
   display: flex;
+  justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 2px;
+    align-items: center;
+}
+.position_icon{
+  display: flex;
+  align-items: center;
+  gap:5px;
 }
 
 .certif_textarea{
@@ -347,12 +356,33 @@ textarea {
   align-items: center;
   justify-content: flex-start;
 }
-
+.prevTemp2_basic_details{
+  padding-left: 0px;
+}
 .hoverable {
   cursor: pointer;
 }
 
+.work_exp_hover{
+  width: 450px;
+  overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    margin-top: 5px;
+}
 .work_exp_hover:hover {
-  color: blue;
+  color: blue !important;
+}
+
+.exp_dates{
+  display: flex;
+    /* justify-content: space-between; */
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.school-clg-name-container-preview{
+display: flex;
+/* justify-content: center; */
 }
 

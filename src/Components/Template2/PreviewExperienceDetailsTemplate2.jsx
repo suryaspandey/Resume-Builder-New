@@ -3,6 +3,7 @@ import PreviewSummaryTemplate2 from "./PreviewSummaryTemplate2";
 import ProjectDetailsTemplate2 from "./ProjectDetailTemplate2";
 import PreviewProjectDetails from "./PreviewProjectDetailsTemplate2";
 import PreviewProjectDetailsTemplate2 from "./PreviewProjectDetailsTemplate2";
+import { MdWork, MdWorkHistory } from "react-icons/md";
 
 export default function PreviewExperienceDetailsTemplate2({
     themeColor,
@@ -73,40 +74,48 @@ export default function PreviewExperienceDetailsTemplate2({
                                             color: textColor,
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
+                                            fontWeight: "600",
                                         }}
                                     >
                                         {experience.company}
                                     </div>
 
                                     <div className="position-date">
-                                        <div
-                                            style={{
-                                                fontFamily: tempfontStyle,
-                                                fontSize: tempfontSize,
-                                            }}
-                                        >
-                                            {experience.position}
+                                        <div className="position_icon">
+                                            <MdWorkHistory
+                                                style={{ color: themeColor }}
+                                            />
+                                            <div
+                                                style={{
+                                                    fontFamily: tempfontStyle,
+                                                    fontSize: tempfontSize,
+                                                }}
+                                            >
+                                                {experience.position}
+                                            </div>
                                         </div>
 
-                                        <span
-                                            style={{
-                                                fontFamily: tempfontStyle,
-                                                fontSize: tempfontSize,
-                                                paddingLeft: "200px",
-                                            }}
-                                        >
-                                            {experience.startYear}
-                                        </span>
-
-                                        <span
-                                            style={{
-                                                fontFamily: tempfontStyle,
-                                                fontSize: tempfontSize,
-                                                paddingLeft: "30px",
-                                            }}
-                                        >
-                                            {experience.endYear}
-                                        </span>
+                                        <div className="exp_dates">
+                                            <span
+                                                style={{
+                                                    fontFamily: tempfontStyle,
+                                                    fontSize: tempfontSize,
+                                                    // paddingLeft: "200px",
+                                                }}
+                                            >
+                                                {experience.startYear}
+                                            </span>
+                                            <span> - </span>
+                                            <span
+                                                style={{
+                                                    fontFamily: tempfontStyle,
+                                                    fontSize: tempfontSize,
+                                                    // paddingLeft: "30px",
+                                                }}
+                                            >
+                                                {experience.endYear}
+                                            </span>
+                                        </div>
                                     </div>
 
                                     {/* </div> */}

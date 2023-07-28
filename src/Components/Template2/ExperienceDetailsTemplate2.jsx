@@ -228,6 +228,7 @@ import {
     AiOutlinePlusCircle,
     AiOutlineLink,
 } from "react-icons/ai";
+import { MdWork, MdWorkHistory } from "react-icons/md";
 
 import { Input } from "antd";
 const { TextArea } = Input;
@@ -471,6 +472,7 @@ const ExperienceDetailsTemplate2 = ({
                                             color: textColor,
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
+                                            fontWeight: "600",
                                         }}
                                     />
                                     {experience.errors &&
@@ -489,6 +491,9 @@ const ExperienceDetailsTemplate2 = ({
                                     )}
                                     {/*  */}
                                     <div className="position-date">
+                                        <MdWorkHistory
+                                            style={{ color: themeColor }}
+                                        />
                                         <input
                                             type="text"
                                             placeholder="Position"

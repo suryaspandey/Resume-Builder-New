@@ -14,6 +14,7 @@ import {
     Document,
     Page,
     PDFDownloadLink,
+    pdf,
 } from "@react-pdf/renderer";
 // import { pdf } from "@react-pdf/renderer";
 // import ReactToPdf from "react-to-pdf";
@@ -193,46 +194,56 @@ const BasicInfoTemplate2 = ({
     // const pdfRef = useRef(null);
 
     // const handleDownloadResume = () => {
-    //     const element = (
-    //         // <Document>
-    //         //     <Page>
-    //         <PdfPreviewTemplate2
-    //             formData={formData}
-    //             themeColor={themeColor}
-    //             backgroundColor={backgroundColor}
-    //             textColor={textColor}
-    //             subheadingColor={subheadingColor}
-    //             showProfilePhoto={showProfilePhoto}
-    //             tempfontSize={tempfontSize}
-    //             tempfontStyle={tempfontStyle}
-    //         />
+    //     // Generate the PDF Blob using the PDFViewer's toBlob() method
+    //     const blobPromise = PDFViewer.toBlob(
+    //         <Document>
+    //             <Page size="A4" wrap>
+    //                 <PreviewTemplate2
+    //                     formData={formData}
+    //                     themeColor={themeColor}
+    //                     backgroundColor={backgroundColor}
+    //                     textColor={textColor}
+    //                     subheadingColor={subheadingColor}
+    //                     showProfilePhoto={showProfilePhoto}
+    //                     tempfontSize={tempfontSize}
+    //                     tempfontStyle={tempfontStyle}
+    //                 />
+    //             </Page>
+    //         </Document>
     //     );
-    //     // const doc = new jsPDF();
-    //     // const htmlString = ReactDOMServer.renderToString(element);
+    //     // Once the Blob is generated, create a URL from it
+    //     blobPromise.then((blob) => {
+    //         const url = URL.createObjectURL(blob);
 
-    //     // doc.html(htmlString, {
-    //     //     callback: function (pdf) {
-    //     //         pdf.save("resume.pdf"); // Download the PDF
-    //     //     },
-    //     // });
+    //         // Create a temporary anchor element and trigger the download
+    //         const a = document.createElement("a");
+    //         a.href = url;
+    //         a.download = "resume.pdf";
+    //         a.click();
+
+    //         // Clean up the temporary URL
+    //         URL.revokeObjectURL(url);
+    //     });
     // };
 
     const handleDownloadResume = () => {
-        // Generate the PDF Blob using the PDFViewer's toBlob() method
-        const blobPromise = PDFViewer.toBlob(
-            <PdfPreviewTemplate2
-                formData={formData}
-                themeColor={themeColor}
-                backgroundColor={backgroundColor}
-                textColor={textColor}
-                subheadingColor={subheadingColor}
-                showProfilePhoto={showProfilePhoto}
-                tempfontSize={tempfontSize}
-                tempfontStyle={tempfontStyle}
-            />
-        );
-        // Once the Blob is generated, create a URL from it
-        blobPromise.then((blob) => {
+        const pdfBlobPromise = pdf(
+            <Document>
+                <Page size="A4" wrap>
+                    <PreviewTemplate2
+                        formData={formData}
+                        themeColor={themeColor}
+                        backgroundColor={backgroundColor}
+                        textColor={textColor}
+                        subheadingColor={subheadingColor}
+                        showProfilePhoto={showProfilePhoto}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
+                    />
+                </Page>
+            </Document>
+        ).toBlob();
+        pdfBlobPromise.then((blob) => {
             const url = URL.createObjectURL(blob);
 
             // Create a temporary anchor element and trigger the download
@@ -556,7 +567,7 @@ const BasicInfoTemplate2 = ({
                         className="save-btn download-btn"
                         onClick={handleDownloadResume}
                     >
-                        Download DownLoad
+                        Download DownLoad PDF
                     </button>
                 </>
             ) : null}
