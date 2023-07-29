@@ -701,7 +701,7 @@ const ThemeOptions = ({
                 {renderFontSizeSelector()}
                 {/* <ChooseTemplate /> */}
                 {/* <h4>Choose Template</h4> */}
-                {/* <div className="home_content ">
+                <div className="home_content ">
                     <Popover content={content} title="Title">
                         <Button type="primary">Choose Template</Button>
                     </Popover>
@@ -720,8 +720,8 @@ const ThemeOptions = ({
                         />
                     }
                     onClick={() => handleCardClick("template1")}
-                    ></Card>
-                    <Card
+                ></Card>
+                <Card
                     hoverable
                     style={{
                         width: 150,
@@ -733,21 +733,21 @@ const ThemeOptions = ({
                         />
                     }
                     onClick={() => handleCardClick("template2")}
-                    ></Card> *
-                </div> */}
+                ></Card> */}
+                </div>
 
                 {/* Accordian  */}
 
-                {/* <Collapse accordion defaultActiveKey="1">
+                <Collapse accordion defaultActiveKey="1">
                     <Panel header="Choose Template" key="1">
                         <Popover content={content} title="Title">
                             <Button type="primary">Choose Template</Button>
                         </Popover>
                     </Panel>
-                    {/* Add more panels for other options 
+                    {/* Add more panels for other options */}
                     <Panel header="Theme Options" key="2">
                         {renderThemeOptions()}
-                        {/* {renderColorPreview()} *
+                        {/* {renderColorPreview()} */}
                     </Panel>
                     <Panel header="Font Style" key="3">
                         {renderFontStyleSelector()}
@@ -755,15 +755,11 @@ const ThemeOptions = ({
                     <Panel header="Font Size" key="4">
                         {renderFontSizeSelector()}
                     </Panel>
-                </Collapse> */}
+                </Collapse>
 
                 <>
                     <Space>
-                        <Button
-                            type="primary"
-                            onClick={showDrawer}
-                            className="save-btn"
-                        >
+                        <Button type="primary" onClick={showDrawer}>
                             Choose Templates
                         </Button>
                     </Space>
@@ -976,9 +972,7 @@ const ThemeOptions = ({
                                         src="/template_previews/template_preview2.PNG"
                                     />
                                 }
-                                onMouseEnter={() =>
-                                    handleCardClick("template2")
-                                }
+                                onClick={() => handleCardClick("template2")}
                             ></Card>
                         </div>
                         {/* </div> */}

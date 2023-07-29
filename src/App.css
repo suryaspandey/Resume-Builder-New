@@ -53,7 +53,7 @@ body{
   width: 90%;
   margin: auto;
   padding: 20px;
-  background-color: #F9F5F6;
+  /* background-color: #F9F5F6; */
 }
 
 /* form {
@@ -449,4 +449,38 @@ ul,ol{
     font-size: 4.8rem;
     line-height: 6rem;
     font-weight: 700;
+}
+
+/* theme options css for templat display */
+div.scroll-container {
+  /* background-color: #333; */
+  overflow: auto;
+  /* white-space: nowrap; */
+  /* padding: 10px; */
+  padding-left: 2px;
+width: 100%;
+display: flex;
+flex-wrap: nowrap;
+gap: 5px;
+overflow-y: hidden;
+overflow-x: visible;
+}
+
+div.scroll-container img {
+  padding: 5px;
+  /* height: 200px;
+  width: 600px; */
+}
+.card-hover{
+  /* background-color: #34d272; */
+}
+.card-hover:hover{
+  transform: scale(1.05);
+  background-color: #34d272;
+}
+
+.drawer{
+  margin-top: 50px;
+  /* height: 100px !important; */
+  background-color: #537188;
 }

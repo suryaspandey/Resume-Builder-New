@@ -3,7 +3,7 @@ import React from "react";
 import { Formik, Field, ErrorMessage } from "formik";
 import { Form, Input, Button, Alert } from "antd";
 import "../components/login_registration_logout.css";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import * as Yup from "yup";
 import { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
@@ -16,6 +16,7 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
     const history = useHistory();
+    // const auth = getAuth(firebaseApp);
 
     const handleLogin = async (values) => {
         try {
@@ -31,6 +32,21 @@ const Login = () => {
         }
     };
 
+    const handleLoginNew = async (values) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                history.push("/");
+                console.log("user" + user);
+                // ...
+            })
+            .catch((err) => {
+                console.log(err.code);
+                console.log(err.message);
+            });
+    };
+
     return (
         <div className="login_container">
             <h2>Login</h2>
@@ -41,12 +57,6 @@ const Login = () => {
             >
                 {({ isSubmitting }) => (
                     <Form onFinish={handleLogin}>
-                        {/* <div>
-                            <label htmlFor="email">Email:</label>
-                            <Field type="email" name="email" />
-                            <ErrorMessage name="email" component="div" />
-                        </div> */}
-
                         <Form.Item
                             name="email"
                             label="Email"
@@ -80,11 +90,6 @@ const Login = () => {
                             />
                         </Form.Item>
 
-                        {/* <div>
-                            <label htmlFor="password">Password:</label>
-                            <Field type="password" name="password" />
-                            <ErrorMessage name="password" component="div" />
-                        </div> */}
                         <Form.Item>
                             <Button
                                 type="primary"

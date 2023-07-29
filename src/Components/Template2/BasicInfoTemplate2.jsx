@@ -33,6 +33,7 @@ import PreviewTemplate2 from "./PreviewTemplate2";
 
 import { Input } from "antd";
 import PdfPreviewTemplate2 from "./PdfPreviewTemplate2";
+import TemplateSelection from "../TemplateSelection";
 const { TextArea } = Input;
 
 const BasicInfoTemplate2 = ({

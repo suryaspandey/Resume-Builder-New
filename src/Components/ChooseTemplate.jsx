@@ -9,6 +9,8 @@ import { Avatar } from "antd";
 
 import BasicInfoTemplate1 from "./Template1/BasicInfoTemplate1";
 import BasicInfoTemplate2 from "./Template2/BasicInfoTemplate2";
+import HeaderComp from "./HeaderComp";
+import "../Components/home.css";
 
 // import templateImage from "../template_previews/template_preview1.PNG";
 const headerStyle = {
@@ -59,7 +61,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                 size={[0, 48]}
             >
                 <Layout>
-                    <Header style={headerStyle}>
+                    {/* <Header style={headerStyle}>
                         <img
                             alt="template1"
                             height={50}
@@ -67,7 +69,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                             src="/template_previews/Resume_Logo.png"
                         />
                         <Avatar icon={<UserOutlined />} />
-                    </Header>
+                    </Header> */}
+                    <HeaderComp />
+
                     <Content style={contentStyle}>
                         <>
                             <>

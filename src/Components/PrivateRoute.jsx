@@ -2,9 +2,10 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { auth } from "../firebase";
+// import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-    const { currentUser } = auth();
+    const { currentUser } = auth;
 
     return (
         <Route
@@ -19,5 +20,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         />
     );
 };
+
+// const PrivateRoute = ({ currentUser, children }) => {
+//     if (!!currentUser) {
+//         return <Redirect to="/" replace />;
+//     }
+//     return children;
+// };
 
 export default PrivateRoute;

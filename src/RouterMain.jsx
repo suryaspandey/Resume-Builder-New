@@ -135,6 +135,7 @@ import PrivateRoute from "./Components/PrivateRoute";
 import { auth } from "./firebase";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import PageNotFound from "./Components/PageNotFound";
+import ContactUs from "./Components/ContactUs";
 
 const RouterMain = () => {
     const [themeColor, setThemeColor] = useState("black");
@@ -220,6 +221,15 @@ const RouterMain = () => {
                         </div>
                     </Container>
                 </Route>
+                {/* <Route
+                    path="/choose-template"
+                    element={
+                        <ChooseTemplate
+                            handleTemplateSelect={handleTemplateSelect}
+                        />
+                        // </PrivateRoute>
+                    }
+                ></Route> */}
 
                 {/* <Route
                     path="/choose-template"
@@ -233,10 +243,14 @@ const RouterMain = () => {
                         )
                     }
                 /> */}
-                <Route path="/choose-template">
+                <PrivateRoute path="/choose-template">
                     <ChooseTemplate
                         handleTemplateSelect={handleTemplateSelect}
                     />
+                </PrivateRoute>
+
+                <Route path="/contact-us">
+                    <ContactUs />
                 </Route>
 
                 <Route path="/preview">

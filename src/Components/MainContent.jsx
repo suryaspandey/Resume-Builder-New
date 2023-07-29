@@ -108,6 +108,12 @@ import ExperienceDetailsTemplate1 from "./Template1/ExperienceDetailsTemplate1";
 
 import BasicInfoTemplate2 from "./Template2/BasicInfoTemplate2";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import TemplateSelection from "./TemplateSelection";
+
+import { Select, Popover, Button, Collapse } from "antd";
+
+const { Option } = Select;
+const { Panel } = Collapse;
 
 // import SideBar from "./SideBar";
 
@@ -181,13 +187,6 @@ const MainContent = ({
                         />
                     </>
                 )}
-
-                {/* <button
-                    className="save-btn preview-btn"
-                    onClick={togglePreviewMode}
-                >
-                    Toggle Preview Mode
-                </button> */}
             </>
         </div>
     );
