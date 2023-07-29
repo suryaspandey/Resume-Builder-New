@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useState, useEffect } from "react";
 import "../Components/home.css";
 import { auth } from "../firebase";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Login from "./Login";
 
 const HeaderComp = () => {
@@ -30,7 +30,7 @@ const HeaderComp = () => {
     const handleLogout = async () => {
         try {
             await auth.signOut();
-            setIsLoggedIn(false);
+            // setIsLoggedIn(false);
 
             history.push("/");
         } catch (error) {
@@ -62,14 +62,19 @@ const HeaderComp = () => {
                         <h6>MyResumeBuilder</h6>
                     </Link>
                 </li>
+                <li>
+                    <Link className="header-link" to="/choose-template">
+                        Choose CV Template
+                    </Link>
+                </li>
 
-                {isLoggedIn ? (
+                {/* {currentUser ? (
                     <li>
                         <Link className="header-link" to="/choose-template">
                             Choose CV Template
                         </Link>
                     </li>
-                ) : null}
+                ) : null} */}
             </ul>
             <div className="home-right">
                 <ul>
@@ -79,15 +84,19 @@ const HeaderComp = () => {
                         </Link>
                     </li>
                     <li>
-                        {isLoggedIn ? (
-                            <Link to="/" className="header-link">
+                        {currentUser ? (
+                            <Link
+                                to="/"
+                                className="header-link"
+                                onClick={handleLogout}
+                            >
                                 Logout
                             </Link>
                         ) : (
                             <Link
                                 to="/login"
                                 className="header-link"
-                                onClick={handleLogout}
+                                // onClick={handleLogout}
                             >
                                 Login
                             </Link>
@@ -142,4 +151,4 @@ const HeaderComp = () => {
     );
 };
 
-export default HeaderComp;
+export default withRouter(HeaderComp);

@@ -6,6 +6,7 @@ import { auth } from "../firebase";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const { currentUser } = auth;
+    console.log(currentUser);
 
     return (
         <Route

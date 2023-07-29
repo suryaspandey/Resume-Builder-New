@@ -5,7 +5,7 @@ import { Form, Input, Button, Alert } from "antd";
 import "../components/login_registration_logout.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import * as Yup from "yup";
-import { auth } from "../firebase";
+import app, { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -16,7 +16,7 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
     const history = useHistory();
-    // const auth = getAuth(firebaseApp);
+    // const auth = getAuth(app);
 
     const handleLogin = async (values) => {
         try {

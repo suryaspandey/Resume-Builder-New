@@ -39,6 +39,9 @@ import { Button, Popover, Rate } from "antd";
 import { PopoverHeader } from "react-bootstrap";
 
 const Home = () => {
+    const history = useHistory();
+    const { currentUser } = auth;
+
     const content1 = (
         <div className="cust_reviews">
             {/* <p>Excellent Tool</p> */}
@@ -123,15 +126,10 @@ const Home = () => {
                 >
                     <hr
                         style={{
-                            position: "relative",
-                            top: "20px",
-                            border: "none",
-                            height: "7px",
-                            background: "#798584",
                             marginBottom: "50px",
                             paddingLeft: "50%",
-                            width: "3%",
                             borderRadius: "20px",
+                            border: "4px solid rgb(121, 133, 132)",
                         }}
                     />
                 </div>
@@ -146,19 +144,17 @@ const Home = () => {
             </div>
             <div
                 className="hr_tg"
-                style={{ display: "flex", justifyContent: "center" }}
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                }}
             >
                 <hr
                     style={{
-                        position: "relative",
-                        top: "20px",
-                        border: "none",
-                        height: "7px",
-                        background: "#798584",
                         marginBottom: "50px",
                         paddingLeft: "50%",
-                        width: "10%",
                         borderRadius: "20px",
+                        border: "4px solid rgb(121, 133, 132)",
                     }}
                 />
             </div>
@@ -323,7 +319,7 @@ const Home = () => {
                                 height={150}
                                 width={150}
                                 alt="template2"
-                                src="/template_previews/cust_img5.jfif"
+                                src="/template_previews/cust_img55.jfif"
                             />
                         </Popover>
 
@@ -353,6 +349,23 @@ const Home = () => {
                     alignItems: "center",
                 }}
             >
+                <div
+                    className="hr_tg"
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        width: "100%",
+                    }}
+                >
+                    <hr
+                        style={{
+                            marginBottom: "50px",
+                            paddingLeft: "50%",
+                            borderRadius: "20px",
+                            border: "4px solid rgb(121, 133, 132)",
+                        }}
+                    />
+                </div>
                 <h2>Why Use MyResumeBuilder?</h2>
 
                 <div className="resume_features_grid">
@@ -429,14 +442,28 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <button className="save-btn">
+
+                {currentUser ? (
+                    <>
+                        {console.log("button " + currentUser)}
+                        <button className="save-btn">
+                            <Link
+                                to="/choose-template"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "white",
+                                }}
+                            >
+                                TRY RESUME BUILDER NOW!
+                            </Link>
+                        </button>
+                    </>
+                ) : (
                     <Link
-                        to="/choose-template"
-                        style={{ textDecoration: "none", color: "white" }}
-                    >
-                        TRY RESUME BUILDER NOW!
-                    </Link>
-                </button>
+                        to="/login"
+                        // style={{ textDecoration: "none", color: "white" }}
+                    ></Link>
+                )}
             </div>
         </>
     );
