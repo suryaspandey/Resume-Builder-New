@@ -117,7 +117,24 @@ const Home = () => {
                 <h1 className="home-tagline">
                     Your Dream Job Starts Here: Build Your Winning Resume
                 </h1>
-                <hr />
+                <div
+                    className="hr_tg"
+                    style={{ display: "flex", justifyContent: "center" }}
+                >
+                    <hr
+                        style={{
+                            position: "relative",
+                            top: "20px",
+                            border: "none",
+                            height: "7px",
+                            background: "#798584",
+                            marginBottom: "50px",
+                            paddingLeft: "50%",
+                            width: "3%",
+                            borderRadius: "20px",
+                        }}
+                    />
+                </div>
 
                 <h4>
                     MyResumeBuilder is lightning fast. There's no software to
@@ -126,37 +143,24 @@ const Home = () => {
                 </h4>
 
                 <h6>Four simple steps to make your CV </h6>
-
-                {/* <Carousel autoplay>
-                    <div className="home_Carousel">
-                        <div className=" carousel_text" style={{ flex: 1 }}>
-                            <h3 style={contentStyle}>
-                                Step 1: Pick a Template Don't sabotage your job
-                                search before it has even begun. Choose from our
-                                ATS-friendly, hand-crafted resume templates
-                            </h3>
-                        </div>
-
-                        
-                        <div className="carousel_img" style={{ flex: 1 }}>
-                            <img
-                                src="/template_previews/step1.PNG"
-                                alt="step1"
-                                height={100}
-                                width={100}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <h3 style={contentStyle}>2</h3>
-                    </div>
-                    <div>
-                        <h3 style={contentStyle}>3</h3>
-                    </div>
-                    <div>
-                        <h3 style={contentStyle}>4</h3>
-                    </div>
-                </Carousel> */}
+            </div>
+            <div
+                className="hr_tg"
+                style={{ display: "flex", justifyContent: "center" }}
+            >
+                <hr
+                    style={{
+                        position: "relative",
+                        top: "20px",
+                        border: "none",
+                        height: "7px",
+                        background: "#798584",
+                        marginBottom: "50px",
+                        paddingLeft: "50%",
+                        width: "10%",
+                        borderRadius: "20px",
+                    }}
+                />
             </div>
             <div className="steps_img_text">
                 <div className="steps_text">
@@ -230,10 +234,17 @@ const Home = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-evenly",
+                    backgroundColor: "#dad9d978",
                 }}
             >
                 <div className="customers-text">
                     <h1>See why customers love MyResumeBuilder</h1>
+                    <img
+                        src="./template_previews/trustPilotReview.jpg"
+                        alt="TrustPilot review"
+                        height={100}
+                        width={100}
+                    />
                 </div>
                 {/* <div className="customers-imgs"> */}
                 <div className="steps_img_text">
@@ -331,6 +342,101 @@ const Home = () => {
                         </Popover>
                     </div>
                 </div>
+            </div>
+
+            <div
+                className="resume_fetures"
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <h2>Why Use MyResumeBuilder?</h2>
+
+                <div className="resume_features_grid">
+                    <div className="features_img_text">
+                        <div className="feature_img">
+                            <img
+                                src="./template_previews/free_feature.PNG"
+                                width={100}
+                                height={100}
+                            />
+                        </div>
+                        <div className="feature_text">
+                            <h3>Completely Free</h3>
+                            <h6>
+                                Enjoy all the robust features of our resume
+                                builder without any cost or hidden fees, making
+                                it accessible to everyone looking to create a
+                                standout resume.
+                            </h6>
+                        </div>
+                    </div>
+
+                    <div className="features_img_text">
+                        <div className="feature_img">
+                            <img
+                                src="./template_previews/user_friendly_feature.PNG"
+                                width={100}
+                                height={100}
+                            />
+                        </div>
+                        <div className="feature_text">
+                            <h3>User-friendly Interface</h3>
+                            <h6>
+                                Create professional resumes effortlessly with
+                                our intuitive and user-friendly interface,
+                                making the resume-building process a breeze.
+                            </h6>
+                        </div>
+                    </div>
+
+                    <div className="features_img_text">
+                        <div className="feature_img">
+                            <img
+                                src="./template_previews/customizable_feature.PNG"
+                                width={100}
+                                height={100}
+                            />
+                        </div>
+                        <div className="feature_text">
+                            <h3>Customizable Templates</h3>
+                            <h6>
+                                Choose from a diverse range of customizable
+                                templates that suit your style and industry,
+                                ensuring your resume stands out.
+                            </h6>
+                        </div>
+                    </div>
+
+                    <div className="features_img_text">
+                        <div className="feature_img">
+                            <img
+                                src="./template_previews/edit_feature.PNG"
+                                width={100}
+                                height={100}
+                            />
+                        </div>
+                        <div className="feature_text">
+                            <h3>Real-time Previews</h3>
+                            <h6>
+                                Instantly visualize your resume as you edit,
+                                ensuring you can fine-tune every detail to
+                                perfection.
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <button className="save-btn">
+                    <Link
+                        to="/choose-template"
+                        style={{ textDecoration: "none", color: "white" }}
+                    >
+                        TRY RESUME BUILDER NOW!
+                    </Link>
+                </button>
             </div>
         </>
     );

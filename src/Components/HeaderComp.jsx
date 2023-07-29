@@ -59,6 +59,7 @@ const HeaderComp = () => {
                             height={50}
                             width={50}
                         />
+                        <h6>MyResumeBuilder</h6>
                     </Link>
                 </li>
 
