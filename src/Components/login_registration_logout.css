@@ -3,3 +3,29 @@
     padding: 10px;
     border-radius: 6px;
 }
+
+.w-100{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-img{
+    background-image: url("https://cdn-blog.novoresume.com/articles/google-docs-resume-templates/bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.register-img{
+    background-image: url("https://cdn-blog.novoresume.com/articles/web-developer-resume/bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and(min-width:600px) {
+    .login-img{
+        /* flex-grow: 0; */
+    /* max-width: 58.333333%; */
+    display: none;
+    }
+}

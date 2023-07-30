@@ -48,77 +48,83 @@ const Login = () => {
     };
 
     return (
-        <div className="login_container">
-            <h2>Login</h2>
-            <Formik
-                initialValues={{ email: "", password: "" }}
-                validationSchema={LoginSchema}
-                onSubmit={handleLogin}
-            >
-                {({ isSubmitting }) => (
-                    <Form onFinish={handleLogin}>
-                        <Form.Item
-                            name="email"
-                            label="Email"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: "Please enter your email",
-                                },
-                            ]}
-                        >
-                            <Input
-                                style={{
-                                    border: "1px solid #dee2e6",
-                                    padding: "4px 11px",
-                                }}
-                            />
-                        </Form.Item>
-
-                        <Form.Item
-                            name="password"
-                            label="Password"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: "Please enter your password",
-                                },
-                            ]}
-                        >
-                            <Input.Password
-                                style={{ border: "1px solid #dee2e6" }}
-                            />
-                        </Form.Item>
-
-                        <Form.Item>
-                            <Button
-                                type="primary"
-                                htmlType="submit"
-                                disabled={isSubmitting}
+        <div className="login_main">
+            {/* <div className="login_left">
+                <h1>Login Left</h1>
+            </div> */}
+            {/* <div className="login_container"> */}
+            <div className="login_container">
+                <h2>Login</h2>
+                <Formik
+                    initialValues={{ email: "", password: "" }}
+                    validationSchema={LoginSchema}
+                    onSubmit={handleLogin}
+                >
+                    {({ isSubmitting }) => (
+                        <Form onFinish={handleLogin}>
+                            <Form.Item
+                                name="email"
+                                label="Email"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please enter your email",
+                                    },
+                                ]}
                             >
-                                Login
-                            </Button>
-                        </Form.Item>
-                        <div>
-                            <ErrorMessage name="email" component="div" />
-                            <ErrorMessage name="password" component="div" />
-                        </div>
-                        <div className="registration_route">
-                            <h6 style={{ textAlign: "center" }}>
-                                Don't have an account?
-                                <span>
-                                    <Link
-                                        to="/register"
-                                        style={{ fontStyle: "Italic" }}
-                                    >
-                                        Register
-                                    </Link>
-                                </span>
-                            </h6>
-                        </div>
-                    </Form>
-                )}
-            </Formik>
+                                <Input
+                                    style={{
+                                        border: "1px solid #dee2e6",
+                                        padding: "4px 11px",
+                                    }}
+                                />
+                            </Form.Item>
+
+                            <Form.Item
+                                name="password"
+                                label="Password"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please enter your password",
+                                    },
+                                ]}
+                            >
+                                <Input.Password
+                                    style={{ border: "1px solid #dee2e6" }}
+                                />
+                            </Form.Item>
+
+                            <Form.Item>
+                                <Button
+                                    type="primary"
+                                    htmlType="submit"
+                                    disabled={isSubmitting}
+                                >
+                                    Login
+                                </Button>
+                            </Form.Item>
+                            <div>
+                                <ErrorMessage name="email" component="div" />
+                                <ErrorMessage name="password" component="div" />
+                            </div>
+                            <div className="registration_route">
+                                <h6 style={{ textAlign: "center" }}>
+                                    Don't have an account?
+                                    <span>
+                                        <Link
+                                            to="/register"
+                                            style={{ fontStyle: "Italic" }}
+                                        >
+                                            Register
+                                        </Link>
+                                    </span>
+                                </h6>
+                            </div>
+                        </Form>
+                    )}
+                </Formik>
+            </div>
         </div>
     );
 };

@@ -136,6 +136,7 @@ import { auth } from "./firebase";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import PageNotFound from "./Components/PageNotFound";
 import ContactUs from "./Components/ContactUs";
+import Login_test from "./Components/login_test";
 
 const RouterMain = () => {
     const [themeColor, setThemeColor] = useState("black");
@@ -193,6 +194,9 @@ const RouterMain = () => {
     const { currentUser } = auth;
     console.log(currentUser);
 
+    const bg_img =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtCh17cCUl3OeiiqnqYb72OPfHLLRVte3sg5Lz5duGg&s";
+
     return (
         <Router>
             <Switch>
@@ -201,25 +205,54 @@ const RouterMain = () => {
                 </Route>
 
                 <Route path="/login">
-                    <Container
-                        className="d-flex align-items-center justify-content-center"
-                        style={{ minHeight: "100vh" }}
+                    <div
+                        className="login-container-main"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(2,1fr)",
+                            flexDirection: "row",
+                            flexWrap: "wrap",
+                            justifyContent: "space-between",
+                            // alignItems: "center",
+                            width: "100%",
+                            height: "100vh",
+                        }}
                     >
-                        <div className="w-100" style={{ maxWidth: "300px" }}>
+                        <div className="login-img"></div>
+                        <div className="w-100">
                             <Login />
                         </div>
-                    </Container>
+                    </div>
                 </Route>
 
                 <Route path="/register">
-                    <Container
+                    {/* <Container
                         className="d-flex align-items-center justify-content-center"
                         style={{ minHeight: "100vh" }}
                     >
                         <div className="w-100" style={{ maxWidth: "300px" }}>
                             <Registration />
                         </div>
-                    </Container>
+                    </Container> */}
+
+                    <div
+                        className="login-container-main"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(2,1fr)",
+                            flexDirection: "row",
+                            flexWrap: "wrap",
+                            justifyContent: "space-between",
+                            // alignItems: "center",
+                            width: "100%",
+                            height: "100vh",
+                        }}
+                    >
+                        <div className="register-img"></div>
+                        <div className="w-100">
+                            <Registration />
+                        </div>
+                    </div>
                 </Route>
                 {/* <Route
                     path="/choose-template"
