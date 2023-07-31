@@ -58,6 +58,10 @@
     font-size: 26px;
     /* font-weight: bold; */
   }
+
+  .prev-tem1-usrname{
+    color: red;
+  }
   
   .left-column {
     width: 200px;
@@ -159,7 +163,7 @@
     border-bottom: 2px solid #cf8a05;
     background: #ededed;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     }
     
     #name h1 {
@@ -214,6 +218,13 @@
     #contactDetails ul li {
       margin-bottom: 3px;
       color: #444;
+    }
+    .preview1-contactDetails-li{
+      margin-bottom: 3px;
+      color: #444;
+      display: flex;
+     justify-content: flex-start;
+    align-items: center;
     }
     
     #contactDetails ul li a, a[href^=tel] {
@@ -497,4 +508,17 @@
       animation-delay: 0, 2.5s;
     }
   
+
+    /* preview page css */
+    .preview1-exp-details{
+      gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    }
   
+    .prev1-loc-container{
+      display: flex;
+    justify-content: space-around;
+    align-items: center;
+    }

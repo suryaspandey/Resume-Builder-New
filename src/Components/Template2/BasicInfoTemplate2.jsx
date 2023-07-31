@@ -1,14 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-// import {
-//     PDFDownloadLink,
-//     Document,
-//     Page,
-//     Image,
-//     View,
-//     Text,
-// } from "@react-pdf/renderer";
-// import { renderToString } from "react-dom/server";
-// import jsPDF from "jspdf";
+
 import {
     PDFViewer,
     Document,
@@ -16,8 +7,6 @@ import {
     PDFDownloadLink,
     pdf,
 } from "@react-pdf/renderer";
-// import { pdf } from "@react-pdf/renderer";
-// import ReactToPdf from "react-to-pdf";
 
 import ProfilePhoto from "../ProfilePhoto";
 

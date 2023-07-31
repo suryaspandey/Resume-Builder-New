@@ -18,7 +18,7 @@ body{
 
 .side-bar {
   width: 200px; 
-  background: #f1f1f1;
+  background: #0063701c;
   padding: 10px;
   height: 100%;
   position: fixed;
@@ -101,7 +101,7 @@ textarea {
 }
 
 input{
-  width: 70%;
+  /* width: 70%; */
   background:transparent;
 }
 
@@ -477,11 +477,29 @@ div.scroll-container img {
 }
 .card-hover:hover{
   transform: scale(1.05);
-  background-color: #34d272;
+  background-color: #006370;
 }
 
 .drawer{
   margin-top: 50px;
   /* height: 100px !important; */
   background-color: #537188;
+}
+
+.choose-theme-options{
+  color: orange;
+    width: 120px;
+    background: #006370;
+    border: none;
+    margin: 2px;
+    font-family:'Nunito Sans';
+    font-weight: 800;
+}
+
+.themeOption-icons{
+  display: flex;
+    align-items: center;
+    /* align-content: center; */
+   padding-left: 2px;
+    margin-top: 25px
 }

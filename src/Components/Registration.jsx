@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
 import "../components/login_registration_logout.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const RegistrationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -109,6 +110,20 @@ const Registration = () => {
                                     name="confirmPassword"
                                     component="div"
                                 />
+                            </div>
+
+                            <div className="registration_route">
+                                <h6 style={{ textAlign: "center" }}>
+                                    Already have an account?
+                                    <span>
+                                        <Link
+                                            to="/login"
+                                            style={{ fontStyle: "Italic" }}
+                                        >
+                                            Login
+                                        </Link>
+                                    </span>
+                                </h6>
                             </div>
                         </Form>
                     )}

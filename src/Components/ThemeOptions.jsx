@@ -377,7 +377,8 @@ const ThemeOptions = ({
             subheadingColor: "#000000",
         },
         option3: {
-            backgroundColor: "#88BAFF",
+            backgroundColor: "#4248363b",
+            // backgroundColor: "#88BAFF",
             // themeColor: "#BF9742",
             themeColor: "#dca261",
             textColor: "#0786D5",
@@ -386,7 +387,7 @@ const ThemeOptions = ({
         option4: {
             backgroundColor: "#5bbca8",
             // themeColor: "#BF9742",
-            themeColor: "#8d99968c",
+            themeColor: "#7a8783de",
             textColor: "#2c806f",
             subheadingColor: "#000000",
         },
@@ -412,35 +413,46 @@ const ThemeOptions = ({
         setSelectedColors(predefinedColors[e.target.value]);
     };
 
-    const renderThemeOptions = () => {
-        return (
-            <div className="theme-options">
-                <Radio.Group
-                    onChange={(e) => {
-                        handleThemeChange(e);
-                        handleOptionChange(e);
-                    }}
-                    // onChange={handleThemeChange}
-                    value={selectedOption}
-                    optionType="button"
-                >
-                    <Radio style={{ width: 85 }} value="default">
-                        Default
-                    </Radio>
-                    <br />
-                    <Radio value="option1">Option 1</Radio>
-                    <br />
-                    <Radio value="option2">Option 2</Radio>
-                    <br />
-                    <Radio value="option3">Option 3</Radio>
-                    <br />
-                    <Radio value="option4">Option 4</Radio>
-                </Radio.Group>
+    // const renderThemeOptions = () => {
+    //     return (
+    //         <div className="theme-options">
+    //             <Radio.Group
+    //                 onChange={(e) => {
+    //                     handleThemeChange(e);
+    //                     handleOptionChange(e);
+    //                 }}
+    //                 // onChange={handleThemeChange}
+    //                 value={selectedOption}
+    //                 optionType="button"
+    //             >
+    //                 <Radio
+    //                     // className="choose-theme-options"
+    //                     style={{
+    //                         // width: 85,
+    //                         color: "white",
+    //                         width: "85px",
+    //                         background: "#006370",
+    //                         border: "none",
+    //                         margin: "2px",
+    //                     }}
+    //                     value="default"
+    //                 >
+    //                     Default
+    //                 </Radio>
+    //                 <br />
+    //                 <Radio value="option1">Option 1</Radio>
+    //                 <br />
+    //                 <Radio value="option2">Option 2</Radio>
+    //                 <br />
+    //                 <Radio value="option3">Option 3</Radio>
+    //                 <br />
+    //                 <Radio value="option4">Option 4</Radio>
+    //             </Radio.Group>
 
-                {renderColorPreview()}
-            </div>
-        );
-    };
+    //             {renderColorPreview()}
+    //         </div>
+    //     );
+    // };
 
     const handleOptionChange = (e) => {
         const option = e.target.value;
@@ -670,322 +682,265 @@ const ThemeOptions = ({
     };
 
     return (
-        <div
-            className="theme-options-main-container"
-            style={{ position: "relative" }}
-        >
-            <div className="theme-options-container">
-                <div className="option-bar">
-                    <span>Choose Theme</span>
-                    <Radio.Group
-                        onChange={handleOptionChange}
-                        value={selectedOption}
-                        optionType="button"
-                    >
-                        <Radio style={{ width: 85 }} value="default">
-                            Default
-                        </Radio>
-                        <br />
-                        <Radio value="option1">Option 1</Radio>
-                        <br />
-                        <Radio value="option2">Option 2</Radio>
-                        <br />
-                        <Radio value="option3">Option 3</Radio>
-                        <br />
-                        <Radio value="option4">Option 4</Radio>
-                    </Radio.Group>
-                </div>
-                {/* {renderColorPicker()} */}
-                {renderColorPreview()}
-                {renderFontStyleSelector()}
-                {renderFontSizeSelector()}
-                {/* <ChooseTemplate /> */}
-                {/* <h4>Choose Template</h4> */}
-                {/* <div className="home_content ">
-                    <Popover content={content} title="Title">
-                        <Button type="primary">Choose Template</Button>
-                    </Popover>
-                    {/* <Card
-                    hoverable
-                    style={
-                        {
-                            // width: 250,
-                        }
-                    }
-                    cover={
+        <>
+            <span className="themeOption-icons">
+                <img
+                    src="/template_previews/settings.png"
+                    alt="theme"
+                    width={30}
+                    height={30}
+                />
+                <h3 style={{ paddingLeft: "5px" }}>Settings</h3>
+            </span>
+            <div
+                className="theme-options-main-container"
+                style={{ position: "relative" }}
+            >
+                <div className="theme-options-container">
+                    <div className="option-bar">
+                        <span className="themeOption-icons">
+                            <img
+                                src="/template_previews/theme.png"
+                                alt="theme"
+                                width={30}
+                                height={30}
+                            />
+                            <h6>Choose Theme</h6>
+                        </span>
+                        <Radio.Group
+                            style={{ backgroundColor: "transparent" }}
+                            onChange={handleOptionChange}
+                            value={selectedOption}
+                            optionType="button"
+                        >
+                            <Radio
+                                className="choose-theme-options"
+                                style={{ borderRadius: "0px" }}
+                                value="default"
+                            >
+                                Electric Aqua
+                            </Radio>
+                            <br />
+                            <Radio
+                                className="choose-theme-options"
+                                value="option1"
+                            >
+                                Dusty Rose
+                            </Radio>
+                            <br />
+                            <Radio
+                                className="choose-theme-options"
+                                value="option2"
+                            >
+                                Electric Blue
+                            </Radio>
+                            <br />
+                            <Radio
+                                className="choose-theme-options"
+                                value="option3"
+                            >
+                                Olive Haze
+                            </Radio>
+                            <br />
+                            <Radio
+                                className="choose-theme-options"
+                                style={{ borderRadius: "0px" }}
+                                value="option4"
+                            >
+                                Tropical Oasis
+                            </Radio>
+                        </Radio.Group>
+                    </div>
+                    {/* {renderColorPicker()} */}
+
+                    {renderColorPreview()}
+                    <span className="themeOption-icons">
                         <img
-                            alt="template1"
-                            height={150}
-                            src="/template_previews/template_preview1.PNG"
+                            src="/template_previews/color.png"
+                            alt="theme"
+                            width={30}
+                            height={30}
                         />
-                    }
-                    onClick={() => handleCardClick("template1")}
-                    ></Card>
-                    <Card
-                    hoverable
-                    style={{
-                        width: 150,
-                    }}
-                    cover={
+                        <h6 style={{ marginBottom: "2px" }}>
+                            Choose Font Style
+                        </h6>
+                    </span>
+
+                    {renderFontStyleSelector()}
+
+                    <span className="themeOption-icons">
                         <img
-                            alt="template2"
-                            src="/template_previews/template_preview2.PNG"
+                            src="/template_previews/size.png"
+                            alt="theme"
+                            width={30}
+                            height={30}
                         />
-                    }
-                    onClick={() => handleCardClick("template2")}
-                    ></Card> *
-                </div> */}
+                        <h6 style={{ marginBottom: "-3px" }}>
+                            Choose Font Size
+                        </h6>
+                    </span>
 
-                {/* Accordian  */}
+                    {renderFontSizeSelector()}
 
-                {/* <Collapse accordion defaultActiveKey="1">
-                    <Panel header="Choose Template" key="1">
-                        <Popover content={content} title="Title">
-                            <Button type="primary">Choose Template</Button>
-                        </Popover>
-                    </Panel>
-                    {/* Add more panels for other options 
-                    <Panel header="Theme Options" key="2">
-                        {renderThemeOptions()}
-                        {/* {renderColorPreview()} *
-                    </Panel>
-                    <Panel header="Font Style" key="3">
-                        {renderFontStyleSelector()}
-                    </Panel>
-                    <Panel header="Font Size" key="4">
-                        {renderFontSizeSelector()}
-                    </Panel>
-                </Collapse> */}
-
-                <>
-                    <Space>
+                    <>
+                        <Space>
+                            <span className="themeOption-icons">
+                                <img
+                                    src="/template_previews/template.png"
+                                    alt="theme"
+                                    width={30}
+                                    height={30}
+                                    style={{ marginRight: "2px" }}
+                                />
+                                <h6 style={{ marginBottom: "-3px" }}>
+                                    Choose Template
+                                </h6>
+                            </span>
+                        </Space>
                         <Button
                             type="primary"
                             onClick={showDrawer}
                             className="save-btn"
+                            style={{ padding: "2px 16px" }}
                         >
-                            Choose Templates
+                            Browse Templates
                         </Button>
-                    </Space>
-                    <Drawer
-                        className="drawer"
-                        // title="Drawer with extra actions"
-                        placement={placement}
-                        // width={200}
-                        onClose={onClose}
-                        open={open}
-                        // extra={
-                        //     <Space>
-                        //         <Button onClick={onClose}>Cancel</Button>
-                        //         <Button type="primary" onClick={onClose}>
-                        //             OK
-                        //         </Button>
-                        //     </Space>
-                        // }
-                    >
-                        <div class="scroll-container">
-                            {/* <TemplateSelection /> */}
+                        <Drawer
+                            className="drawer"
+                            // title="Drawer with extra actions"
+                            placement={placement}
+                            // width={200}
+                            onClose={onClose}
+                            open={open}
+                        >
+                            <div class="scroll-container">
+                                {/* <TemplateSelection /> */}
 
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview2.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template2")
-                                }
-                            ></Card>
+                                <Card
+                                    className="card-hover"
+                                    hoverable
+                                    style={{
+                                        width: 550,
+                                        height: 250,
+                                    }}
+                                    cover={
+                                        <img
+                                            height={250}
+                                            width={550}
+                                            alt="template2"
+                                            src="/template_previews/template_preview2.PNG"
+                                        />
+                                    }
+                                    onMouseEnter={() =>
+                                        handleCardClick("template2")
+                                    }
+                                ></Card>
 
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview1.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template1")
-                                }
-                            ></Card>
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview1.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template1")
-                                }
-                            ></Card>
+                                <Card
+                                    className="card-hover"
+                                    hoverable
+                                    style={{
+                                        width: 550,
+                                        height: 250,
+                                    }}
+                                    cover={
+                                        <img
+                                            height={250}
+                                            width={550}
+                                            alt="template2"
+                                            src="/template_previews/template_preview1.PNG"
+                                        />
+                                    }
+                                    onMouseEnter={() =>
+                                        handleCardClick("template1")
+                                    }
+                                ></Card>
+                                <Card
+                                    className="card-hover"
+                                    hoverable
+                                    style={{
+                                        width: 550,
+                                        height: 250,
+                                    }}
+                                    cover={
+                                        <img
+                                            height={250}
+                                            width={550}
+                                            alt="template2"
+                                            src="/template_previews/template_preview1.PNG"
+                                        />
+                                    }
+                                    onMouseEnter={() =>
+                                        handleCardClick("template1")
+                                    }
+                                ></Card>
 
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview1.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template1")
-                                }
-                            ></Card>
+                                <Card
+                                    className="card-hover"
+                                    hoverable
+                                    style={{
+                                        width: 550,
+                                        height: 250,
+                                    }}
+                                    cover={
+                                        <img
+                                            height={250}
+                                            width={550}
+                                            alt="template2"
+                                            src="/template_previews/template_preview1.PNG"
+                                        />
+                                    }
+                                    onMouseEnter={() =>
+                                        handleCardClick("template1")
+                                    }
+                                ></Card>
 
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview1.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template1")
-                                }
-                            ></Card>
-                            {/* <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview1.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template1")
-                                }
-                            ></Card>
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview1.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template1")
-                                }
-                            ></Card>
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview1.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template1")
-                                }
-                            ></Card>
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview2.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template2")
-                                }
-                            ></Card> */}
+                                <Card
+                                    className="card-hover"
+                                    hoverable
+                                    style={{
+                                        width: 550,
+                                        height: 250,
+                                    }}
+                                    cover={
+                                        <img
+                                            height={250}
+                                            width={550}
+                                            alt="template2"
+                                            src="/template_previews/template_preview1.PNG"
+                                        />
+                                    }
+                                    onMouseEnter={() =>
+                                        handleCardClick("template1")
+                                    }
+                                ></Card>
 
-                            <Card
-                                className="card-hover"
-                                hoverable
-                                style={{
-                                    width: 550,
-                                    height: 250,
-                                }}
-                                cover={
-                                    <img
-                                        height={250}
-                                        width={550}
-                                        alt="template2"
-                                        src="/template_previews/template_preview2.PNG"
-                                    />
-                                }
-                                onMouseEnter={() =>
-                                    handleCardClick("template2")
-                                }
-                            ></Card>
-                        </div>
-                        {/* </div> */}
-                    </Drawer>
-                </>
+                                <Card
+                                    className="card-hover"
+                                    hoverable
+                                    style={{
+                                        width: 550,
+                                        height: 250,
+                                    }}
+                                    cover={
+                                        <img
+                                            height={250}
+                                            width={550}
+                                            alt="template2"
+                                            src="/template_previews/template_preview2.PNG"
+                                        />
+                                    }
+                                    onMouseEnter={() =>
+                                        handleCardClick("template2")
+                                    }
+                                ></Card>
+                            </div>
+                            {/* </div> */}
+                        </Drawer>
+                    </>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

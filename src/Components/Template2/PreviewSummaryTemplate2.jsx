@@ -8,17 +8,7 @@ export default function PreviewSummaryTemplate2({
     return (
         <>
             <div
-                // ref={textareaRef}
                 className="summaryTextareaClass"
-                // name="summary"
-                // value={summary}
-                // onChange={handleChange}
-                // onFocus={() => {
-                //     setIsEditing(true);
-                // }}
-                // placeholder="What's the one thing that makes you the best candidate for this job?"
-                // // autoSize
-                // autoSize={{ minRows: 5, maxRows: 7 }}
                 style={{
                     border: "none",
                     backgroundColor: "transparent",
@@ -30,18 +20,6 @@ export default function PreviewSummaryTemplate2({
             >
                 {savedSummary}
             </div>
-
-            {/* {isEditing && (
-                <button
-                    className="save-btn"
-                    type="submit"
-                    onClick={handleSubmit}
-                >
-                    Save
-                </button>
-            )}
-
-            {summaryError && <p>{summaryError}</p>} */}
         </>
     );
 }

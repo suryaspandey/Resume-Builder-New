@@ -12,7 +12,6 @@ const SideBar = ({
 }) => {
     return (
         <div className="side-bar">
-            <h4>Settings</h4>
             <ThemeOptions
                 onThemeColorChange={onThemeColorChange}
                 onBackgroundColorChange={onBackgroundColorChange}

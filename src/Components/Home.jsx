@@ -1,25 +1,4 @@
-// import React from "react";
-// import "../Components/home.css";
-// const Home = () => {
-//     return (
-//         <>
-//             <div className="navbar-container">
-//                 <div className="navbar">
-//                     <ul className="home-links">
-//                         <li>Logo</li>
-//                         <li>About Us</li>
-//                         <li>Contact Us</li>
-//                         <li>Login</li>
-//                     </ul>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default Home;
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     AppstoreOutlined,
     SettingOutlined,
@@ -37,6 +16,8 @@ import { Carousel } from "antd";
 import HeaderComp from "./HeaderComp";
 import { Button, Popover, Rate } from "antd";
 import { PopoverHeader } from "react-bootstrap";
+import Footer from "./Footer";
+import GifContainer from "./GifContainer";
 
 const Home = () => {
     const history = useHistory();
@@ -112,12 +93,13 @@ const Home = () => {
             </p>
         </div>
     );
+
     return (
         <>
             <HeaderComp />
 
             <div className="home-container">
-                <h1 className="home-tagline">
+                <h1 className="home-tagline" style={{ fontSize: "45px" }}>
                     Your Dream Job Starts Here: Build Your Winning Resume
                 </h1>
                 <div
@@ -134,13 +116,32 @@ const Home = () => {
                     />
                 </div>
 
-                <h4>
-                    MyResumeBuilder is lightning fast. There's no software to
-                    download. No multi-part sign-up form. No long-winded
-                    tutorials. Just a straightforward process.
-                </h4>
+                <div className="home-gif-text-container">
+                    <div className="gif-text">
+                        <h4 className="home-h4-text">
+                            MyResumeBuilder is lightning fast. There's no
+                            software to download. No multi-part sign-up form. No
+                            long-winded tutorials. Just a straightforward
+                            process.
+                        </h4>
+                    </div>
+                    <div className="gif-container">
+                        <GifContainer />
+                    </div>
+                </div>
 
-                <h6>Four simple steps to make your CV </h6>
+                <h1
+                    className="home-tagline home-subheadings"
+                    // style={{
+                    //     display: "flex",
+                    //     textAlign: "center",
+                    //     justifyContent: "center",
+                    //     marginTop: "20px",
+                    //     fontWeight: "800",
+                    // }}
+                >
+                    Four simple steps to make your CV
+                </h1>
             </div>
             <div
                 className="hr_tg"
@@ -366,7 +367,9 @@ const Home = () => {
                         }}
                     />
                 </div>
-                <h2>Why Use MyResumeBuilder?</h2>
+                <h1 className="home-tagline home-subheadings">
+                    Why Use MyResumeBuilder?
+                </h1>
 
                 <div className="resume_features_grid">
                     <div className="features_img_text">
@@ -379,7 +382,7 @@ const Home = () => {
                         </div>
                         <div className="feature_text">
                             <h3>Completely Free</h3>
-                            <h6>
+                            <h6 className="home-h6-text">
                                 Enjoy all the robust features of our resume
                                 builder without any cost or hidden fees, making
                                 it accessible to everyone looking to create a
@@ -398,7 +401,7 @@ const Home = () => {
                         </div>
                         <div className="feature_text">
                             <h3>User-friendly Interface</h3>
-                            <h6>
+                            <h6 className="home-h6-text">
                                 Create professional resumes effortlessly with
                                 our intuitive and user-friendly interface,
                                 making the resume-building process a breeze.
@@ -416,7 +419,7 @@ const Home = () => {
                         </div>
                         <div className="feature_text">
                             <h3>Customizable Templates</h3>
-                            <h6>
+                            <h6 className="home-h6-text">
                                 Choose from a diverse range of customizable
                                 templates that suit your style and industry,
                                 ensuring your resume stands out.
@@ -434,7 +437,7 @@ const Home = () => {
                         </div>
                         <div className="feature_text">
                             <h3>Real-time Previews</h3>
-                            <h6>
+                            <h6 className="home-h6-text">
                                 Instantly visualize your resume as you edit,
                                 ensuring you can fine-tune every detail to
                                 perfection.
@@ -459,12 +462,11 @@ const Home = () => {
                         </button>
                     </>
                 ) : (
-                    <Link
-                        to="/login"
-                        // style={{ textDecoration: "none", color: "white" }}
-                    ></Link>
+                    <Link to="/login"></Link>
                 )}
             </div>
+
+            <Footer />
         </>
     );
 };

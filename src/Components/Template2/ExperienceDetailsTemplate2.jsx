@@ -603,25 +603,6 @@ const ExperienceDetailsTemplate2 = ({
                                     />
                                     {/*  */}
 
-                                    {/* <textarea
-                                        placeholder="Description"
-                                        value={experience.description}
-                                        onChange={(e) =>
-                                            handleExperienceChange(
-                                                index,
-                                                "description",
-                                                e.target.value
-                                            )
-                                        }
-                                        onFocus={() => setIsEditing(true)}
-                                        onKeyDown={(e) =>
-                                            handleDescriptionKeyPress(e, index)
-                                        }
-                                        // rows={calculateTextareaRows(
-                                        //     experience.description
-                                        // )}
-                                    ></textarea> */}
-
                                     {experience.errors &&
                                         experience.errors.description && (
                                             <p>
