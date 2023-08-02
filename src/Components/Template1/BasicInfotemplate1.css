@@ -148,7 +148,8 @@
     #cv {
       width: 90%;
       max-width: 800px;
-      background: #f3f3f3;
+      /* background: #f3f3f3; */
+      background: white;
       margin: 30px auto;
     }
     
@@ -160,8 +161,9 @@
 
       display: flex;
     padding: 14px 10px;
-    border-bottom: 2px solid #cf8a05;
-    background: #ededed;
+    /* border-bottom: 2px solid #cf8a05; */
+    /* background: grey; */
+    /* background: #dfce52; */
     align-items: center;
     justify-content: space-between;
     }
@@ -521,4 +523,10 @@
       display: flex;
     justify-content: space-around;
     align-items: center;
+    }
+
+    .prev1-dates-loc-container{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      justify-items: start;
     }

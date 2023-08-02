@@ -13,9 +13,6 @@ const SkillsDetailsTemplate2 = ({
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [showDropdown, setShowDropdown] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
-    const [selectedSkillIndex, setSelectedSkillIndex] = useState(null);
-    const [errorMessage, setErrorMessage] = useState("");
-    const [isSaved, setIsSaved] = useState(false);
     // const [showButtons, setShowButtons] = useState(true);
 
     // Load skills from local storage on initial component mount
@@ -52,8 +49,6 @@ const SkillsDetailsTemplate2 = ({
         setSelectedSkills((prevSelectedSkills) =>
             prevSelectedSkills.filter((skill) => skill !== removedSkill)
         );
-        setIsEditing(true); // Set isEditing to true when a skill is removed
-        setIsSaved(false); // Set isSaved to false when a skill is removed
     };
 
     const handleSave = () => {
@@ -62,16 +57,9 @@ const SkillsDetailsTemplate2 = ({
         //     // JSON.stringify({ selectedSkills, showButtons: false })
         //     JSON.stringify({ selectedSkills })
         // );
-
-        if (selectedSkills.length === 0) {
-            setErrorMessage("Select at least one skill");
-            setIsSaved(false);
-            return;
-        }
         setIsEditing(false);
+        // setShowButtons(false);
         setShowDropdown(false);
-        setErrorMessage("");
-        setIsSaved(true);
     };
 
     const handleAddMore = () => {
@@ -80,19 +68,12 @@ const SkillsDetailsTemplate2 = ({
         // setShowButtons(true);
     };
 
-    const handleSkillSelectin = (selectedSkill) => {
-        // Set the index of the selected skill
-        setSelectedSkillIndex(selectedSkills.indexOf(selectedSkill));
-        // Activate edit mode
-        setIsEditing(true);
-    };
-
     return (
         <>
             <div
                 className=" resume_item resume_skills"
                 style={{
-                    // backgroundColor: backgroundColor,
+                    backgroundColor: backgroundColor,
                     borderBottom: `2px solid ${themeColor}`,
                     width: "90%",
                     alignContent: "center",
@@ -105,7 +86,7 @@ const SkillsDetailsTemplate2 = ({
                             fontFamily: tempfontStyle,
                         }}
                     >
-                        Key Skills
+                        Skills
                     </p>
                 </div>
                 <ul>
@@ -115,12 +96,9 @@ const SkillsDetailsTemplate2 = ({
                                 <span
                                     style={{
                                         border: `2px solid ${themeColor}`,
-                                        // backgroundColor: themeColor,
+                                        backgroundColor: themeColor,
                                         fontFamily: tempfontStyle,
                                         fontSize: tempfontSize,
-                                        padding: "5px",
-                                        margin: "3px",
-                                        borderRadius: "5px",
                                     }}
                                     key={skill}
                                     className="skill-box"
@@ -147,18 +125,11 @@ const SkillsDetailsTemplate2 = ({
                         </li>
                     ))}
                 </ul>
-                <div className="error-message">
-                    {errorMessage && <p>{errorMessage}</p>}
-                </div>
 
                 {showDropdown && selectedSkills.length < 8 && (
                     <select
                         className="skill-select"
                         onChange={(e) => handleSkillSelect(e.target.value)}
-                        style={{
-                            fontFamily: tempfontStyle,
-                            fontSize: tempfontSize,
-                        }}
                     >
                         <option value="">Select</option>
                         {skillsData.map((skill) => (
@@ -169,23 +140,25 @@ const SkillsDetailsTemplate2 = ({
                     </select>
                 )}
 
-                {(selectedSkills.length === 0 || isEditing) && (
+                {/* {!showDropdown && ( */}
+                {!showDropdown && (
                     <>
                         <button className="add-btn" onClick={handleAddMore}>
                             <AiOutlinePlusCircle size={20} />
                         </button>
-
-                        <button className="save-btn" onClick={handleSave}>
-                            Save
-                        </button>
+                        {/* {isEditing && (
+                            <button className="save-btn" onClick={handleSave}>
+                                Save
+                            </button>
+                        )} */}
                     </>
                 )}
 
-                {/* {showDropdown && !isSaved && (
+                {showDropdown && (
                     <button className="save-btn" onClick={handleSave}>
                         Save
                     </button>
-                )} */}
+                )}
             </div>
             <EducationDetailsTemplate2
                 themeColor={themeColor}

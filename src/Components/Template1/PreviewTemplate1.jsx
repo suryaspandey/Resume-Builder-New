@@ -7,6 +7,8 @@ import ProjectDetailsTemplate1 from "./ProjectDetailsTemplate1";
 import SkillsDetailsTemplate1 from "./SkillsDetailsTemplate1";
 import PreviewExperienceTemplate2 from "./PreviewExperienceTemplate1";
 import PreviewExperienceTemplate1 from "./PreviewExperienceTemplate1";
+import PreviewProjectDetailsTemplate1 from "./PreviewProjectDetailsTemplate1";
+import PreviewSkillsDetailsTemplate1 from "./PreviewSkillsDetailsTemplate1";
 
 const PreviewTemplate1 = ({
     formData,
@@ -23,7 +25,6 @@ const PreviewTemplate1 = ({
     const { name, location, phone, email, linkedin, summary } = formData;
     return (
         <>
-            <h1>Preview Template 1 compoenent</h1>
             <div className="top">
                 <div id="cv">
                     <form>
@@ -75,6 +76,7 @@ const PreviewTemplate1 = ({
                                     <li className="preview1-contactDetails-li">
                                         <span className="info-icon">
                                             <FaLocationArrow
+                                                className="linkedin"
                                                 style={{
                                                     color: themeColor,
                                                     marginRight: "10px",
@@ -99,6 +101,7 @@ const PreviewTemplate1 = ({
                                     <li className="preview1-contactDetails-li">
                                         <span className="info-icon">
                                             <BsFillTelephoneFill
+                                                className="linkedin"
                                                 style={{
                                                     color: themeColor,
                                                     marginRight: "10px",
@@ -123,6 +126,7 @@ const PreviewTemplate1 = ({
                                     <li className="preview1-contactDetails-li">
                                         <span className="info-icon">
                                             <FaEnvelope
+                                                className="linkedin"
                                                 style={{
                                                     color: themeColor,
                                                     marginRight: "10px",
@@ -147,6 +151,7 @@ const PreviewTemplate1 = ({
                                     <li className="preview1-contactDetails-li">
                                         <span className="info-icon">
                                             <FaLinkedin
+                                                className="linkedin"
                                                 style={{
                                                     color: themeColor,
                                                     marginRight: "10px",
@@ -175,9 +180,9 @@ const PreviewTemplate1 = ({
 
                         <div id="mainArea">
                             <section
-                            // style={{
-                            //     backgroundColor: backgroundColor,
-                            // }}
+                                style={{
+                                    borderTop: `2px solid ${backgroundColor}`,
+                                }}
                             >
                                 <article>
                                     <div className="sectionTitle">
@@ -211,16 +216,20 @@ const PreviewTemplate1 = ({
                         tempfontStyle={tempfontStyle}
                     />
                     <br />
-                    <ProjectDetailsTemplate1
+                    <PreviewProjectDetailsTemplate1
                         themeColor={themeColor}
                         backgroundColor={backgroundColor}
                         textColor={textColor}
                         subheadingColor={subheadingColor}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
                     />
-                    <SkillsDetailsTemplate1
+                    <PreviewSkillsDetailsTemplate1
                         themeColor={themeColor}
                         backgroundColor={backgroundColor}
                         textColor={textColor}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
                     />
                 </div>
             </div>

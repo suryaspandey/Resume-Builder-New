@@ -300,12 +300,6 @@ input.titleColor{
   margin-bottom: -8px;
 }
 
-.linkedIn-text{
-  /* background-color: yellow !important; */
-  min-height: 80px !important;
-    max-height: 128px !important;
-}
-
 .titletextsize{
   width: 525px;
   resize: none;
@@ -390,13 +384,5 @@ textarea {
 .school-clg-name-container-preview{
 display: flex;
 /* justify-content: center; */
-}
-
-.prev-resume-download{
-  margin: auto;
-  width: 800px;
-    height: auto;
-    display: flex
-  
 }
 

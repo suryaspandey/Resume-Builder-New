@@ -71,15 +71,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                 size={[0, 48]}
             >
                 <Layout>
-                    {/* <Header style={headerStyle}>
-                        <img
-                            alt="template1"
-                            height={50}
-                            width={50}
-                            src="/template_previews/Resume_Logo.png"
-                        />
-                        <Avatar icon={<UserOutlined />} />
-                    </Header> */}
                     <HeaderComp />
 
                     <Content style={contentStyle}>
@@ -97,6 +88,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         hoverable
                                         style={{
                                             width: 240,
+                                            height: 400,
                                         }}
                                         cover={
                                             <img
@@ -113,9 +105,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         hoverable
                                         style={{
                                             width: 240,
+                                            height: 400,
                                         }}
                                         cover={
                                             <img
+                                                height={400}
                                                 alt="template2"
                                                 src="/template_previews/template_preview2.PNG"
                                             />

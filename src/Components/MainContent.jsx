@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import TemplateSelection from "./TemplateSelection";
 
 import { Select, Popover, Button, Collapse } from "antd";
+import BasicInfoTemplate3 from "./Template3/BasicInfoTemplate3";
 
 const { Option } = Select;
 const { Panel } = Collapse;
@@ -46,10 +47,6 @@ const MainContent = ({
     const handleShowProfilePhotoChange = (value) => {
         setShowProfilePhoto(value);
     };
-
-    // const handleImageSelect = (imageNumber) => {
-    //     setSelectedImage(imageNumber);
-    // };
 
     return (
         <div className="all-components">
@@ -85,6 +82,24 @@ const MainContent = ({
                                 handleShowProfilePhotoChange
                             }
                             // --------------
+                            tempfontSize={tempfontSize}
+                            tempfontStyle={tempfontStyle}
+                        />
+                    </>
+                )}
+                {templateName === "template3" && (
+                    <>
+                        {/* <SideBar /> */}
+                        <BasicInfoTemplate3
+                            themeColor={themeColor}
+                            backgroundColor={backgroundColor}
+                            textColor={textColor}
+                            subheadingColor={subheadingColor}
+                            showProfilePhoto={showProfilePhoto}
+                            onShowProfilePhotoChange={
+                                handleShowProfilePhotoChange
+                            }
+                            // ---------
                             tempfontSize={tempfontSize}
                             tempfontStyle={tempfontStyle}
                         />

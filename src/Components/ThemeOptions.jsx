@@ -594,8 +594,13 @@ const ThemeOptions = ({
             <div className="font-style-selector">
                 {/* <span>Font Style:</span> */}
                 <Select
+                    // bordered={false}
                     defaultValue={fontStyle}
-                    style={{ width: 120 }}
+                    style={{
+                        width: 120,
+
+                        // backgroundColor: "#006370",
+                    }}
                     onChange={handleFontStyleChange}
                 >
                     <Option value="Arial">Arial</Option>

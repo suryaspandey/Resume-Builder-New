@@ -7,8 +7,6 @@ import ExperienceDetailsTemplate2 from "./ExperienceDetailsTemplate2";
 import PreviewSkillsTemplate2 from "./PreviewSkillsTemplate2";
 import PreviewExperienceDetailsTemplate2 from "./PreviewExperienceDetailsTemplate2";
 
-import { BsFillTelephoneFill } from "react-icons/bs";
-
 const PreviewTemplate2 = ({
     formData,
     themeColor,
@@ -24,7 +22,7 @@ const PreviewTemplate2 = ({
     const { name, location, phone, email, linkedin } = formData;
     return (
         <>
-            <div className="resume" style={{ margin: "auto" }}>
+            <div className="resume">
                 <form>
                     <div
                         className="resume_left"
@@ -43,6 +41,11 @@ const PreviewTemplate2 = ({
                                 <div className="title">
                                     <div
                                         className="bold basic-info"
+                                        // type="text"
+                                        // name="name"
+                                        // value={formData.name}
+                                        // onChange={handleChange}
+                                        // onFocus={() => setIsEditing(true)}
                                         placeholder="Name"
                                         style={{
                                             textTransform: "uppercase",
@@ -66,16 +69,10 @@ const PreviewTemplate2 = ({
                                 <ul className="prevTemp2_basic_details">
                                     <li>
                                         <div className="icon ">
-                                            {/* <i
+                                            <i
                                                 class="fas fa-map-signs"
                                                 style={{ color: themeColor }}
-                                            ></i> */}
-                                            <FaLocationArrow
-                                                className="linkedin"
-                                                style={{
-                                                    color: themeColor,
-                                                }}
-                                            />
+                                            ></i>
                                         </div>
                                         <div className="data">
                                             <div
@@ -93,16 +90,10 @@ const PreviewTemplate2 = ({
                                     </li>
                                     <li>
                                         <div className="icon">
-                                            {/* <i
+                                            <i
                                                 class="fas fa-mobile-alt"
                                                 style={{ color: themeColor }}
-                                            ></i> */}
-                                            <BsFillTelephoneFill
-                                                className="linkedin"
-                                                style={{
-                                                    color: themeColor,
-                                                }}
-                                            />
+                                            ></i>
                                         </div>
                                         <div className="data">
                                             <div
@@ -120,16 +111,10 @@ const PreviewTemplate2 = ({
                                     </li>
                                     <li>
                                         <div className="icon">
-                                            {/* <i
+                                            <i
                                                 className="fas fa-envelope"
                                                 style={{ color: themeColor }}
-                                            ></i> */}
-                                            <FaEnvelope
-                                                className="linkedin"
-                                                style={{
-                                                    color: themeColor,
-                                                }}
-                                            />
+                                            ></i>
                                         </div>
                                         <div className="data">
                                             <div
@@ -147,15 +132,7 @@ const PreviewTemplate2 = ({
                                     </li>
 
                                     <li>
-                                        <div
-                                            className="icon"
-                                            style={{
-                                                display: "grid",
-                                                gridTemplateColumns: "42px 1fr",
-                                                paddingBottom: "8px",
-                                                alignContent: "space-evenly",
-                                            }}
-                                        >
+                                        <div className="icon">
                                             <FaLinkedin
                                                 className="linkedin"
                                                 style={{ color: themeColor }}
@@ -163,6 +140,10 @@ const PreviewTemplate2 = ({
                                         </div>
                                         <div className="data">
                                             <div
+                                                autoSize={{
+                                                    minRows: 3,
+                                                    maxRows: 5,
+                                                }}
                                                 style={{
                                                     border: "none",
                                                     backgroundColor:
@@ -171,7 +152,7 @@ const PreviewTemplate2 = ({
                                                     fontSize: tempfontSize,
                                                 }}
                                                 className="basic-info"
-                                                // className="basic-info linkedIn-text"
+                                                placeholder="LinkedIn"
                                             >
                                                 {linkedin}
                                             </div>

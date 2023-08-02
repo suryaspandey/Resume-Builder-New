@@ -50,13 +50,9 @@ export default function PreviewSkillsTemplate2({
                                 <span
                                     style={{
                                         border: `2px solid ${themeColor}`,
-                                        // backgroundColor: themeColor,
+                                        backgroundColor: themeColor,
                                         fontFamily: tempfontStyle,
                                         fontSize: tempfontSize,
-                                        padding: "5px",
-                                        margin: "3px",
-                                        borderRadius: "5px",
-                                        // color: "white",
                                     }}
                                     key={skill}
                                     className="skill-box"

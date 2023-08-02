@@ -118,28 +118,34 @@ const Home = () => {
 
                 <div className="home-gif-text-container">
                     <div className="gif-text">
+                        <h2 className="home-tagline home-subheadings">
+                            YOUR FAST AND HASSLE-FREE PATH TO SUCCESS
+                        </h2>
+
                         <h4 className="home-h4-text">
+                            {/* <h2>Your Fast and Hassle-Free Path to Success</h2> */}
                             MyResumeBuilder is lightning fast. There's no
                             software to download. No multi-part sign-up form. No
-                            long-winded tutorials. Just a straightforward
-                            process.
+                            long-winded tutorials. Get one step closer to
+                            getting hired with a simple and straightforward
+                            process!
                         </h4>
                     </div>
-                    <div className="gif-container">
-                        <GifContainer />
+                    <div
+                        className="gif-container"
+                        style={{ backgroundColor: "rgba(218, 217, 217, 0.47)" }}
+                    >
+                        {/* <GifContainer /> */}
+                        <img
+                            src="/template_previews/ezgif.com-video-to-gif.gif"
+                            alt=""
+                            height={300}
+                            width={300}
+                        />
                     </div>
                 </div>
 
-                <h1
-                    className="home-tagline home-subheadings"
-                    // style={{
-                    //     display: "flex",
-                    //     textAlign: "center",
-                    //     justifyContent: "center",
-                    //     marginTop: "20px",
-                    //     fontWeight: "800",
-                    // }}
-                >
+                <h1 className="home-tagline home-subheadings">
                     Four simple steps to make your CV
                 </h1>
             </div>
@@ -235,7 +241,7 @@ const Home = () => {
                 }}
             >
                 <div className="customers-text">
-                    <h1>See why customers love MyResumeBuilder</h1>
+                    <h1>See why customers love MyResumeBuilder🤩</h1>
                     <img
                         src="./template_previews/trustPilotReview.jpg"
                         alt="TrustPilot review"

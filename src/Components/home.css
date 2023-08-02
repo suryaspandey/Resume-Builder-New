@@ -139,10 +139,11 @@ transform: scale(1.05);
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-size: 18px;
 }
 .header-link:hover{
     color: orange !important;
-    /* background-color: orange; */
+    font-style: italic;
 }
 .header-link:active{
     color: red !important;
@@ -180,10 +181,13 @@ transform: scale(1.05);
     justify-content: center !important;
     align-content: center;
     align-items: center;
-    color: #006370;
+    /* color: #006370; */
     font-family: "Nunito Sans";
     /* font-family: "Oswald"; */
     font-weight: 800;
+    background-color: rgba(218, 217, 217, 0.47);
+    padding: 78px;
+    border-radius: 10px
 }
 
 .home-h6-text{
@@ -196,6 +200,12 @@ transform: scale(1.05);
     justify-content: center;
     margin-top: 20px;
     font-weight: 800;
+}
+
+.home-gif-text-container{
+    /* background-color: rgba(218, 217, 217, 0.47); */
+    display: flex;
+    align-items: center;
 }
 
 /* .resume_features{

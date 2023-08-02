@@ -14,6 +14,9 @@ body{
   display: flex;
   /* justify-content: center; */
   /* justify-content: space-between; */
+    /* background: grey; */
+    /* background-color: ; */
+    background: #f7f4f4;
 }
 
 .side-bar {
@@ -53,7 +56,7 @@ body{
 .all-components {
   width: 90%;
   margin: auto;
-  padding: 20px;
+  /* padding: 20px; */
   /* background-color: #F9F5F6; */
 }
 
@@ -241,7 +244,7 @@ p {
 }
 
 .add-btn svg{
-  color: #34d272;
+  color: #eba10c;
     font-size: 22px;
     background-color: transparent;
 }
@@ -352,6 +355,7 @@ svg{
 .selected-skills{
   display: flex;
     gap: 6px;
+    flex-wrap: wrap;
 }
 
 .skill-box{
@@ -359,7 +363,7 @@ svg{
   /* border-radius: 5px; */
   /* background: #ebd7c2;
     border: 2px solid #ff6e00; */
-    color: white;
+    /* color: white; */
 
     /* background: #ff6e00;
     border: 2px solid #292827; */
@@ -432,6 +436,8 @@ ul,ol{
     justify-content: space-around;
     align-items: center;
     background-color: #f2fafb;
+    /* background-color: white; */
+    padding: 10px;
 }
 
 .headerStyle {
@@ -502,4 +508,21 @@ div.scroll-container img {
     /* align-content: center; */
    padding-left: 2px;
     margin-top: 25px
+}
+
+.save-download-btns{
+ 
+  display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* download css */
+.download-main-div
+{
+  display: flex;
+    background: rgb(0, 99, 112);
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }

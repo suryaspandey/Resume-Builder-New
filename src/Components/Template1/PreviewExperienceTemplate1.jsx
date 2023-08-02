@@ -15,7 +15,11 @@ export default function PreviewExperienceTemplate1({
 
     return (
         <>
-            <section>
+            <section
+                style={{
+                    borderTop: `2px solid ${backgroundColor}`,
+                }}
+            >
                 <div className="sectionTitle">
                     <h1
                         style={{
@@ -58,7 +62,7 @@ export default function PreviewExperienceTemplate1({
                                         {experience.position}
                                     </div>
                                 </div>
-                                <div className="dates-location-container">
+                                <div className=" prev1-dates-loc-container">
                                     <div className="dates-container">
                                         <FaCalendarAlt
                                             style={{ color: themeColor }}
@@ -69,6 +73,7 @@ export default function PreviewExperienceTemplate1({
                                             style={{
                                                 fontFamily: tempfontStyle,
                                                 fontSize: tempfontSize,
+                                                width: "33px",
                                             }}
                                         >
                                             {experience.startYear}

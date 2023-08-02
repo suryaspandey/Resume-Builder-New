@@ -35,6 +35,12 @@ const ProfilePhoto = ({ onPhotoSelect }) => {
         localStorage.removeItem("profilePhoto");
     };
 
+    if (typeof onPhotoSelect !== "function") {
+        // Handle the case where onPhotoSelect is not a function (optional)
+        console.error("onPhotoSelect is not a function.");
+        return null;
+    }
+
     return (
         <div className="profile-photo">
             {!isUploaded ? (

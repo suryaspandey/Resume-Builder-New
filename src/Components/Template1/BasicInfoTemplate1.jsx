@@ -284,6 +284,7 @@ const BasicInfoTemplate1 = ({
                                         <li>
                                             <span className="info-icon">
                                                 <FaLocationArrow
+                                                    className="linkedin"
                                                     style={{
                                                         color: themeColor,
                                                     }}
@@ -307,6 +308,7 @@ const BasicInfoTemplate1 = ({
                                         <li>
                                             <span className="info-icon">
                                                 <BsFillTelephoneFill
+                                                    className="linkedin"
                                                     style={{
                                                         color: themeColor,
                                                     }}
@@ -330,8 +332,12 @@ const BasicInfoTemplate1 = ({
                                         <li>
                                             <span className="info-icon">
                                                 <FaEnvelope
+                                                    className="linkedin"
                                                     style={{
                                                         color: themeColor,
+                                                        // height: "38px",
+                                                        // width: "25px",
+                                                        // paddingLeft: "7px",
                                                     }}
                                                 />
                                             </span>
@@ -353,6 +359,7 @@ const BasicInfoTemplate1 = ({
                                         <li>
                                             <span className="info-icon">
                                                 <FaLinkedin
+                                                    className="linkedin"
                                                     style={{
                                                         color: themeColor,
                                                     }}
@@ -380,9 +387,9 @@ const BasicInfoTemplate1 = ({
 
                             <div id="mainArea">
                                 <section
-                                // style={{
-                                //     backgroundColor: backgroundColor,
-                                // }}
+                                    style={{
+                                        borderTop: `2px solid ${backgroundColor}`,
+                                    }}
                                 >
                                     <article>
                                         <div className="sectionTitle">
@@ -432,7 +439,7 @@ const BasicInfoTemplate1 = ({
                             {summaryError && <p>{summaryError}</p>}
                         </form>
                         <br />
-                        <PreviewExperienceTemplate1
+                        <ExperienceDetailsTemplate1
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
@@ -459,21 +466,27 @@ const BasicInfoTemplate1 = ({
                     </div>
                 </div>
             )}
-            <button className="save-btn preview-btn" onClick={handleToggleMode}>
-                {isPreviewMode
-                    ? "Switch to Edit Mode"
-                    : "Switch to Preview Mode"}
-            </button>
-            {isPreviewMode ? (
-                <>
-                    <button
-                        className="save-btn download-btn"
-                        onClick={handleDownloadResume}
-                    >
-                        Download DownLoad PDF
-                    </button>
-                </>
-            ) : null}
+
+            <div className="save-download-btns">
+                <button
+                    className="save-btn preview-btn"
+                    onClick={handleToggleMode}
+                >
+                    {isPreviewMode
+                        ? "Switch to Edit Mode"
+                        : "Switch to Preview Mode"}
+                </button>
+                {isPreviewMode ? (
+                    <>
+                        <button
+                            className="save-btn download-btn"
+                            onClick={handleDownloadResume}
+                        >
+                            Download PDF
+                        </button>
+                    </>
+                ) : null}
+            </div>
         </>
     );
 };

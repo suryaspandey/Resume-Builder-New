@@ -7,15 +7,20 @@ import {
 } from "react-icons/ai";
 import { MdWork, MdWorkHistory } from "react-icons/md";
 import { RiLinksFill } from "react-icons/ri";
+import { Input } from "antd";
+const { TextArea } = Input;
 
 const ProjectDetailsTemplate1 = ({
     themeColor,
     backgroundColor,
     textColor,
     subheadingColor,
+    tempfontSize,
+    tempfontStyle,
 }) => {
     const [projects, setProjects] = useState([]);
     const [showButtons, setShowButtons] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const storedProjects = localStorage.getItem("projects");
@@ -56,7 +61,7 @@ const ProjectDetailsTemplate1 = ({
         };
 
         setProjects((prevProjects) => [...prevProjects, newProject]);
-        setShowButtons(false); // Show buttons when a new experience is added
+        setIsEditing(true); // Show buttons when a new experience is added
     };
 
     const handleDeleteProject = (index) => {
@@ -82,7 +87,8 @@ const ProjectDetailsTemplate1 = ({
             };
             return updatedProjects;
         });
-        setShowButtons(true); // Show buttons when a new experience is added
+        setIsEditing(true); // Show buttons when a new experience is added
+        // Show buttons when a new experience is added
     };
 
     const handleSave = () => {
@@ -114,15 +120,15 @@ const ProjectDetailsTemplate1 = ({
                 }
             }
 
-            if (codeUrl.trim() !== "" && !isValidUrl(codeUrl)) {
+            if (codeUrl && codeUrl.trim() !== "" && !isValidUrl(codeUrl)) {
                 errors.codeUrl = "Please enter a valid code URL";
                 isFormValid = false;
             }
 
-            if (hostedUrl.trim() !== "" && !isValidUrl(hostedUrl)) {
-                errors.hostedUrl = "Please enter a valid hosted URL";
-                isFormValid = false;
-            }
+            // if (hostedUrl.trim() !== "" && !isValidUrl(hostedUrl)) {
+            //     errors.hostedUrl = "Please enter a valid hosted URL";
+            //     isFormValid = false;
+            // }
 
             return { ...project, errors };
         });
@@ -131,7 +137,8 @@ const ProjectDetailsTemplate1 = ({
 
         if (isFormValid) {
             localStorage.setItem("projects", JSON.stringify(updatedProjects));
-            setShowButtons(false); // Show buttons when a new experience is added
+            setIsEditing(false); // Show buttons when a new experience is added
+            // Show buttons when a new experience is added
         }
     };
 
@@ -148,10 +155,16 @@ const ProjectDetailsTemplate1 = ({
         <>
             <section
                 style={{
-                    backgroundColor: backgroundColor, // Use the backgroundColor state variable
+                    borderTop: `2px solid ${backgroundColor}`,
                 }}
             >
-                <div className="sectionTitle">
+                <div
+                    className="sectionTitle"
+                    style={{
+                        color: backgroundColor,
+                        fontFamily: tempfontStyle,
+                    }}
+                >
                     <h1>Project Details</h1>
                 </div>
 
@@ -160,23 +173,27 @@ const ProjectDetailsTemplate1 = ({
                         <div key={index}>
                             <article>
                                 <textarea
+                                    autoSize
                                     className="expTitle titletextsize "
                                     type="text"
                                     name="title"
                                     placeholder="Project Title"
                                     value={project.title}
                                     onChange={(e) => handleChange(e, index)}
+                                    onFocus={() => setIsEditing(true)}
                                     style={{
                                         minHeight: "50px",
-                                        resize: "vertical",
+                                        resize: "none",
                                         overflow: "hidden",
                                         fontWeight: 900,
+                                        color: backgroundColor,
+                                        fontFamily: tempfontStyle,
                                     }}
                                 />
                                 {project.errors.title && (
                                     <p>{project.errors.title}</p>
                                 )}
-                                {showButtons && (
+                                {isEditing && (
                                     <button
                                         className="remove-btn"
                                         onClick={() =>
@@ -197,7 +214,12 @@ const ProjectDetailsTemplate1 = ({
                                         placeholder="Company Name"
                                         value={project.companyName}
                                         onChange={(e) => handleChange(e, index)}
-                                        style={{ color: textColor }}
+                                        onFocus={() => setIsEditing(true)}
+                                        style={{
+                                            color: textColor,
+                                            fontFamily: tempfontStyle,
+                                            fontSize: tempfontSize,
+                                        }}
                                     />
                                 </div>
                                 <div className="project-links">
@@ -214,12 +236,13 @@ const ProjectDetailsTemplate1 = ({
                                             onChange={(e) =>
                                                 handleChange(e, index)
                                             }
+                                            onFocus={() => setIsEditing(true)}
                                         />
                                         {project.errors.codeUrl && (
                                             <p>{project.errors.codeUrl}</p>
                                         )}
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <RiLinksFill
                                             color={themeColor}
                                             style={{ marginRight: "5px" }}
@@ -232,20 +255,31 @@ const ProjectDetailsTemplate1 = ({
                                             onChange={(e) =>
                                                 handleChange(e, index)
                                             }
+                                            onFocus={() => setIsEditing(true)}
                                         />
                                         {project.errors.hostedUrl && (
                                             <p>{project.errors.hostedUrl}</p>
                                         )}
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="project-description">
-                                    <textarea
+                                    <TextArea
+                                        autoSize
+                                        maxLength={250}
                                         className="summaryTextareaClass_project"
                                         name="description"
                                         placeholder="Description (10-50 words)"
                                         value={project.description}
+                                        onFocus={() => setIsEditing(true)}
                                         onChange={(e) => handleChange(e, index)}
-                                    ></textarea>
+                                        style={{
+                                            wordWrap: "break-word",
+                                            border: "none",
+                                            backgroundColor: "transparent",
+                                            fontFamily: tempfontStyle,
+                                            fontSize: tempfontSize,
+                                        }}
+                                    />
                                     {project.errors.description && (
                                         <p>{project.errors.description}</p>
                                     )}
@@ -257,7 +291,7 @@ const ProjectDetailsTemplate1 = ({
                 <div class="clear"></div>
             </section>
 
-            {showButtons && (
+            {isEditing ? (
                 <>
                     <div className="save-button-container">
                         <button className="save-btn" onClick={handleSave}>
@@ -270,7 +304,7 @@ const ProjectDetailsTemplate1 = ({
                         </button>
                     </div>
                 </>
-            )}
+            ) : null}
         </>
     );
 };

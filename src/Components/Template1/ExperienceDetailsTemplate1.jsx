@@ -300,9 +300,9 @@ const ExperienceDetailsTemplate1 = ({
             // }}
         >
             <section
-            // style={{
-            //     backgroundColor: backgroundColor, // Use the backgroundColor state variable
-            // }}
+                style={{
+                    borderTop: `2px solid ${backgroundColor}`,
+                }}
             >
                 <div className="sectionTitle">
                     <h1

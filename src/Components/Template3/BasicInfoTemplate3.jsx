@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
 
 import {
     PDFViewer,
@@ -24,10 +23,9 @@ import PreviewTemplate2 from "./PreviewTemplate2";
 import { Input } from "antd";
 import PdfPreviewTemplate2 from "./PdfPreviewTemplate2";
 import TemplateSelection from "../TemplateSelection";
-import DownloadPreviewTemplate2 from "./DownloadPreviewTemplate2";
 const { TextArea } = Input;
 
-const BasicInfoTemplate2 = ({
+const BasicInfoTemplate3 = ({
     themeColor,
     backgroundColor,
     textColor,
@@ -60,9 +58,6 @@ const BasicInfoTemplate2 = ({
     const [isPreviewMode, setIsPreviewMode] = useState(false);
 
     const [pdfPreviewContainer, setPdfPreviewContainer] = useState(null);
-    const [isDownloadClicked, setIsDownloadClicked] = useState(true);
-
-    const history = useHistory();
 
     const handleToggleMode = () => {
         setIsPreviewMode((prevMode) => !prevMode);
@@ -222,51 +217,34 @@ const BasicInfoTemplate2 = ({
     // };
 
     const handleDownloadResume = () => {
-        {
-            isDownloadClicked
-                ? history.push("/download-template2")
-                : // <DownloadPreviewTemplate2
-                  // // formData={formData}
-                  // // themeColor={themeColor}
-                  // // backgroundColor={backgroundColor}
-                  // // textColor={textColor}
-                  // // subheadingColor={subheadingColor}
-                  // // showProfilePhoto={showProfilePhoto}
-                  // // tempfontSize={tempfontSize}
-                  // // tempfontStyle={tempfontStyle}
-                  // />
+        const pdfBlobPromise = pdf(
+            <Document>
+                <Page size="A4" wrap>
+                    <PreviewTemplate2
+                        formData={formData}
+                        themeColor={themeColor}
+                        backgroundColor={backgroundColor}
+                        textColor={textColor}
+                        subheadingColor={subheadingColor}
+                        showProfilePhoto={showProfilePhoto}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
+                    />
+                </Page>
+            </Document>
+        ).toBlob();
+        pdfBlobPromise.then((blob) => {
+            const url = URL.createObjectURL(blob);
 
-                  null;
-        }
-        setIsDownloadClicked(true);
-        // const pdfBlobPromise = pdf(
-        //     <Document>
-        //         <Page size="A4" wrap>
-        //             <PreviewTemplate2
-        //                 formData={formData}
-        //                 themeColor={themeColor}
-        //                 backgroundColor={backgroundColor}
-        //                 textColor={textColor}
-        //                 subheadingColor={subheadingColor}
-        //                 showProfilePhoto={showProfilePhoto}
-        //                 tempfontSize={tempfontSize}
-        //                 tempfontStyle={tempfontStyle}
-        //             />
-        //         </Page>
-        //     </Document>
-        // ).toBlob();
-        // pdfBlobPromise.then((blob) => {
-        //     const url = URL.createObjectURL(blob);
+            // Create a temporary anchor element and trigger the download
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "resume.pdf";
+            a.click();
 
-        //     // Create a temporary anchor element and trigger the download
-        //     const a = document.createElement("a");
-        //     a.href = url;
-        //     a.download = "resume.pdf";
-        //     a.click();
-
-        //     // Clean up the temporary URL
-        //     URL.revokeObjectURL(url);
-        // });
+            // Clean up the temporary URL
+            URL.revokeObjectURL(url);
+        });
     };
 
     return (
@@ -349,18 +327,12 @@ const BasicInfoTemplate2 = ({
                                     <ul>
                                         <li>
                                             <div className="icon ">
-                                                {/* <i
+                                                <i
                                                     class="fas fa-map-signs"
                                                     style={{
                                                         color: themeColor,
                                                     }}
-                                                ></i> */}
-                                                <FaLocationArrow
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
+                                                ></i>
                                             </div>
                                             <div className="data">
                                                 <input
@@ -384,18 +356,12 @@ const BasicInfoTemplate2 = ({
                                         </li>
                                         <li>
                                             <div className="icon">
-                                                {/* <i
+                                                <i
                                                     class="fas fa-mobile-alt"
                                                     style={{
                                                         color: themeColor,
                                                     }}
-                                                ></i> */}
-                                                <BsFillTelephoneFill
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
+                                                ></i>
                                             </div>
                                             <div className="data">
                                                 <input
@@ -419,18 +385,12 @@ const BasicInfoTemplate2 = ({
                                         </li>
                                         <li>
                                             <div className="icon">
-                                                {/* <i
+                                                <i
                                                     className="fas fa-envelope"
                                                     style={{
                                                         color: themeColor,
                                                     }}
-                                                ></i> */}
-                                                <FaEnvelope
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
+                                                ></i>
                                             </div>
                                             <div className="data">
                                                 <input
@@ -550,19 +510,15 @@ const BasicInfoTemplate2 = ({
                     />
                 </div>
             )}
-            <div className="save-download-btns">
-                <button
-                    className="save-btn preview-btn"
-                    onClick={handleToggleMode}
-                >
-                    {isPreviewMode
-                        ? "Switch to Edit Mode"
-                        : "Switch to Preview Mode"}
-                </button>
+            <button className="save-btn preview-btn" onClick={handleToggleMode}>
+                {isPreviewMode
+                    ? "Switch to Edit Mode"
+                    : "Switch to Preview Mode"}
+            </button>
 
-                {isPreviewMode ? (
-                    <>
-                        {/* <PDFViewer width="1000" height="600">
+            {isPreviewMode ? (
+                <>
+                    {/* <PDFViewer width="1000" height="600">
                         <PdfPreviewTemplate2
                             formData={formData}
                             themeColor={themeColor}
@@ -575,7 +531,7 @@ const BasicInfoTemplate2 = ({
                         />
                     </PDFViewer> */}
 
-                        {/* <PDFDownloadLink
+                    {/* <PDFDownloadLink
                         document={
                             <PdfPreviewTemplate2
                                 formData={formData}
@@ -597,17 +553,16 @@ const BasicInfoTemplate2 = ({
                         }
                     </PDFDownloadLink> */}
 
-                        <button
-                            className="save-btn download-btn"
-                            onClick={handleDownloadResume}
-                        >
-                            Download PDF
-                        </button>
-                    </>
-                ) : null}
-            </div>
+                    <button
+                        className="save-btn download-btn"
+                        onClick={handleDownloadResume}
+                    >
+                        Download DownLoad PDF
+                    </button>
+                </>
+            ) : null}
         </>
     );
 };
 
-export default BasicInfoTemplate2;
+export default BasicInfoTemplate3;
