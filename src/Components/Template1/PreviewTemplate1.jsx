@@ -134,12 +134,6 @@ const PreviewTemplate1 = ({
                                             />
                                         </span>
                                         <div
-                                            // type="email"
-                                            // name="email"
-                                            // value={formData.email}
-                                            // onChange={handleChange}
-                                            // onFocus={() => setIsEditing(true)}
-                                            // placeholder="Email"
                                             style={{
                                                 fontFamily: tempfontStyle,
                                                 fontSize: tempfontSize,

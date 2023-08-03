@@ -16,6 +16,8 @@ import PageNotFound from "./Components/PageNotFound";
 import ContactUs from "./Components/ContactUs";
 import Login_test from "./Components/login_test";
 import DownloadPreviewTemplate2 from "./Components/Template2/DownloadPreviewTemplate2";
+import WOrdTemplateTest from "./Components/Template2/WOrdTemplateTest";
+import DownloadPreviewTemplate1 from "./Components/Template1/DownloadPreviewTemplate1";
 
 const RouterMain = () => {
     const [themeColor, setThemeColor] = useState("black");
@@ -175,8 +177,26 @@ const RouterMain = () => {
                     />
                 </PrivateRoute>
 
+                <PrivateRoute path="/download-template1">
+                    <DownloadPreviewTemplate1
+                        themeColor={themeColor}
+                        backgroundColor={backgroundColor}
+                        textColor={textColor}
+                        subheadingColor={subheadingColor}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
+                        // handleTemplateSelect={handleTemplateSelect}
+                        // formData={formData}
+                        // showProfilePhoto={showProfilePhoto}
+                    />
+                </PrivateRoute>
+
                 <Route path="/contact-us">
                     <ContactUs />
+                </Route>
+
+                <Route path="/download">
+                    <WOrdTemplateTest />
                 </Route>
 
                 <Route path="/preview">

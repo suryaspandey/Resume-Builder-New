@@ -13,6 +13,7 @@ import HeaderComp from "../HeaderComp";
 import PreviewTemplate1 from "./PreviewTemplate1";
 import SummaryTemplate2 from "../Template2/SummaryTemplate2";
 import PreviewExperienceTemplate1 from "./PreviewExperienceTemplate1";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const BasicInfoTemplate1 = ({
     themeColor,
@@ -47,6 +48,9 @@ const BasicInfoTemplate1 = ({
     const [isPreviewMode, setIsPreviewMode] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [showProfileCheckbox, setShowProfileCheckbox] = useState(false);
+    const [isDownloadClicked, setIsDownloadClicked] = useState(true);
+
+    const history = useHistory();
 
     useEffect(() => {
         const storedData = localStorage.getItem("basicInfo");
@@ -181,34 +185,10 @@ const BasicInfoTemplate1 = ({
     };
 
     const handleDownloadResume = () => {
-        const pdfBlobPromise = pdf(
-            <Document>
-                <Page size="A4" wrap>
-                    <PreviewTemplate1
-                    // formData={formData}
-                    // themeColor={themeColor}
-                    // backgroundColor={backgroundColor}
-                    // textColor={textColor}
-                    // subheadingColor={subheadingColor}
-                    // showProfilePhoto={showProfilePhoto}
-                    // tempfontSize={tempfontSize}
-                    // tempfontStyle={tempfontStyle}
-                    />
-                </Page>
-            </Document>
-        ).toBlob();
-        pdfBlobPromise.then((blob) => {
-            const url = URL.createObjectURL(blob);
-
-            // Create a temporary anchor element and trigger the download
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "resume.pdf";
-            a.click();
-
-            // Clean up the temporary URL
-            URL.revokeObjectURL(url);
-        });
+        {
+            isDownloadClicked ? history.push("/download-template1") : null;
+            setIsDownloadClicked(true);
+        }
     };
     const summaryTextareaClass = isTyping
         ? "summary-textarea active"
