@@ -33,7 +33,7 @@ export default function PreviewProjectDetailsTemplate2({
                 <ul>
                     {savedProjects.map((project, index) => (
                         <li>
-                            <div key={index}>
+                            <div key={index} style={{ marginLeft: "20px" }}>
                                 <div
                                     // autoSize
                                     style={{

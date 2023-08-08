@@ -67,7 +67,7 @@ export default function PreviewExperienceDetailsTemplate2({
                     <ul>
                         {savedEduction.map((experience, index) => (
                             <li>
-                                <div key={index}>
+                                <div key={index} style={{ marginLeft: "20px" }}>
                                     <div
                                         className="titleColor expTitle"
                                         style={{

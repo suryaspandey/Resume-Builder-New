@@ -102,6 +102,7 @@ const Home = () => {
                 <h1 className="home-tagline" style={{ fontSize: "45px" }}>
                     Your Dream Job Starts Here: Build Your Winning Resume
                 </h1>
+
                 <div
                     className="hr_tg"
                     style={{ display: "flex", justifyContent: "center" }}
@@ -113,6 +114,48 @@ const Home = () => {
                             borderRadius: "20px",
                             border: "4px solid rgb(121, 133, 132)",
                         }}
+                    />
+                </div>
+                <div className="home-choose-template-details">
+                    <div className="home-top-img-section">
+                        <h1 className="home-tagline home-subheadings">
+                            Build your brand-new resume in as little as 5
+                            minutes.
+                        </h1>
+                        <h5>Try it for free!</h5>
+                        <div className="contact-form-img">
+                            <img
+                                src="/template_previews/owl_giffy1.gif"
+                                height={200}
+                            />
+                        </div>
+
+                        {currentUser ? (
+                            <>
+                                {console.log("button " + currentUser)}
+                                <button className="save-btn home-btn">
+                                    <Link
+                                        to="/choose-template"
+                                        style={{
+                                            textDecoration: "none",
+                                            color: "white",
+                                        }}
+                                    >
+                                        START NOW!{" "}
+                                        <span style={{ fontSize: "30px" }}>
+                                            &#8594;
+                                        </span>
+                                    </Link>
+                                </button>
+                            </>
+                        ) : (
+                            <Link to="/login"></Link>
+                        )}
+                    </div>
+
+                    <img
+                        src="template_previews/template-details1.PNG"
+                        style={{ borderRadius: "70px" }}
                     />
                 </div>
 
@@ -243,10 +286,11 @@ const Home = () => {
                 <div className="customers-text">
                     <h1>See why customers love MyResumeBuilder🤩</h1>
                     <img
-                        src="./template_previews/trustPilotReview.jpg"
+                        // src="https://www.pngitem.com/pimgs/m/42-421398_trustpilot-logo-png-transparent-png.png"
+                        src="./template_previews/42-421398_trustpilot-logo-png-transparent-png-fotor-bg-remover-2023080513855.png"
                         alt="TrustPilot review"
                         height={100}
-                        width={100}
+                        width={180}
                     />
                 </div>
                 {/* <div className="customers-imgs"> */}

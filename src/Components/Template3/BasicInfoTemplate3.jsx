@@ -2,21 +2,26 @@ import React, { useState, useEffect } from "react";
 import ProfilePhoto from "../ProfilePhoto";
 
 import { FaEnvelope, FaLinkedin, FaLocationArrow } from "react-icons/fa";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import "./BasicInfoTemplate1.css"; // Import the CSS file for styling
+import { BsFillTelephoneFill, BsFillPinMapFill } from "react-icons/bs";
+// import "../Template1/BasicInfoTemplate1.css"; // Import the CSS file for styling
 
-import ExperienceDetailsTemplate1 from "./ExperienceDetailsTemplate1";
-import ProjectDetailsTemplate1 from "./ProjectDetailsTemplate1";
-import SkillsDetailsTemplate1 from "./SkillsDetailsTemplate1";
+import "./template3.css";
+
 import TextArea from "antd/es/input/TextArea";
 import HeaderComp from "../HeaderComp";
-import PreviewTemplate1 from "./PreviewTemplate1";
+// import PreviewTemplate1 from "./PreviewTemplate1";
 import SummaryTemplate2 from "../Template2/SummaryTemplate2";
-import PreviewExperienceTemplate1 from "./PreviewExperienceTemplate1";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
-import ExperienceDetails from "../ExperienceDetails";
 
-const BasicInfoTemplate1 = ({
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import ExperienceDetailsTemplate3 from "./EXperienceDetailsTemplate3";
+import ProjectDetailsTemplate3 from "./ProjectDetailsTemplate3";
+import SkillsDetailsTemplate3 from "./SkillsDetailsTemplate3";
+import { MdOutlineAlternateEmail } from "react-icons/md";
+import ProfilePhotoTemplate3 from "./ProfilePhotoTemplate3";
+import PreviewTemplate1 from "../Template1/PreviewTemplate1";
+import PreviewTemplate3 from "./PreviewTemplate3";
+
+const BasicInfoTemplate3 = ({
     themeColor,
     backgroundColor,
     textColor,
@@ -198,7 +203,7 @@ const BasicInfoTemplate1 = ({
     return (
         <>
             {isPreviewMode ? (
-                <PreviewTemplate1
+                <PreviewTemplate3
                     formData={formData}
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}
@@ -213,12 +218,21 @@ const BasicInfoTemplate1 = ({
             ) : (
                 <div className="top">
                     <div id="cv">
-                        <form onSubmit={handleSubmit}>
+                        <form
+                            onSubmit={handleSubmit}
+                            style={{ padding: "15px" }}
+                        >
+                            <div
+                                className="top-color"
+                                style={{ background: backgroundColor }}
+                            >
+                                &nbsp;&nbsp;
+                            </div>
                             <div
                                 className="mainDetails"
-                                style={{
-                                    backgroundColor: backgroundColor,
-                                }}
+                                // style={{
+                                //     backgroundColor: backgroundColor,
+                                // }}
                             >
                                 {isEditing ? (
                                     <div className="profile_photo_container">
@@ -234,7 +248,8 @@ const BasicInfoTemplate1 = ({
                                 ) : null}
                                 {showProfilePhoto && (
                                     <div id="headshot">
-                                        <ProfilePhoto
+                                        <ProfilePhotoTemplate3
+                                            background={backgroundColor}
                                             onPhotoSelect={handlePhotoSelect}
                                             isUploaded={isUploaded} // Pass isUploaded as a prop to the ProfilePhoto component
                                         />
@@ -243,14 +258,14 @@ const BasicInfoTemplate1 = ({
 
                                 <div
                                     id="name"
-                                    className="usr--name"
+                                    // className="usr--name"
                                     style={{
                                         display: "flex",
                                         flexDirection: "row",
                                     }}
                                 >
                                     <input
-                                        className="user-name"
+                                        // className="user-name"
                                         type="text"
                                         name="name"
                                         value={formData.name}
@@ -262,17 +277,18 @@ const BasicInfoTemplate1 = ({
                                             textTransform: "uppercase",
                                             color: textColor,
                                             fontFamily: tempfontStyle,
-                                            fontSize: tempfontSize,
+                                            fontSize: "25px",
+                                            // fontSize: tempfontSize,
                                             //
                                             width: "100%",
                                             // marginBottom: "1px",
                                         }}
                                     />
                                     <div id="contactDetails">
-                                        <ul>
+                                        <ul style={{ display: "flex" }}>
                                             <li>
                                                 <span className="info-icon">
-                                                    <FaEnvelope
+                                                    <MdOutlineAlternateEmail
                                                         className="linkedin"
                                                         style={{
                                                             color: themeColor,
@@ -281,6 +297,15 @@ const BasicInfoTemplate1 = ({
                                                             marginRight: "10px",
                                                         }}
                                                     />
+                                                    {/* <FaEnvelope
+                                                        className="linkedin"
+                                                        style={{
+                                                            color: themeColor,
+                                                            // marginBottom:
+                                                            //     "-1px",
+                                                            marginRight: "10px",
+                                                        }}
+                                                    /> */}
                                                 </span>
                                                 <input
                                                     type="email"
@@ -301,7 +326,7 @@ const BasicInfoTemplate1 = ({
 
                                             <li>
                                                 <span className="info-icon">
-                                                    <FaLocationArrow
+                                                    <BsFillPinMapFill
                                                         className="linkedin"
                                                         style={{
                                                             color: themeColor,
@@ -309,6 +334,14 @@ const BasicInfoTemplate1 = ({
                                                                 "-1px",
                                                         }}
                                                     />
+                                                    {/* <FaLocationArrow
+                                                        className="linkedin"
+                                                        style={{
+                                                            color: themeColor,
+                                                            marginBottom:
+                                                                "-1px",
+                                                        }}
+                                                    /> */}
                                                 </span>
                                                 <input
                                                     type="text"
@@ -354,7 +387,7 @@ const BasicInfoTemplate1 = ({
                                                     }}
                                                 />
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <span className="info-icon">
                                                     <FaLinkedin
                                                         className="linkedin"
@@ -382,152 +415,58 @@ const BasicInfoTemplate1 = ({
                                                         // width: "132%",
                                                     }}
                                                 />
-                                            </li>
+                                            </li> */}
                                         </ul>
                                     </div>
                                 </div>
 
-                                {/* <div
-                                    id="contactDetails"
-                                    style={{ marginTop: "54px" }}
-                                >
-                                    <ul>
-                                        {/* <li>
-                                            <span className="info-icon">
-                                                <FaLocationArrow
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="text"
-                                                name="location"
-                                                value={formData.location}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Location"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li>
-                                        <li>
-                                            <span className="info-icon">
-                                                <BsFillTelephoneFill
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="text"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Phone"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li>
-                                        <li>
-                                            <span className="info-icon">
-                                                <FaEnvelope
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                        // height: "38px",
-                                                        // width: "25px",
-                                                        // paddingLeft: "7px",
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Email"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li>
-                                        <li>
-                                            <span className="info-icon">
-                                                <FaLinkedin
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="text"
-                                                name="linkedin"
-                                                value={formData.linkedin}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="LinkedIn"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li> 
-                                    </ul>
-                                </div> */}
                                 <div className="clear"></div>
                             </div>
 
-                            <div id="mainArea">
+                            <div
+                                id="mainArea"
+                                // style={{ padding: "0px 15px !important" }}
+                            >
                                 <section
-                                    style={{
-                                        borderTop: `2px solid ${backgroundColor}`,
-                                    }}
+                                    style={
+                                        {
+                                            // margin: "0 20px",
+                                            // padding: "0px 15px",
+                                            // borderTop: `2px solid ${backgroundColor}`,
+                                        }
+                                    }
                                 >
                                     <article>
-                                        <div className="sectionTitle">
+                                        {/* <div className="sectionTitle"> */}
+                                        <div
+                                            style={
+                                                {
+                                                    // width: "100%",
+                                                }
+                                            }
+                                        >
                                             <h1
                                                 style={{
-                                                    color: backgroundColor,
+                                                    color: "white",
                                                     fontFamily: tempfontStyle,
+                                                    backgroundColor:
+                                                        backgroundColor,
+                                                    fontStyle: "italic",
+                                                    fontSize: "1.2em",
+                                                    margin: "0 8px",
                                                 }}
                                             >
                                                 Personal Profile
                                             </h1>
                                         </div>
-                                        <div className="sectionContent">
-                                            {/* <TextArea
-                                                autoSize
-                                                maxLength={300}
-                                                style={{
-                                                    backgroundColor:
-                                                        "transparent",
-                                                    border: "none",
-                                                }}
-                                                className=" summaryTextareaClass"
-                                                name="summary"
-                                                value={formData.summary}
-                                                onChange={handleChange}
-                                                placeholder="What's the one thing that makes you the best candidate for this job?"
-                                            /> */}
+                                        <div
+                                            // className="sectionContent"
+                                            style={{
+                                                display: "flex",
+                                                margin: "0 20px",
+                                                width: "750px",
+                                            }}
+                                        >
                                             <SummaryTemplate2
                                                 tempfontSize={tempfontSize}
                                                 tempfontStyle={tempfontStyle}
@@ -549,8 +488,8 @@ const BasicInfoTemplate1 = ({
                             {linkedinError && <p>{linkedinError}</p>}
                             {summaryError && <p>{summaryError}</p>}
                         </form>
-                        <br />
-                        <ExperienceDetailsTemplate1
+                        {/* <br /> */}
+                        <ExperienceDetailsTemplate3
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
@@ -558,8 +497,8 @@ const BasicInfoTemplate1 = ({
                             tempfontSize={tempfontSize}
                             tempfontStyle={tempfontStyle}
                         />
-                        <br />
-                        <ProjectDetailsTemplate1
+                        {/* <br /> */}
+                        <ProjectDetailsTemplate3
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
@@ -567,7 +506,7 @@ const BasicInfoTemplate1 = ({
                             tempfontSize={tempfontSize}
                             tempfontStyle={tempfontStyle}
                         />
-                        <SkillsDetailsTemplate1
+                        <SkillsDetailsTemplate3
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}
@@ -602,4 +541,4 @@ const BasicInfoTemplate1 = ({
     );
 };
 
-export default BasicInfoTemplate1;
+export default BasicInfoTemplate3;

@@ -26,7 +26,7 @@ const PreviewTemplate1 = ({
     return (
         <>
             <div className="top">
-                <div id="cv">
+                <div id="cv" style={{ margin: "0px auto" }}>
                     <form>
                         <div
                             className="mainDetails"
@@ -34,18 +34,6 @@ const PreviewTemplate1 = ({
                                 backgroundColor: backgroundColor,
                             }}
                         >
-                            {/* {isEditing ? (
-                                <div className="profile_photo_container">
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            checked={showProfilePhoto}
-                                            onChange={handleCheckboxChange}
-                                        />
-                                        Show Profile Photo
-                                    </label>
-                                </div>
-                            ) : null} */}
                             {showProfilePhoto && (
                                 <div id="headshot">
                                     <ProfilePhoto
@@ -57,7 +45,8 @@ const PreviewTemplate1 = ({
 
                             <div id="name" className="usr--name">
                                 <div
-                                    className="user-name prev-tem1-usrname"
+                                    // className="user-name prev-tem1-usrname"
+                                    className="user-name"
                                     style={{
                                         textAlign: "center",
                                         textTransform: "uppercase",
@@ -73,7 +62,8 @@ const PreviewTemplate1 = ({
 
                             <div id="contactDetails">
                                 <ul>
-                                    <li className="preview1-contactDetails-li">
+                                    {/* <li className="preview1-contactDetails-li"> */}
+                                    <li>
                                         <span className="info-icon">
                                             <FaLocationArrow
                                                 className="linkedin"
@@ -84,12 +74,6 @@ const PreviewTemplate1 = ({
                                             />
                                         </span>
                                         <div
-                                            // type="text"
-                                            // name="location"
-                                            // value={formData.location}
-                                            // onChange={handleChange}
-                                            // onFocus={() => setIsEditing(true)}
-                                            // placeholder="Location"
                                             style={{
                                                 fontFamily: tempfontStyle,
                                                 fontSize: tempfontSize,
@@ -98,7 +82,8 @@ const PreviewTemplate1 = ({
                                             {location}
                                         </div>
                                     </li>
-                                    <li className="preview1-contactDetails-li">
+                                    {/* <li className="preview1-contactDetails-li"> */}
+                                    <li>
                                         <span className="info-icon">
                                             <BsFillTelephoneFill
                                                 className="linkedin"
@@ -109,12 +94,6 @@ const PreviewTemplate1 = ({
                                             />
                                         </span>
                                         <div
-                                            // type="text"
-                                            // name="phone"
-                                            // value={formData.phone}
-                                            // onChange={handleChange}
-                                            // onFocus={() => setIsEditing(true)}
-                                            // placeholder="Phone"
                                             style={{
                                                 fontFamily: tempfontStyle,
                                                 fontSize: tempfontSize,
@@ -123,7 +102,8 @@ const PreviewTemplate1 = ({
                                             {phone}
                                         </div>
                                     </li>
-                                    <li className="preview1-contactDetails-li">
+                                    {/* <li className="preview1-contactDetails-li"> */}
+                                    <li>
                                         <span className="info-icon">
                                             <FaEnvelope
                                                 className="linkedin"
@@ -153,12 +133,6 @@ const PreviewTemplate1 = ({
                                             />
                                         </span>
                                         <div
-                                            // type="text"
-                                            // name="linkedin"
-                                            // value={formData.linkedin}
-                                            // onChange={handleChange}
-                                            // onFocus={() => setIsEditing(true)}
-                                            // placeholder="LinkedIn"
                                             style={{
                                                 fontFamily: tempfontStyle,
                                                 fontSize: tempfontSize,
@@ -200,7 +174,7 @@ const PreviewTemplate1 = ({
                             </section>
                         </div>
                     </form>
-                    <br />
+                    {/* <br /> */}
                     <PreviewExperienceTemplate1
                         themeColor={themeColor}
                         backgroundColor={backgroundColor}
@@ -209,7 +183,7 @@ const PreviewTemplate1 = ({
                         tempfontSize={tempfontSize}
                         tempfontStyle={tempfontStyle}
                     />
-                    <br />
+                    {/* <br /> */}
                     <PreviewProjectDetailsTemplate1
                         themeColor={themeColor}
                         backgroundColor={backgroundColor}
@@ -217,6 +191,7 @@ const PreviewTemplate1 = ({
                         subheadingColor={subheadingColor}
                         tempfontSize={tempfontSize}
                         tempfontStyle={tempfontStyle}
+                        openTitleUrl={true}
                     />
                     <PreviewSkillsDetailsTemplate1
                         themeColor={themeColor}

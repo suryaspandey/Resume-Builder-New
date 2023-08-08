@@ -1,0 +1,33 @@
+.footer-icon .fa-brands{
+
+    color: white;
+    transition: transform 1s;
+    height: 50px;
+    width: 50px;
+  }
+
+  .footer-icon .fa-brands:hover{
+    /* color: #F0D66A; */
+    transform: translateY(-15px);
+  
+  }
+
+.footer{
+/* text-align: center; */
+justify-content: space-between;
+margin-top: 10px;
+
+background: #425061;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    padding-top: 20px;
+
+}
+
+.footer-text{
+    color: white;
+    font-size: 12px;
+    /* text-align: end; */
+}

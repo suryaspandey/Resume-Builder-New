@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { auth } from "../firebase";
 
 const { Meta } = Card;
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 
@@ -14,6 +14,8 @@ import BasicInfoTemplate2 from "./Template2/BasicInfoTemplate2";
 import HeaderComp from "./HeaderComp";
 import "../Components/home.css";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
+import Footer from "./Footer";
+import { TbDiscountCheckFilled } from "react-icons/tb";
 
 // import templateImage from "../template_previews/template_preview1.PNG";
 const headerStyle = {
@@ -30,6 +32,7 @@ const headerStyle = {
 const contentStyle = {
     textAlign: "center",
     minHeight: 100,
+    // justifyContent: "center",
     // lineHeight: "120px",
     // color: "#fff",
     // backgroundColor: "#f2fafb",
@@ -61,6 +64,10 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
         history.push(`/home/${templateName}`);
     };
 
+    const handleComingSoonPg = () => {
+        history.push("/coming-soon");
+    };
+
     return (
         <>
             <Space
@@ -77,55 +84,421 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                         <>
                             <>
                                 <div className="home-headings">
-                                    <h1>Choose a template for your CV</h1>
-                                    <h3>
-                                        You can always change your template
-                                        later.
-                                    </h3>
+                                    <div className="choose-resume-text">
+                                        <h4
+                                            style={{
+                                                fontFamily: "Oswald",
+                                                fontSize: "40px",
+                                                paddingLeft: "10px",
+                                            }}
+                                        >
+                                            Explore our collection of
+                                            professionally designed resume
+                                            templates to kickstart your resume
+                                            building journey
+                                        </h4>
+                                        <h4
+                                            style={{
+                                                paddingTop: "5px",
+                                            }}
+                                        >
+                                            Our CV templates prioritize your
+                                            success
+                                            {/* providing a free, friendly,
+                                            and easily readable experience! */}
+                                            <br></br>
+                                            {/* <span
+                                                style={{
+                                                    color: "#006370",
+                                                    fontSize: "20px",
+                                                    paddingLeft: "10px",
+                                                }}
+                                            >
+                                                <TbDiscountCheckFilled />
+                                                It's free
+                                            </span>
+                                            <span
+                                                style={{
+                                                    color: "#006370",
+                                                    fontSize: "20px",
+                                                    paddingLeft: "10px",
+                                                }}
+                                            >
+                                                <TbDiscountCheckFilled />
+                                                Friendly
+                                            </span>
+                                            <span
+                                                style={{
+                                                    color: "#006370",
+                                                    fontSize: "20px",
+                                                    paddingLeft: "10px",
+                                                }}
+                                            >
+                                                <TbDiscountCheckFilled />
+                                                Easily readable
+                                            </span> */}
+                                        </h4>
+                                        <div
+                                            className="choose-resume-left-imgs"
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                            }}
+                                        >
+                                            <img
+                                                src="/template_previews/cost-effective1.png"
+                                                alt="cost-effective"
+                                                height={50}
+                                                width={50}
+                                            />
+                                            <span
+                                                style={{
+                                                    color: "#006370",
+                                                    fontSize: "20px",
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "5px",
+                                                }}
+                                            >
+                                                {/* <TbDiscountCheckFilled /> */}
+                                                It's free
+                                            </span>
+                                            {/* <h6>Cost Effecive</h6> */}
+                                            <img
+                                                src="/template_previews/easy-to-use2.png"
+                                                alt="easy-to-use"
+                                                height={55}
+                                                width={59}
+                                            />
+                                            <span
+                                                style={{
+                                                    color: "#006370",
+                                                    fontSize: "20px",
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "5px",
+                                                }}
+                                            >
+                                                {/* <TbDiscountCheckFilled /> */}
+                                                Friendly
+                                            </span>
+                                            {/* <h6>Easy-to-use</h6> */}
+                                            <img
+                                                src="https://toppng.com/uploads/preview/user-friendly-icon-user-friendly-icon-11563212706mpwymvuyej.png"
+                                                alt="easy-to-use"
+                                                height={50}
+                                                width={50}
+                                            />
+                                            <span
+                                                style={{
+                                                    color: "#006370",
+                                                    fontSize: "20px",
+                                                    paddingLeft: "10px",
+                                                    paddingRight: "10px",
+                                                    paddingTop: "5px",
+                                                }}
+                                            >
+                                                {/* <TbDiscountCheckFilled /> */}
+                                                Easily readable
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div className="choose-resume-img">
+                                        <img
+                                            src="/template_previews/choosetemplate.png"
+                                            height={300}
+                                            width={400}
+                                        />
+                                    </div>
                                 </div>
                                 <div className="home_content">
                                     <Card
+                                        className="choose-template-card"
                                         hoverable
                                         style={{
-                                            width: 240,
+                                            width: 350,
                                             height: 400,
+                                            marginBottom: "132px",
                                         }}
                                         cover={
-                                            <img
-                                                alt="template1"
-                                                height={400}
-                                                src="/template_previews/template_preview1.PNG"
-                                            />
+                                            <>
+                                                <img
+                                                    alt="template1"
+                                                    height={400}
+                                                    src="/template_previews/template_preview1.PNG"
+                                                />
+                                                <h5>Hybrid</h5>
+                                                <p
+                                                    style={{
+                                                        fontSize: "15px",
+                                                        color: "black",
+                                                        fontStyle: "normal",
+                                                        fontFamily: "Oswald",
+                                                        letterSpacing: "0.1rem",
+                                                    }}
+                                                >
+                                                    Use the hybrid format when
+                                                    you need a CV that perfectly
+                                                    combines your skills and
+                                                    professional experiences.
+                                                </p>
+                                            </>
                                         }
                                         onClick={() =>
                                             handleCardClick("template1")
                                         }
                                     ></Card>
                                     <Card
+                                        className="choose-template-card"
                                         hoverable
                                         style={{
-                                            width: 240,
+                                            width: 350,
                                             height: 400,
+                                            marginBottom: "132px",
                                         }}
                                         cover={
-                                            <img
-                                                height={400}
-                                                alt="template2"
-                                                src="/template_previews/template_preview2.PNG"
-                                            />
+                                            <>
+                                                <img
+                                                    height={400}
+                                                    // width={350}
+                                                    alt="template2"
+                                                    src="/template_previews/template_preview2.PNG"
+                                                />
+                                                <h5>Professional</h5>
+                                                <p
+                                                    style={{
+                                                        fontSize: "15px",
+                                                        color: "black",
+                                                        fontStyle: "normal",
+                                                        fontFamily: "Oswald",
+                                                        letterSpacing: "0.1rem",
+                                                    }}
+                                                >
+                                                    A professional Curriculum
+                                                    Vitae (CV) template that was
+                                                    developed in collaboration
+                                                    with multiple recruiters to
+                                                    increase your chances of
+                                                    getting your dream job.
+                                                </p>
+                                            </>
                                         }
                                         onClick={() =>
                                             handleCardClick("template2")
                                         }
                                     ></Card>
+                                    <Card
+                                        className="choose-template-card"
+                                        hoverable
+                                        style={{
+                                            width: 350,
+                                            height: 400,
+                                            marginBottom: "132px",
+                                        }}
+                                        cover={
+                                            <>
+                                                <img
+                                                    height={400}
+                                                    alt="template3"
+                                                    src="/template_previews/template_preview3.PNG"
+                                                />
+                                                {/* <button
+                                                    className="choose-temp-btn"
+                                                    onClick={() =>
+                                                        handleCardClick(
+                                                            "template3"
+                                                        )
+                                                    }
+                                                    style={{ display: "none" }}
+                                                >
+                                                    Show
+                                                </button> */}
+
+                                                <h5>Basic</h5>
+                                                <p
+                                                    style={{
+                                                        fontSize: "15px",
+                                                        color: "black",
+                                                        fontStyle: "normal",
+                                                        fontFamily: "Oswald",
+                                                        letterSpacing: "0.1rem",
+                                                    }}
+                                                >
+                                                    A basic Curriculum Vitae
+                                                    (CV) layout that can be used
+                                                    in both classic and creative
+                                                    industries. It can be easily
+                                                    personalized for whichever
+                                                    industry you are applying
+                                                    for.
+                                                </p>
+                                            </>
+                                        }
+                                        onClick={() =>
+                                            handleCardClick("template3")
+                                        }
+                                    ></Card>
+
+                                    {/* --------------------------- */}
+
+                                    <Card
+                                        className="choose-template-card"
+                                        hoverable
+                                        style={{
+                                            width: 350,
+                                            height: 400,
+                                            marginBottom: "132px",
+                                        }}
+                                        cover={
+                                            <>
+                                                <img
+                                                    height={400}
+                                                    alt="template4"
+                                                    src="/template_previews/template_preview4.PNG"
+                                                />
+                                                {/* <button
+                                                    className="choose-temp-btn"
+                                                    onClick={() =>
+                                                        handleCardClick(
+                                                            "template3"
+                                                        )
+                                                    }
+                                                    style={{ display: "none" }}
+                                                >
+                                                    Show
+                                                </button> */}
+
+                                                <h5>Executive</h5>
+                                                <p
+                                                    style={{
+                                                        fontSize: "15px",
+                                                        color: "black",
+                                                        fontStyle: "normal",
+                                                        fontFamily: "Oswald",
+                                                        letterSpacing: "0.1rem",
+                                                    }}
+                                                >
+                                                    Executive Curriculum Vitae
+                                                    (CV) sample used when
+                                                    applying for positions that
+                                                    require more than five years
+                                                    of relevant work experience.
+                                                </p>
+                                            </>
+                                        }
+                                        onClick={() => handleComingSoonPg()}
+                                    ></Card>
+
+                                    <Card
+                                        className="choose-template-card"
+                                        hoverable
+                                        style={{
+                                            width: 350,
+                                            height: 400,
+                                            marginBottom: "132px",
+                                        }}
+                                        cover={
+                                            <>
+                                                <img
+                                                    height={400}
+                                                    alt="template5"
+                                                    src="/template_previews/template_preview5.PNG"
+                                                />
+
+                                                <h5>Traditional</h5>
+                                                <p
+                                                    style={{
+                                                        fontSize: "15px",
+                                                        color: "black",
+                                                        fontStyle: "normal",
+                                                        fontFamily: "Oswald",
+                                                        letterSpacing: "0.1rem",
+                                                    }}
+                                                >
+                                                    The traditional CV template
+                                                    will allow you to finish
+                                                    your job application within
+                                                    minutes, focusing on the
+                                                    essential sections.
+                                                </p>
+                                            </>
+                                        }
+                                        onClick={() => handleComingSoonPg()}
+                                    ></Card>
+
+                                    <Card
+                                        className="choose-template-card"
+                                        hoverable
+                                        style={{
+                                            width: 350,
+                                            height: 400,
+                                            marginBottom: "132px",
+                                        }}
+                                        cover={
+                                            <>
+                                                <img
+                                                    height={400}
+                                                    alt="template4"
+                                                    src="/template_previews/template_preview6.PNG"
+                                                />
+                                                {/* <button
+                                                    className="choose-temp-btn"
+                                                    onClick={() =>
+                                                        handleCardClick(
+                                                            "template3"
+                                                        )
+                                                    }
+                                                    style={{ display: "none" }}
+                                                >
+                                                    Show
+                                                </button> */}
+
+                                                <h5>Modern</h5>
+                                                <p
+                                                    style={{
+                                                        fontSize: "15px",
+                                                        color: "black",
+                                                        fontStyle: "normal",
+                                                        fontFamily: "Oswald",
+                                                        letterSpacing: "0.1rem",
+                                                    }}
+                                                >
+                                                    The focus on your modern
+                                                    Curriculum Vitae (CV)
+                                                    template should be on your
+                                                    achievements during your
+                                                    work at the previous
+                                                    Companies and your impact on
+                                                    the overall performance.
+                                                </p>
+                                            </>
+                                        }
+                                        onClick={() => handleComingSoonPg()}
+                                    ></Card>
                                 </div>
                             </>
-                            {/* // )} */}
                         </>
                     </Content>
-                    <Footer>Footer</Footer>
+                    <div className="skip-temp-selection-btn">
+                        <button
+                            // style={{
+                            //     marginLeft: "50%",
+                            //     marginRight: "50%",
+                            //     width: "11%",
+                            // }}
+                            className="save-btn"
+                            onClick={() => handleCardClick("template1")}
+                        >
+                            SKIP TEMPLATE SELECTION
+                        </button>
+                        <h6>You can always change the Template later!</h6>
+                    </div>
                 </Layout>
             </Space>
+            <div style={{ paddingTop: "20px" }}>
+                <Footer />
+            </div>
         </>
     );
 };

@@ -27,6 +27,10 @@ export default function DownloadPreviewTemplate1({
             history.goBack();
         },
     });
+
+    const handlePrevPage = () => {
+        history.goBack();
+    };
     const profilePhoto = localStorage.getItem("profilePhoto");
 
     return (
@@ -52,13 +56,16 @@ export default function DownloadPreviewTemplate1({
             </div>
             <div
                 className="download-prev-btn"
-                style={{ paddingBottom: "10px" }}
+                style={{ paddingBottom: "10px", width: "100%" }}
             >
-                <>
+                <div className="download-prev-btn-container">
                     <button className="save-btn" onClick={handlePrint}>
                         Download Now
                     </button>
-                </>
+                    <button className="save-btn" onClick={handlePrevPage}>
+                        Go Back
+                    </button>
+                </div>
             </div>
         </div>
     );

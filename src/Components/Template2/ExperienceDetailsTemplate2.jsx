@@ -454,7 +454,7 @@ const ExperienceDetailsTemplate2 = ({
                     <ul>
                         {experiences.map((experience, index) => (
                             <li>
-                                <div key={index}>
+                                <div key={index} style={{ marginLeft: "20px" }}>
                                     <input
                                         className="titleColor expTitle"
                                         type="text"

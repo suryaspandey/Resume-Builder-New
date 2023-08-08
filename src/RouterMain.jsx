@@ -18,6 +18,7 @@ import Login_test from "./Components/login_test";
 import DownloadPreviewTemplate2 from "./Components/Template2/DownloadPreviewTemplate2";
 import WOrdTemplateTest from "./Components/Template2/WOrdTemplateTest";
 import DownloadPreviewTemplate1 from "./Components/Template1/DownloadPreviewTemplate1";
+import ComingSoon from "./Components/ComingSoon";
 
 const RouterMain = () => {
     const [themeColor, setThemeColor] = useState("black");
@@ -230,6 +231,9 @@ const RouterMain = () => {
                         handleFontSizeChange={handleFontSizeChange}
                         handleFontStyleChange={handleFontStyleChange}
                     />
+                </Route>
+                <Route path="/coming-soon">
+                    <ComingSoon />
                 </Route>
                 {/* Handle the case when no routes match */}
                 <Route render={() => <PageNotFound />} />

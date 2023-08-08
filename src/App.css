@@ -142,7 +142,7 @@ textarea{
 }
 .user-name{
   margin: auto;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     /* color: #ff6e00; */
     font-size: 30px;
     font-family: 'Poppins', sans-serif;
@@ -163,6 +163,15 @@ textarea{
   /* margin-right: 80px; */
 }
 
+.save-btn:hover{
+  border-radius: 22px;
+    background-color: #ff6e00b0;
+    transform: scale(1.10);
+}
+/* .active:hover {
+  background-color: #666;
+  color: white;
+} */
 button{
   background: transparent;
     border: none;
@@ -301,7 +310,8 @@ input.expCompanyName{
   
 }
 .location-container{
-  justify-content: flex-end;
+  
+  /* justify-content: flex-end; */
 }
 .date-width,.exp-select-width{
 padding-bottom: 2px;
@@ -431,13 +441,17 @@ ul,ol{
 
 
 .home_content{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
     /* gap: 20px; */
     justify-content: space-around;
     align-items: center;
-    background-color: #f2fafb;
+    /* background-color: #f2fafb; */
     /* background-color: white; */
     padding: 10px;
+
+    margin-bottom: 150px;
+    justify-items: center;
 }
 
 .headerStyle {
@@ -526,3 +540,49 @@ div.scroll-container img {
     align-items: center;
     gap: 15px;
 }
+
+
+/* choose template */
+
+.skip-temp-selection-btn{
+  gap: 10px;
+    /* margin-top: 0%; */
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+}
+.choose-template-card{
+  position: relative;
+}
+.choose-template-card:hover{
+  transform: rotate(1deg);
+  /* transform-origin: top left; */
+}
+
+/* .choose-template-card:hover > .choose-temp-btn{
+
+  display: block;
+  position: absolute;
+  bottom: 50%;
+  width: 40px !important;
+  margin-left: 47%;
+  background-color: #006370;
+  color: white;
+
+ 
+} */
+
+.choose-temp-btn{
+  display: inline;
+  position: absolute;
+  bottom: 50%;
+  width: 40px !important;
+  margin-left: 47%;
+  background-color: #006370;
+  color: white;
+}
+
+/* .choose-temp-btn{
+  display: none;
+} */

@@ -49,7 +49,7 @@ const HeaderComp = () => {
 
     const [fixedlinksList, setFixedLinksList] = useState({
         contactUrl: (
-            <Link to="/contact-us" className="header-link">
+            <Link to="/contact-us" className="header-link active">
                 Contact Us
             </Link>
         ),

@@ -871,12 +871,12 @@ const ThemeOptions = ({
                                         <img
                                             height={250}
                                             width={550}
-                                            alt="template2"
-                                            src="/template_previews/template_preview1.PNG"
+                                            alt="template3"
+                                            src="/template_previews/template_preview3.PNG"
                                         />
                                     }
                                     onMouseEnter={() =>
-                                        handleCardClick("template1")
+                                        handleCardClick("template3")
                                     }
                                 ></Card>
 
@@ -891,12 +891,12 @@ const ThemeOptions = ({
                                         <img
                                             height={250}
                                             width={550}
-                                            alt="template2"
-                                            src="/template_previews/template_preview1.PNG"
+                                            alt="template3"
+                                            src="/template_previews/template_preview3.PNG"
                                         />
                                     }
                                     onMouseEnter={() =>
-                                        handleCardClick("template1")
+                                        handleCardClick("template3")
                                     }
                                 ></Card>
 

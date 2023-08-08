@@ -80,6 +80,7 @@ const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
                     backgroundColor: "transparent",
                     fontFamily: tempfontStyle,
                     fontSize: tempfontSize,
+                    // width: "100%",
                 }}
                 // showCount
                 maxLength={300}

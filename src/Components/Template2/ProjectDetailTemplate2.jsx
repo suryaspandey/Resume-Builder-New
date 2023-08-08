@@ -181,7 +181,13 @@ const ProjectDetailsTemplate2 = ({
                 <ul>
                     {projects.map((project, index) => (
                         <li>
-                            <div key={index}>
+                            <div
+                                key={index}
+                                style={{
+                                    marginLeft: "20px",
+                                    // background: backgroundColor,
+                                }}
+                            >
                                 <TextArea
                                     autoSize
                                     style={{

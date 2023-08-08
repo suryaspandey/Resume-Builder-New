@@ -1,8 +1,7 @@
 import React from "react";
-import { MdWork, MdWorkHistory } from "react-icons/md";
-import { RiLinksFill } from "react-icons/ri";
+import { MdWorkHistory } from "react-icons/md";
 
-export default function PreviewProjectDetailsTemplate1({
+export default function PreviewProjectDetailsTemplate3({
     themeColor,
     backgroundColor,
     textColor,
@@ -22,34 +21,41 @@ export default function PreviewProjectDetailsTemplate1({
         <>
             <section
                 style={{
-                    borderTop: `2px solid ${backgroundColor}`,
+                    // borderTop: `2px solid ${backgroundColor}`,
+                    margin: "0 20px",
                 }}
             >
-                <div
-                    className="sectionTitle"
-                    style={{
-                        fontFamily: tempfontStyle,
-                        color: backgroundColor,
-                    }}
-                >
-                    <h1>Project Details</h1>
+                <div>
+                    <h1
+                        // className="sectionTitle"
+                        style={{
+                            color: "white",
+                            fontFamily: tempfontStyle,
+                            fontStyle: "italic",
+                            fontSize: "1.2em",
+                            backgroundColor: backgroundColor,
+                        }}
+                    >
+                        Project Details
+                    </h1>
                 </div>
 
-                <div className="sectionContent">
+                {/* <div className="sectionContent"> */}
+                <div>
                     {savedProjects.map((project, index) => (
                         <div key={index}>
                             <article>
                                 <div
-                                    className="expTitle titletextsize work_exp_hover"
+                                    // autoSize
+                                    className="expTitle titletextsize "
                                     style={{
                                         minHeight: "50px",
                                         resize: "none",
                                         overflow: "hidden",
-                                        fontWeight: 600,
+                                        fontWeight: 900,
                                         color: backgroundColor,
                                         fontFamily: tempfontStyle,
-                                        fontSize: tempfontSize,
-                                        cursor: "pointer",
+                                        width: "100%",
                                     }}
                                     onClick={() =>
                                         handleTitleClick(project.codeUrl)
@@ -58,7 +64,14 @@ export default function PreviewProjectDetailsTemplate1({
                                     {project.title}
                                 </div>
 
-                                <div className="school-clg-name-container-preview">
+                                <div
+                                    className="school-clg-name-container"
+                                    style={{
+                                        display: "flex",
+                                        gap: "10px",
+                                        alignItems: "center",
+                                    }}
+                                >
                                     <MdWorkHistory
                                         style={{ color: themeColor }}
                                     />
@@ -72,17 +85,26 @@ export default function PreviewProjectDetailsTemplate1({
                                         {project.companyName}
                                     </div>
                                 </div>
-                                {/* <div className="project-links"> */}
-                                {/* <div>
+                                {/* <div className="project-links">
+                                    <div>
                                         <RiLinksFill
                                             color={themeColor}
                                             style={{ marginRight: "5px" }}
                                         />
-                                        <div>{project.codeUrl}</div>
-                                        {/* {project.errors.codeUrl && (
+                                        <input
+                                            type="text"
+                                            name="codeUrl"
+                                            placeholder="Code URL"
+                                            value={project.codeUrl}
+                                            onChange={(e) =>
+                                                handleChange(e, index)
+                                            }
+                                            onFocus={() => setIsEditing(true)}
+                                        />
+                                        {project.errors.codeUrl && (
                                             <p>{project.errors.codeUrl}</p>
-                                        )} 
-                                    </div> 
+                                        )}
+                                    </div>
                                     {/* <div>
                                         <RiLinksFill
                                             color={themeColor}
@@ -101,8 +123,8 @@ export default function PreviewProjectDetailsTemplate1({
                                         {project.errors.hostedUrl && (
                                             <p>{project.errors.hostedUrl}</p>
                                         )}
-                                    </div> */}
-                                {/* </div> */}
+                                    </div> 
+                                </div> */}
                                 <div className="project-description">
                                     <div
                                         className="summaryTextareaClass_project"
@@ -112,10 +134,10 @@ export default function PreviewProjectDetailsTemplate1({
                                             backgroundColor: "transparent",
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
+                                            width: "100%",
                                         }}
-                                    >
-                                        {project.description}
-                                    </div>
+                                    ></div>
+                                    {project.description}
                                 </div>
                             </article>
                         </div>

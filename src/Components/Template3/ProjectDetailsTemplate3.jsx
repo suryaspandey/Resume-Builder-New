@@ -10,14 +10,13 @@ import { RiLinksFill } from "react-icons/ri";
 import { Input } from "antd";
 const { TextArea } = Input;
 
-const ProjectDetailsTemplate1 = ({
+const ProjectDetailsTemplate3 = ({
     themeColor,
     backgroundColor,
     textColor,
     subheadingColor,
     tempfontSize,
     tempfontStyle,
-    openTitleUrl,
 }) => {
     const [projects, setProjects] = useState([]);
     const [showButtons, setShowButtons] = useState(false);
@@ -156,25 +155,31 @@ const ProjectDetailsTemplate1 = ({
         <>
             <section
                 style={{
-                    borderTop: `2px solid ${backgroundColor}`,
+                    // borderTop: `2px solid ${backgroundColor}`,
+                    margin: "0 20px",
                 }}
             >
-                <div
-                    className="sectionTitle"
-                    style={{
-                        color: backgroundColor,
-                        fontFamily: tempfontStyle,
-                    }}
-                >
-                    <h1>Project Details</h1>
+                <div>
+                    <h1
+                        // className="sectionTitle"
+                        style={{
+                            color: "white",
+                            fontFamily: tempfontStyle,
+                            fontStyle: "italic",
+                            fontSize: "1.2em",
+                            backgroundColor: backgroundColor,
+                        }}
+                    >
+                        Project Details
+                    </h1>
                 </div>
 
-                <div className="sectionContent">
+                {/* <div className="sectionContent"> */}
+                <div>
                     {projects.map((project, index) => (
                         <div key={index}>
                             <article>
                                 <textarea
-                                    spellCheck="true"
                                     autoSize
                                     className="expTitle titletextsize "
                                     type="text"
@@ -190,6 +195,7 @@ const ProjectDetailsTemplate1 = ({
                                         fontWeight: 900,
                                         color: backgroundColor,
                                         fontFamily: tempfontStyle,
+                                        width: "100%",
                                     }}
                                 />
                                 {project.errors.title && (
@@ -280,6 +286,7 @@ const ProjectDetailsTemplate1 = ({
                                             backgroundColor: "transparent",
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
+                                            width: "100%",
                                         }}
                                     />
                                     {project.errors.description && (
@@ -311,4 +318,4 @@ const ProjectDetailsTemplate1 = ({
     );
 };
 
-export default ProjectDetailsTemplate1;
+export default ProjectDetailsTemplate3;

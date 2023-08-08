@@ -14,7 +14,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import TemplateSelection from "./TemplateSelection";
 
 import { Select, Popover, Button, Collapse } from "antd";
-// import BasicInfoTemplate3 from "./Template3/BasicInfoTemplate3";
+import BasicInfoTemplate3 from "./Template3/BasicInfoTemplate3";
 
 const { Option } = Select;
 const { Panel } = Collapse;
@@ -87,9 +87,8 @@ const MainContent = ({
                         />
                     </>
                 )}
-                {/* {templateName === "template3" && (
+                {templateName === "template3" && (
                     <>
-                    
                         <BasicInfoTemplate3
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
@@ -104,7 +103,7 @@ const MainContent = ({
                             tempfontStyle={tempfontStyle}
                         />
                     </>
-                )} */}
+                )}
             </>
         </div>
     );
