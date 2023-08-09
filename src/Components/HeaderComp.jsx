@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import "../Components/home.css";
 import { auth } from "../firebase";
 import { Link, withRouter } from "react-router-dom";
+// import { Avatar, Space } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 const HeaderComp = () => {
     const history = useHistory();
@@ -37,10 +39,12 @@ const HeaderComp = () => {
                 {currentUser ? (
                     <Link to="/" className="header-link" onClick={handleLogout}>
                         Logout
+                        {/* <Avatar size={64} icon={<UserOutlined />} /> */}
                     </Link>
                 ) : (
                     <Link to="/login" className="header-link">
                         Login
+                        {/* <Avatar size={64} icon={<UserOutlined />} /> */}
                     </Link>
                 )}
             </>
@@ -134,6 +138,7 @@ const HeaderComp = () => {
                                 onClick={handleLogout}
                             >
                                 Logout
+                                {/* <Avatar size="large" icon={<UserOutlined />} /> */}
                             </Link>
                         ) : (
                             <Link to="/login" className="header-link">

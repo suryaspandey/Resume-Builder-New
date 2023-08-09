@@ -28,7 +28,7 @@ const Login = () => {
             history.push("/");
         } catch (error) {
             console.error("Error during login:", error);
-            alert("Invalid credentials");
+            alert("Email Id or Password does not match");
         }
     };
 
@@ -49,12 +49,31 @@ const Login = () => {
 
     return (
         <div className="login_main">
-            {/* <div className="login_left">
-                <h1>Login Left</h1>
-            </div> */}
-            {/* <div className="login_container"> */}
+            <div className="register-owl-img">
+                <img
+                    src="./template_previews/login_owl1.gif"
+                    height={200}
+                    width={300}
+                />
+            </div>
             <div className="login_container">
-                <h2>Login</h2>
+                <img
+                    src="./template_previews/Resume_Logo.png"
+                    height={40}
+                    width={40}
+                    style={{ borderRadius: "50%" }}
+                />
+                <h2
+                    style={{
+                        textAlign: "center",
+                        color: "#006370",
+
+                        fontFamily: "Oswald",
+                        fontWeight: "bold",
+                    }}
+                >
+                    Login
+                </h2>
                 <Formik
                     initialValues={{ email: "", password: "" }}
                     validationSchema={LoginSchema}

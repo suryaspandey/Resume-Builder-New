@@ -141,7 +141,7 @@ const Home = () => {
                                             color: "white",
                                         }}
                                     >
-                                        START NOW!{" "}
+                                        START NOW!
                                         <span style={{ fontSize: "30px" }}>
                                             &#8594;
                                         </span>
