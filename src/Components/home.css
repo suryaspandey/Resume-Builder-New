@@ -2,6 +2,10 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Galdeano&family=Nunito+Sans:wght@200&family=Oswald:wght@200&family=Poppins:wght@300;500;700&family=Roboto+Mono:wght@200&display=swap');
 
+
+  .home-tagline {
+    font-size: 45px;
+}
 .home-navbar{
     /* display: flex; */
     background-color: #006370;
@@ -39,6 +43,12 @@
     /* background-color: #efeeee; */
     /* width: 150px; */
     width: 20%;
+}
+
+.steps_img img{
+    height:190px;
+    width:190px;
+    border-radius:10%
 }
 
 .steps_text{
@@ -112,6 +122,8 @@
 }
 .human-img{
     /* border-radius: 50%; */
+    height:150px;
+    width:150px;
 
 }
 .human-img:hover{
@@ -165,8 +177,8 @@ transform: scale(1.05);
 
 .resume_features_grid{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    width: 70%;
+    /* grid-template-columns: repeat(2,1fr);
+    width: 70%; */
     justify-content: center;
 }
 
@@ -223,11 +235,17 @@ transform: scale(1.05);
 }
 
 .home-btn{
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #006064;
     padding-top: 5px !important;
-    font-size: 20px;
+    font-size: 10px;
 }
+
+.arrow-span{
+    font-size: 30px;
+}
+
+
 
 .home-btn:hover{
     background-color: #006064;
@@ -255,4 +273,167 @@ transform: scale(1.05);
     height: 100vh;
     background-size: cover;
 
+}
+
+@media (max-width: 1200px){
+
+    .home-choose-template-details{
+        display: grid;
+        /* grid-template-columns: repeat(2,1fr); */
+        justify-items: center;
+    }
+
+    .home-templte-img{
+        height: 400px;
+        width: 300px;
+
+    }
+    .steps_img_text {
+        gap: 20px;
+    }
+
+    .human-img{
+        height: 134px;
+    width: 100px;
+    }
+    .home-gif-text-container {
+        display: grid;
+        justify-items: center;
+
+    }
+    
+}
+
+@media (max-width: 500px){
+
+    .home-tagline {
+        font-size: 18px;
+    }
+
+    .arrow-span{
+        font-size: 20px;
+    }
+
+    .home-choose-template-details{
+        display: grid;
+        /* grid-template-columns: repeat(2,1fr); */
+        justify-items: center;
+    }
+
+    .home-templte-img{
+        height: 400px;
+        width: 300px !important;
+        border-radius: 5px !important;
+
+    }
+    .home-gif-text-container {
+        display: grid;
+        justify-items: center;
+
+    }
+
+    .home-h4-text {
+        padding: 17px;
+        text-align: justify;
+        font-size: 20px;
+        font-weight: 100;
+    }
+
+    .steps{
+        height: 45px;
+        width: 42px;
+        font-size: 23px;
+        color: white;
+        border-radius: 0%;
+    }
+
+    .steps_text{
+        margin-top: 0px;
+        display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+
+    gap: 20px;
+    font-size: 15px;
+
+    }
+
+    .steps_img img{
+        height:111px;
+        width:111px;
+        border-radius:5%
+    }
+
+    .steps_img_text {
+        display: flex;
+    text-align: center;
+    /* justify-content: center; */
+    justify-content: space-evenly;
+    justify-items: center;
+    }
+
+    .home-costomers-main{
+        display: grid !important;
+    align-items: center;
+    }
+
+    .human-img{
+        height: 134px;
+    width: 114px;
+    }
+
+    .resume_features_grid {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .features_img_text {
+        display: grid;
+        margin: 15px;
+        justify-items: center;
+    }
+
+    .feature_text h3{
+        color: orange;
+    font-size: 22px;
+    text-align: center;
+    }
+
+    .footer-icon .fa-brands {
+
+    height: 30px;
+    width: 37px;
+    }
+
+    .header-link{
+        font-size: 12px;
+    }
+
+    .header-main {
+        padding: 0;
+        justify-content: space-around;
+    }
+
+    .home-left,.home-right{
+        gap: 7px;
+    }
+    
+}
+
+@media (max-width:540px) {
+    .home-costomers-main{
+        display: grid !important;
+    align-items: center;
+    }
+
+}
+
+@media (max-width:280px) {
+
+    .cust-img-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+   
+    
 }

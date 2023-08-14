@@ -17,6 +17,19 @@ body{
     /* background: grey; */
     /* background-color: ; */
     background: #f7f4f4;
+
+    position: relative;
+}
+
+.hamburger-button {
+  position: absolute;
+  top: 2px; /* Adjust this to position the button */
+  left: 20px; /* Adjust this to position the button */
+  z-index: 1; /* Ensure the button is on top of other content */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .side-bar {
@@ -554,6 +567,9 @@ div.scroll-container img {
 }
 .choose-template-card{
   position: relative;
+  width: 350px;
+  height: 400px;
+  margin-bottom: 132px;
 }
 .choose-template-card:hover{
   transform: rotate(1deg);
@@ -583,6 +599,73 @@ div.scroll-container img {
   color: white;
 }
 
+.choose-temp-feature-img{
+  height:50px;
+  width:50px;
+
+}
+
+.choose-template-feature-text{
+  color: #006370;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right:10px;
+  padding-top:5px;
+}
+
 /* .choose-temp-btn{
   display: none;
 } */
+
+@media (max-width:600px) {
+  .home_content{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+        
+  }
+
+  .choose-template-main-heading-h4{
+    font-size: 19px !important;
+  }
+
+
+.choose-resume-img img{
+    width: 200px !important;
+    height: 236px !important;
+  }
+
+  .choose-template-card{
+    width: 250px;
+    height: 288px;
+  }
+
+  .choose-template-card img{
+    height: 290px;
+    width: 167px;
+
+  }
+
+  .footer-text{
+    text-align: center;
+  }
+
+  .choose-temp-feature-img{
+    height:30px;
+    width:30px;
+
+  }
+
+  .choose-template-feature-text{
+    font-size: 13px !important;
+
+  }
+  
+}
+
+@media (min-width:768px) {
+  .home_content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+        
+  }
+}

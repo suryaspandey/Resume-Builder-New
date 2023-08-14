@@ -223,20 +223,7 @@ const BasicInfoTemplate2 = ({
 
     const handleDownloadResume = () => {
         {
-            isDownloadClicked
-                ? history.push("/download-template2")
-                : // <DownloadPreviewTemplate2
-                  // // formData={formData}
-                  // // themeColor={themeColor}
-                  // // backgroundColor={backgroundColor}
-                  // // textColor={textColor}
-                  // // subheadingColor={subheadingColor}
-                  // // showProfilePhoto={showProfilePhoto}
-                  // // tempfontSize={tempfontSize}
-                  // // tempfontStyle={tempfontStyle}
-                  // />
-
-                  null;
+            isDownloadClicked ? history.push("/download-template2") : null;
         }
         setIsDownloadClicked(true);
         // const pdfBlobPromise = pdf(

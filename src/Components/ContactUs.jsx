@@ -37,13 +37,6 @@ export default function ContactUs() {
 
             <div className="contact">
                 <div className="contact-form">
-                    {/* <div className="contact-form-img">
-                        <img
-                            src="/template_previews/owl_giffy1.gif"
-                            height={200}
-                        />
-                    </div> */}
-                    {/* <!-- <label for="form-main">Get In Touch</label> --> */}
                     <form className="contactus" id="form-main">
                         <input
                             className="contact-form-input"
@@ -71,7 +64,7 @@ export default function ContactUs() {
                             }}
                         />
 
-                        <textarea
+                        <input
                             className="contact-form-input"
                             name="comment"
                             id="message"
@@ -79,7 +72,7 @@ export default function ContactUs() {
                             // onResize={{ none }}
                             style={{ height: "100px", resize: "none" }}
                             maxLength={300}
-                        ></textarea>
+                        />
 
                         <br />
 

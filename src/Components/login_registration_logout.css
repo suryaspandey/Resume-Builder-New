@@ -36,8 +36,9 @@
 
 @media screen and(min-width:600px) {
     .login-img{
-        /* flex-grow: 0; */
+        /* flex-grow: 0 !important; */
     /* max-width: 58.333333%; */
     display: none;
+    /* display: flex; */
     }
 }

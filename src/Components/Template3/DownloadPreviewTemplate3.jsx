@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import PreviewTemplate2 from "./PreviewTemplate2";
+import PreviewTemplate3 from "./PreviewTemplate3";
 // import WordTemplate2 from "./WordTemplate2";
 
 // import { saveAs } from "file-saver";
@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 
-export default function DownloadPreviewTemplate2({
+export default function DownloadPreviewTemplate3({
     // formData,
     themeColor,
     backgroundColor,
@@ -31,39 +31,9 @@ export default function DownloadPreviewTemplate2({
         setShowWordFile((prevShowWordFile) => !prevShowWordFile);
     };
 
-    // const handleDownloadWordFile = () => {
-    //     setShowWordFile(true);
-    // };
-
-    // const saveWordFile = () => {
-    //     const doc = new Document();
-
-    //     doc.addSection({
-    //         children: [
-    //             <WordTemplate2
-    //                 formData={formData}
-    //                 themeColor={themeColor}
-    //                 backgroundColor={backgroundColor}
-    //                 textColor={textColor}
-    //                 subheadingColor={subheadingColor}
-    //                 tempfontSize={tempfontSize}
-    //                 tempfontStyle={tempfontStyle}
-    //             />,
-    //         ],
-    //     });
-
-    //     // Generate the Word document as a Blob
-    //     Packer.toBlob(doc).then((blob) => {
-    //         // Save the Blob as a file
-    //         saveAs(blob, "resume.docx");
-    //     });
-    // };
-
-    // const [isProfilePic, setIsProfilePic] = useState(false);
-
     const docs = [
         {
-            uri: "http://localhost:5173/download-template2",
+            uri: "http://localhost:5173/download-template3",
             fileType: "docx",
             fineName: "demores.docx",
         },
@@ -101,7 +71,7 @@ export default function DownloadPreviewTemplate2({
                     margin: "auto",
                 }}
             >
-                <PreviewTemplate2
+                <PreviewTemplate3
                     formData={formData}
                     themeColor={themeColor}
                     backgroundColor={backgroundColor}

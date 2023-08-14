@@ -211,24 +211,10 @@ export default function PreviewTemplate3({
                             id="mainArea"
                             // style={{ padding: "0px 15px !important" }}
                         >
-                            <section
-                                style={
-                                    {
-                                        // margin: "0 20px",
-                                        // padding: "0px 15px",
-                                        // borderTop: `2px solid ${backgroundColor}`,
-                                    }
-                                }
-                            >
+                            <section>
                                 <article>
                                     {/* <div className="sectionTitle"> */}
-                                    <div
-                                        style={
-                                            {
-                                                // width: "100%",
-                                            }
-                                        }
-                                    >
+                                    <div>
                                         <h1
                                             style={{
                                                 color: "white",

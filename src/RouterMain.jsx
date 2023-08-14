@@ -14,11 +14,12 @@ import { auth } from "./firebase";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import PageNotFound from "./Components/PageNotFound";
 import ContactUs from "./Components/ContactUs";
-import Login_test from "./Components/login_test";
+// import Login_test from "./Components/login_test";
 import DownloadPreviewTemplate2 from "./Components/Template2/DownloadPreviewTemplate2";
 import WOrdTemplateTest from "./Components/Template2/WOrdTemplateTest";
 import DownloadPreviewTemplate1 from "./Components/Template1/DownloadPreviewTemplate1";
 import ComingSoon from "./Components/ComingSoon";
+import DownloadPreviewTemplate3 from "./Components/Template3/DownloadPreviewTemplate3";
 
 const RouterMain = () => {
     const [themeColor, setThemeColor] = useState("black");
@@ -161,6 +162,20 @@ const RouterMain = () => {
                 <PrivateRoute path="/choose-template">
                     <ChooseTemplate
                         handleTemplateSelect={handleTemplateSelect}
+                    />
+                </PrivateRoute>
+
+                <PrivateRoute path="/download-template3">
+                    <DownloadPreviewTemplate3
+                        themeColor={themeColor}
+                        backgroundColor={backgroundColor}
+                        textColor={textColor}
+                        subheadingColor={subheadingColor}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
+                        // handleTemplateSelect={handleTemplateSelect}
+                        // formData={formData}
+                        // showProfilePhoto={showProfilePhoto}
                     />
                 </PrivateRoute>
 

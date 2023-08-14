@@ -397,7 +397,7 @@
       }
       
       #mainArea {
-        padding: 0 25px;
+        padding: 0 0 !important;
       }
     
       
@@ -581,4 +581,34 @@
       align-items: center;
     justify-content: center;
     background-color: white;
+    }
+
+    .summary-content-section{
+      display: flex;
+     margin: 0 20px;
+     /* width: 750px; */
+     flex-direction: column;
+    }
+
+
+    @media (max-width:600px){
+      .home-headings{
+        display: grid;
+      }
+
+      .choose-template-main-heading-h4{
+        font-size: 19px !important;
+      }
+
+      /* .choose-resumee-text img{
+        width: 200px;
+        height: 236px;
+      }  */
+      .summary-content-section{
+        display: flex;
+       /* margin: 0 20px; */
+       /* width: 0px !important; */
+       flex-direction: column;
+      }
+     
     }

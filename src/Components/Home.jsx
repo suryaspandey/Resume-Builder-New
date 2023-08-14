@@ -99,7 +99,10 @@ const Home = () => {
             <HeaderComp />
 
             <div className="home-container">
-                <h1 className="home-tagline" style={{ fontSize: "45px" }}>
+                <h1
+                    className="home-tagline"
+                    // style={{ fontSize: "45px" }}
+                >
                     Your Dream Job Starts Here: Build Your Winning Resume
                 </h1>
 
@@ -142,7 +145,10 @@ const Home = () => {
                                         }}
                                     >
                                         START NOW!
-                                        <span style={{ fontSize: "30px" }}>
+                                        <span
+                                            className="arrow-span"
+                                            // style={{ fontSize: "30px" }}
+                                        >
                                             &#8594;
                                         </span>
                                     </Link>
@@ -154,6 +160,7 @@ const Home = () => {
                     </div>
 
                     <img
+                        className="home-templte-img"
                         src="template_previews/template-details1.PNG"
                         style={{ borderRadius: "70px" }}
                     />
@@ -176,7 +183,7 @@ const Home = () => {
                     </div>
                     <div
                         className="gif-container"
-                        style={{ backgroundColor: "rgba(218, 217, 217, 0.47)" }}
+                        // style={{ backgroundColor: "rgba(218, 217, 217, 0.47)" }}
                     >
                         {/* <GifContainer /> */}
                         <img
@@ -209,7 +216,7 @@ const Home = () => {
                 />
             </div>
             <div className="steps_img_text">
-                <div className="steps_text">
+                <div className="steps_text one">
                     <div className="steps">1</div>
                     <div className="steps_texts">Pick a Template</div>
                 </div>
@@ -217,9 +224,9 @@ const Home = () => {
                     <img
                         src="/template_previews/step1.PNG"
                         alt="step1"
-                        height={190}
-                        width={190}
-                        style={{ borderRadius: "10%" }}
+                        // height={190}
+                        // width={190}
+                        // style={{ borderRadius: "10%" }}
                     />
                 </div>
             </div>
@@ -230,12 +237,12 @@ const Home = () => {
                     <img
                         src="/template_previews/step2.PNG"
                         alt="step1"
-                        height={190}
-                        width={190}
-                        style={{ borderRadius: "10%" }}
+                        // height={190}
+                        // width={190}
+                        // style={{ borderRadius: "10%" }}
                     />
                 </div>
-                <div className="steps_text">
+                <div className="steps_text two">
                     <div className="steps">2</div>
                     <div className="steps_texts">Customize Your Layout</div>
                 </div>
@@ -243,18 +250,12 @@ const Home = () => {
             <hr style={{ width: "50%", margin: "0 auto" }} />
 
             <div className="steps_img_text">
-                <div className="steps_text">
+                <div className="steps_text three">
                     <div className="steps">3</div>
                     <div className="steps_texts">Fill in the Blanks</div>
                 </div>
                 <div className="steps_img">
-                    <img
-                        src="/template_previews/step3.PNG"
-                        alt="step1"
-                        height={190}
-                        width={190}
-                        style={{ borderRadius: "10%" }}
-                    />
+                    <img src="/template_previews/step3.PNG" alt="step1" />
                 </div>
             </div>
             <hr style={{ width: "50%", margin: "0 auto" }} />
@@ -264,12 +265,12 @@ const Home = () => {
                     <img
                         src="/template_previews/step4.PNG"
                         alt="step1"
-                        height={190}
-                        width={190}
-                        style={{ borderRadius: "10%" }}
+                        // height={190}
+                        // width={190}
+                        // style={{ borderRadius: "10%" }}
                     />
                 </div>
-                <div className="steps_text">
+                <div className="steps_text four">
                     <div className="steps">4</div>
                     <div className="steps_texts">Hit 'Download!'</div>
                 </div>
@@ -313,8 +314,8 @@ const Home = () => {
                             {/* <Button>Hover me</Button> */}
                             <img
                                 className="human-img"
-                                height={150}
-                                width={150}
+                                // height={150}
+                                // width={150}
                                 alt="template2"
                                 src="/template_previews/cust_img6.jfif"
                             />
@@ -326,8 +327,8 @@ const Home = () => {
                         >
                             <img
                                 className="human-img"
-                                height={150}
-                                width={150}
+                                // height={150}
+                                // width={150}
                                 alt="template2"
                                 src="/template_previews/cust_img2.jfif"
                             />
@@ -339,8 +340,8 @@ const Home = () => {
                         >
                             <img
                                 className="human-img"
-                                height={150}
-                                width={150}
+                                // height={150}
+                                // width={150}
                                 alt="template2"
                                 src="/template_previews/cust_img4.jfif"
                             />
@@ -353,8 +354,8 @@ const Home = () => {
                         >
                             <img
                                 className="human-img"
-                                height={150}
-                                width={150}
+                                // height={150}
+                                // width={150}
                                 alt="template2"
                                 src="/template_previews/cust_img3.jfif"
                             />
@@ -367,8 +368,8 @@ const Home = () => {
                         >
                             <img
                                 className="human-img"
-                                height={150}
-                                width={150}
+                                // height={150}
+                                // width={150}
                                 alt="template2"
                                 src="/template_previews/cust_img55.jfif"
                             />
@@ -381,8 +382,8 @@ const Home = () => {
                         >
                             <img
                                 className="human-img"
-                                height={150}
-                                width={150}
+                                // height={150}
+                                // width={150}
                                 alt="template2"
                                 src="/template_previews/cust_img1.jfif"
                             />

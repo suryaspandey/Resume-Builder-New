@@ -192,7 +192,7 @@ const BasicInfoTemplate3 = ({
 
     const handleDownloadResume = () => {
         {
-            isDownloadClicked ? history.push("/download-template1") : null;
+            isDownloadClicked ? history.push("/download-template3") : null;
             setIsDownloadClicked(true);
         }
     };
@@ -460,12 +460,13 @@ const BasicInfoTemplate3 = ({
                                             </h1>
                                         </div>
                                         <div
+                                            className="summary-content-section"
                                             // className="sectionContent"
-                                            style={{
-                                                display: "flex",
-                                                margin: "0 20px",
-                                                width: "750px",
-                                            }}
+                                            // style={{
+                                            //     display: "flex",
+                                            //     margin: "0 20px",
+                                            //     width: "750px",
+                                            // }}
                                         >
                                             <SummaryTemplate2
                                                 tempfontSize={tempfontSize}

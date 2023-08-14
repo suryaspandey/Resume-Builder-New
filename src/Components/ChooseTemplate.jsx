@@ -86,6 +86,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                 <div className="home-headings">
                                     <div className="choose-resume-text">
                                         <h4
+                                            className="choose-template-main-heading-h4"
                                             style={{
                                                 fontFamily: "Oswald",
                                                 fontSize: "40px",
@@ -98,45 +99,13 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                             building journey
                                         </h4>
                                         <h4
+                                            className="choose-template-main-heading-h4"
                                             style={{
                                                 paddingTop: "5px",
                                             }}
                                         >
                                             Our CV templates prioritize your
                                             success
-                                            {/* providing a free, friendly,
-                                            and easily readable experience! */}
-                                            <br></br>
-                                            {/* <span
-                                                style={{
-                                                    color: "#006370",
-                                                    fontSize: "20px",
-                                                    paddingLeft: "10px",
-                                                }}
-                                            >
-                                                <TbDiscountCheckFilled />
-                                                It's free
-                                            </span>
-                                            <span
-                                                style={{
-                                                    color: "#006370",
-                                                    fontSize: "20px",
-                                                    paddingLeft: "10px",
-                                                }}
-                                            >
-                                                <TbDiscountCheckFilled />
-                                                Friendly
-                                            </span>
-                                            <span
-                                                style={{
-                                                    color: "#006370",
-                                                    fontSize: "20px",
-                                                    paddingLeft: "10px",
-                                                }}
-                                            >
-                                                <TbDiscountCheckFilled />
-                                                Easily readable
-                                            </span> */}
                                         </h4>
                                         <div
                                             className="choose-resume-left-imgs"
@@ -146,57 +115,57 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                             }}
                                         >
                                             <img
+                                                className="choose-temp-feature-img"
                                                 src="/template_previews/cost-effective1.png"
                                                 alt="cost-effective"
-                                                height={50}
-                                                width={50}
                                             />
                                             <span
-                                                style={{
-                                                    color: "#006370",
-                                                    fontSize: "20px",
-                                                    paddingLeft: "10px",
-                                                    paddingRight: "10px",
-                                                    paddingTop: "5px",
-                                                }}
+                                                className="choose-template-feature-text"
+                                                // style={{
+                                                //     color: "#006370",
+                                                //     fontSize: "20px",
+                                                //     paddingLeft: "10px",
+                                                //     paddingRight: "10px",
+                                                //     paddingTop: "5px",
+                                                // }}
                                             >
                                                 {/* <TbDiscountCheckFilled /> */}
                                                 It's free
                                             </span>
                                             {/* <h6>Cost Effecive</h6> */}
                                             <img
+                                                className="choose-temp-feature-img"
                                                 src="/template_previews/easy-to-use2.png"
                                                 alt="easy-to-use"
-                                                height={55}
-                                                width={59}
                                             />
                                             <span
-                                                style={{
-                                                    color: "#006370",
-                                                    fontSize: "20px",
-                                                    paddingLeft: "10px",
-                                                    paddingRight: "10px",
-                                                    paddingTop: "5px",
-                                                }}
+                                                className="choose-template-feature-text"
+                                                // style={{
+                                                //     color: "#006370",
+                                                //     fontSize: "20px",
+                                                //     paddingLeft: "10px",
+                                                //     paddingRight: "10px",
+                                                //     paddingTop: "5px",
+                                                // }}
                                             >
                                                 {/* <TbDiscountCheckFilled /> */}
                                                 Friendly
                                             </span>
                                             {/* <h6>Easy-to-use</h6> */}
                                             <img
+                                                className="choose-temp-feature-img"
                                                 src="https://toppng.com/uploads/preview/user-friendly-icon-user-friendly-icon-11563212706mpwymvuyej.png"
                                                 alt="easy-to-use"
-                                                height={50}
-                                                width={50}
                                             />
                                             <span
-                                                style={{
-                                                    color: "#006370",
-                                                    fontSize: "20px",
-                                                    paddingLeft: "10px",
-                                                    paddingRight: "10px",
-                                                    paddingTop: "5px",
-                                                }}
+                                                className="choose-template-feature-text"
+                                                // style={{
+                                                //     color: "#006370",
+                                                //     fontSize: "20px",
+                                                //     paddingLeft: "10px",
+                                                //     paddingRight: "10px",
+                                                //     paddingTop: "5px",
+                                                // }}
                                             >
                                                 {/* <TbDiscountCheckFilled /> */}
                                                 Easily readable
@@ -216,11 +185,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        style={{
-                                            width: 350,
-                                            height: 400,
-                                            marginBottom: "132px",
-                                        }}
+                                        // style={{
+                                        //     width: 350,
+                                        //     height: 400,
+                                        //     marginBottom: "132px",
+                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -252,11 +221,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        style={{
-                                            width: 350,
-                                            height: 400,
-                                            marginBottom: "132px",
-                                        }}
+                                        // style={{
+                                        //     width: 350,
+                                        //     height: 400,
+                                        //     marginBottom: "132px",
+                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -291,11 +260,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        style={{
-                                            width: 350,
-                                            height: 400,
-                                            marginBottom: "132px",
-                                        }}
+                                        // style={{
+                                        //     width: 350,
+                                        //     height: 400,
+                                        //     marginBottom: "132px",
+                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -345,11 +314,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        style={{
-                                            width: 350,
-                                            height: 400,
-                                            marginBottom: "132px",
-                                        }}
+                                        // style={{
+                                        //     width: 350,
+                                        //     height: 400,
+                                        //     marginBottom: "132px",
+                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -393,11 +362,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        style={{
-                                            width: 350,
-                                            height: 400,
-                                            marginBottom: "132px",
-                                        }}
+                                        // style={{
+                                        //     width: 350,
+                                        //     height: 400,
+                                        //     marginBottom: "132px",
+                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -430,11 +399,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        style={{
-                                            width: 350,
-                                            height: 400,
-                                            marginBottom: "132px",
-                                        }}
+                                        // style={{
+                                        //     width: 350,
+                                        //     height: 400,
+                                        //     marginBottom: "132px",
+                                        // }}
                                         cover={
                                             <>
                                                 <img

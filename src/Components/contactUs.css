@@ -215,3 +215,16 @@
     justify-content: center;
     
 }
+
+@media (max-width:500px){
+    .contact-img{
+        display:grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .contact-banner-text {
+        font-size: 38px;
+    /* width: 69%; */
+    left: 20%;
+    }
+}
