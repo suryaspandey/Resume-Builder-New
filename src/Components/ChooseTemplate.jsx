@@ -37,17 +37,6 @@ const contentStyle = {
     // color: "#fff",
     // backgroundColor: "#f2fafb",
 };
-const siderStyle = {
-    textAlign: "center",
-    lineHeight: "120px",
-    color: "#fff",
-    backgroundColor: "#3ba0e9",
-};
-const footerStyle = {
-    textAlign: "center",
-    color: "#fff",
-    backgroundColor: "#7dbcea",
-};
 
 const ChooseTemplate = ({ handleTemplateSelect }) => {
     const history = useHistory();
@@ -119,16 +108,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                 src="/template_previews/cost-effective1.png"
                                                 alt="cost-effective"
                                             />
-                                            <span
-                                                className="choose-template-feature-text"
-                                                // style={{
-                                                //     color: "#006370",
-                                                //     fontSize: "20px",
-                                                //     paddingLeft: "10px",
-                                                //     paddingRight: "10px",
-                                                //     paddingTop: "5px",
-                                                // }}
-                                            >
+                                            <span className="choose-template-feature-text">
                                                 {/* <TbDiscountCheckFilled /> */}
                                                 It's free
                                             </span>
@@ -138,16 +118,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                 src="/template_previews/easy-to-use2.png"
                                                 alt="easy-to-use"
                                             />
-                                            <span
-                                                className="choose-template-feature-text"
-                                                // style={{
-                                                //     color: "#006370",
-                                                //     fontSize: "20px",
-                                                //     paddingLeft: "10px",
-                                                //     paddingRight: "10px",
-                                                //     paddingTop: "5px",
-                                                // }}
-                                            >
+                                            <span className="choose-template-feature-text">
                                                 {/* <TbDiscountCheckFilled /> */}
                                                 Friendly
                                             </span>
@@ -157,16 +128,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                 src="https://toppng.com/uploads/preview/user-friendly-icon-user-friendly-icon-11563212706mpwymvuyej.png"
                                                 alt="easy-to-use"
                                             />
-                                            <span
-                                                className="choose-template-feature-text"
-                                                // style={{
-                                                //     color: "#006370",
-                                                //     fontSize: "20px",
-                                                //     paddingLeft: "10px",
-                                                //     paddingRight: "10px",
-                                                //     paddingTop: "5px",
-                                                // }}
-                                            >
+                                            <span className="choose-template-feature-text">
                                                 {/* <TbDiscountCheckFilled /> */}
                                                 Easily readable
                                             </span>
@@ -185,11 +147,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        // style={{
-                                        //     width: 350,
-                                        //     height: 400,
-                                        //     marginBottom: "132px",
-                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -221,11 +178,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        // style={{
-                                        //     width: 350,
-                                        //     height: 400,
-                                        //     marginBottom: "132px",
-                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -260,11 +212,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        // style={{
-                                        //     width: 350,
-                                        //     height: 400,
-                                        //     marginBottom: "132px",
-                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -272,17 +219,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     alt="template3"
                                                     src="/template_previews/template_preview3.PNG"
                                                 />
-                                                {/* <button
-                                                    className="choose-temp-btn"
-                                                    onClick={() =>
-                                                        handleCardClick(
-                                                            "template3"
-                                                        )
-                                                    }
-                                                    style={{ display: "none" }}
-                                                >
-                                                    Show
-                                                </button> */}
 
                                                 <h5>Basic</h5>
                                                 <p

@@ -111,14 +111,15 @@
     min-height: 109px;
   } */
 .summaryTextareaClass{
-  height: 109px;
+  /* height: 85px !important; */
+  height: 114px !important;
   /* min-height: 50px; */
   width: 98%;
   text-align: justify;
 }
 
 .summaryTextareaClass_project{
-  width: 525px;
+  /* width: 525px; */
   text-align: justify;
 
 }
@@ -322,8 +323,13 @@
     }
 
     .titletextsize{
-      width: 525px;
+      /* width: 525px; */
       resize: none;
+    }
+
+    .section-article-template1{
+      display: flex;
+      flex-direction: row;
     }
 
     input[type="text"], input[type="email"], textarea {
@@ -342,9 +348,9 @@
     }
     
     @media all and (min-width: 602px) and (max-width: 800px) {
-      #headshot {
+      /* #headshot {
         display: none;
-      }
+      } */
       
       .keySkills {
       -moz-column-count:2;
@@ -360,9 +366,9 @@
         min-width: 280px;
       }
       
-      #headshot {
+      /* #headshot {
         display: none;
-      }
+      } */
       
       #name, #contactDetails {
         float: none;
@@ -394,6 +400,11 @@
       
       section {
         padding: 15px 0 0;
+      }
+
+      .section-article-template1{
+        display: flex;
+        flex-direction: column;
       }
       
       #mainArea {
@@ -585,7 +596,7 @@
 
     .summary-content-section{
       display: flex;
-     margin: 0 20px;
+     margin: 0 10px;
      /* width: 750px; */
      flex-direction: column;
     }
@@ -610,5 +621,13 @@
        /* width: 0px !important; */
        flex-direction: column;
       }
+
+     
      
     }
+
+    /* @media (max-width:765px){
+      .summaryTextareaClass {
+        width: 74% !important;
+      }
+    } */

@@ -191,6 +191,11 @@ const BasicInfoTemplate1 = ({
             setIsDownloadClicked(true);
         }
     };
+
+    const handlebackBtn = () => {
+        history.push("/choose-template");
+    };
+
     const summaryTextareaClass = isTyping
         ? "summary-textarea active"
         : "summary-textarea";
@@ -307,6 +312,7 @@ const BasicInfoTemplate1 = ({
                                                             color: themeColor,
                                                             marginBottom:
                                                                 "-1px",
+                                                            marginRight: "10px",
                                                         }}
                                                     />
                                                 </span>
@@ -360,6 +366,7 @@ const BasicInfoTemplate1 = ({
                                                         className="linkedin"
                                                         style={{
                                                             color: themeColor,
+                                                            marginRight: "10px",
                                                             // marginBottom:
                                                             //     "-1px",
                                                             // marginRight: "10px",
@@ -387,112 +394,6 @@ const BasicInfoTemplate1 = ({
                                     </div>
                                 </div>
 
-                                {/* <div
-                                    id="contactDetails"
-                                    style={{ marginTop: "54px" }}
-                                >
-                                    <ul>
-                                        {/* <li>
-                                            <span className="info-icon">
-                                                <FaLocationArrow
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="text"
-                                                name="location"
-                                                value={formData.location}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Location"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li>
-                                        <li>
-                                            <span className="info-icon">
-                                                <BsFillTelephoneFill
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="text"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Phone"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li>
-                                        <li>
-                                            <span className="info-icon">
-                                                <FaEnvelope
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                        // height: "38px",
-                                                        // width: "25px",
-                                                        // paddingLeft: "7px",
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="Email"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li>
-                                        <li>
-                                            <span className="info-icon">
-                                                <FaLinkedin
-                                                    className="linkedin"
-                                                    style={{
-                                                        color: themeColor,
-                                                    }}
-                                                />
-                                            </span>
-                                            <input
-                                                type="text"
-                                                name="linkedin"
-                                                value={formData.linkedin}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setIsEditing(true)
-                                                }
-                                                placeholder="LinkedIn"
-                                                style={{
-                                                    fontFamily: tempfontStyle,
-                                                    fontSize: tempfontSize,
-                                                }}
-                                            />
-                                        </li> 
-                                    </ul>
-                                </div> */}
                                 <div className="clear"></div>
                             </div>
 
@@ -502,7 +403,7 @@ const BasicInfoTemplate1 = ({
                                         borderTop: `2px solid ${backgroundColor}`,
                                     }}
                                 >
-                                    <article>
+                                    <article className="section-article-template1">
                                         <div className="sectionTitle">
                                             <h1
                                                 style={{
@@ -513,7 +414,7 @@ const BasicInfoTemplate1 = ({
                                                 Personal Profile
                                             </h1>
                                         </div>
-                                        <div className="sectionContent">
+                                        <div className="sectionContent sectiontemp1">
                                             {/* <TextArea
                                                 autoSize
                                                 maxLength={300}
@@ -587,6 +488,14 @@ const BasicInfoTemplate1 = ({
                         ? "Switch to Edit Mode"
                         : "Switch to Preview Mode"}
                 </button>
+                {!isPreviewMode && (
+                    <button
+                        className="template-back-btn save-btn"
+                        onClick={handlebackBtn}
+                    >
+                        Go Back
+                    </button>
+                )}
                 {isPreviewMode ? (
                     <>
                         <button

@@ -152,7 +152,7 @@ const PreviewTemplate1 = ({
                                     borderTop: `2px solid ${backgroundColor}`,
                                 }}
                             >
-                                <article>
+                                <article className="section-article-template1">
                                     <div className="sectionTitle">
                                         <h1
                                             style={{

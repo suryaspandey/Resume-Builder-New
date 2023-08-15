@@ -186,40 +186,9 @@ const BasicInfoTemplate2 = ({
         setIsPreviewMode((prevMode) => !prevMode);
     };
 
-    // const pdfRef = useRef(null);
-
-    // const handleDownloadResume = () => {
-    //     // Generate the PDF Blob using the PDFViewer's toBlob() method
-    //     const blobPromise = PDFViewer.toBlob(
-    //         <Document>
-    //             <Page size="A4" wrap>
-    //                 <PreviewTemplate2
-    //                     formData={formData}
-    //                     themeColor={themeColor}
-    //                     backgroundColor={backgroundColor}
-    //                     textColor={textColor}
-    //                     subheadingColor={subheadingColor}
-    //                     showProfilePhoto={showProfilePhoto}
-    //                     tempfontSize={tempfontSize}
-    //                     tempfontStyle={tempfontStyle}
-    //                 />
-    //             </Page>
-    //         </Document>
-    //     );
-    //     // Once the Blob is generated, create a URL from it
-    //     blobPromise.then((blob) => {
-    //         const url = URL.createObjectURL(blob);
-
-    //         // Create a temporary anchor element and trigger the download
-    //         const a = document.createElement("a");
-    //         a.href = url;
-    //         a.download = "resume.pdf";
-    //         a.click();
-
-    //         // Clean up the temporary URL
-    //         URL.revokeObjectURL(url);
-    //     });
-    // };
+    const handlebackBtn = () => {
+        history.push("/choose-template");
+    };
 
     const handleDownloadResume = () => {
         {
@@ -546,6 +515,14 @@ const BasicInfoTemplate2 = ({
                         ? "Switch to Edit Mode"
                         : "Switch to Preview Mode"}
                 </button>
+                {!isPreviewMode && (
+                    <button
+                        className="template-back-btn save-btn"
+                        onClick={handlebackBtn}
+                    >
+                        Go Back
+                    </button>
+                )}
 
                 {isPreviewMode ? (
                     <>

@@ -111,16 +111,21 @@
     min-height: 109px;
   } */
 .summaryTextareaClass{
-  height: 109px;
+  height: 70px;
   /* min-height: 50px; */
-  width: 439px;
+  /* width: 439px; */
   text-align: justify;
 }
 
 .summaryTextareaClass_project{
-  width: 525px;
+  /* width: 100%; */
   text-align: justify;
+  line-height: 1.1 !important;
 
+}
+
+.sectiontemp1{
+  width: 100% !important;
 }
   html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
     border:0;
@@ -314,7 +319,7 @@
     }
 
     .titletextsize{
-      width: 525px;
+      /* width: 525px; */
       resize: none;
     }
 
@@ -376,7 +381,8 @@
       }
       
       section {
-        padding: 15px 0 0;
+        /* padding: 15px 0 0; */
+        padding: 15px 10px !important;
       }
       
       #mainArea {

@@ -43,17 +43,17 @@ export default function PreviewTemplate3({
                             // }}
                         >
                             {/* {isEditing ? (
-                                    <div className="profile_photo_container">
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                checked={showProfilePhoto}
-                                                onChange={handleCheckboxChange}
-                                            />
-                                            Show Profile Photo
-                                        </label>
-                                    </div>
-                                ) : null} */}
+                                        <div className="profile_photo_container">
+                                            <label>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={showProfilePhoto}
+                                                    onChange={handleCheckboxChange}
+                                                />
+                                                Show Profile Photo
+                                            </label>
+                                        </div>
+                                    ) : null} */}
                             {showProfilePhoto && (
                                 <div id="headshot">
                                     <ProfilePhotoTemplate3
@@ -104,14 +104,14 @@ export default function PreviewTemplate3({
                                                     }}
                                                 />
                                                 {/* <FaEnvelope
-                                                        className="linkedin"
-                                                        style={{
-                                                            color: themeColor,
-                                                            // marginBottom:
-                                                            //     "-1px",
-                                                            marginRight: "10px",
-                                                        }}
-                                                    /> */}
+                                                            className="linkedin"
+                                                            style={{
+                                                                color: themeColor,
+                                                                // marginBottom:
+                                                                //     "-1px",
+                                                                marginRight: "10px",
+                                                            }}
+                                                        /> */}
                                             </span>
                                             <div
                                                 style={{
@@ -133,13 +133,13 @@ export default function PreviewTemplate3({
                                                     }}
                                                 />
                                                 {/* <FaLocationArrow
-                                                        className="linkedin"
-                                                        style={{
-                                                            color: themeColor,
-                                                            marginBottom:
-                                                                "-1px",
-                                                        }}
-                                                    /> */}
+                                                            className="linkedin"
+                                                            style={{
+                                                                color: themeColor,
+                                                                marginBottom:
+                                                                    "-1px",
+                                                            }}
+                                                        /> */}
                                             </span>
                                             <div
                                                 style={{
@@ -172,34 +172,34 @@ export default function PreviewTemplate3({
                                             </div>
                                         </li>
                                         {/* <li>
-                                                <span className="info-icon">
-                                                    <FaLinkedin
-                                                        className="linkedin"
+                                                    <span className="info-icon">
+                                                        <FaLinkedin
+                                                            className="linkedin"
+                                                            style={{
+                                                                color: themeColor,
+                                                                // marginBottom:
+                                                                //     "-1px",
+                                                                // marginRight: "10px",
+                                                            }}
+                                                        />
+                                                    </span>
+                                                    <input
+                                                        type="text"
+                                                        name="linkedin"
+                                                        value={formData.linkedin}
+                                                        onChange={handleChange}
+                                                        onFocus={() =>
+                                                            setIsEditing(true)
+                                                        }
+                                                        placeholder="LinkedIn"
                                                         style={{
-                                                            color: themeColor,
-                                                            // marginBottom:
-                                                            //     "-1px",
-                                                            // marginRight: "10px",
+                                                            fontFamily:
+                                                                tempfontStyle,
+                                                            fontSize: tempfontSize,
+                                                            // width: "132%",
                                                         }}
                                                     />
-                                                </span>
-                                                <input
-                                                    type="text"
-                                                    name="linkedin"
-                                                    value={formData.linkedin}
-                                                    onChange={handleChange}
-                                                    onFocus={() =>
-                                                        setIsEditing(true)
-                                                    }
-                                                    placeholder="LinkedIn"
-                                                    style={{
-                                                        fontFamily:
-                                                            tempfontStyle,
-                                                        fontSize: tempfontSize,
-                                                        // width: "132%",
-                                                    }}
-                                                />
-                                            </li> */}
+                                                </li> */}
                                     </ul>
                                 </div>
                             </div>

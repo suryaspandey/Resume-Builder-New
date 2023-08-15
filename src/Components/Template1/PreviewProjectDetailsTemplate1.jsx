@@ -23,6 +23,7 @@ export default function PreviewProjectDetailsTemplate1({
             <section
                 style={{
                     borderTop: `2px solid ${backgroundColor}`,
+                    paddingRight: "20px",
                 }}
             >
                 <div

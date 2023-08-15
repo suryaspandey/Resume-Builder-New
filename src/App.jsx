@@ -32,11 +32,21 @@ const App = ({
 
     return (
         <>
-            <HeaderComp />
+            {/* <HeaderComp /> */}
             <div className="main-container">
                 <button className="hamburger-button" onClick={toggleCollapse}>
-                    <FiMenu />
+                    <FiMenu
+                        style={{
+                            fontSize: "22px",
+                            backgroundColor: "#006370",
+                            borderRadius: "50%",
+                            padding: "4px",
+                        }}
+                    />
                 </button>
+                {/* <h6 onClick={toggleCollapse} style={{ cursor: "pointer" }}>
+                    Open Settings
+                </h6> */}
 
                 {isOpen ? (
                     <SideBar

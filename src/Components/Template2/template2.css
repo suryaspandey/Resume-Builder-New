@@ -309,7 +309,7 @@ input.titleColor{
 }
 
 .titletextsize{
-  width: 525px;
+  /* width: 525px; */
   resize: none;
   /* font-weight: bolder; */
   font: inherit;
@@ -322,7 +322,7 @@ textarea {
   /* border-bottom: deeppink; */
   resize: none;
   /* height: fit-content; */
-  min-width: 390px;
+  /* min-width: 390px; */
   /* max-height: 109px; */
   /* min-height: 10px; */
   width: auto;

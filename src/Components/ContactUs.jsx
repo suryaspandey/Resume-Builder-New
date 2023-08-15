@@ -33,7 +33,16 @@ export default function ContactUs() {
                     <b className="contact-banner-text">GET IN TOUCH</b>
                 </div>
             </div>
-            {/* <h6 className="enquire">Have an Enquiry? </h6> */}
+            <h6 className="enquire">
+                Have an Enquiry? We’re ready to help! Our friendly customer
+                service team is at your disposal. <br />
+                Please provide us with as many details as you can, and we will
+                get back to you within two business days.
+            </h6>
+            <h6 className="enquire">
+                Our Timings:&nbsp;
+                <b> Monday-Sunday : 9am-9pm IST</b>
+            </h6>
 
             <div className="contact">
                 <div className="contact-form">

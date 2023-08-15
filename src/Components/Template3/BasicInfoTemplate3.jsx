@@ -196,6 +196,11 @@ const BasicInfoTemplate3 = ({
             setIsDownloadClicked(true);
         }
     };
+
+    const handlebackBtn = () => {
+        history.push("/choose-template");
+    };
+
     const summaryTextareaClass = isTyping
         ? "summary-textarea active"
         : "summary-textarea";
@@ -478,7 +483,13 @@ const BasicInfoTemplate3 = ({
                                 </section>
                             </div>
                             {isEditing ? (
-                                <button className="save-btn" type="submit">
+                                <button
+                                    className="save-btn"
+                                    type="submit"
+                                    style={{
+                                        width: "9%",
+                                    }}
+                                >
                                     Save
                                 </button>
                             ) : null}
@@ -527,6 +538,15 @@ const BasicInfoTemplate3 = ({
                         ? "Switch to Edit Mode"
                         : "Switch to Preview Mode"}
                 </button>
+                {!isPreviewMode && (
+                    <button
+                        className="template-back-btn save-btn"
+                        onClick={handlebackBtn}
+                    >
+                        Go Back
+                    </button>
+                )}
+
                 {isPreviewMode ? (
                     <>
                         <button

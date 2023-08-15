@@ -9,6 +9,7 @@ import { useReactToPrint } from "react-to-print";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
+import ProfilePhotoTemplate3 from "./ProfilePhotoTemplate3";
 
 export default function DownloadPreviewTemplate3({
     // formData,
@@ -77,7 +78,7 @@ export default function DownloadPreviewTemplate3({
                     backgroundColor={backgroundColor}
                     textColor={textColor}
                     subheadingColor={subheadingColor}
-                    // showProfilePhoto={!!profilePhoto}
+                    showProfilePhoto={showProfilePhoto}
                     tempfontSize={tempfontSize}
                     tempfontStyle={tempfontStyle}
                     // onPhotoSelect={onPhotoSelect}
