@@ -12,6 +12,7 @@ const ProfilePhotoTemplate3 = ({ onPhotoSelect, background }) => {
             setIsUploaded(true);
             onPhotoSelect(storedPhoto);
         }
+        console.log("on photo select", onPhotoSelect);
     }, []);
 
     const handlePhotoChange = (e) => {

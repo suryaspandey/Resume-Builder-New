@@ -217,8 +217,30 @@
     font-family: 'Oswald';
     font-weight: 900;
     padding: 0 20%;
+    line-height: 1.5;
+    word-spacing: 5px;
+    color: orange;
     
 }
+
+.contact-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+  }
+
+  .timings {
+    margin-top: 20px !important;
+    font-weight: bold !important;
+  }
+  
+  .timings>p {
+    margin: 5px 0 !important;
+  }
 
 @media (max-width:500px){
     .contact-img{

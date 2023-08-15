@@ -33,16 +33,26 @@ export default function ContactUs() {
                     <b className="contact-banner-text">GET IN TOUCH</b>
                 </div>
             </div>
-            <h6 className="enquire">
-                Have an Enquiry? We’re ready to help! Our friendly customer
-                service team is at your disposal. <br />
-                Please provide us with as many details as you can, and we will
-                get back to you within two business days.
-            </h6>
-            <h6 className="enquire">
-                Our Timings:&nbsp;
-                <b> Monday-Sunday : 9am-9pm IST</b>
-            </h6>
+            <div className="contact-container">
+                <h4 className="enquire">
+                    Have an Enquiry? We’re ready to help!
+                </h4>
+                <h4 style={{ fontFamily: "Oswald" }}>
+                    Our friendly customer service team is at your disposal.
+                </h4>
+                <br />
+                <h4 style={{ fontFamily: "Oswald" }}>
+                    Please provide us with as many details as you can, and we
+                    will get back to you within two business days.
+                </h4>
+
+                <h4 className="enquire">
+                    <h4>Our Timings:&nbsp;</h4>
+                    <h4>
+                        <b> Monday-Sunday : 9am-9pm IST</b>
+                    </h4>
+                </h4>
+            </div>
 
             <div className="contact">
                 <div className="contact-form">
@@ -100,15 +110,22 @@ export default function ContactUs() {
                     <div className="contact-text">
                         <div className="contact-call">
                             <i className="fa-solid fa-phone"></i>
-                            <h3> Call Us</h3>
+                            <h3 style={{ fontFamily: "Oswald" }}> Call Us</h3>
 
-                            <h6>+ (91) 973456789</h6>
-                            <h6>+ (91) 9987754321</h6>
+                            <h6 style={{ fontFamily: "Oswald" }}>
+                                <b>+ (91) 973456789</b>
+                            </h6>
+                            <h6 style={{ fontFamily: "Oswald" }}>
+                                <b>+ (91) 9987754321</b>
+                            </h6>
                         </div>
                         <div className="contact-email">
                             <i className="fa-solid fa-envelope "></i>
-                            <h3>Email Us</h3>
-                            <a href="mailto:abc@gmail.com">
+                            <h3 style={{ fontFamily: "Oswald" }}>Email Us</h3>
+                            <a
+                                href="mailto:abc@gmail.com"
+                                // style={{ fontFamily: "Oswald" }}
+                            >
                                 contact@myresumebuilder.com
                             </a>
                             <br />
@@ -116,8 +133,13 @@ export default function ContactUs() {
 
                         <div className="contact-work">
                             <i className="fa-solid fa-briefcase"></i>
-                            <h3>Thinking of working with us?</h3>
-                            <a href="mailto:dummymyresumebuildercareers@gmail.com">
+                            <h3 style={{ fontFamily: "Oswald" }}>
+                                Thinking of working with us?
+                            </h3>
+                            <a
+                                href="mailto:dummymyresumebuildercareers@gmail.com"
+                                // style={{ fontFamily: "Oswald" }}
+                            >
                                 myresumebuilder.careers@gmail.com
                             </a>
                         </div>

@@ -281,6 +281,7 @@ const ProjectDetailsTemplate1 = ({
                                             backgroundColor: "transparent",
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
+                                            
                                         }}
                                     />
                                     {project.errors.description && (

@@ -21,7 +21,7 @@ export default function DownloadPreviewTemplate3({
     onShowProfilePhotoChange,
     tempfontSize,
     tempfontStyle,
-    // onPhotoSelect,
+    onPhotoSelect,
 }) {
     const formData = JSON.parse(localStorage.getItem("basicInfo")) || [];
     const { name, location, phone, email, linkedin } = formData;
@@ -59,11 +59,11 @@ export default function DownloadPreviewTemplate3({
     };
 
     const profilePhoto = localStorage.getItem("profilePhoto");
-    // console.log(profilePhoto);
+    console.log(profilePhoto);
 
     return (
         <div className="download-main-div">
-            {/* {console.log(onPhotoSelect)} */}
+            {console.log(onPhotoSelect)}
             <div
                 ref={componentRef}
                 style={{

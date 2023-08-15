@@ -55,14 +55,17 @@ export default function PreviewTemplate3({
                                         </div>
                                     ) : null} */}
                             {showProfilePhoto && (
-                                <div id="headshot">
-                                    <ProfilePhotoTemplate3
-                                        background={backgroundColor}
-                                        // onPhotoSelect={handlePhotoSelect}
-                                        onPhotoSelect={onPhotoSelect}
-                                        // isUploaded={isUploaded} // Pass isUploaded as a prop to the ProfilePhoto component
-                                    />
-                                </div>
+                                <>
+                                    <div id="headshot">
+                                        <ProfilePhotoTemplate3
+                                            background={backgroundColor}
+                                            // onPhotoSelect={handlePhotoSelect}
+                                            onPhotoSelect={onPhotoSelect}
+                                            // isUploaded={isUploaded} // Pass isUploaded as a prop to the ProfilePhoto component
+                                        />
+                                    </div>
+                                    {console.log(showProfilePhoto)}
+                                </>
                             )}
 
                             <div

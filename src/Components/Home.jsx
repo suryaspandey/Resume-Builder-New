@@ -18,6 +18,10 @@ import { Button, Popover, Rate } from "antd";
 import { PopoverHeader } from "react-bootstrap";
 import Footer from "./Footer";
 import GifContainer from "./GifContainer";
+import { AiOutlineRise } from "react-icons/ai";
+import { BiHappyHeartEyes } from "react-icons/bi";
+import { FaUsers } from "react-icons/fa";
+import { HiTemplate } from "react-icons/hi";
 
 const Home = () => {
     const history = useHistory();
@@ -408,19 +412,18 @@ const Home = () => {
                         justifyContent: "center",
                         width: "100%",
                     }}
-                >
-                    <hr
-                        style={{
-                            marginBottom: "50px",
-                            paddingLeft: "50%",
-                            borderRadius: "20px",
-                            border: "4px solid rgb(121, 133, 132)",
-                        }}
-                    />
-                </div>
+                ></div>
                 <h1 className="home-tagline home-subheadings">
                     Why Use MyResumeBuilder?
                 </h1>
+                <hr
+                    style={{
+                        marginBottom: "50px",
+                        paddingLeft: "50%",
+                        borderRadius: "20px",
+                        border: "4px solid rgb(121, 133, 132)",
+                    }}
+                />
 
                 <div className="resume_features_grid">
                     <div className="features_img_text">
@@ -493,6 +496,130 @@ const Home = () => {
                                 ensuring you can fine-tune every detail to
                                 perfection.
                             </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 className="home-tagline home-subheadings">Our Impact</h1>
+                <hr
+                    style={{
+                        marginBottom: "50px",
+                        paddingLeft: "50%",
+                        borderRadius: "20px",
+                        border: "4px solid rgb(121, 133, 132)",
+                    }}
+                />
+                <div className="our-impact-container">
+                    <div className="flip">
+                        <div
+                            className="front"
+                            style={{ background: "#006370", color: "white" }}
+                            // style="background-image: url(https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)"
+                        >
+                            <h2>5+</h2>
+                            <h1 className="text-shadow">Years of Experience</h1>
+                        </div>
+                        <div className="back">
+                            {/* <h2>Angular</h2> */}
+                            <h4>
+                                "Over 5+ years of combined experience in resume
+                                building and career services."
+                            </h4>
+                            <AiOutlineRise
+                                style={{
+                                    fontSize: "52px",
+                                    background: "white",
+                                    color: "black",
+                                    borderRadius: "50%",
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <div className="flip">
+                        <div
+                            className="front"
+                            // style={{ background: "yellow" }}
+                            style={{ background: "#dad9d9", color: "#006370" }}
+
+                            // style="background-image: url(https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)"
+                        >
+                            <h2> 85%</h2>
+                            <h1 className="text-shadow">Client Achievements</h1>
+                        </div>
+                        <div className="back">
+                            {/* <h2>Angular</h2> */}
+                            <h4>
+                                "Helped clients secure interviews at top
+                                companies with an 85% success rate."
+                            </h4>
+
+                            <BiHappyHeartEyes
+                                style={{
+                                    fontSize: "52px",
+                                    background: "white",
+                                    color: "black",
+                                    borderRadius: "50%",
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <div className="flip">
+                        <div
+                            className="front"
+                            // style={{ background: "blue" }}
+                            // style={{ background: "#f2f2f2", color: "#006370" }}
+
+                            style={{ background: "#dad9d9", color: "#006370" }}
+
+                            // style="background-image: url(https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)"
+                        >
+                            <h2> 50+ </h2>
+                            <h1 className="text-shadow">Resume Templates</h1>
+                        </div>
+                        <div className="back">
+                            {/* <h2>Angular</h2> */}
+                            <h4>
+                                "Choose from a selection of 50+ professionally
+                                designed resume templates."
+                            </h4>
+                            <HiTemplate
+                                style={{
+                                    fontSize: "52px",
+                                    background: "white",
+                                    color: "black",
+                                    borderRadius: "50%",
+                                }}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flip">
+                        <div
+                            className="front"
+                            // style={{ background: "orange" }}
+                            // style={{ background: "#dad9d9", color: "#006370" }}
+
+                            style={{ background: "#006370", color: "white" }}
+
+                            // style="background-image: url(https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)"
+                        >
+                            <h2> 10,000+ </h2>
+                            <h1 className="text-shadow">Satisfied Customers</h1>
+                        </div>
+                        <div className="back">
+                            {/* <h2>Angular</h2> */}
+                            <h4>
+                                "Join our community of 10,000+ satisfied users
+                                who have landed their dream jobs."
+                            </h4>
+                            <FaUsers
+                                style={{
+                                    fontSize: "52px",
+                                    background: "white",
+                                    color: "black",
+                                    borderRadius: "50%",
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
