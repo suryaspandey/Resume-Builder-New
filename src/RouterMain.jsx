@@ -29,6 +29,16 @@ const RouterMain = () => {
     const [tempfontSize, setTempFontSize] = useState("");
     const [tempfontStyle, setTempFontStyle] = useState("");
 
+    // useEffect(() => {
+    //     const shouldShowLoading =
+    //         location.pathname === "/" || // Home page
+    //         location.pathname === "/login" || // User logs in
+    //         location.pathname === "/register" || // User registers
+    //         location.pathname === "/choose-template"; // Choose-template page
+
+    //     setIsLoading(shouldShowLoading);
+    // }, [location]);
+
     useEffect(() => {
         const storedFontSize = localStorage.getItem("tempfontSize");
         if (storedFontSize) {

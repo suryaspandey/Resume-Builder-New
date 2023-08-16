@@ -56,9 +56,6 @@ const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
             textarea.style.height = "auto";
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
-        // if (textarea.scrollHeight > textarea.offsetHeight) {
-        //     textarea.style.height = `${textarea.offsetHeight}px`;
-        // }
     };
 
     return (

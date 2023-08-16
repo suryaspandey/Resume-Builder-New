@@ -330,9 +330,9 @@
     }
     
     @media all and (min-width: 602px) and (max-width: 800px) {
-      #headshot {
+      /* #headshot {
         display: none;
-      }
+      } */
       
       .keySkills {
       -moz-column-count:2;
@@ -348,9 +348,9 @@
         min-width: 280px;
       }
       
-      #headshot {
+      /* #headshot {
         display: none;
-      }
+      } */
       
       #name, #contactDetails {
         float: none;

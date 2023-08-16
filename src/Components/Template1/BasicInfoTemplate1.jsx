@@ -268,7 +268,6 @@ const BasicInfoTemplate1 = ({
                                             color: textColor,
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
-                                            //
                                             width: "100%",
                                             // marginBottom: "1px",
                                         }}
