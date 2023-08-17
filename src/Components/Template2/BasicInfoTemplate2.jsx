@@ -442,6 +442,7 @@ const BasicInfoTemplate2 = ({
                                                             tempfontStyle,
                                                         fontSize: tempfontSize,
                                                         maxWidth: "126%",
+                                                        maxHeight: "",
                                                     }}
                                                     className="basic-info"
                                                     type="text"
