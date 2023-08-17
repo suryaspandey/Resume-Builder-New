@@ -126,8 +126,8 @@ const Home = () => {
                 <div className="home-choose-template-details">
                     <div className="home-top-img-section">
                         <h1 className="home-tagline home-subheadings">
-                            Build your brand-new resume in as little as 5
-                            minutes.
+                            Build your brand-new resume in as little as
+                            <br />5 minutes!
                         </h1>
                         <h5>Try it for free!</h5>
                         <div className="contact-form-img">

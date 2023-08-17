@@ -125,10 +125,20 @@ const BasicInfoTemplate1 = ({
         setPhoneError("");
         setEmailError("");
         setLinkedinError("");
-        setSummaryError("");
+        // setSummaryError("");
 
         if (formData.name.trim() === "") {
             setNameError("Name cannot be empty");
+            isValid = false;
+        }
+
+        if (formData.location.trim() === "") {
+            setLocationError("Location cannot be empty");
+            isValid = false;
+        }
+
+        if (formData.linkedin.trim() === "") {
+            setLinkedinError("LinkedIn cannot be empty");
             isValid = false;
         }
 
@@ -162,10 +172,10 @@ const BasicInfoTemplate1 = ({
                 isValid = false;
             }
         }
-        if (formData.summary.trim() === "") {
-            setSummaryError("Summary cannot be empty");
-            isValid = false;
-        }
+        // if (formData.summary.trim() === "") {
+        //     setSummaryError("Summary cannot be empty");
+        //     isValid = false;
+        // }
 
         if (isValid) {
             // Save data to local storage or perform any desired action
@@ -447,7 +457,6 @@ const BasicInfoTemplate1 = ({
                             {phoneError && <p>{phoneError}</p>}
                             {emailError && <p>{emailError}</p>}
                             {linkedinError && <p>{linkedinError}</p>}
-                            {summaryError && <p>{summaryError}</p>}
                         </form>
                         <br />
                         <ExperienceDetailsTemplate1

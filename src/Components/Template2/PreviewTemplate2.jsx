@@ -52,7 +52,7 @@ const PreviewTemplate2 = ({
                                     >
                                         {name}
                                     </div>
-                                    <div
+                                    {/* <div
                                         className="regular basic-info"
                                         placeholder="Current Role"
                                         style={{
@@ -61,7 +61,7 @@ const PreviewTemplate2 = ({
                                         }}
                                     >
                                         {name}
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <ul className="prevTemp2_basic_details">
                                     <li>

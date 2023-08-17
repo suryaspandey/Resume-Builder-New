@@ -133,10 +133,20 @@ const BasicInfoTemplate2 = ({
         setPhoneError("");
         setEmailError("");
         setLinkedinError("");
-        setSummaryError("");
+        // setSummaryError("");
 
         if (formData.name.trim() === "") {
             setNameError("Name cannot be empty");
+            isValid = false;
+        }
+
+        if (formData.location.trim() === "") {
+            setLocationError("Location cannot be empty");
+            isValid = false;
+        }
+
+        if (formData.linkedin.trim() === "") {
+            setLinkedinError("LinkedIn cannot be empty");
             isValid = false;
         }
 
@@ -170,10 +180,10 @@ const BasicInfoTemplate2 = ({
                 isValid = false;
             }
         }
-        if (formData.summary.trim() === "") {
-            setSummaryError("Summary cannot be empty");
-            isValid = false;
-        }
+        // if (formData.summary.trim() === "") {
+        //     setSummaryError("Summary cannot be empty");
+        //     isValid = false;
+        // }
 
         if (isValid) {
             // Save data to local storage or perform any desired action
@@ -288,7 +298,7 @@ const BasicInfoTemplate2 = ({
                                                 fontSize: tempfontSize,
                                             }}
                                         />
-                                        <input
+                                        {/* <input
                                             className="regular basic-info"
                                             type="text"
                                             name="name"
@@ -300,7 +310,7 @@ const BasicInfoTemplate2 = ({
                                                 fontFamily: tempfontStyle,
                                                 fontSize: tempfontSize,
                                             }}
-                                        />
+                                        /> */}
                                     </div>
                                     <ul>
                                         <li>
@@ -431,6 +441,7 @@ const BasicInfoTemplate2 = ({
                                                         fontFamily:
                                                             tempfontStyle,
                                                         fontSize: tempfontSize,
+                                                        maxWidth: "126%",
                                                     }}
                                                     className="basic-info"
                                                     type="text"
@@ -457,7 +468,7 @@ const BasicInfoTemplate2 = ({
                                 {phoneError && <p>{phoneError}</p>}
                                 {emailError && <p>{emailError}</p>}
                                 {linkedinError && <p>{linkedinError}</p>}
-                                {summaryError && <p>{summaryError}</p>}
+                                {/* {summaryError && <p>{summaryError}</p>} */}
 
                                 {isPreviewMode ? (
                                     <PreviewTemplate2

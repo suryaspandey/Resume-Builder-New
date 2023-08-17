@@ -125,6 +125,7 @@ export default function PreviewExperienceDetailsTemplate2({
                                             backgroundColor: "transparent",
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
+                                            textAlign: "justify",
                                         }}
                                     >
                                         {experience.description

@@ -115,6 +115,7 @@
   /* min-height: 50px; */
   /* width: 439px; */
   text-align: justify;
+  width: 98%;
 }
 
 .summaryTextareaClass_project{
@@ -280,7 +281,7 @@
     }
     
     .sectionTitle h1 {
-      font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+      /* font-family: 'Rokkitt', Helvetica, Arial, sans-serif; */
       font-style: italic;
       font-size: 1.2em;
       /* color: #cf8a05; */

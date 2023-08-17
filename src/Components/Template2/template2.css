@@ -110,7 +110,7 @@ input{
   color: #0bb5f4;
   border-radius: 50%;
   /* margin-right: 15px; */
-  font-size: 16px;
+  font-size: 21px;
   position: relative;
 }
 
@@ -262,7 +262,7 @@ input{
     /* font-size: 12px; */
 }
 .basic-info{
-  width: 112%;
+  width: 126%;
   color: white;
 
 }

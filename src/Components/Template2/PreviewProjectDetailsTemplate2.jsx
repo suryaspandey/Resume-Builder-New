@@ -117,6 +117,7 @@ export default function PreviewProjectDetailsTemplate2({
                                             backgroundColor: "transparent",
                                             fontFamily: tempfontStyle,
                                             fontSize: tempfontSize,
+                                            textAlign: "justify",
                                         }}
                                     >
                                         {project.description}

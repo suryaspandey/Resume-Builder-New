@@ -18,7 +18,6 @@ import ProjectDetailsTemplate3 from "./ProjectDetailsTemplate3";
 import SkillsDetailsTemplate3 from "./SkillsDetailsTemplate3";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import ProfilePhotoTemplate3 from "./ProfilePhotoTemplate3";
-import PreviewTemplate1 from "../Template1/PreviewTemplate1";
 import PreviewTemplate3 from "./PreviewTemplate3";
 
 const BasicInfoTemplate3 = ({
@@ -123,6 +122,8 @@ const BasicInfoTemplate3 = ({
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        console.log("save start");
+
         // Validate form data
         let isValid = true;
         setNameError("");
@@ -134,6 +135,11 @@ const BasicInfoTemplate3 = ({
 
         if (formData.name.trim() === "") {
             setNameError("Name cannot be empty");
+            isValid = false;
+        }
+
+        if (formData.location.trim() === "") {
+            setLocationError("Location cannot be empty");
             isValid = false;
         }
 
@@ -167,16 +173,19 @@ const BasicInfoTemplate3 = ({
                 isValid = false;
             }
         }
-        if (formData.summary.trim() === "") {
-            setSummaryError("Summary cannot be empty");
-            isValid = false;
-        }
+        // if (formData.summary.trim() === "") {
+        //     setSummaryError("Summary cannot be empty");
+        //     isValid = false;
+        // }
 
         if (isValid) {
             // Save data to local storage or perform any desired action
             localStorage.setItem("basicInfo", JSON.stringify(formData));
             setIsEditing(false);
+            console.log("save clicked");
         }
+
+        console.log("valid: " + isValid);
     };
 
     const handleToggleMode = () => {
@@ -200,10 +209,6 @@ const BasicInfoTemplate3 = ({
     const handlebackBtn = () => {
         history.push("/choose-template");
     };
-
-    const summaryTextareaClass = isTyping
-        ? "summary-textarea active"
-        : "summary-textarea";
 
     return (
         <>
@@ -498,7 +503,7 @@ const BasicInfoTemplate3 = ({
                             {phoneError && <p>{phoneError}</p>}
                             {emailError && <p>{emailError}</p>}
                             {linkedinError && <p>{linkedinError}</p>}
-                            {summaryError && <p>{summaryError}</p>}
+                            {locationError && <p>{locationError}</p>}
                         </form>
                         {/* <br /> */}
                         <ExperienceDetailsTemplate3

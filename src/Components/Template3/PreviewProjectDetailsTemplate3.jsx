@@ -125,15 +125,21 @@ export default function PreviewProjectDetailsTemplate3({
                                         )}
                                     </div> 
                                 </div> */}
-                                <div className="project-description">
+                                <div
+                                    className="project-description"
+                                    style={{
+                                        fontFamily: tempfontStyle,
+                                        fontSize: tempfontSize,
+                                    }}
+                                >
                                     <div
                                         className="summaryTextareaClass_project"
                                         style={{
                                             wordWrap: "break-word",
                                             border: "none",
                                             backgroundColor: "transparent",
-                                            fontFamily: tempfontStyle,
-                                            fontSize: tempfontSize,
+                                            // fontFamily: tempfontStyle,
+                                            // fontSize: tempfontSize,
                                             width: "100%",
                                         }}
                                     ></div>

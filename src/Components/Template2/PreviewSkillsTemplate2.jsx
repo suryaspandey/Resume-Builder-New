@@ -27,7 +27,7 @@ export default function PreviewSkillsTemplate2({
             <div
                 className=" resume_item resume_skills"
                 style={{
-                    backgroundColor: backgroundColor,
+                    // backgroundColor: backgroundColor,
                     borderBottom: `2px solid ${themeColor}`,
                     width: "90%",
                     alignContent: "center",
