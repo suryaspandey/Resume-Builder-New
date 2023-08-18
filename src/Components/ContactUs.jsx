@@ -4,18 +4,31 @@ import Footer from "../Components/Footer";
 
 import "../Components/contactUs.css";
 import { BorderBottom } from "@mui/icons-material";
+// import { message } from "antd";
 
 export default function ContactUs() {
-    const handleContaactForm = (e) => {
-        // const {name,email}
-        // if(e.target.value)
-        alert("Thank you for sending us a message");
-        // history.push("/");
+    const handleContactForm = (e) => {
+        e.preventDefault();
+        // const { names, email, message } = e.target.value;
+
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const message = e.target.message.value;
+
+        if (
+            name.trim() === "" ||
+            email.trim() === "" ||
+            message.trim() === ""
+        ) {
+            alert("Please fill the complete form");
+        } else {
+            alert("Thank you for sending us a message");
+            // history.push("/");
+        }
     };
     return (
         <>
             <HeaderComp />
-            {/* <div>ContactUs Page Coming Soon</div> */}
 
             <div className="bg_img">
                 <img
@@ -49,7 +62,10 @@ export default function ContactUs() {
                 <h4 className="enquire">
                     <h4>Our Timings:&nbsp;</h4>
                     <h4>
-                        <b> Monday-Sunday : 9am-9pm IST</b>
+                        <b className="contact-timings">
+                            {" "}
+                            Monday-Sunday 9am-9pm IST
+                        </b>
                     </h4>
                 </h4>
             </div>
@@ -74,6 +90,7 @@ export default function ContactUs() {
                         <input
                             className="contact-form-input"
                             type="email"
+                            name="email"
                             id="email"
                             placeholder="Enter a valid email address"
                             style={{
@@ -85,7 +102,7 @@ export default function ContactUs() {
 
                         <input
                             className="contact-form-input"
-                            name="comment"
+                            name="message"
                             id="message"
                             placeholder="Enter your message"
                             // onResize={{ none }}
@@ -99,7 +116,7 @@ export default function ContactUs() {
                         <button
                             type="submit"
                             className="save-btn"
-                            onClick={handleContaactForm}
+                            onClick={handleContactForm}
                         >
                             Send Message
                         </button>
@@ -110,21 +127,45 @@ export default function ContactUs() {
                     <div className="contact-text">
                         <div className="contact-call">
                             <i className="fa-solid fa-phone"></i>
-                            <h3 style={{ fontFamily: "Oswald" }}> Call Us</h3>
+                            <h3
+                                style={{
+                                    fontFamily: "Oswald",
+                                    padding: "10px 0",
+                                }}
+                            >
+                                Call Us
+                            </h3>
 
-                            <h6 style={{ fontFamily: "Oswald" }}>
+                            <h6
+                                style={{
+                                    fontFamily: "Oswald",
+                                    padding: "10px 0",
+                                }}
+                            >
                                 <b>+ (91) 973456789</b>
                             </h6>
-                            <h6 style={{ fontFamily: "Oswald" }}>
+                            <h6
+                                style={{
+                                    fontFamily: "Oswald",
+                                    padding: "10px 0",
+                                }}
+                            >
                                 <b>+ (91) 9987754321</b>
                             </h6>
                         </div>
                         <div className="contact-email">
                             <i className="fa-solid fa-envelope "></i>
-                            <h3 style={{ fontFamily: "Oswald" }}>Email Us</h3>
+                            <h3
+                                style={{
+                                    fontFamily: "Oswald",
+                                    padding: "10px 0",
+                                }}
+                            >
+                                Email Us
+                            </h3>
                             <a
-                                href="mailto:abc@gmail.com"
-                                // style={{ fontFamily: "Oswald" }}
+                                href="mailto:contact@myresumebuilder.com"
+                                style={{ padding: "10px 0" }}
                             >
                                 contact@myresumebuilder.com
                             </a>
@@ -133,7 +174,12 @@ export default function ContactUs() {
 
                         <div className="contact-work">
                             <i className="fa-solid fa-briefcase"></i>
-                            <h3 style={{ fontFamily: "Oswald" }}>
+                            <h3
+                                style={{
+                                    fontFamily: "Oswald",
+                                    padding: "10px",
+                                }}
+                            >
                                 Thinking of working with us?
                             </h3>
                             <a

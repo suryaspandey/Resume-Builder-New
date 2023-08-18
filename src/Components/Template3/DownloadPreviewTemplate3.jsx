@@ -42,13 +42,17 @@ export default function DownloadPreviewTemplate3({
         // { uri: require("./example-files/pdf.pdf") }, // Local File
     ];
 
+    const userName = auth.currentUser.email;
+
+    const resume_name = userName.split("@")[0];
+
     const history = useHistory();
 
     const componentRef = useRef();
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle: "Resume",
+        documentTitle: `${resume_name}_MyResumeTemplate`,
         onAfterPrint: () => {
             history.goBack();
         },

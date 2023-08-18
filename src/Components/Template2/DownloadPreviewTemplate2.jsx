@@ -73,11 +73,15 @@ export default function DownloadPreviewTemplate2({
 
     const history = useHistory();
 
+    const userName = auth.currentUser.email;
+
+    const resume_name = userName.split("@")[0];
+
     const componentRef = useRef();
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle: "Resume",
+        documentTitle: `${resume_name}_MyResumeTemplate`,
         onAfterPrint: () => {
             history.goBack();
         },

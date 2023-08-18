@@ -115,7 +115,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                             {/* <h6>Cost Effecive</h6> */}
                                             <img
                                                 className="choose-temp-feature-img"
-                                                src="/template_previews/easy-to-use2.png"
+                                                src="/template_previews/easy-to-use4.PNG"
                                                 alt="easy-to-use"
                                             />
                                             <span className="choose-template-feature-text">
@@ -154,7 +154,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     height={400}
                                                     src="/template_previews/template_preview1.PNG"
                                                 />
-                                                <h5>Hybrid</h5>
+                                                <h5 className="template-headings-cv">
+                                                    Hybrid
+                                                </h5>
                                                 <p
                                                     style={{
                                                         fontSize: "15px",
@@ -165,10 +167,12 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     }}
                                                 >
                                                     Use the hybrid format when
-                                                    you need a CV that perfectly
-                                                    combines your skills and
-                                                    professional experiences.
+                                                    you need a Curriculum Vitae
+                                                    (CV) that perfectly combines
+                                                    your skills and professional
+                                                    experiences.
                                                 </p>
+                                                <hr className="template-separator-hr" />
                                             </>
                                         }
                                         onClick={() =>
@@ -186,7 +190,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     alt="template2"
                                                     src="/template_previews/template_preview2.PNG"
                                                 />
-                                                <h5>Professional</h5>
+                                                <h5 className="template-headings-cv">
+                                                    Professional
+                                                </h5>
                                                 <p
                                                     style={{
                                                         fontSize: "15px",
@@ -198,11 +204,11 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                 >
                                                     A professional Curriculum
                                                     Vitae (CV) template that was
-                                                    developed in collaboration
-                                                    with multiple recruiters to
-                                                    increase your chances of
-                                                    getting your dream job.
+                                                    developed to increase your
+                                                    chances of getting your
+                                                    dream job.
                                                 </p>
+                                                <hr className="template-separator-hr" />
                                             </>
                                         }
                                         onClick={() =>
@@ -220,7 +226,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     src="/template_previews/template_preview3.PNG"
                                                 />
 
-                                                <h5>Basic</h5>
+                                                <h5 className="template-headings-cv">
+                                                    Basic
+                                                </h5>
                                                 <p
                                                     style={{
                                                         fontSize: "15px",
@@ -230,14 +238,13 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
-                                                    A basic Curriculum Vitae
-                                                    (CV) layout that can be used
-                                                    in both classic and creative
-                                                    industries. It can be easily
-                                                    personalized for whichever
-                                                    industry you are applying
-                                                    for.
+                                                    A versatile Curriculum Vitae
+                                                    (CV) layout suitable for
+                                                    various industries, easily
+                                                    personalized for your
+                                                    specific application.
                                                 </p>
+                                                <hr className="template-separator-hr" />
                                             </>
                                         }
                                         onClick={() =>
@@ -250,11 +257,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        // style={{
-                                        //     width: 350,
-                                        //     height: 400,
-                                        //     marginBottom: "132px",
-                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -274,7 +276,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     Show
                                                 </button> */}
 
-                                                <h5>Executive</h5>
+                                                <h5 className="template-headings-cv">
+                                                    Executive
+                                                </h5>
                                                 <p
                                                     style={{
                                                         fontSize: "15px",
@@ -290,6 +294,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     require more than five years
                                                     of relevant work experience.
                                                 </p>
+                                                <hr className="template-separator-hr" />
                                             </>
                                         }
                                         onClick={() => handleComingSoonPg()}
@@ -298,11 +303,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        // style={{
-                                        //     width: 350,
-                                        //     height: 400,
-                                        //     marginBottom: "132px",
-                                        // }}
                                         cover={
                                             <>
                                                 <img
@@ -311,7 +311,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     src="/template_previews/template_preview5.PNG"
                                                 />
 
-                                                <h5>Traditional</h5>
+                                                <h5 className="template-headings-cv">
+                                                    Traditional
+                                                </h5>
                                                 <p
                                                     style={{
                                                         fontSize: "15px",
@@ -327,6 +329,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     minutes, focusing on the
                                                     essential sections.
                                                 </p>
+                                                <hr className="template-separator-hr" />
                                             </>
                                         }
                                         onClick={() => handleComingSoonPg()}
@@ -359,7 +362,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                     Show
                                                 </button> */}
 
-                                                <h5>Modern</h5>
+                                                <h5 className="template-headings-cv">
+                                                    Modern
+                                                </h5>
                                                 <p
                                                     style={{
                                                         fontSize: "15px",
@@ -369,14 +374,12 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
-                                                    The focus on your modern
-                                                    Curriculum Vitae (CV)
-                                                    template should be on your
-                                                    achievements during your
-                                                    work at the previous
-                                                    Companies and your impact on
-                                                    the overall performance.
+                                                    Emphasize achievements and
+                                                    impact from previous roles,
+                                                    showcasing your journey
+                                                    through previous companies
                                                 </p>
+                                                <hr className="template-separator-hr" />
                                             </>
                                         }
                                         onClick={() => handleComingSoonPg()}

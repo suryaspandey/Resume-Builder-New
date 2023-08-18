@@ -109,9 +109,9 @@ export default function DownloadPreviewTemplate1({
                 style={{ paddingBottom: "10px", width: "100%" }}
             >
                 <div className="download-prev-btn-container">
-                    <button className="save-btn" onClick={handlePrintDoc1}>
+                    {/* <button className="save-btn" onClick={handlePrintDoc1}>
                         Download as Word
-                    </button>
+                    </button> */}
 
                     <button className="save-btn" onClick={handlePrint}>
                         Download Now

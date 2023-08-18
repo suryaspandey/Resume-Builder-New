@@ -8,18 +8,25 @@ export default function ComingSoon() {
         history.push("/choose-template");
     };
     return (
-        <div>
-            <div className="coming-soon-pg">
-                <img
+        <div className="coming-soon-pg">
+            <img
+                src="/template_previews/comingSoon2.gif"
+                // src="/template_previews/comingSoon.gif"
+                alt="coming-soon"
+                className="coming-soon-background-img"
+            />
+
+            <div className="content-overlay">
+                {/* <img
                     src="/template_previews/owl_giffy1.gif"
                     height={200}
-                    style={{ paddingLeft: "45%" }}
-                />
-                <br />
+                    alt="owl"
+                    className="owl-image"
+                /> */}
+
                 <button
-                    // onClick={handleHomePage}
                     onClick={() => handleHomePage()}
-                    style={{ marginTop: "450px", marginLeft: "50%" }}
+                    style={{ marginBottom: "40px" }}
                     className="save-btn"
                 >
                     Go Back
