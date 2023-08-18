@@ -100,16 +100,16 @@ const RouterMain = () => {
                 <Route path="/login">
                     <div
                         className="login-container-main"
-                        style={{
-                            display: "grid",
-                            gridTemplateColumns: "repeat(2,1fr)",
-                            flexDirection: "row",
-                            flexWrap: "wrap",
-                            justifyContent: "space-between",
-                            // alignItems: "center",
-                            width: "100%",
-                            height: "100vh",
-                        }}
+                        // style={{
+                        //     display: "grid",
+                        //     gridTemplateColumns: "repeat(2,1fr)",
+                        //     flexDirection: "row",
+                        //     flexWrap: "wrap",
+                        //     justifyContent: "space-between",
+                        //     // alignItems: "center",
+                        //     width: "100%",
+                        //     height: "100vh",
+                        // }}
                     >
                         <div className="login-img"></div>
                         <div className="w-100">
@@ -130,16 +130,16 @@ const RouterMain = () => {
 
                     <div
                         className="login-container-main"
-                        style={{
-                            display: "grid",
-                            gridTemplateColumns: "repeat(2,1fr)",
-                            flexDirection: "row",
-                            flexWrap: "wrap",
-                            justifyContent: "space-between",
-                            // alignItems: "center",
-                            width: "100%",
-                            height: "100vh",
-                        }}
+                        // style={{
+                        //     display: "grid",
+                        //     gridTemplateColumns: "repeat(2,1fr)",
+                        //     flexDirection: "row",
+                        //     flexWrap: "wrap",
+                        //     justifyContent: "space-between",
+                        //     // alignItems: "center",
+                        //     width: "100%",
+                        //     height: "100vh",
+                        // }}
                     >
                         <div className="register-img"></div>
                         <div className="w-100">

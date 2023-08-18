@@ -94,7 +94,7 @@ const Login = () => {
                                 <Input
                                     style={{
                                         border: "1px solid #dee2e6",
-                                        padding: "4px 11px",
+                                        padding: "5px !important",
                                     }}
                                 />
                             </Form.Item>
@@ -114,7 +114,7 @@ const Login = () => {
                                 />
                             </Form.Item>
 
-                            <Form.Item>
+                            <Form.Item style={{ textAlign: "center" }}>
                                 <Button
                                     type="primary"
                                     htmlType="submit"

@@ -89,10 +89,10 @@ const Registration = () => {
                                 >
                                     <Input
                                         className="register-input-textbox"
-                                        style={{
-                                            border: "1px solid #dee2e6",
-                                            // padding: "10px",
-                                        }}
+                                        // style={{
+                                        //     border: "1px solid #dee2e6",
+                                        //     // padding: "2px !important",
+                                        // }}
                                     />
                                 </Form.Item>
 
@@ -123,7 +123,7 @@ const Registration = () => {
                                     <Input.Password />
                                 </Form.Item>
 
-                                <Form.Item>
+                                <Form.Item style={{ textAlign: "center" }}>
                                     <Button
                                         style={{
                                             background: "#006370",
