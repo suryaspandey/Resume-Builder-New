@@ -7,6 +7,7 @@ import PreviewTemplate3 from "./PreviewTemplate3";
 import { useReactToPrint } from "react-to-print";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { auth } from "../../firebase";
 
 import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 import ProfilePhotoTemplate3 from "./ProfilePhotoTemplate3";

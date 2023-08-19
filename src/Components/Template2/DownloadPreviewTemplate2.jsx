@@ -8,6 +8,8 @@ import { useReactToPrint } from "react-to-print";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
+import { auth } from "../../firebase";
+
 import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 
 export default function DownloadPreviewTemplate2({

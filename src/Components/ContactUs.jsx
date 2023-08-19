@@ -24,6 +24,8 @@ export default function ContactUs() {
         } else {
             alert("Thank you for sending us a message");
             // history.push("/");
+
+            e.target.reset();
         }
     };
     return (
@@ -72,7 +74,11 @@ export default function ContactUs() {
 
             <div className="contact">
                 <div className="contact-form">
-                    <form className="contactus" id="form-main">
+                    <form
+                        className="contactus"
+                        id="form-main"
+                        onSubmit={handleContactForm}
+                    >
                         <input
                             className="contact-form-input"
                             type="text"
@@ -116,7 +122,7 @@ export default function ContactUs() {
                         <button
                             type="submit"
                             className="save-btn"
-                            onClick={handleContactForm}
+                            // onClick={handleContactForm}
                         >
                             Send Message
                         </button>

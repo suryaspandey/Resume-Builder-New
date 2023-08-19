@@ -55,9 +55,9 @@ const HeaderComp = () => {
                                     height={30}
                                     width={30}
                                 />
-                                <h6 style={{ fontSize: "10px" }}>
+                                {/* <h6 style={{ fontSize: "10px" }}>
                                     MyResumeBuilder
-                                </h6>
+                                </h6> */}
                             </Link>
                         </li>
 
