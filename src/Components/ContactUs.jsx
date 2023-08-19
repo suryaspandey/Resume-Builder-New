@@ -77,7 +77,7 @@ export default function ContactUs() {
                             className="contact-form-input"
                             type="text"
                             name="name"
-                            id="name"
+                            id="names"
                             placeholder="Enter your name"
                             style={{
                                 border: "2px solid black",

@@ -70,11 +70,13 @@ const ProjectDetailsTemplate2 = ({
     };
 
     const handleDeleteProject = (index) => {
-        setProjects((prevProjects) => {
-            const updatedProjects = [...prevProjects];
-            updatedProjects.splice(index, 1);
-            return updatedProjects;
-        });
+        if (projects.length > 1) {
+            setProjects((prevProjects) => {
+                const updatedProjects = [...prevProjects];
+                updatedProjects.splice(index, 1);
+                return updatedProjects;
+            });
+        }
     };
 
     const handleChange = (e, index) => {
@@ -210,7 +212,7 @@ const ProjectDetailsTemplate2 = ({
                                     <p>{project.errors.title}</p>
                                 )}
 
-                                {isEditing ? (
+                                {isEditing && projects.length > 1 && (
                                     <button
                                         className="remove-btn"
                                         onClick={() =>
@@ -219,7 +221,7 @@ const ProjectDetailsTemplate2 = ({
                                     >
                                         <AiFillDelete />
                                     </button>
-                                ) : null}
+                                )}
 
                                 <div className="school-clg-name-container">
                                     <MdWorkHistory
@@ -335,14 +337,25 @@ const ProjectDetailsTemplate2 = ({
 
             {isEditing ? (
                 <>
-                    <button className="save-btn" onClick={handleSave}>
+                    {/* <button className="save-btn" onClick={handleSave}>
                         Save
-                    </button>
+                    </button> */}
                     <button className="add-btn" onClick={handleAddProject}>
                         <AiOutlinePlusCircle />
                     </button>
                 </>
             ) : null}
+
+            {projects.length > 1 && isEditing && (
+                <>
+                    <button className="save-btn" onClick={handleSave}>
+                        Save
+                    </button>
+                    {/* <button className="add-btn" onClick={handleAddProject}>
+                        <AiOutlinePlusCircle />
+                    </button> */}
+                </>
+            )}
         </>
     );
 };

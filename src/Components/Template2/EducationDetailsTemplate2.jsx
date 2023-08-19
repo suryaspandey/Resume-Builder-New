@@ -29,13 +29,13 @@ const EducationDetailsTemplate2 = ({
                     schoolName: "",
                     startYear: "",
                     endYear: "",
-                    percentage: "",
+                    // percentage: "",
                     errors: {
                         courseName: "",
                         schoolName: "",
                         startYear: "",
                         endYear: "",
-                        percentage: "",
+                        // percentage: "",
                     },
                 },
             ]);
@@ -48,13 +48,13 @@ const EducationDetailsTemplate2 = ({
             schoolName: "",
             startYear: "",
             endYear: "",
-            percentage: "",
+            // percentage: "",
             errors: {
                 courseName: "",
                 schoolName: "",
                 startYear: "",
                 endYear: "",
-                percentage: "",
+                // percentage: "",
             },
         };
 
@@ -97,15 +97,20 @@ const EducationDetailsTemplate2 = ({
     const handleSave = () => {
         let isFormValid = true;
 
+        console.log("isFormValid" + isFormValid);
+        console.log("setIsEditing" + setIsEditing);
+
         const updatedEducations = educations.map((education) => {
-            const { courseName, schoolName, startYear, endYear, percentage } =
-                education;
+            // const { courseName, schoolName, startYear, endYear, percentage } =
+            //     education;
+
+            const { courseName, schoolName, startYear, endYear } = education;
             const errors = {
                 courseName: "",
                 schoolName: "",
                 startYear: "",
                 endYear: "",
-                percentage: "",
+                // percentage: "",
             };
 
             if (courseName.trim() === "") {
@@ -124,28 +129,32 @@ const EducationDetailsTemplate2 = ({
                 errors.endYear = "Please enter an end year";
                 isFormValid = false;
             }
-            if (percentage.trim() === "") {
-                errors.percentage = "Please enter a percentage";
-                isFormValid = false;
-            } else {
-                const parsedPercentage = parseFloat(percentage);
-                if (
-                    isNaN(parsedPercentage) ||
-                    parsedPercentage < 1 ||
-                    parsedPercentage > 100
-                ) {
-                    errors.percentage =
-                        "Percentage must be a number between 1 and 100";
-                    isFormValid = false;
-                }
-            }
+            // if (percentage.trim() === "") {
+            //     errors.percentage = "Please enter a percentage";
+            //     isFormValid = false;
+            // } else {
+            //     const parsedPercentage = parseFloat(percentage);
+            //     if (
+            //         isNaN(parsedPercentage) ||
+            //         parsedPercentage < 1 ||
+            //         parsedPercentage > 100
+            //     ) {
+            //         errors.percentage =
+            //             "Percentage must be a number between 1 and 100";
+            //         isFormValid = false;
+            //     }
+            // }
 
             return { ...education, errors };
         });
 
         setEducations(updatedEducations);
+        console.log("inside isFormValid check" + isFormValid);
 
         if (isFormValid) {
+            console.log("inside isFormValid check" + isFormValid);
+            console.log("setIsEditing" + setIsEditing);
+
             localStorage.setItem(
                 "educations",
                 JSON.stringify(updatedEducations)
@@ -173,10 +182,6 @@ const EducationDetailsTemplate2 = ({
                     borderBottom: `2px solid ${themeColor}`,
                     width: "90%",
                 }}
-
-                // style={{
-                //     backgroundColor: backgroundColor, // Use the backgroundColor state variable
-                // }}
             >
                 <div
                     className="title"

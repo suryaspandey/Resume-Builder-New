@@ -1,227 +1,3 @@
-// updated working code below
-
-// import React, { useState, useEffect } from "react";
-
-// const ExperienceDetailsTemplate2 = ({
-//     themeColor,
-//     backgroundColor,
-//     textColor,
-//     subheadingColor,
-// }) => {
-//     const [experiences, setExperiences] = useState([]);
-
-//     useEffect(() => {
-//         const storedData = localStorage.getItem("experiences");
-//         if (storedData) {
-//             const parsedData = JSON.parse(storedData);
-//             if (Array.isArray(parsedData)) {
-//                 setExperiences(parsedData);
-//             } else {
-//                 setExperiences([]);
-//             }
-//         } else {
-//             setExperiences([]);
-//         }
-//     }, []);
-
-//     const addExperience = () => {
-//         setExperiences((prevExperiences) => [
-//             ...prevExperiences,
-//             {
-//                 company: "",
-//                 position: "",
-//                 startDate: "",
-//                 endDate: "",
-//                 description: "",
-//                 errors: {},
-//             },
-//         ]);
-//     };
-
-//     const handleExperienceChange = (index, property, value) => {
-//         setExperiences((prevExperiences) =>
-//             prevExperiences.map((experience, experienceIndex) => {
-//                 if (experienceIndex === index) {
-//                     return { ...experience, [property]: value };
-//                 }
-//                 return experience;
-//             })
-//         );
-//     };
-
-//     const removeExperience = (index) => {
-//         setExperiences((prevExperiences) =>
-//             prevExperiences.filter(
-//                 (experience, experienceIndex) => experienceIndex !== index
-//             )
-//         );
-//     };
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-
-//         let isValid = true;
-
-//         const updatedExperiences = experiences.map((experience) => {
-//             const { company, position, startDate, endDate, description } =
-//                 experience;
-
-//             // Perform validations
-//             const errors = {};
-
-//             if (company.trim() === "") {
-//                 errors.company = "Company cannot be empty";
-//                 isValid = false;
-//             }
-
-//             if (position.trim() === "") {
-//                 errors.position = "Position cannot be empty";
-//                 isValid = false;
-//             }
-
-//             if (startDate.trim() === "") {
-//                 errors.startDate = "Start Date cannot be empty";
-//                 isValid = false;
-//             }
-
-//             if (endDate.trim() === "") {
-//                 errors.endDate = "End Date cannot be empty";
-//                 isValid = false;
-//             }
-
-//             if (description.trim() === "") {
-//                 errors.description = "Description cannot be empty";
-//                 isValid = false;
-//             }
-
-//             return { ...experience, errors };
-//         });
-
-//         if (isValid) {
-//             // Save data to local storage
-//             localStorage.setItem(
-//                 "experiences",
-//                 JSON.stringify(updatedExperiences)
-//             );
-
-//             // Update the state
-//             setExperiences(updatedExperiences);
-//         } else {
-//             // Update the state with the error messages
-//             setExperiences(updatedExperiences);
-//         }
-//     };
-
-//     return (
-//         <>
-//             <div className="experience">
-//                 <h2 className="experience_heading">Experience</h2>
-//                 <div className="experience_content">
-//                     {experiences.map((experience, index) => (
-//                         <div key={index} className="experience_item">
-//                             <input
-//                                 type="text"
-//                                 placeholder="Company"
-//                                 value={experience.company}
-//                                 onChange={(e) =>
-//                                     handleExperienceChange(
-//                                         index,
-//                                         "company",
-//                                         e.target.value
-//                                     )
-//                                 }
-//                             />
-//                             {experience.errors && experience.errors.company && (
-//                                 <p>{experience.errors.company}</p>
-//                             )}
-//                             <input
-//                                 type="text"
-//                                 placeholder="Position"
-//                                 value={experience.position}
-//                                 onChange={(e) =>
-//                                     handleExperienceChange(
-//                                         index,
-//                                         "position",
-//                                         e.target.value
-//                                     )
-//                                 }
-//                             />
-//                             {experience.errors &&
-//                                 experience.errors.position && (
-//                                     <p>{experience.errors.position}</p>
-//                                 )}
-//                             <input
-//                                 type="text"
-//                                 placeholder="Start Date"
-//                                 value={experience.startDate}
-//                                 onChange={(e) =>
-//                                     handleExperienceChange(
-//                                         index,
-//                                         "startDate",
-//                                         e.target.value
-//                                     )
-//                                 }
-//                             />
-//                             {experience.errors &&
-//                                 experience.errors.startDate && (
-//                                     <p>{experience.errors.startDate}</p>
-//                                 )}
-//                             <input
-//                                 type="text"
-//                                 placeholder="End Date"
-//                                 value={experience.endDate}
-//                                 onChange={(e) =>
-//                                     handleExperienceChange(
-//                                         index,
-//                                         "endDate",
-//                                         e.target.value
-//                                     )
-//                                 }
-//                             />
-//                             {experience.errors && experience.errors.endDate && (
-//                                 <p>{experience.errors.endDate}</p>
-//                             )}
-//                             <textarea
-//                                 placeholder="Description"
-//                                 value={experience.description}
-//                                 onChange={(e) =>
-//                                     handleExperienceChange(
-//                                         index,
-//                                         "description",
-//                                         e.target.value
-//                                     )
-//                                 }
-//                             ></textarea>
-//                             {experience.errors &&
-//                                 experience.errors.description && (
-//                                     <p>{experience.errors.description}</p>
-//                                 )}
-//                             <button
-//                                 className="remove-experience"
-//                                 onClick={() => removeExperience(index)}
-//                             >
-//                                 Remove
-//                             </button>
-//                         </div>
-//                     ))}
-//                 </div>
-//                 <div className="experience_buttons">
-//                     <button className="add-experience" onClick={addExperience}>
-//                         Add Experience
-//                     </button>
-//                     <button className="save-experience" onClick={handleSubmit}>
-//                         Save
-//                     </button>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default ExperienceDetailsTemplate2;
-
-// updated working code above
-
 import React, { useState, useEffect } from "react";
 import {
     AiFillDelete,
@@ -258,7 +34,26 @@ const ExperienceDetailsTemplate2 = ({
                 setExperiences([]);
             }
         } else {
-            setExperiences([]);
+            setExperiences([
+                {
+                    company: "",
+                    position: "",
+                    startYear: "",
+                    endYear: "",
+                    experienceType: "",
+                    location: "",
+                    description: "",
+                    errors: {
+                        company: "",
+                        position: "",
+                        startYear: "",
+                        endYear: "",
+                        experienceType: "",
+                        location: "",
+                        description: "",
+                    },
+                },
+            ]);
         }
     }, []);
 
@@ -298,11 +93,13 @@ const ExperienceDetailsTemplate2 = ({
     };
 
     const removeExperience = (index) => {
-        setExperiences((prevExperiences) =>
-            prevExperiences.filter(
-                (experience, experienceIndex) => experienceIndex !== index
-            )
-        );
+        if (experiences.length > 1) {
+            setExperiences((prevExperiences) =>
+                prevExperiences.filter(
+                    (experience, experienceIndex) => experienceIndex !== index
+                )
+            );
+        }
     };
 
     const handleSubmit = (e) => {
@@ -397,11 +194,6 @@ const ExperienceDetailsTemplate2 = ({
         ));
     };
 
-    const calculateTextareaRows = (content) => {
-        const lines = content.split("\n");
-        return lines.length;
-    };
-
     return (
         <>
             <div
@@ -479,7 +271,7 @@ const ExperienceDetailsTemplate2 = ({
                                         experience.errors.company && (
                                             <p>{experience.errors.company}</p>
                                         )}
-                                    {isEditing && (
+                                    {isEditing && experiences.length > 1 && (
                                         <button
                                             className="remove-experience"
                                             onClick={() =>
@@ -620,11 +412,16 @@ const ExperienceDetailsTemplate2 = ({
                         <button className="add-btn" onClick={addExperience}>
                             <AiOutlinePlusCircle />
                         </button>
+                    </div>
+                ) : null}
+
+                {experiences.length > 0 && isEditing && (
+                    <div className="experience_buttons">
                         <button className="save-btn" onClick={handleSubmit}>
                             Save
                         </button>
                     </div>
-                ) : null}
+                )}
 
                 <ProjectDetailsTemplate2
                     themeColor={themeColor}

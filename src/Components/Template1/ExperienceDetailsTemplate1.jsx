@@ -86,11 +86,14 @@ const ExperienceDetailsTemplate1 = ({
     };
 
     const handleDeleteExperience = (index) => {
-        setExperiences((prevExperiences) => {
-            const updatedExperiences = [...prevExperiences];
-            updatedExperiences.splice(index, 1);
-            return updatedExperiences;
-        });
+        if (experiences.length > 1) {
+            setExperiences((prevExperiences) => {
+                const updatedExperiences = [...prevExperiences];
+                updatedExperiences.splice(index, 1);
+                return updatedExperiences;
+            });
+        }
+
         // setIsEditing(true);
     };
 
@@ -337,18 +340,17 @@ const ExperienceDetailsTemplate1 = ({
                                 {experience.errors.company && (
                                     <p>{experience.errors.company}</p>
                                 )}
-                                {experiences.length > 1 &&
-                                    isEditing && ( // new
-                                        <button
-                                            className="remove-btn"
-                                            type="button"
-                                            onClick={() =>
-                                                handleDeleteExperience(index)
-                                            }
-                                        >
-                                            <AiFillDelete />
-                                        </button>
-                                    )}
+                                {experiences.length > 1 && isEditing && (
+                                    <button
+                                        className="remove-btn"
+                                        type="button"
+                                        onClick={() =>
+                                            handleDeleteExperience(index)
+                                        }
+                                    >
+                                        <AiFillDelete />
+                                    </button>
+                                )}
 
                                 <div className="school-clg-name-container">
                                     <MdWorkHistory

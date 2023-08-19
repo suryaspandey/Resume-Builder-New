@@ -405,7 +405,7 @@ svg{
 }
 
 input::placeholder{
-  color: #34d272;
+  /* color: #34d272; */
 }
 
 
