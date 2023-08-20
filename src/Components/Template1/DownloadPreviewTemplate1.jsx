@@ -9,6 +9,8 @@ import { auth } from "../../firebase";
 import { Docxtemplater } from "docxtemplater";
 
 import { convertToWord } from "../ilovepdf";
+import { isMobile } from "react-device-detect";
+
 // import axios from "axios";
 
 export default function DownloadPreviewTemplate1({
@@ -77,6 +79,12 @@ export default function DownloadPreviewTemplate1({
             history.goBack();
         },
     });
+
+    if (isMobile) {
+        alert("Download from our desktop view");
+    } else {
+        handlePrint();
+    }
 
     const handlePrevPage = () => {
         history.goBack();

@@ -15,6 +15,7 @@ import SummaryTemplate2 from "../Template2/SummaryTemplate2";
 import PreviewExperienceTemplate1 from "./PreviewExperienceTemplate1";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import ExperienceDetails from "../ExperienceDetails";
+import EducationDetailsTemplate1 from "./EducationDetailsTemplate1";
 
 const BasicInfoTemplate1 = ({
     themeColor,
@@ -469,6 +470,14 @@ const BasicInfoTemplate1 = ({
                         />
                         <br />
                         <ProjectDetailsTemplate1
+                            themeColor={themeColor}
+                            backgroundColor={backgroundColor}
+                            textColor={textColor}
+                            subheadingColor={subheadingColor}
+                            tempfontSize={tempfontSize}
+                            tempfontStyle={tempfontStyle}
+                        />
+                        <EducationDetailsTemplate1
                             themeColor={themeColor}
                             backgroundColor={backgroundColor}
                             textColor={textColor}

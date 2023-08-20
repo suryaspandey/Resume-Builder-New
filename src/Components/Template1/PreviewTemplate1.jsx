@@ -9,6 +9,7 @@ import PreviewExperienceTemplate2 from "./PreviewExperienceTemplate1";
 import PreviewExperienceTemplate1 from "./PreviewExperienceTemplate1";
 import PreviewProjectDetailsTemplate1 from "./PreviewProjectDetailsTemplate1";
 import PreviewSkillsDetailsTemplate1 from "./PreviewSkillsDetailsTemplate1";
+import PreviewEducationDetailsTemplate1 from "./PreviewEducationDetailsTemplate1";
 
 const PreviewTemplate1 = ({
     formData,
@@ -192,6 +193,14 @@ const PreviewTemplate1 = ({
                         tempfontSize={tempfontSize}
                         tempfontStyle={tempfontStyle}
                         openTitleUrl={true}
+                    />
+                    <PreviewEducationDetailsTemplate1
+                        themeColor={themeColor}
+                        backgroundColor={backgroundColor}
+                        textColor={textColor}
+                        subheadingColor={subheadingColor}
+                        tempfontSize={tempfontSize}
+                        tempfontStyle={tempfontStyle}
                     />
                     <PreviewSkillsDetailsTemplate1
                         themeColor={themeColor}

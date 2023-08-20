@@ -125,6 +125,12 @@
 
 }
 
+.school-clg-name-container{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .sectiontemp1{
   width: 100% !important;
 }
@@ -534,7 +540,7 @@
     /* preview page css */
     .preview1-exp-details{
       gap: 10px;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: flex-start;
     }

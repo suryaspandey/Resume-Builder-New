@@ -8,6 +8,7 @@ import { useReactToPrint } from "react-to-print";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { auth } from "../../firebase";
+import { isMobile } from "react-device-detect";
 
 import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 import ProfilePhotoTemplate3 from "./ProfilePhotoTemplate3";
@@ -50,6 +51,12 @@ export default function DownloadPreviewTemplate3({
     const history = useHistory();
 
     const componentRef = useRef();
+
+    if (isMobile) {
+        alert("Download from our desktop view");
+    } else {
+        handlePrint();
+    }
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,

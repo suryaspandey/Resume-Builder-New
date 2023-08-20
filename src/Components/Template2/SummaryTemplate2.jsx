@@ -88,6 +88,7 @@ const SummaryTemplate2 = ({ tempfontSize, tempfontStyle }) => {
                     className="save-btn"
                     type="submit"
                     onClick={handleSubmit}
+                    style={{ width: "10%" }}
                 >
                     Save
                 </button>
