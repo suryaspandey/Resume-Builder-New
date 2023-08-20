@@ -491,9 +491,11 @@ const BasicInfoTemplate3 = ({
                                 <button
                                     className="save-btn"
                                     type="submit"
-                                    style={{
-                                        width: "9%",
-                                    }}
+                                    style={
+                                        {
+                                            // width: "9%",
+                                        }
+                                    }
                                 >
                                     Save
                                 </button>

@@ -700,6 +700,10 @@ div.scroll-container img {
     font-size: 13px !important;
 
   }
+
+  .main-container{
+    background-color: white;
+  }
   
 }
 
@@ -709,4 +713,7 @@ div.scroll-container img {
     grid-template-columns: repeat(2,1fr);
         
   }
+  /* .main-container{
+    background-color: white;
+  } */
 }

@@ -237,7 +237,7 @@ export default function PreviewTemplate3({
                                         style={{
                                             display: "flex",
                                             margin: "0 20px",
-                                            width: "750px",
+                                            // width: "750px",
                                         }}
                                     >
                                         <PreviewSummaryTemplate2
