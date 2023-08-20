@@ -34,10 +34,16 @@ https://64e2738959ca5716875fc49f--ubiquitous-cucurucho-8b24cc.netlify.app/#/
 Follow these steps to get the application up and running on your local machine:
 
 1. Clone the Repository: Begin by cloning this GitHub repository to your local machine using the following command:
-  git clone https://github.com/suryaspandey/Resume-Builer-New.git
-2. Install Dependencies: Use a package manager npm to install the project dependencies: 
+   
+    git clone https://github.com/suryaspandey/Resume-Builer-New.git
+
+2. Install Dependencies: Use a package manager npm to install the project dependencies:
+
     npm install
-3. Start the Application: Once the dependencies are installed, start the application:
+
+4. Start the Application: Once the dependencies are installed, start the application:
+
     npm run dev
+
 
 
