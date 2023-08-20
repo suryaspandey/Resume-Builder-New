@@ -30,7 +30,7 @@ body {
   width: 800px;
   height: auto;
   display: flex;
-  margin: 20px auto;
+  /* margin: 20px auto; */
 }
 
 .resume .resume_left {
@@ -372,7 +372,7 @@ textarea {
 }
 
 .work_exp_hover{
-  width: 450px;
+  /* width: 450px; */
   overflow-wrap: break-word; 
     word-wrap: break-word; 
     margin-top: 5px;
@@ -402,3 +402,7 @@ display: flex;
   
 }
 
+
+.summaryTextareaClass{
+  height: 163px !important;
+}

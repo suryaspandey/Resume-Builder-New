@@ -116,7 +116,8 @@
 
     margin-left: 20px;
     margin-right: 20px;
-    background-color:#006370;
+    /* background-color:#006370; */
+    background-color:black;
     display: flex;
     justify-items: center; 
     /* background-color: #dec1e9; */
@@ -177,7 +178,9 @@
     justify-content: center;
     font-size: 20px;
     margin-top: 15%;
-    color:white;
+    color:#006370;
+    /* color: #ccc; */
+
     padding: 2%;
     margin-top: 0;
     border: 3px solid orange;

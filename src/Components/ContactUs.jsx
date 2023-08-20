@@ -171,7 +171,11 @@ export default function ContactUs() {
                             </h3>
                             <a
                                 href="mailto:contact@myresumebuilder.com"
-                                style={{ padding: "10px 0" }}
+                                style={{
+                                    padding: "10px 0",
+                                    textDecoration: "none",
+                                    color: "orange",
+                                }}
                             >
                                 contact@myresumebuilder.com
                             </a>
@@ -190,7 +194,10 @@ export default function ContactUs() {
                             </h3>
                             <a
                                 href="mailto:dummymyresumebuildercareers@gmail.com"
-                                // style={{ fontFamily: "Oswald" }}
+                                style={{
+                                    textDecoration: "none",
+                                    color: "orange",
+                                }}
                             >
                                 myresumebuilder.careers@gmail.com
                             </a>

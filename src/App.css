@@ -546,6 +546,7 @@ div.scroll-container img {
   display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 5px;
 }
 
 /* download css */

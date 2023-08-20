@@ -223,6 +223,7 @@ const ExperienceDetailsTemplate2 = ({
                     <SummaryTemplate2
                         tempfontSize={tempfontSize}
                         tempfontStyle={tempfontStyle}
+                        // style={{ height: "137px !important" }}
                     />
                 </div>
 

@@ -10,6 +10,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 import { auth } from "../../firebase";
 
+import { isMobile } from "react-device-detect";
+
 import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 
 export default function DownloadPreviewTemplate2({
@@ -88,6 +90,12 @@ export default function DownloadPreviewTemplate2({
             history.goBack();
         },
     });
+
+    if (isMobile) {
+        alert("Download from our desktop view");
+    } else {
+        handlePrint();
+    }
 
     const handlePrevPage = () => {
         history.goBack();
