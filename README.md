@@ -35,7 +35,7 @@ Follow these steps to get the application up and running on your local machine:
 
 1. Clone the Repository: Begin by cloning this GitHub repository to your local machine using the following command:
    
-    git clone https://github.com/suryaspandey/Resume-Builer-New.git
+    git clone https://github.com/suryaspandey/Resume-Builder-New.git
 
 2. Install Dependencies: Use a package manager npm to install the project dependencies:
 
