@@ -46,4 +46,9 @@ Follow these steps to get the application up and running on your local machine:
     npm run dev
 
 
+## Technologies Used
+   _HTML, CSS, JavaScript, ReactJS, Firebase_
+
+
+
 
