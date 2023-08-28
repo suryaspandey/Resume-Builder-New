@@ -77,7 +77,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         <h4
                                             className="choose-template-main-heading-h4"
                                             style={{
-                                                fontFamily: "Oswald",
+                                                fontFamily: "Nunito Sans",
                                                 fontSize: "40px",
                                                 paddingLeft: "10px",
                                             }}
@@ -91,6 +91,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                             className="choose-template-main-heading-h4"
                                             style={{
                                                 paddingTop: "5px",
+                                                fontFamily: "Nunito Sans",
                                             }}
                                         >
                                             Our CV templates prioritize your
@@ -109,10 +110,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                 alt="cost-effective"
                                             />
                                             <span className="choose-template-feature-text">
-                                                {/* <TbDiscountCheckFilled /> */}
                                                 It's free
                                             </span>
-                                            {/* <h6>Cost Effecive</h6> */}
+
                                             <img
                                                 className="choose-temp-feature-img"
                                                 src="/template_previews/easy-to-use4.PNG"
@@ -122,7 +122,7 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                 {/* <TbDiscountCheckFilled /> */}
                                                 Friendly
                                             </span>
-                                            {/* <h6>Easy-to-use</h6> */}
+
                                             <img
                                                 className="choose-temp-feature-img"
                                                 src="https://toppng.com/uploads/preview/user-friendly-icon-user-friendly-icon-11563212706mpwymvuyej.png"
@@ -162,14 +162,15 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         fontSize: "15px",
                                                         color: "black",
                                                         fontStyle: "normal",
-                                                        fontFamily: "Oswald",
+                                                        fontFamily:
+                                                            "Nunito Sans",
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
-                                                    Use the hybrid format when
-                                                    you need a Curriculum Vitae
-                                                    (CV) that perfectly combines
-                                                    your skills and professional
+                                                    A format when you need a
+                                                    Curriculum Vitae (CV) that
+                                                    perfectly combines your
+                                                    skills and professional
                                                     experiences.
                                                 </p>
                                                 <hr className="template-separator-hr" />
@@ -198,7 +199,8 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         fontSize: "15px",
                                                         color: "black",
                                                         fontStyle: "normal",
-                                                        fontFamily: "Oswald",
+                                                        fontFamily:
+                                                            "Nunito Sans",
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
@@ -234,7 +236,8 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         fontSize: "15px",
                                                         color: "black",
                                                         fontStyle: "normal",
-                                                        fontFamily: "Oswald",
+                                                        fontFamily:
+                                                            "Nunito Sans",
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
@@ -284,15 +287,20 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         fontSize: "15px",
                                                         color: "black",
                                                         fontStyle: "normal",
-                                                        fontFamily: "Oswald",
+                                                        fontFamily:
+                                                            "Nunito Sans",
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
-                                                    Executive Curriculum Vitae
+                                                    {/* Executive Curriculum Vitae
                                                     (CV) sample used when
                                                     applying for positions that
-                                                    require more than five years
-                                                    of relevant work experience.
+                                                    require more than 5 years of
+                                                    relevant work experience. */}
+                                                    Executive Curriculum Vitae
+                                                    (CV) sample for roles
+                                                    demanding over five years of
+                                                    relevant work experience.
                                                 </p>
                                                 <hr className="template-separator-hr" />
                                             </>
@@ -319,7 +327,8 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         fontSize: "15px",
                                                         color: "black",
                                                         fontStyle: "normal",
-                                                        fontFamily: "Oswald",
+                                                        fontFamily:
+                                                            "Nunito Sans",
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
@@ -370,7 +379,8 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         fontSize: "15px",
                                                         color: "black",
                                                         fontStyle: "normal",
-                                                        fontFamily: "Oswald",
+                                                        fontFamily:
+                                                            "Nunito Sans",
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
@@ -400,7 +410,14 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                         >
                             SKIP TEMPLATE SELECTION
                         </button>
-                        <h6>You can always change the Template later!</h6>
+                        <h6
+                            style={{
+                                fontSize: "24px",
+                                fontStyle: "Nunito Sans",
+                            }}
+                        >
+                            You can always change the Template later!
+                        </h6>
                     </div>
                 </Layout>
             </Space>

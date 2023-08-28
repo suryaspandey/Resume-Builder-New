@@ -579,8 +579,9 @@ div.scroll-container img {
   background-color: #006370 !important;
 }
 .choose-template-card:hover{
-  transform: rotate(1deg);
+  /* transform: rotate(1deg); */
   /* transform-origin: top left; */
+  transform: scale(1.02);
 }
 
 /* .choose-template-card:hover > .choose-temp-btn{
@@ -622,6 +623,8 @@ div.scroll-container img {
 
 .template-headings-cv{
   padding-top: 10px;
+  font-family: 'Nunito Sans';
+    font-weight: bold;
 }
 
 /* .template-separator-hr{

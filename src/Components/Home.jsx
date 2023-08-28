@@ -129,7 +129,16 @@ const Home = () => {
                             Build your brand-new resume in as little as
                             <br />5 minutes!
                         </h1>
-                        <h5>Try it for free!</h5>
+                        <h5
+                            style={{
+                                color: "orange",
+                                fontSize: "2.25rem",
+                                fontFamily: "Nunito Sans",
+                                fontWeight: 700,
+                            }}
+                        >
+                            Try it for free!
+                        </h5>
                         <div className="contact-form-img">
                             <img
                                 src="/template_previews/owl_giffy1.gif"
@@ -289,7 +298,13 @@ const Home = () => {
                 }}
             >
                 <div className="customers-text">
-                    <h1>See why customers love MyResumeBuilder🤩</h1>
+                    <h1>
+                        DISCOVER HOW{" "}
+                        <span style={{ fontStyle: "italic" }}>
+                            MYRESUMEBUILDER
+                        </span>{" "}
+                        HAS TRANSFORMED JOB APPLICATIONS🤩
+                    </h1>
                     <img
                         // src="https://www.pngitem.com/pimgs/m/42-421398_trustpilot-logo-png-transparent-png.png"
                         src="./template_previews/42-421398_trustpilot-logo-png-transparent-png-fotor-bg-remover-2023080513855.png"
@@ -543,7 +558,7 @@ const Home = () => {
 
                             // style="background-image: url(https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)"
                         >
-                            <h2> 85%</h2>
+                            <h2> 90%</h2>
                             <h1 className="text-shadow">Client Achievements</h1>
                         </div>
                         <div className="back">

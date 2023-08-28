@@ -3,9 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Galdeano&family=Nunito+Sans:wght@200&family=Oswald:wght@200&family=Poppins:wght@300;500;700&family=Roboto+Mono:wght@200&display=swap');
 
 
-.home-tagline {
+  @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Serif+Display&family=Galdeano&family=Lexend+Mega:wght@900&family=Nunito+Sans:wght@200&family=Oswald:wght@200&family=Permanent+Marker&family=Poppins:wght@300;500;700&family=Roboto+Mono:wght@200&family=Ruwudu&display=swap');
+
+
+/* .home-tagline {
   font-size: 45px;
-}
+} */
 .home-navbar{
   /* display: flex; */
   background-color: #006370;
@@ -23,10 +26,11 @@
 }
 .home-tagline{
   color: #006370;
-  /* font-family: "Nunito Sans" */
-  font-family: "Oswald";
+  font-family: "Nunito Sans";
+  /* font-family: "Oswald"; */
   font-weight: 800;
-
+  font-size: 45px;
+  /* font-family: 'Roboto'; */
 }
 .steps_img_text{
   display: flex;
@@ -156,6 +160,7 @@ transform: scale(1.05);
   flex-direction: column;
   font-size: 18px;
   cursor: pointer;
+  font-family: "Nunito Sans";
 }
 .header-link:hover{
   color: orange !important;
@@ -172,6 +177,7 @@ transform: scale(1.05);
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: 'Nunito Sans';
 }
 
 
@@ -193,6 +199,7 @@ transform: scale(1.05);
 }
 .feature_text h3{
   color: orange;
+  font-family: "Nunito Sans";
 }
 
 .home-h4-text{
@@ -212,6 +219,8 @@ transform: scale(1.05);
 
 .home-h6-text{
   text-align: justify;
+  font-family: "Nunito Sans";
+
 }
 
 .home-subheadings{
