@@ -137,7 +137,7 @@ export default function DownloadPreviewTemplate1({
                     </button> */}
 
                     <button className="save-btn" onClick={handleDownload}>
-                        Download Now
+                        Download Resume
                     </button>
                     <button className="save-btn" onClick={handlePrevPage}>
                         Go Back

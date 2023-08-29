@@ -52,11 +52,11 @@ export default function ContactUs() {
                 <h4 className="enquire">
                     Have an Enquiry? We’re ready to help!
                 </h4>
-                <h4 style={{ fontFamily: "Oswald" }}>
+                <h4 style={{ fontFamily: "Nunito Sans" }}>
                     Our friendly customer service team is at your disposal.
                 </h4>
                 <br />
-                <h4 style={{ fontFamily: "Oswald" }}>
+                <h4 style={{ fontFamily: "Nunito Sans" }}>
                     Please provide us with as many details as you can, and we
                     will get back to you within two business days.
                 </h4>
@@ -65,7 +65,6 @@ export default function ContactUs() {
                     <h4>Our Timings:&nbsp;</h4>
                     <h4>
                         <b className="contact-timings">
-                            {" "}
                             Monday-Sunday 9am-9pm IST
                         </b>
                     </h4>
@@ -135,7 +134,7 @@ export default function ContactUs() {
                             <i className="fa-solid fa-phone"></i>
                             <h3
                                 style={{
-                                    fontFamily: "Oswald",
+                                    fontFamily: "Nunito Sans",
                                     padding: "10px 0",
                                 }}
                             >
@@ -144,7 +143,7 @@ export default function ContactUs() {
 
                             <h6
                                 style={{
-                                    fontFamily: "Oswald",
+                                    fontFamily: "Nunito Sans",
                                     padding: "10px 0",
                                 }}
                             >
@@ -152,7 +151,7 @@ export default function ContactUs() {
                             </h6>
                             <h6
                                 style={{
-                                    fontFamily: "Oswald",
+                                    fontFamily: "Nunito Sans",
                                     padding: "10px 0",
                                 }}
                             >
@@ -163,7 +162,7 @@ export default function ContactUs() {
                             <i className="fa-solid fa-envelope "></i>
                             <h3
                                 style={{
-                                    fontFamily: "Oswald",
+                                    fontFamily: "Nunito Sans",
                                     padding: "10px 0",
                                 }}
                             >
@@ -186,7 +185,7 @@ export default function ContactUs() {
                             <i className="fa-solid fa-briefcase"></i>
                             <h3
                                 style={{
-                                    fontFamily: "Oswald",
+                                    fontFamily: "Nunito Sans",
                                     padding: "10px",
                                 }}
                             >

@@ -301,7 +301,7 @@ const Home = () => {
                     <h1>
                         DISCOVER HOW
                         <span style={{ fontStyle: "italic" }}>
-                            MYRESUMEBUILDER
+                             MYRESUMEBUILDER {}
                         </span>
                         HAS TRANSFORMED JOB APPLICATIONS🤩
                     </h1>
