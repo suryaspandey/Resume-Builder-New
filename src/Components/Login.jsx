@@ -1,5 +1,5 @@
 // Login.js
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Field, ErrorMessage } from "formik";
 import { Form, Input, Button, Alert } from "antd";
 import "../components/login_registration_logout.css";
@@ -15,6 +15,8 @@ const LoginSchema = Yup.object().shape({
 });
 
 const Login = () => {
+    const [errorMessage, setErrorMessage] = useState("");
+
     const history = useHistory();
     // const auth = getAuth(app);
 
@@ -28,7 +30,14 @@ const Login = () => {
             history.push("/");
         } catch (error) {
             console.error("Error during login:", error);
-            alert("Email Id or Password does not match");
+            if (values.password.length < 6) {
+                setErrorMessage("Password should be at least 6 characters");
+            }
+            if (!values.email || !values.password) {
+                setErrorMessage("Invalid Email ID or Password");
+            } else {
+                setErrorMessage(error.message.split(":")[1]);
+            }
         }
     };
 
@@ -127,6 +136,17 @@ const Login = () => {
                                 <ErrorMessage name="email" component="div" />
                                 <ErrorMessage name="password" component="div" />
                             </div>
+                            {errorMessage && (
+                                <div
+                                    className="error-message"
+                                    style={{
+                                        color: "red",
+                                        fontStyle: "italic",
+                                    }}
+                                >
+                                    {errorMessage}
+                                </div>
+                            )}
                             <div className="registration_route">
                                 <h6 style={{ textAlign: "center" }}>
                                     Don't have an account?

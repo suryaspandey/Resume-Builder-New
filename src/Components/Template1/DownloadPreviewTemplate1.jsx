@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { useReactToPrint } from "react-to-print";
 import PreviewTemplate1 from "./PreviewTemplate1";
@@ -27,9 +27,10 @@ export default function DownloadPreviewTemplate1({
     const formData = JSON.parse(localStorage.getItem("basicInfo")) || [];
     const { name, location, phone, email, linkedin } = formData;
 
-    const userName = auth.currentUser.email;
-    // console.log(userName);
-    const resume_name = userName.split("@")[0];
+    const { currentUser } = auth;
+
+    // const userName = auth.currentUser.email;
+    const resume_name = currentUser?.email.split("@")[0];
     // console.log(resume_name);
 
     const history = useHistory();
@@ -49,28 +50,28 @@ export default function DownloadPreviewTemplate1({
     //     saveAs(blob, "resume.docx");
     // };
 
-    const handlePrintDoc1 = async () => {
-        // const pdfUrl = "C:Users/mishr/Downloads";
-        const pdfUrl =
-            "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+    // const handlePrintDoc1 = async () => {
+    //     // const pdfUrl = "C:Users/mishr/Downloads";
+    //     const pdfUrl =
+    //         "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
 
-        // const corsProxyUrl = `https://crossorigin.me/${pdfUrl}`;
-        // const docxUrl = await convertToWord(pdfUrl); // Convert PDF to Word using ilovepdf API
+    //     // const corsProxyUrl = `https://crossorigin.me/${pdfUrl}`;
+    //     // const docxUrl = await convertToWord(pdfUrl); // Convert PDF to Word using ilovepdf API
 
-        try {
-            // const response = await axios.get(corsProxyUrl);
-            const docxUrl = await convertToWord(pdfUrl); // Convert PDF to Word using ilovepdf API
+    //     try {
+    //         // const response = await axios.get(corsProxyUrl);
+    //         const docxUrl = await convertToWord(pdfUrl); // Convert PDF to Word using ilovepdf API
 
-            // Trigger download of the converted Word document
-            const link = document.createElement("a");
-            link.href = docxUrl;
-            link.download = "resume.docx";
-            // link.download = `${userName}`
-            link.click();
-        } catch (err) {
-            console.log("Error converting PDF to Word:", err);
-        }
-    };
+    //         // Trigger download of the converted Word document
+    //         const link = document.createElement("a");
+    //         link.href = docxUrl;
+    //         link.download = "resume.docx";
+    //         // link.download = `${userName}`
+    //         link.click();
+    //     } catch (err) {
+    //         console.log("Error converting PDF to Word:", err);
+    //     }
+    // };
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -80,11 +81,25 @@ export default function DownloadPreviewTemplate1({
         },
     });
 
+    useEffect(() => {
+        if (!currentUser) {
+            history.push("/login");
+        }
+    }, [currentUser, history]);
+
     // if (isMobile) {
     //     alert("Download from our desktop view");
     // } else {
     //     handlePrint();
     // }
+
+    const handleDownload = () => {
+        if (currentUser) {
+            handlePrint();
+        } else {
+            history.push("/login");
+        }
+    };
 
     const handlePrevPage = () => {
         history.goBack();
@@ -121,7 +136,7 @@ export default function DownloadPreviewTemplate1({
                         Download as Word
                     </button> */}
 
-                    <button className="save-btn" onClick={handlePrint}>
+                    <button className="save-btn" onClick={handleDownload}>
                         Download Now
                     </button>
                     <button className="save-btn" onClick={handlePrevPage}>

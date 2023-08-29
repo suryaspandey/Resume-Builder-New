@@ -576,7 +576,7 @@ div.scroll-container img {
   height: 400px;
   margin-bottom: 132px;
   margin-top: 10px;
-  background-color: #006370 !important;
+  /* background-color: #006370 !important; */
 }
 .choose-template-card:hover{
   /* transform: rotate(1deg); */

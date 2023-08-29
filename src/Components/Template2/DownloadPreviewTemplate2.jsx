@@ -1,9 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PreviewTemplate2 from "./PreviewTemplate2";
-// import WordTemplate2 from "./WordTemplate2";
-
-// import { saveAs } from "file-saver";
-
 import { useReactToPrint } from "react-to-print";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
@@ -27,59 +23,22 @@ export default function DownloadPreviewTemplate2({
     // onPhotoSelect,
 }) {
     const formData = JSON.parse(localStorage.getItem("basicInfo")) || [];
-    const { name, location, phone, email, linkedin } = formData;
+    // const { name, location, phone, email, linkedin } = formData;
 
-    const [showWordFile, setShowWordFile] = useState(false);
+    // const [showWordFile, setShowWordFile] = useState(false);
 
-    const toggleShowWordFile = () => {
-        setShowWordFile((prevShowWordFile) => !prevShowWordFile);
-    };
-
-    // const handleDownloadWordFile = () => {
-    //     setShowWordFile(true);
-    // };
-
-    // const saveWordFile = () => {
-    //     const doc = new Document();
-
-    //     doc.addSection({
-    //         children: [
-    //             <WordTemplate2
-    //                 formData={formData}
-    //                 themeColor={themeColor}
-    //                 backgroundColor={backgroundColor}
-    //                 textColor={textColor}
-    //                 subheadingColor={subheadingColor}
-    //                 tempfontSize={tempfontSize}
-    //                 tempfontStyle={tempfontStyle}
-    //             />,
-    //         ],
-    //     });
-
-    //     // Generate the Word document as a Blob
-    //     Packer.toBlob(doc).then((blob) => {
-    //         // Save the Blob as a file
-    //         saveAs(blob, "resume.docx");
-    //     });
+    // const toggleShowWordFile = () => {
+    //     setShowWordFile((prevShowWordFile) => !prevShowWordFile);
     // };
 
     // const [isProfilePic, setIsProfilePic] = useState(false);
 
-    const docs = [
-        {
-            uri: "http://localhost:5173/download-template2",
-            fileType: "docx",
-            fineName: "demores.docx",
-        },
-
-        // { uri: require("./example-files/pdf.pdf") }, // Local File
-    ];
-
+    const { currentUser } = auth;
     const history = useHistory();
 
-    const userName = auth.currentUser.email;
+    // const userName = auth.currentUser.email;
 
-    const resume_name = userName.split("@")[0];
+    const resume_name = currentUser?.email.split("@")[0];
 
     const componentRef = useRef();
 
@@ -91,11 +50,25 @@ export default function DownloadPreviewTemplate2({
         },
     });
 
+    useEffect(() => {
+        if (!currentUser) {
+            history.push("/login");
+        }
+    }, [currentUser, history]);
+
     // if (isMobile) {
     //     alert("Download from our desktop view");
     // } else {
     //     handlePrint();
     // }
+
+    const handleDownload = () => {
+        if (currentUser) {
+            handlePrint();
+        } else {
+            history.push("/login");
+        }
+    };
 
     const handlePrevPage = () => {
         history.goBack();
@@ -132,7 +105,7 @@ export default function DownloadPreviewTemplate2({
                 style={{ paddingBottom: "10px", width: "100%" }}
             >
                 <div className="download-prev-btn-container">
-                    <button className="save-btn" onClick={handlePrint}>
+                    <button className="save-btn" onClick={handleDownload}>
                         Download Now
                     </button>
 

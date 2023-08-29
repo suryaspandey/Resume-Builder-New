@@ -32,21 +32,17 @@ const headerStyle = {
 const contentStyle = {
     textAlign: "center",
     minHeight: 100,
-    // justifyContent: "center",
-    // lineHeight: "120px",
-    // color: "#fff",
-    // backgroundColor: "#f2fafb",
 };
 
 const ChooseTemplate = ({ handleTemplateSelect }) => {
     const history = useHistory();
     const { currentUser } = auth;
 
-    useEffect(() => {
-        if (!currentUser) {
-            history.push("/login");
-        }
-    }, [currentUser, history]);
+    // useEffect(() => {
+    //     if (!currentUser) {
+    //         history.push("/login");
+    //     }
+    // }, [currentUser, history]);
 
     const handleCardClick = (templateName) => {
         handleTemplateSelect(templateName);
@@ -150,6 +146,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         cover={
                                             <>
                                                 <img
+                                                    style={{
+                                                        borderRadius: "8px",
+                                                    }}
                                                     alt="template1"
                                                     height={400}
                                                     src="/template_previews/template_preview1.PNG"
@@ -186,6 +185,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         cover={
                                             <>
                                                 <img
+                                                    style={{
+                                                        borderRadius: "8px",
+                                                    }}
                                                     height={400}
                                                     // width={350}
                                                     alt="template2"
@@ -223,6 +225,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         cover={
                                             <>
                                                 <img
+                                                    style={{
+                                                        borderRadius: "8px",
+                                                    }}
                                                     height={400}
                                                     alt="template3"
                                                     src="/template_previews/template_preview3.PNG"
@@ -263,21 +268,13 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         cover={
                                             <>
                                                 <img
+                                                    style={{
+                                                        borderRadius: "8px",
+                                                    }}
                                                     height={400}
                                                     alt="template4"
                                                     src="/template_previews/template_preview4.PNG"
                                                 />
-                                                {/* <button
-                                                    className="choose-temp-btn"
-                                                    onClick={() =>
-                                                        handleCardClick(
-                                                            "template3"
-                                                        )
-                                                    }
-                                                    style={{ display: "none" }}
-                                                >
-                                                    Show
-                                                </button> */}
 
                                                 <h5 className="template-headings-cv">
                                                     Executive
@@ -292,11 +289,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                                         letterSpacing: "0.1rem",
                                                     }}
                                                 >
-                                                    {/* Executive Curriculum Vitae
-                                                    (CV) sample used when
-                                                    applying for positions that
-                                                    require more than 5 years of
-                                                    relevant work experience. */}
                                                     Executive Curriculum Vitae
                                                     (CV) sample for roles
                                                     demanding over five years of
@@ -314,6 +306,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                         cover={
                                             <>
                                                 <img
+                                                    style={{
+                                                        borderRadius: "8px",
+                                                    }}
                                                     height={400}
                                                     alt="template5"
                                                     src="/template_previews/template_preview5.PNG"
@@ -347,29 +342,16 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                     <Card
                                         className="choose-template-card"
                                         hoverable
-                                        // style={{
-                                        //     width: 350,
-                                        //     height: 400,
-                                        //     marginBottom: "132px",
-                                        // }}
                                         cover={
                                             <>
                                                 <img
+                                                    style={{
+                                                        borderRadius: "8px",
+                                                    }}
                                                     height={400}
                                                     alt="template4"
                                                     src="/template_previews/template_preview6.PNG"
                                                 />
-                                                {/* <button
-                                                    className="choose-temp-btn"
-                                                    onClick={() =>
-                                                        handleCardClick(
-                                                            "template3"
-                                                        )
-                                                    }
-                                                    style={{ display: "none" }}
-                                                >
-                                                    Show
-                                                </button> */}
 
                                                 <h5 className="template-headings-cv">
                                                     Modern
@@ -400,11 +382,6 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                     </Content>
                     <div className="skip-temp-selection-btn">
                         <button
-                            // style={{
-                            //     marginLeft: "50%",
-                            //     marginRight: "50%",
-                            //     width: "11%",
-                            // }}
                             className="save-btn"
                             onClick={() => handleCardClick("template1")}
                         >
@@ -416,7 +393,9 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                                 fontStyle: "Nunito Sans",
                             }}
                         >
-                            You can always change the Template later!
+                            <span style={{ fontStyle: "italic" }}>
+                                You can always change the Template later!
+                            </span>
                         </h6>
                     </div>
                 </Layout>

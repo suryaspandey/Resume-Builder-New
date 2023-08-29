@@ -33,7 +33,7 @@ const Registration = () => {
             if (values.password !== values.confirmPassword) {
                 setErrorMessage("Passwords do not match.");
             } else {
-                setErrorMessage(error.message);
+                setErrorMessage(error.message.split(":")[1]);
             }
         }
     };
