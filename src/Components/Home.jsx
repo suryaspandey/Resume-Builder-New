@@ -146,30 +146,30 @@ const Home = () => {
                             />
                         </div>
 
-                        {currentUser ? (
+                        {/* {currentUser ? (
                             <>
-                                {console.log("button " + currentUser)}
-                                <button className="save-btn home-btn">
-                                    <Link
-                                        to="/choose-template"
-                                        style={{
-                                            textDecoration: "none",
-                                            color: "white",
-                                        }}
-                                    >
-                                        START NOW!
-                                        <span
-                                            className="arrow-span"
-                                            // style={{ fontSize: "30px" }}
-                                        >
-                                            &#8594;
-                                        </span>
-                                    </Link>
-                                </button>
-                            </>
-                        ) : (
-                            <Link to="/login"></Link>
-                        )}
+                                {console.log("button " + currentUser)} */}
+                        <button className="save-btn home-btn">
+                            <Link
+                                to="/choose-template"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "white",
+                                }}
+                            >
+                                BUILD NOW!
+                                <span
+                                    className="arrow-span"
+                                    // style={{ fontSize: "30px" }}
+                                >
+                                    &#8594;
+                                </span>
+                            </Link>
+                        </button>
+                        {/* </> */}
+                        {/* // ) : (
+                        //     <Link to="/login"></Link>
+                        // )} */}
                     </div>
 
                     <img
@@ -299,10 +299,10 @@ const Home = () => {
             >
                 <div className="customers-text">
                     <h1>
-                        DISCOVER HOW{" "}
+                        DISCOVER HOW
                         <span style={{ fontStyle: "italic" }}>
                             MYRESUMEBUILDER
-                        </span>{" "}
+                        </span>
                         HAS TRANSFORMED JOB APPLICATIONS🤩
                     </h1>
                     <img
@@ -639,7 +639,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                {currentUser ? (
+                {/* {currentUser ? (
                     <>
                         {console.log("button " + currentUser)}
                         <button className="save-btn">
@@ -656,7 +656,19 @@ const Home = () => {
                     </>
                 ) : (
                     <Link to="/login"></Link>
-                )}
+                )} */}
+
+                <button className="save-btn">
+                    <Link
+                        to="/choose-template"
+                        style={{
+                            textDecoration: "none",
+                            color: "white",
+                        }}
+                    >
+                        TRY RESUME BUILDER NOW!
+                    </Link>
+                </button>
             </div>
 
             <Footer />
