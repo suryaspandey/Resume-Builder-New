@@ -391,15 +391,15 @@ const ChooseTemplate = ({ handleTemplateSelect }) => {
                             style={{
                                 fontSize: "24px",
                                 fontStyle: "Nunito Sans",
+                                textAlign: "center",
                             }}
                         >
                             <span
                                 style={{
                                     fontStyle: "italic",
-                                    textAlign: "center",
                                 }}
                             >
-                                You can always change the Template later!
+                                You can always change the template later!
                             </span>
                         </h6>
                     </div>

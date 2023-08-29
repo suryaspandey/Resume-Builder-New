@@ -326,10 +326,9 @@ input.expCompanyName{
   justify-content: space-between;
   
 }
-.location-container{
-  
-  /* justify-content: flex-end; */
-}
+/* .location-container{
+  /* justify-content: flex-end; 
+} */
 .date-width,.exp-select-width{
 padding-bottom: 2px;
   width: 72px;
@@ -385,7 +384,7 @@ svg{
     flex-wrap: wrap;
 }
 
-.skill-box{
+/* .skill-box{
   /* padding: 4px; */
   /* border-radius: 5px; */
   /* background: #ebd7c2;
@@ -393,8 +392,8 @@ svg{
     /* color: white; */
 
     /* background: #ff6e00;
-    border: 2px solid #292827; */
-}
+    border: 2px solid #292827; 
+} */
 
 .theme-input{
   height: 40px;
@@ -404,9 +403,9 @@ svg{
     
 }
 
-input::placeholder{
-  /* color: #34d272; */
-}
+/* input::placeholder{
+  /* color: #34d272; 
+} */
 
 
 
@@ -509,9 +508,9 @@ div.scroll-container img {
   /* height: 200px;
   width: 600px; */
 }
-.card-hover{
-  /* background-color: #34d272; */
-}
+/* .card-hover{
+  /* background-color: #34d272; 
+} */
 .card-hover:hover{
   transform: scale(1.05);
   background-color: #006370;
