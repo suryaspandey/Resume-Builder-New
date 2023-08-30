@@ -565,7 +565,7 @@ const Home = () => {
                             {/* <h2>Angular</h2> */}
                             <h4>
                                 "Helped clients secure interviews at top
-                                companies with an 85% success rate."
+                                companies with an 90% success rate."
                             </h4>
 
                             <BiHappyHeartEyes
